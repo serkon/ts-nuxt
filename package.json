@@ -15,10 +15,18 @@
     "prepare": "husky install",
     "test": "jest"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "lint-staged": {
-    "*.{js,ts,vue}": "eslint --cache",
+    "*.{js,ts,tsx}": "eslint --cache --fix",
     "*.{css,scss,sass,html,vue}": "stylelint",
-    "*.**": "prettier --check --ignore-unknown"
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

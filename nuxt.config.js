@@ -1,16 +1,12 @@
+import componentDirectories from './component-auto-loader'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'ts-starter',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
-    ],
+    meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: '' }, { name: 'format-detection', content: 'telephone=no' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['element-ui/lib/theme-chalk/index.css'],
 
@@ -18,7 +14,9 @@ export default {
   plugins: ['@/plugins/element-ui'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: {
+    dirs: componentDirectories,
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -34,6 +32,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@/modules/@timus/table/module',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

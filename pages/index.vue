@@ -1,5 +1,9 @@
 <template>
-  <Tutorial />
+  <div>
+    <h1>Welcome to library</h1>
+    <TnTable />
+    <NuxtTutorial />
+  </div>
 </template>
 
 <script lang="ts">
