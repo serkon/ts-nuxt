@@ -34,6 +34,7 @@ export default {
     '@nuxtjs/pwa',
     '@/modules/@timus/table/module',
   ],
+
   '@timus-networks/table': { kader: 456 },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
