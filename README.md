@@ -1,5 +1,13 @@
 # ts-starter
 
+```js
+eslint --fix "src/**/*.{js,jsx,ts,tsx,vue}"
+prettier --write "src/**/*.{js,jsx,ts,tsx,vue}"
+
+eslint --fix "src/**/*.{js,jsx,ts,tsx,vue}"
+prettier --write "src/**/*.{js,jsx,ts,tsx,vue}"
+```
+
 ## Build Setup
 
 ```bash
