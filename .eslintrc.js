@@ -5,7 +5,7 @@ module.exports = {
     'jest/globals': true,
     node: true,
   },
-  extends: ['prettier', 'eslint:recommended', 'plugin:@typescript-eslint/recommended', '@nuxtjs/eslint-config-typescript', 'plugin:nuxt/recommended'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', '@nuxtjs/eslint-config-typescript', 'plugin:nuxt/recommended', 'plugin:vue/vue3-recommended', 'prettier'],
   parser: 'vue-eslint-parser',
   settings: {
     'import/parsers': {
@@ -20,6 +20,11 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
     extraFileExtensions: ['.vue'],
+    ecmaFeatures: {
+      jsx: true, // Allows for the parsing of JSX
+      tsx: true, // Allows for the parsing of TSX ???
+      ts: true,
+    },
   },
   plugins: ['@typescript-eslint', 'prettier', 'unused-imports', 'simple-import-sort', 'import', 'jest', 'vue'],
   // add your custom rules here

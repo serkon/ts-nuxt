@@ -7,7 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
+    "lint:js": "eslint --ext \".js,.ts,.vue,.json\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue}\" --ignore-path .gitignore",
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
@@ -22,9 +22,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --cache --fix",
+    "*.{js,ts,tsx,jsx,vue,json,html}": "eslint --cache --fix",
     "*.{css,scss,sass,html,vue}": "stylelint",
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "src/**/*.{js,jsx,ts,tsx,vue,json,css,scss,md}": [
       "prettier --write"
     ]
   },
@@ -65,6 +65,7 @@
     "husky": "^8.0.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jsonc-eslint-parser": "^2.3.0",
     "lint-staged": "^14.0.1",
     "postcss-html": "^1.5.0",
     "prettier": "^2.7.1",
