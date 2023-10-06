@@ -1,0 +1,10 @@
+{
+  "name": "@timus-networks/selectbox",
+  "version": "1.0.9",
+  "description": "Nuxt bileşen kütüphanesi",
+  "main": "index.js",
+  "scripts": {},
+  "peerDependencies": {
+    "vue": "^2.x"
+  }
+}
