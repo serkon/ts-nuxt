@@ -178,6 +178,7 @@ module.exports = {
         multiline: 'below',
       },
     ],
+    'vue/multi-word-component-names': 'off',
   },
   overrides: [
     {
