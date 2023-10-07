@@ -12,3 +12,10 @@ export default Vue.extend({
   name: 'IndexPage',
 })
 </script>
+
+<style>
+.nuxt-logo {
+  height: 180px;
+  border: 1 px solid red;
+}
+</style>
