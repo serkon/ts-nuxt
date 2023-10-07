@@ -1,6 +1,6 @@
 module.exports = {
   plugins: ['stylelint-no-unsupported-browser-features', 'stylelint-order', 'stylelint-scss'],
-  customSyntax: 'postcss-html',
+  customSyntax: 'postcss-scss',
   extends: ['stylelint-config-standard', 'stylelint-config-recommended-vue'],
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
@@ -162,24 +162,17 @@ module.exports = {
     'rule-empty-line-before': ['always', { except: ['after-single-line-comment', 'first-nested'] }],
     'comment-no-empty': true,
     'comment-empty-line-before': 'never',
-    'declaration-empty-line-before': [
-      'always',
-      {
-        except: ['after-comment', 'after-declaration', 'first-nested'],
-      },
-    ],
+    'declaration-empty-line-before': 'never',
     'no-duplicate-selectors': true,
     'no-duplicate-at-import-rules': true,
     'no-invalid-position-at-import-rule': null,
     'color-function-notation': 'legacy',
     'import-notation': 'string',
-    'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': true,
   },
   overrides: [
     {
-      files: ['*.css', '*.scss', '**/*.css', '**/*.scss'],
-      customSyntax: 'postcss-scss',
+      files: ['*.vue', '**/*.vue'],
+      customSyntax: 'postcss-html',
     },
     {
       files: ['components/**/*.css', 'pages/**/*.css'],
