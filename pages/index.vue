@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <h1>Welcome to library</h1>
-    <NuxtLink to="/sample">Sample</NuxtLink>
+  <div class="main-page container">
+    Homepage
   </div>
 </template>
 
@@ -10,6 +9,12 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'IndexPage',
+  head: {
+    title: 'Home page',
+  },
+  mounted() {
+    console.log(this)
+  },
 })
 </script>
 
