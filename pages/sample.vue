@@ -3,7 +3,7 @@
     <h1>Welcome to library</h1>
     <AutoLoadComponent />
     <NuxtTestSample />
-    <TableCreate ref="table" />
+    <TnTable ref="table" />
   </div>
 </template>
 

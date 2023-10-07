@@ -168,6 +168,18 @@ module.exports = {
     'no-invalid-position-at-import-rule': null,
     'color-function-notation': 'legacy',
     'import-notation': 'string',
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'tailwind',
+          'apply',
+          'variants',
+          'responsive',
+          'layer',
+        ],
+      },
+    ],
   },
   overrides: [
     {
