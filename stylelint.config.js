@@ -172,6 +172,14 @@ module.exports = {
       true,
       {
         ignoreAtRules: [
+          'for',
+          'if',
+          'while',
+          'mixin',
+          'else',
+          'elseif',
+          'each',
+          'extend',
           'tailwind',
           'apply',
           'variants',
