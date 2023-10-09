@@ -1,3 +1,4 @@
+import { Context } from '@nuxt/types'
 import Vue from 'vue'
 
 declare module '*.vue' {
@@ -6,7 +7,20 @@ declare module '*.vue' {
 }
 
 declare module 'vue/types/vue' {
-  interface Vue {
-    $myAxios: any // replace 'any' with the actual type if you know it
+  interface Vue {}
+}
+
+declare module '@nuxt/types' {
+  interface NuxtAppOptions {
+    $toTitleCase: (this: { context: Context }, str: string) => string
+  }
+  interface Context {
+    $toTitleCase: (msg: string) => void
+  }
+}
+
+declare module 'vuex/types/index' {
+  interface Store<S> {
+    $toTitleCase: (msg: string) => void
   }
 }
