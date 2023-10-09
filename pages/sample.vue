@@ -3,7 +3,7 @@
     <h1>Welcome to library</h1>
     <AutoLoadComponent />
     <NuxtTestSample />
-    <TnTable ref="table" />
+    <TnTable ref="table" :data="[{ name: 'Timus', surname: 'Networks' }]" :columns="[{ title: 'Name', field: 'name' }]" />
   </div>
 </template>
 

@@ -6,3 +6,8 @@
 body {
   background-color: #ffffff;
 }
+
+[v-cloak] {
+  display: none;
+  border: 1px solid red;
+}

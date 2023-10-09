@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -13,9 +13,9 @@ export default Vue.extend({
     title: 'Home page',
   },
   mounted() {
-    console.log(this)
+    console.log(this);
   },
-})
+});
 </script>
 
 <style>

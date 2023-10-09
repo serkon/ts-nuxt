@@ -9,7 +9,7 @@
         <ul class="flex grow gap-4 list-none items-center justify-center">
           <NuxtLink to="/">Home</NuxtLink>
           <NuxtLink to="/sample">Sample</NuxtLink>
-          <NuxtLink to="/components">Components</NuxtLink>
+          <NuxtLink to="/examples">Components</NuxtLink>
         </ul>
       </section>
     </header>
