@@ -168,37 +168,23 @@ module.exports = {
     'no-invalid-position-at-import-rule': null,
     'color-function-notation': 'legacy',
     'import-notation': 'string',
-    'at-rule-no-unknown': [
-      true,
-      {
-        ignoreAtRules: [
-          'for',
-          'if',
-          'while',
-          'mixin',
-          'else',
-          'elseif',
-          'each',
-          'extend',
-          'tailwind',
-          'apply',
-          'variants',
-          'responsive',
-          'layer',
-        ],
-      },
-    ],
+    'at-rule-no-unknown': null,
   },
   overrides: [
     {
       files: ['*.vue', '**/*.vue'],
       customSyntax: 'postcss-html',
+      rules: {
+        'at-rule-no-unknown': null,
+        'import-notation': null,
+      },
     },
     {
       files: ['components/**/*.css', 'pages/**/*.css'],
       rules: {
         'alpha-value-notation': 'percentage',
+        'at-rule-no-unknown': null,
       },
     },
   ],
-}
+};

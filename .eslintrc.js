@@ -49,7 +49,7 @@ module.exports = {
         allowParens: true,
       },
     ],
-    semi: ['error', 'never'],
+    semi: ['warn', 'always'],
     'semi-style': ['error', 'last'],
     'no-extra-semi': 'error',
     '@typescript-eslint/no-inferrable-types': 'off',
@@ -67,14 +67,15 @@ module.exports = {
     quotes: ['error', 'single', { allowTemplateLiterals: true, avoidEscape: true }],
     'no-multi-spaces': 'error',
     'no-trailing-spaces': 'error',
-    'space-before-function-paren': [
-      'error',
-      {
-        anonymous: 'never',
-        named: 'never',
-        asyncArrow: 'always',
-      },
-    ],
+    // 'space-before-function-paren': [
+    //   'error',
+    //   {
+    //     anonymous: 'never',
+    //     named: 'never',
+    //     asyncArrow: 'always',
+    //   },
+    // ],
+    'space-before-function-paren': 'off',
     'space-before-blocks': ['error', { functions: 'always', keywords: 'always', classes: 'always' }],
     'padded-blocks': ['error', { classes: 'never', blocks: 'never' }],
     'padding-line-between-statements': [
@@ -179,6 +180,7 @@ module.exports = {
       },
     ],
     'vue/multi-word-component-names': 'off',
+    'vue/require-slots-as-functions': 'off',
   },
   overrides: [
     {
@@ -186,7 +188,7 @@ module.exports = {
       parser: 'jsonc-eslint-parser', // Set this parser.
       rules: {
         'comma-dangle': ['error', 'never'],
-        semi: ['error', 'never'],
+        semi: ['warn', 'always'],
         quotes: ['error', 'double'],
         'quote-props': ['error', 'consistent'],
         'max-len': [
@@ -208,4 +210,4 @@ module.exports = {
       },
     },
   ],
-}
+};
