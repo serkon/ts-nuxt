@@ -18,3 +18,22 @@ Installation
 ```json
 "@timus-networks/table": {kader: 456},
 ```
+
+Usage Example:
+
+```html
+<template>
+  <section>
+    <h1>Table Component Sample</h1>
+    <TnTable :data="tableData">
+      <TnColumn v-slot="{ item }" field="name"> {{ item.name.toUpperCase() }} </TnColumn>
+      <TnColumn field="surname">
+        <template #default="{ item }">
+          <!-- Özel render işlemi için içerik -->
+          {{ item.surname.toLowerCase() }}
+        </template>
+      </TnColumn>
+    </TnTable>
+  </section>
+</template>
+```

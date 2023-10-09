@@ -1,25 +1,25 @@
+<!-- TnTable.vue -->
 <template>
-  <div>
-    <h1>Tablo Component From Module</h1>
-    <button @click="getOptions">Get Options</button>
+  <div class="flex">
+    <slot />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
-  name: 'TableCreate',
-  data: (): { posts: string[] } => ({
-    posts: [],
-  }),
-  fetch() {
-    this.posts = ['12']
+  name: 'TnTable',
+  provide() {
+    return {
+      tableData: this.data,
+    };
   },
-  methods: {
-    getOptions() {
-      console.log(this)
+  props: {
+    data: {
+      type: Array as PropType<any[]>,
+      default: () => [],
     },
   },
-})
+});
 </script>
