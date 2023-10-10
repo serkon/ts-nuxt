@@ -19,7 +19,7 @@ interface Data {
 export default {
   data(): Data {
     return {
-      components: ['table', 'render'],
+      components: ['table', 'render', 'attrs'],
     };
   },
 };
