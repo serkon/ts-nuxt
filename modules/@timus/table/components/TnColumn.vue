@@ -4,8 +4,18 @@
     <slot name="filter">
       <div class="border">filter comes here</div>
     </slot>
-    <div v-for="(item, index) in shared.tableData" :key="index" class="border" :title="item.name" @click="htmlRowClicked(item)">
-      <slot :item="item" :field="field" />
+    <div
+      v-for="(item, index) in shared.tableData"
+      :key="index"
+      class="border"
+      :title="item.name"
+      :class="{ selected: shared.selected.includes(item) }"
+      @click="htmlRowClicked(item)"
+    >
+      <slot
+        :item="item"
+        :field="field"
+      />
     </div>
   </div>
 </template>
@@ -14,8 +24,6 @@
 import Vue from 'vue';
 
 import { TableProvide } from './TnTable.vue';
-
-// import { TableProvide } from './TnTable.vue';
 
 type TableData = Array<{ [key: string]: any }>;
 

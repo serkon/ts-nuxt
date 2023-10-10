@@ -1,8 +1,14 @@
 <template>
   <section>
     <h1>Table Component Sample</h1>
-    <TnTable :data="tableData" @select="selectEmited">
-      <TnColumn v-slot="{ item }" field="name">
+    <TnTable
+      :data="tableData"
+      @select="selectEmit"
+    >
+      <TnColumn
+        v-slot="{ item }"
+        field="name"
+      >
         {{ item.name.toUpperCase() }}
       </TnColumn>
       <TnColumn field="surname">
@@ -27,7 +33,7 @@ export default Vue.extend({
     ],
   }),
   methods: {
-    selectEmited(item: { [key: string]: any }) {
+    selectEmit(item: { [key: string]: any }) {
       console.log('selected rows: ', item);
     },
   },
