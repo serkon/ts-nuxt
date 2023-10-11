@@ -165,10 +165,10 @@ module.exports = {
       'error',
       {
         singleline: {
-          max: 5,
+          max: 10,
         },
         multiline: {
-          max: 1,
+          max: 10,
         },
       },
     ],
@@ -181,6 +181,16 @@ module.exports = {
     ],
     'vue/multi-word-component-names': 'off',
     'vue/require-slots-as-functions': 'off',
+    'vue/html-self-closing': ['error', {
+      html: {
+        void: 'always',
+        normal: 'always',
+        component: 'always',
+      },
+      svg: 'always',
+      math: 'always',
+    }],
+
   },
   overrides: [
     {

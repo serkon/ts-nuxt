@@ -46,9 +46,7 @@ $font-config-body: (
 
 @each $selector, $value in $font-config-d {
   .#{$selector}, %#{$selector} {
-
     @extend %d;
-
     @each $prop-name, $prop-value in $value {
       --#{$font-prefix}-#{$selector}-#{$prop-name}: #{$prop-value};
       #{$prop-name}: var(--#{$font-prefix}-#{$selector}-#{$prop-name});
@@ -57,9 +55,7 @@ $font-config-body: (
 }
 @each $selector, $value in $font-config-h {
   #{$selector}, %#{$selector} {
-
     @extend %h;
-
     @each $prop-name, $prop-value in $value {
       --#{$font-prefix}-#{$selector}-#{$prop-name}: #{$prop-value};
       #{$prop-name}: var(--#{$font-prefix}-#{$selector}-#{$prop-name});
@@ -68,7 +64,6 @@ $font-config-body: (
 }
 @each $selector, $value in $font-config-body {
   .#{$selector}, %#{$selector} {
-
     @each $prop-name, $prop-value in $value {
       --#{$font-prefix}-#{$selector}-#{$prop-name}: #{$prop-value};
       #{$prop-name}: var(--#{$font-prefix}-#{$selector}-#{$prop-name});

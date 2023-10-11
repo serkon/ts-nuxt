@@ -1,69 +1,55 @@
 button {
-
   @apply btn btn-primary btn-lg;
 }
 
 .btn {
-
   @apply px-4 py-2 text-center text-white transition duration-150 ease-in-out rounded-lg;
 }
 /* ###### Colors */
 .btn-primary {
-
   @apply bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white;
 }
 /* ###### Types */
 .btn-outline {
-
   @apply border text-center font-bold py-2 px-4 transition duration-150 ease-in-out rounded-lg;
 }
 
 .btn-outline-primary {
-
   @apply text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white;
 }
 
 .btn-outline-secondary {
-
   @apply text-gray-600 border-gray-600 hover:bg-gray-600 hover:text-white;
 }
 
 .btn-outline-success {
-
   @apply text-green-500 border-green-500 hover:bg-green-500 hover:text-white;
 }
 
 .btn-outline-danger {
-
   @apply text-red-500 border-red-500 hover:bg-red-500 hover:text-white;
 }
 
 .btn-outline-warning {
-
   @apply text-yellow-500 border-yellow-500 hover:bg-yellow-500 hover:text-white;
 }
 
 .btn-outline-info {
-
   @apply text-teal-500 border-teal-500 hover:bg-teal-500 hover:text-white;
 }
 
 .btn-outline-light {
-
   @apply text-gray-200 border-gray-200 hover:bg-gray-200 hover:text-gray-800;
 }
 
 .btn-outline-dark {
-
   @apply text-gray-800 border-gray-800 hover:bg-gray-800 hover:text-white;
 }
 /* ###### Size */
 .btn-lg {
-
   @apply text-lg px-5 py-3;
 }
 
 .btn-sm {
-
   @apply text-sm px-3 py-1;
 }

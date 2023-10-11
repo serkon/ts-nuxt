@@ -1,29 +1,11 @@
 <template>
-  <div>
-    <div class="border">{{ field }}</div>
-    <slot name="filter">
-      <div class="border">filter comes here</div>
-    </slot>
-    <div
-      v-for="(item, index) in shared.tableData"
-      :key="index"
-      class="border"
-      :title="item.name"
-      :class="{ selected: shared.selected.includes(item) }"
-      @click="htmlRowClicked(item)"
-    >
-      <slot
-        :item="item"
-        :field="field"
-      />
-    </div>
+  <div class="table-column">
+    <slot :slo="dataDon" :item="$parent?.$props" :field="$attrs" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-
-import { TableProvide } from './TnTable.vue';
 
 type TableData = Array<{ [key: string]: any }>;
 
@@ -32,6 +14,7 @@ export default Vue.extend({
   inject: {
     shared: {
       default: () => ({
+        filterEnable: false,
         tableData: [],
         selected: [],
         selectUpdater: (): any => {},
@@ -39,30 +22,26 @@ export default Vue.extend({
     },
   },
   props: {
-    field: {
-      type: String,
-      required: true,
+    row: {
+      type: Object,
+      required: false,
+      default: () => {},
     },
   },
-  data: () => ({
-    selected: {} as TableData,
-  }),
   computed: {
-    // @NOTE:
-    // `Shared` ile aynı isimde bir computed method tanımladım.
-    // Amacım Typescript'in provider içerisindeki this.shared'i bulamamasından dolayı hata vermemesi için.
-    // Bunu yapmazsam typescript inject içerisinde tanımlanan variable'ı görmediği
-    // için hata veriyor ve hiç bir yerde Type Defination yapılamıyor.
-    shared(): TableProvide['shared'] {
-      return this.shared;
+    dataDon(): TableData {
+      return (this.$parent as any).data;
     },
-    parent(): any {
-      return this.$parent as Vue;
-    },
+  },
+  mounted() {
+    // debugger;
+    console.log(this.$slots.default);
   },
   methods: {
-    htmlRowClicked(item: { [key: string]: any }) {
-      this.shared.selectUpdater(item);
+    slots() {
+      const slots = this.$slots.default?.filter((slot) => slot.componentOptions?.tag === 'TnColumn');
+
+      return slots && slots.length > 0 ? slots[0].componentOptions?.Ctor : null;
     },
   },
 });
