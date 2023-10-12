@@ -1,9 +1,11 @@
 <template>
-  <div class="container">
-    <component :is="'TnColumn'" v-for="(row, index) in data" :key="index" class="table-row" :row="row">
-      <slot />
-    </component>
-  </div>
+  <table class="container">
+    <tbody>
+      <component :is="'TnColumn'" v-for="(row, index) in data" :key="index" class="table-row" :row="row">
+        <slot />
+      </component>
+    </tbody>
+  </table>
 </template>
 
 <script lang="ts">

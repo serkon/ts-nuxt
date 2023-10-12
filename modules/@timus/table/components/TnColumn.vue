@@ -1,7 +1,7 @@
 <template>
-  <div class="table-column">
-    <slot :slo="dataDon" :item="$parent?.$props" :field="$attrs" />
-  </div>
+  <component :is="!$slots.default ? 'td' : 'tr'" :class="{ 'table-column': !$slots.default }">
+    <slot :attrs="!$slots.default ? $attrs : ''" :row="$parent?.$props.row" :options="$parent?.$props.timus" :field="field" :label="label" />
+  </component>
 </template>
 
 <script lang="ts">
@@ -26,6 +26,15 @@ export default Vue.extend({
       type: Object,
       required: false,
       default: () => {},
+    },
+
+    field: {
+      type: String,
+      default: '',
+    },
+    label: {
+      type: String,
+      default: '',
     },
   },
   computed: {

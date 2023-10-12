@@ -2,8 +2,8 @@
   <section>
     <h1>Table Component Sample</h1>
     <TnTable :data="tableData">
-      <TnColumn v-slot="item" field="name"> col 1 {{ item }} </TnColumn>
-      <TnColumn v-slot="item" field="surname">col 2 {{ item }}</TnColumn>
+      <TnColumn v-slot="scope" field="name"> col 1 {{ scope.row }} </TnColumn>
+      <TnColumn v-slot="scope" field="surname">col 2 {{ scope }}</TnColumn>
     </TnTable>
   </section>
 </template>
