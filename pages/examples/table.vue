@@ -1,25 +1,26 @@
 <template>
-  <section>
-    <h1>Table Component Sample</h1>
-    <TnTable :data="tableData">
-      <TnColumn v-slot="scope" field="name"> col 1 {{ scope.row }} </TnColumn>
-      <TnColumn v-slot="scope" field="surname">col 2 {{ scope }}</TnColumn>
-    </TnTable>
-  </section>
+  <TnTable :data="tableData" :columns="columns" :hide="[]" :order="[]" :filter="[]">
+    <template #head.name="scope">custom headers</template>
+    <template #head="scope">custom headers</template>
+    <template #filter.surname="scope">test</template>
+    <template #filter="scope">general</template>
+    <template v-for="column in columns" #[column.field]="scope">{{ scope.row[column.field] }}</template>
+  </TnTable>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
-import TnColumn from '~/modules/@timus/table/components/TnColumn.vue';
-
 export default Vue.extend({
   name: 'TableSample',
-  components: { TnColumn },
   data: () => ({
+    columns: [
+      { field: 'name', label: 'Name' },
+      { field: 'surname', label: 'Knowledges' },
+    ],
     tableData: [
-      { id: 1, name: 'Serkan Serkan Serkan Serkan Serkan', surname: 'A', age: 23 },
-      { id: 2, name: 'Sarp', surname: 'B', age: 45 },
+      { name: 'Serkan', surname: 'Konakcı' },
+      { name: 'Sarp', surname: 'Konakcı' },
     ],
   }),
 });

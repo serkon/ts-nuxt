@@ -1,25 +1,28 @@
-import { LoadComponent, LoadPlugins } from './loader'
-import PackageJson from './package.json'
+import { LoadComponent, LoadPlugins } from './loader';
+import PackageJson from './package.json';
 
 export default function(moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
-    console.log('Nuxt is ready')
-  })
+    console.log('Nuxt is ready');
+  });
 
   // get all options for the module
   const options = {
     ...moduleOptions,
     ...this.options[PackageJson.name],
     version: PackageJson.version,
-  }
+  };
+
+  console.log('optionsss: ', options);
 
   // expose the namespace / set a default
   if (!options.namespace) {
-    options.namespace = 'timus-networks'
+    options.namespace = 'timus-networks';
+    options.server = options.server === true ? 'server' : 'client';
   }
 
-  LoadPlugins.bind(this)(options)
-  LoadComponent.bind(this)(options)
+  LoadPlugins.bind(this)(options);
+  LoadComponent.bind(this)(options);
 
   // Componenti global olarak ekleyin
   // this.addTemplate({
@@ -29,4 +32,4 @@ export default function(moduleOptions) {
 }
 
 // REQUIRED if publishing the module as npm package
-module.exports.meta = require('./package.json')
+module.exports.meta = require('./package.json');

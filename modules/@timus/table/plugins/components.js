@@ -1,10 +1,10 @@
-import Vue from 'vue'
+import Vue from 'vue';
 
 // eslint-disable-next-line no-restricted-imports
-import components from '../components/export'
+import components from '../components/export';
 
 // get options passed from module.js
-const options = JSON.parse(`<%= JSON.stringify(options) %>`)
+const options = JSON.parse(`<%= JSON.stringify(options) %>`);
 
 // loop through components and register them
 for (const name in components) {
@@ -18,5 +18,5 @@ for (const name in components) {
         default: () => ({ ...options }),
       },
     },
-  })
+  });
 }
