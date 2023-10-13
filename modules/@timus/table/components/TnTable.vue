@@ -2,60 +2,27 @@
 <template>
   <div>
     {{ sorting }}
+    {{ filtering }}
     <table aria-describedby="Data table" class="tn-table">
       <thead>
         <tr>
-          <TnHead
-            v-for="(column, index) in columns"
-            :key="'th' + index"
-            :hide="hide"
-            :field="column.field"
-            :label="column.label"
-            :sorting="sorting"
-            @event-sort="eventSort"
-          >
-            <slot
-              v-if="hasSlot('head.' + column.field)"
-              :name="'head.' + column.field"
-              v-bind="{ field: column.field, label: column.label, hide: hide }"
-            />
-            <slot v-else :name="'head'" v-bind="{ field: column.field, label: column.label, hide: hide }" />
+          <TnHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
+            <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
+            <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
           </TnHead>
         </tr>
         <tr>
-          <TnFilter
-            v-for="(column, index) in columns"
-            :key="'th' + index"
-            :hide="hide"
-            :field="column.field"
-            :label="column.label"
-            @event-filter="eventFilter"
-          >
-            <slot
-              v-if="hasSlot('filter.' + column.field)"
-              :name="'filter.' + column.field"
-              v-bind="{ field: column.field, label: column.label, hide: hide }"
-            />
-            <slot v-else :name="'filter'" v-bind="{ field: column.field, label: column.label, hide: hide }" />
+          <TnFilter v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, filtering }" @event-filter="eventFilter">
+            <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
+            <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
           </TnFilter>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(row, index) in data" :key="'tr' + index">
-          <TnColumn
-            v-for="(column, colIndex) in columns"
-            :key="'tr' + index + colIndex + column.field"
-            :row="row"
-            :hide="hide"
-            :field="column.field"
-            :label="column.label"
-          >
-            <slot
-              v-if="hasSlot('column.' + column.field)"
-              :name="'column.' + column.field"
-              v-bind="{ row, field: column.field, label: column.label, hide: hide }"
-            />
-            <slot else :name="'column'" v-bind="{ row, field: column.field, label: column.label }" :hide="hide" />
+          <TnColumn v-for="(column, colIndex) in columns" :key="'tr' + index + colIndex + column.field" v-bind="{ index, row, column, hide }">
+            <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, row, column, hide }" />
+            <slot else :name="'column'" v-bind="{ index, row, column, hide }" />
           </TnColumn>
         </tr>
       </tbody>
@@ -70,12 +37,7 @@ export interface Column {
   field: string;
   label: string;
   width?: string;
-  filter?: {
-    data: string[];
-    type: 'dropdown' | 'checkbox';
-    mutli?: boolean;
-    callback?: (value: any) => void;
-  };
+  filter?: FilterConfig;
 }
 
 export interface Sort {
@@ -85,7 +47,21 @@ export interface Sort {
 
 export interface Filter {
   field: string;
-  text: string;
+  value: any[];
+}
+
+export interface FilterConfig {
+  options?: FilterOption[];
+  type?: 'text' | 'dropdown' | 'checkbox';
+  mutli?: boolean;
+  callback?: (value: any) => void;
+  disable?: boolean;
+}
+
+interface FilterOption {
+  label: string;
+  value: any;
+  group?: string;
 }
 
 export interface Data {
@@ -94,6 +70,8 @@ export interface Data {
 }
 
 /**
+ * TnTable component
+ *
  * @emitters
  * eventSort - (sorting: Order[]) Changes sorting and call change event
  */
@@ -103,8 +81,8 @@ export default Vue.extend({
   props: ['data', 'columns', 'hide', 'sort', 'filter'],
   data() {
     return {
+      filtering: this.filter || [],
       sorting: [],
-      filtering: [],
     } as Data;
   },
   mounted() {
@@ -121,12 +99,18 @@ export default Vue.extend({
       found && found.alignment === 'asc'
         ? (found.alignment = 'desc')
         : (this.sorting = !found ? [...this.sorting, { field, alignment: 'asc' }] : this.sorting.filter((item) => item.field !== field));
-      this.$emit('eventSort', this.sorting);
+      this.$emit('event-sort', this.sorting);
+      this.$emit('event', this.data);
     },
-    eventFilter({ field, text }: Filter): void {
+    eventFilter(filter: Filter): void {
       // TODO: Set timeout for debounce
-      console.log('input', field, text);
-      this.$emit('eventFilter', { field, text });
+      console.log('input', filter);
+      const found = this.filtering.find((item) => item.field === filter.field);
+
+      (found &&
+        (filter.value.length > 0 ? (found.value = filter.value) : (this.filtering = this.filtering.filter((item) => item.field !== filter.field)))) ||
+        (this.filtering = [...this.filtering, filter]);
+      this.$emit('event-filter', this.filtering);
     },
   },
 });

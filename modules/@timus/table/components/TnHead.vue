@@ -1,8 +1,7 @@
-<!-- TnColumn.vue -->
 <template>
-  <th v-if="!hide.includes(field)" class="header">
-    <slot :row="row" :field="field" :label="label" :hide="hide" :sorting="sorting">{{ label }}</slot>
-    <span class="sort" :class="{ deactive: !sort }" @click="$emit('event-sort', field)">
+  <th v-if="!hide.includes(column.field)" class="header">
+    <slot v-bind="{ index, column, hide, sorting }">{{ column.label }}</slot>
+    <span class="sort" :class="{ deactive: !sort }" @click="$emit('event-sort', column.field)">
       {{ sort?.alignment === 'asc' ? '↑' : sort?.alignment === 'desc' ? '↓' : '↑' }}
     </span>
   </th>
@@ -11,22 +10,18 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 
-import { Sort } from './TnTable.vue';
+import { Column, Sort } from './TnTable.vue';
 
 export default Vue.extend({
   name: 'TnRow',
   props: {
-    field: {
-      type: String,
-      default: '',
+    column: {
+      type: Object as PropType<Column>,
+      default: () => ({} as Column),
     },
-    label: {
-      type: String,
-      default: '',
-    },
-    row: {
-      type: Object as PropType<any>,
-      default: () => {},
+    index: {
+      type: Number,
+      default: null,
     },
     hide: {
       type: Array as PropType<string[]>,
@@ -34,12 +29,12 @@ export default Vue.extend({
     },
     sorting: {
       type: Array as PropType<Sort[]>,
-      default: () => [],
+      default: () => [] as Sort[],
     },
   },
   computed: {
     sort() {
-      return this.sorting.find((item) => item.field === this.field);
+      return this.sorting.find((item) => item.field === this.column.field);
     },
   },
 });

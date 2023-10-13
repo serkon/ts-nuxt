@@ -95,5 +95,7 @@
   "typescript.suggest.paths": false,
   "javascript.suggest.paths": false,
   "docify.programmingLanguage": "javascript",
-  "nuxt.isNuxtApp": true
+  "nuxt.isNuxtApp": true,
+  "docify.commentService.programmingLanguage": "javascript",
+  "docify.commentService.docstringFormat": "Doxygen"
 }

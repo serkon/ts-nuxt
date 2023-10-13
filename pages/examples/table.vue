@@ -1,10 +1,10 @@
 <template>
   <TnTable
     :data="tableData"
-    :columns="columns"
+    :columns="tableColumns"
     :hide="[]"
     :sort="[]"
-    :filter="[]"
+    :filter="[{ field: 'surname', value: ['Konakcı'] }]"
     :pagination="[]"
     :select="[]"
     @event-filter="emit"
@@ -13,25 +13,40 @@
     @event-pagination="emit"
     @event="emit"
   >
-    <template #head.name>Name</template>
-    <template #head.surname>Patates</template>
-    <template #filter.surname />
-    <template #filter>general</template>
+    <!--
+      <template #head.name>Name</template>
+      <template #head.surname>Patates</template>
+      <template #head.age>sad</template>
+      template #filter.name>general</template>
+      <template #filter.surname />
+      <template #column.surname><button>...</button></template>
+      <template #column.name><button>...</button></template>
+    -->
     <template #column="scope">{{ scope.row[scope.field] }} {{ scope.row.age < 20 ? '↓' : '↑' }}</template>
-    <template #column.surname><button>...</button></template>
-    <template #column.name><button>...</button></template>
-    <template v-for="column in columns" #[`column.${column.field}`]="scope">444{{ scope.row[column.field] }}</template>
+
+    <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">444{{ scope.row[column.field] }}</template>
   </TnTable>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import { Column } from '~/modules/@timus/table/components/TnTable.vue';
+
+interface Data {
+  tableColumns: Column[];
+  tableData: any[];
+}
 
 export default Vue.extend({
   name: 'TableSample',
-  data: () => ({
-    columns: [
-      { field: 'name', label: 'Name', width: '200', filter: { data: ['11', '123', '1234'], type: 'dropdown', mutli: true } },
+  data: (): Data => ({
+    tableColumns: [
+      {
+        field: 'name',
+        label: 'Name',
+        width: '200',
+        filter: { options: [{ label: 'John', value: 'user-001' }], type: 'dropdown', mutli: true },
+      },
       { field: 'age', label: 'Age' },
       { field: 'surname', label: 'Surname' },
     ],

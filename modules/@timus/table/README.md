@@ -79,3 +79,24 @@ Detailed:
 ```
 
 ```
+
+### Filtering
+
+Filter için gönderdiğiniz değerler mevcut kolonda ilgili yere yazılıyor olacak:
+
+```ts
+  data() {
+    return {
+      dFilter: {
+        ...{
+          data: { field: this.column.field, value: '' },
+          type: 'text',
+          mutli: false,
+          callback: (value: any) => console.log('Filter:', value, this),
+          disable: false,
+        },
+        ...this.$props.filtering,
+      },
+    };
+  },
+```
