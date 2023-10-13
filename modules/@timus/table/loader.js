@@ -23,8 +23,6 @@ export function LoadPlugins(options) {
   for (const pathString of pluginsToSync) {
     const str = pathString.replace(/(\.[^\.]+)$/, `.${options.server}$1`);
 
-    console.log('sttttttr: ', str);
-
     this.addPlugin({
       src: resolve(__dirname, pathString),
       fileName: join(options.namespace, str),

@@ -1,6 +1,6 @@
 <!-- TnColumn.vue -->
 <template>
-  <th v-if="!hide.includes(field)" class="th">
+  <th v-if="!hide.includes(field)" class="filter">
     <slot :row="row" :field="field" :label="label" :hide="hide">
       <input class="filter border" :class="{ deactive: !order }" @input="$emit('event-filter', { field, text: $event.target.value })" />
     </slot>

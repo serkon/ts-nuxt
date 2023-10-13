@@ -1,6 +1,6 @@
 <!-- TnColumn.vue -->
 <template>
-  <th v-if="!hide.includes(field)" class="th">
+  <th v-if="!hide.includes(field)" class="header">
     <slot :row="row" :field="field" :label="label" :hide="hide" :sorting="sorting">{{ label }}</slot>
     <span class="sort" :class="{ deactive: !sort }" @click="$emit('event-sort', field)">
       {{ sort?.alignment === 'asc' ? '↑' : sort?.alignment === 'desc' ? '↓' : '↑' }}

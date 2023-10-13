@@ -1,7 +1,7 @@
 <!-- TnColumn.vue -->
 <template>
-  <td v-if="!hide.includes(field)" class="col">
-    <slot :row="row" :field="field" :label="label" :hide="hide">{{ row[field] }} ++</slot>
+  <td v-if="!hide.includes(field)" class="column">
+    <slot :row="row" :field="field" :label="label" :hide="hide">{{ row[field] }}</slot>
   </td>
 </template>
 
@@ -26,6 +26,11 @@ export default Vue.extend({
     hide: {
       type: Array as PropType<string[]>,
       default: () => [],
+    },
+  },
+  methods: {
+    sort(): string {
+      return this.label;
     },
   },
 });

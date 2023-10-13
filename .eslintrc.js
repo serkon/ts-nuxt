@@ -181,6 +181,9 @@ module.exports = {
     ],
     'vue/multi-word-component-names': 'off',
     'vue/require-slots-as-functions': 'off',
+    'vue/valid-v-slot': ['error', {
+      allowModifiers: true,
+    },
     'vue/html-self-closing': ['error', {
       html: {
         void: 'always',
@@ -190,7 +193,6 @@ module.exports = {
       svg: 'always',
       math: 'always',
     }],
-
   },
   overrides: [
     {

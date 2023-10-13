@@ -38,7 +38,7 @@ export default {
     '@nuxtjs/stylelint-module',
   ],
 
-  '@timus-networks/table': { server: false, kader: 456 },
+  '@timus-networks/table': { server: false },
   tailwindcss: {
     cssPath: '~/assets/scss/tailwind.css',
     configPath: 'tailwind.config',
