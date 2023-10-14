@@ -60,7 +60,7 @@ export default Vue.extend({
           const newValue = value ? (!this.dFilter.mutli ? [value] : value) : [];
           const updated: Filter = { field: this.column.field, value: newValue };
           this.$emit('event-filter', updated);
-        }, 800)();
+        }, 500)();
       },
     },
   },
