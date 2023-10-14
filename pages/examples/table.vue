@@ -3,7 +3,10 @@
     :data="tableData"
     :columns="tableColumns"
     :hide="[]"
-    :sort="[]"
+    :sort="[
+      { field: 'age', alignment: 'asc' },
+      { field: 'surname', alignment: 'desc' },
+    ]"
     :filter="[{ field: 'surname', value: ['Konakcı'] }]"
     :pagination="[]"
     :select="[]"

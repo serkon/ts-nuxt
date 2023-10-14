@@ -1,8 +1,7 @@
 <!-- TnTable.vue -->
 <template>
   <div>
-    {{ sorting }}
-    {{ filtering }}
+    {{ status }}
     <table aria-describedby="Data table" class="tn-table">
       <thead>
         <tr>
@@ -69,6 +68,12 @@ export interface Data {
   filtering: Filter[];
 }
 
+export interface Pagination {
+  page: number;
+  limit: number;
+  total: number;
+}
+
 /**
  * TnTable component
  *
@@ -78,20 +83,29 @@ export interface Data {
 
 export default Vue.extend({
   name: 'TnTable',
-  props: ['data', 'columns', 'hide', 'sort', 'filter'],
+  props: ['data', 'columns', 'hide', 'sort', 'filter', 'pagination', 'select'],
   data() {
     return {
       filtering: this.filter || [],
-      sorting: [],
+      sorting: this.sort || [],
+      paging: this.pagination || [],
     } as Data;
   },
   mounted() {
     console.log('data', this.data);
   },
+  computed: {
+    status() {
+      return { sorting: this.sorting, filtering: this.filtering };
+    },
+  },
   methods: {
     hasSlot(name: string) {
       // eslint-disable-next-line vue/no-deprecated-dollar-scopedslots-api
       return !!this.$scopedSlots[name];
+    },
+    emitter() {
+      this.$emit('event', this.status);
     },
     eventSort(field: string) {
       const found = this.sorting.find((item) => item.field === field);
@@ -100,17 +114,16 @@ export default Vue.extend({
         ? (found.alignment = 'desc')
         : (this.sorting = !found ? [...this.sorting, { field, alignment: 'asc' }] : this.sorting.filter((item) => item.field !== field));
       this.$emit('event-sort', this.sorting);
-      this.$emit('event', this.data);
+      this.emitter();
     },
     eventFilter(filter: Filter): void {
-      // TODO: Set timeout for debounce
-      console.log('input', filter);
       const found = this.filtering.find((item) => item.field === filter.field);
 
       (found &&
         (filter.value.length > 0 ? (found.value = filter.value) : (this.filtering = this.filtering.filter((item) => item.field !== filter.field)))) ||
         (this.filtering = [...this.filtering, filter]);
       this.$emit('event-filter', this.filtering);
+      this.emitter();
     },
   },
 });
