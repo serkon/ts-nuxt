@@ -1,7 +1,5 @@
 <template>
-  <div class="main-page container">
-    Homepage
-  </div>
+  <div class="main-page container">Homepage j9</div>
 </template>
 
 <script lang="ts">

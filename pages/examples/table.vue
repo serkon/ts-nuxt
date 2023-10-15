@@ -3,12 +3,9 @@
     :data="tableData"
     :columns="tableColumns"
     :hide="[]"
-    :sort="[
-      { field: 'age', alignment: 'asc' },
-      { field: 'surname', alignment: 'desc' },
-    ]"
-    :filter="[{ field: 'surname', value: ['Konakcı'] }]"
-    :pagination="[]"
+    :sort="tableSort"
+    :filter="tableFilter"
+    :pagination="tablePagination"
     :select="[]"
     @event-filter="emit"
     @event-sort="emit"
@@ -26,18 +23,21 @@
       <template #column.name><button>...</button></template>
     -->
     <template #column="scope">{{ scope.row[scope.field] }} {{ scope.row.age < 20 ? '↓' : '↑' }}</template>
-
     <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">444{{ scope.row[column.field] }}</template>
   </TnTable>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Column } from '~/modules/@timus/table/components/TnTable.vue';
+import { Pagination } from '~/modules/@timus/table/components/TnPagination.vue';
+import { Column, Filter, Sort } from '~/modules/@timus/table/components/TnTable.vue';
 
 interface Data {
   tableColumns: Column[];
   tableData: any[];
+  tableFilter: Filter[];
+  tableSort: Sort[];
+  tablePagination: Pagination;
 }
 
 export default Vue.extend({
@@ -48,6 +48,7 @@ export default Vue.extend({
         field: 'name',
         label: 'Name',
         width: '200',
+        // TODO: filter type'a göre filtreleme component'leri eklenecek
         filter: { options: [{ label: 'John', value: 'user-001' }], type: 'dropdown', mutli: true },
       },
       { field: 'age', label: 'Age' },
@@ -57,6 +58,16 @@ export default Vue.extend({
       { name: 'Serkan', surname: 'Konakcı', age: 43 },
       { name: 'Sarp', surname: 'Konakcı', age: 13 },
     ],
+    tableFilter: [{ field: 'surname', value: ['Konakcı'] }],
+    tableSort: [
+      { field: 'age', alignment: 'asc' },
+      { field: 'surname', alignment: 'desc' },
+    ],
+    tablePagination: {
+      page: 1,
+      limit: 10,
+      total: 325,
+    },
   }),
   methods: {
     emit(value: any) {

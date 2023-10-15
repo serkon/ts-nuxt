@@ -1,0 +1,159 @@
+@use "sass:map";
+
+$default-color: 500;
+$prefix: '';
+$theme-colors: (
+  'cta': purple,
+  'success': green,
+  'warning': yellow,
+  'danger': red,
+);
+
+$theme: (
+  light:(
+    '100': rgba(255, 255, 255, 10%),
+    '200': rgba(255, 255, 255, 20%),
+    '300': rgba(255, 255, 255, 30%),
+    '400': rgba(255, 255, 255, 40%),
+    '500': rgba(255, 255, 255, 100%),
+    '600': rgba(255, 255, 255, 60%),
+    '700': rgba(255, 255, 255, 70%),
+    '800': rgba(255, 255, 255, 80%),
+    '900': rgba(255, 255, 255, 90%),
+  ),
+  brand: (
+    '100': #D4E1FA,
+    '200': #A9C3F4,
+    '300': #7EA5EF,
+    '400': #5387E9,
+    '500': #2869E4,
+    '600': #2054B6,
+    '700': #183F89,
+    '800': #102A5B,
+    '900': #08152E,
+  ),
+  primary: (
+    '100': #d0e6ff,
+    '200': #a2cdff,
+    '300': #73b3ff,
+    '400': #459aff,
+    '500': #1681ff,
+    '600': #1267cc,
+    '700': #0d4d99,
+    '800': #093466,
+    '900': #041a33,
+  ),
+  secondary: (
+    '100': #e0e2e4,
+    '200': #c2c6ca,
+    '300': #a3a9af,
+    '400': #858d95,
+    '500': #66707a,
+    '600': #525a62,
+    '700': #3d4349,
+    '800': #292d31,
+    '900': #141618,
+  ),
+  info: (
+    '100': #ccf0ff,
+    '200': #99e1ff,
+    '300': #66d1ff,
+    '400': #33c2ff,
+    '500': #00b3ff,
+    '600': #008fcc,
+    '700': #006b99,
+    '800': #004866,
+    '900': #002433,
+  ),
+  danger: (
+    '100': #ffdfde,
+    '200': #ffbfbd,
+    '300': #ff9e9d,
+    '400': #ff7e7c,
+    '500': #ff5e5b,
+    '600': #cc4b49,
+    '700': #993837,
+    '800': #662624,
+    '900': #331312,
+  ),
+  success: (
+    '100': #cdf7ec,
+    '200': #9befd9,
+    '300': #6ae6c6,
+    '400': #38deb3,
+    '500': #06d6a0,
+    '600': #05ab80,
+    '700': #048060,
+    '800': #025640,
+    '900': #012b20,
+  ),
+  warning: (
+    '100': #fcf5d5,
+    '200': #f8ebaa,
+    '300': #f5e180,
+    '400': #f1d755,
+    '500': #eecd2b,
+    '600': #bea422,
+    '700': #8f7b1a,
+    '800': #5f5211,
+    '900': #302909,
+  ),
+);
+
+@function to-rgb($value) {
+  @return red($value), green($value), blue($value);
+}
+
+@each $color, $item in $theme {
+  // add to theme colors
+  $color-list: (
+      $color: map.get($item, #{$default-color}),
+    );
+  $theme-colors: map.merge($theme-colors, $color-list);
+}
+
+// set variable
+:root {
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-bg-opacity: 1;
+  @each $color, $item in $theme {
+    @each $key, $value in $item {
+      --#{$prefix}#{$color}-#{$key}: #{$value};
+      --#{$prefix}#{$color}-#{$key}-rgb: #{to-rgb($value)};
+
+      .#{$prefix}#{$color}-#{$key} {
+        color: #{$value};
+      }
+
+      .#{$prefix}bg-#{$color}-#{$key} {
+        background-color: #{$value};
+      }
+
+      // .#{$name}-#{$key} {
+      //   background-color: #{$value};
+      // }
+    }
+  }
+}
+
+// Color Shade and Tint Generator
+// :root {
+//   @mixin variations($name, $color) {
+//     $percentages: (80%, 60%, 40%, 20%, 0, -20%, -40%, -60%, -80%);
+//     @each $percentage in $percentages {
+//       $i: list.index($percentages, $percentage);
+//       $variation: $color;
+//       @if $percentage > 0 {
+//         $variation: color.mix(white, $color, $percentage);
+//       }
+//       @else if $percentage < 0 {
+//         $variation: color.mix(black, $color, $percentage * -1);
+//       }
+//       --bs-#{$name}-#{$i * 100}: #{$variation};
+//     }
+//   }
+//   @each $name, $value in $colors {
+//     @include variations($name, $value);
+//   }
+// }

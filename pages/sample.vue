@@ -8,19 +8,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'IndexPage',
   head() {
     return {
       title: 'Sample page',
-    }
+    };
   },
   mounted() {
-    const { table } = this.$refs
+    const { table } = this.$refs;
 
-    console.log('module @timus-networks/table altındaki TableCreate componenti özellikleri: ', (table as any).timus)
+    console.log('module @timus-networks/table altındaki TableCreate componenti özellikleri: ', (table as any).timus);
   },
-})
+});
 </script>

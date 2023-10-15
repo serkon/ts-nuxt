@@ -26,11 +26,13 @@
         </tr>
       </tbody>
     </table>
+    <TnPagination :page="paging.page" :limit="paging.limit" :total="paging.total" @event-pagination="eventPagination" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import { Pagination } from './TnPagination.vue';
 
 export interface Column {
   field: string;
@@ -66,12 +68,7 @@ interface FilterOption {
 export interface Data {
   sorting: Sort[];
   filtering: Filter[];
-}
-
-export interface Pagination {
-  page: number;
-  limit: number;
-  total: number;
+  paging: Pagination;
 }
 
 /**
@@ -84,12 +81,12 @@ export interface Pagination {
 export default Vue.extend({
   name: 'TnTable',
   props: ['data', 'columns', 'hide', 'sort', 'filter', 'pagination', 'select'],
-  data() {
+  data(): Data {
     return {
       filtering: this.filter || [],
       sorting: this.sort || [],
-      paging: this.pagination || [],
-    } as Data;
+      paging: this.pagination || { page: 1, limit: 10, total: 0 },
+    };
   },
   mounted() {
     console.log('data', this.data);
@@ -123,6 +120,11 @@ export default Vue.extend({
         (filter.value.length > 0 ? (found.value = filter.value) : (this.filtering = this.filtering.filter((item) => item.field !== filter.field)))) ||
         (this.filtering = [...this.filtering, filter]);
       this.$emit('event-filter', this.filtering);
+      this.emitter();
+    },
+    eventPagination(pagination: Pagination): void {
+      console.log('pagination', pagination);
+      this.$emit('event-pagination', pagination);
       this.emitter();
     },
   },

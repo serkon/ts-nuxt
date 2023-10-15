@@ -1,7 +1,16 @@
-@import 'variables';
-@import 'containers';
-@import 'fonts';
-@import 'buttons';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  @import 'variables';
+  @import 'colors';
+  @import 'containers';
+  @import 'fonts';
+  @import 'icons';
+  @import 'buttons.scss';
+}
 
 body {
   background-color: #ffffff;

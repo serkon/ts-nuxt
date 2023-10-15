@@ -40,7 +40,7 @@ export default {
 
   '@timus-networks/table': { server: false },
   tailwindcss: {
-    cssPath: '~/assets/scss/tailwind.css',
+    cssPath: '~/assets/scss/main.scss',
     configPath: 'tailwind.config',
     exposeConfig: false,
     exposeLevel: 2,
@@ -64,5 +64,15 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+    postcss: {
+      postcssOptions: {
+        plugins: {
+          'postcss-import': {},
+          'tailwindcss/nesting': 'postcss-nesting',
+          tailwindcss: {},
+          autoprefixer: {},
+        },
+      }
+    },
   },
 };
