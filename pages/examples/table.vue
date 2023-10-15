@@ -5,7 +5,7 @@
     :hide="[]"
     :sort="tableSort"
     :filter="tableFilter"
-    :pagination="tablePagination"
+    :paging="tablePaging"
     :select="[]"
     @event-filter="emit"
     @event-sort="emit"
@@ -22,14 +22,15 @@
       <template #column.surname><button>...</button></template>
       <template #column.name><button>...</button></template>
     -->
-    <template #column="scope">{{ scope.row[scope.field] }} {{ scope.row.age < 20 ? '↓' : '↑' }}</template>
-    <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">444{{ scope.row[column.field] }}</template>
+    <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">{{ scope.row[column.field] }}</template>
+    <template #column.actions><button class="btn btn-sm btn-primary-outline">...</button></template>
+    <template #column="scope">{{ scope.row }}</template>
   </TnTable>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Pagination } from '~/modules/@timus/table/components/TnPagination.vue';
+import { Paging } from '~/modules/@timus/table/components/TnPagination.vue';
 import { Column, Filter, Sort } from '~/modules/@timus/table/components/TnTable.vue';
 
 interface Data {
@@ -37,7 +38,7 @@ interface Data {
   tableData: any[];
   tableFilter: Filter[];
   tableSort: Sort[];
-  tablePagination: Pagination;
+  tablePaging: Paging;
 }
 
 export default Vue.extend({
@@ -53,6 +54,7 @@ export default Vue.extend({
       },
       { field: 'age', label: 'Age' },
       { field: 'surname', label: 'Surname' },
+      { field: 'actions', label: 'Actions' },
     ],
     tableData: [
       { name: 'Serkan', surname: 'Konakcı', age: 43 },
@@ -63,10 +65,10 @@ export default Vue.extend({
       { field: 'age', alignment: 'asc' },
       { field: 'surname', alignment: 'desc' },
     ],
-    tablePagination: {
+    tablePaging: {
       page: 1,
       limit: 10,
-      total: 325,
+      total: 323,
     },
   }),
   methods: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <div class="pagination" v-if="pagination.total > pagination.limit">
     <div class="page-meta">
       <span>{{ pagination.page }} / {{ totalPages }}</span>
     </div>
@@ -23,7 +23,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-export interface Pagination {
+export interface Paging {
   page: number;
   limit: number;
   total: number;
@@ -58,26 +58,29 @@ export default Vue.extend({
     nextPage() {
       if (this.pagination.page < this.totalPages) {
         this.pagination.page++;
-        this.$emit('event-pagination', this.pagination);
+        this.emit();
       }
     },
     prevPage() {
       if (this.pagination.page > 1) {
         this.pagination.page--;
-        this.$emit('event-pagination', this.pagination);
+        this.emit();
       }
     },
     toFirstPage() {
       this.pagination.page = 1;
-      this.$emit('event-pagination', this.pagination);
+      this.emit();
     },
     toLastPage() {
       this.pagination.page = this.totalPages;
-      this.$emit('event-pagination', this.pagination);
+      this.emit();
     },
     goToPage(pageNum: number) {
       this.pagination.page = pageNum;
-      this.$emit('event-pagination', this.pagination);
+      this.emit();
+    },
+    emit() {
+      this.$emit('event-paging', this.pagination);
     },
   },
 });

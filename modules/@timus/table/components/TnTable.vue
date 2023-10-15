@@ -26,13 +26,13 @@
         </tr>
       </tbody>
     </table>
-    <TnPagination :page="paging.page" :limit="paging.limit" :total="paging.total" @event-pagination="eventPagination" />
+    <TnPagination :page="pagination.page" :limit="pagination.limit" :total="pagination.total" @event-paging="eventPagination" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Pagination } from './TnPagination.vue';
+import { Paging } from './TnPagination.vue';
 
 export interface Column {
   field: string;
@@ -68,7 +68,7 @@ interface FilterOption {
 export interface Data {
   sorting: Sort[];
   filtering: Filter[];
-  paging: Pagination;
+  pagination: Paging;
 }
 
 /**
@@ -80,12 +80,12 @@ export interface Data {
 
 export default Vue.extend({
   name: 'TnTable',
-  props: ['data', 'columns', 'hide', 'sort', 'filter', 'pagination', 'select'],
+  props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select'],
   data(): Data {
     return {
       filtering: this.filter || [],
       sorting: this.sort || [],
-      paging: this.pagination || { page: 1, limit: 10, total: 0 },
+      pagination: this.paging || { page: 1, limit: 10, total: 0 },
     };
   },
   mounted() {
@@ -93,7 +93,7 @@ export default Vue.extend({
   },
   computed: {
     status() {
-      return { sorting: this.sorting, filtering: this.filtering, pagination: this.paging };
+      return { sorting: this.sorting, filtering: this.filtering, paging: this.pagination };
     },
   },
   methods: {
@@ -122,10 +122,10 @@ export default Vue.extend({
       this.$emit('event-filter', this.filtering);
       this.emitter();
     },
-    eventPagination(pagination: Pagination): void {
-      console.log('pagination', pagination);
-      this.paging = pagination;
-      this.$emit('event-pagination', pagination);
+    eventPagination(paging: Paging): void {
+      console.log('paging', paging);
+      this.pagination = paging;
+      this.$emit('event-paging', paging);
       this.emitter();
     },
   },
