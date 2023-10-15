@@ -93,7 +93,7 @@ export default Vue.extend({
   },
   computed: {
     status() {
-      return { sorting: this.sorting, filtering: this.filtering };
+      return { sorting: this.sorting, filtering: this.filtering, pagination: this.paging };
     },
   },
   methods: {
@@ -124,6 +124,7 @@ export default Vue.extend({
     },
     eventPagination(pagination: Pagination): void {
       console.log('pagination', pagination);
+      this.paging = pagination;
       this.$emit('event-pagination', pagination);
       this.emitter();
     },
