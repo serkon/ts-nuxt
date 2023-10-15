@@ -3,6 +3,10 @@
     <div class="page-meta">
       <span>{{ pagination.page }} / {{ totalPages }}</span>
     </div>
+    <div class="pagination-goto">
+      <span>Go to:</span>
+      <input type="number" v-model="goToInput" @keyup.enter="goToPage(goToInput)" class="pagination-goto-input" :min="1" :max="totalPages" />
+    </div>
     <div class="pagination-actions">
       <button @click="toFirstPage" :disabled="pagination.page <= 1" class="page-number page-number-first">1</button>
       <button @click="prevPage" :disabled="pagination.page <= 1" class="page-number page-number-prev">&larr;</button>
@@ -34,6 +38,7 @@ export default Vue.extend({
   props: ['page', 'limit', 'total'],
   data() {
     return {
+      goToInput: this.page || 1,
       threshold: 3,
       pagination: {
         page: this.page || 1,
@@ -76,7 +81,9 @@ export default Vue.extend({
       this.emit();
     },
     goToPage(pageNum: number) {
-      this.pagination.page = pageNum;
+      const pNumber = Number(pageNum);
+      this.pagination.page = pNumber < 1 ? 1 : pNumber > this.totalPages ? this.totalPages : pNumber;
+      this.goToInput = this.pagination.page;
       this.emit();
     },
     emit() {
@@ -91,11 +98,22 @@ export default Vue.extend({
   align-items: center;
   padding: 6px 0;
   font-size: 14px;
+  gap: 24px;
 
   .page-meta {
     flex-grow: 1;
     margin-right: 10px;
     color: #606266;
+  }
+
+  .pagination-goto {
+    display: flex;
+    gap: 6px;
+
+    .pagination-goto-input {
+      width: 50px;
+      text-align: center;
+    }
   }
 
   .pagination-actions {
