@@ -1,9 +1,44 @@
 $btn-config: (
-  'xs': ( min-width: 24px, min-height: 24px, padding: 0 4px, font-size: 10px, line-height: 10px, border-radius: 3px ),
-  'sm': ( min-width: 32px, min-height: 32px, padding: 0 6px, font-size: 12px, line-height: 16px, border-radius: 3px ),
-  'md': ( min-width: 36px, min-height: 36px, padding: 0 8px, font-size: 14px, line-height: 18px, border-radius: 3px ),
-  'lg': ( min-width: 40px, min-height: 40px, padding: 0 12px, font-size: 16px, line-height: 20px, border-radius: 4px ),
-  'xl': ( min-width: 48px, min-height: 48px, padding: 0 16px, font-size: 18px, line-height: 22px, border-radius: 6px ),
+  'xs': (
+    min-width: 24px,
+    min-height: 24px,
+    padding: 0 4px,
+    font-size: 10px,
+    line-height: 10px,
+    border-radius: 3px,
+  ),
+  'sm': (
+    min-width: 32px,
+    min-height: 32px,
+    padding: 0 6px,
+    font-size: 12px,
+    line-height: 16px,
+    border-radius: 3px,
+  ),
+  'md': (
+    min-width: 36px,
+    min-height: 36px,
+    padding: 0 8px,
+    font-size: 14px,
+    line-height: 18px,
+    border-radius: 3px,
+  ),
+  'lg': (
+    min-width: 40px,
+    min-height: 40px,
+    padding: 0 12px,
+    font-size: 16px,
+    line-height: 20px,
+    border-radius: 4px,
+  ),
+  'xl': (
+    min-width: 48px,
+    min-height: 48px,
+    padding: 0 16px,
+    font-size: 18px,
+    line-height: 22px,
+    border-radius: 6px,
+  ),
 );
 $btn-font-color: white;
 $btn-bg: 500;
@@ -13,9 +48,8 @@ $btn-active-bg: 700;
 
 // #### Generate Size Classes
 .btn {
-  border-color: var(--button-border-color);
-  background-color: var(--button-background-color);
-  color: var(--button-font-color);
+  // border-color: var(--button-border-color);
+  // background-color: var(--button-background-color);
   text-overflow: ellipsis;
   white-space: nowrap;
   @each $size, $value in $btn-config {
@@ -26,21 +60,6 @@ $btn-active-bg: 700;
         #{$prop-name}: var(--button-#{$size}-#{$prop-name});
       }
     }
-  }
-
-  &:focus {
-    // @extend :focus-visible;
-  }
-
-  &-outline {
-    border-width: 1px;
-    border-style: solid;
-    background-color: transparent;
-  }
-
-  &-ghost {
-    border-color: transparent !important;
-    background-color: transparent;
   }
 }
 
@@ -58,6 +77,8 @@ $btn-active-bg: 700;
     --button-active-color: var(--button-active-font-color);
     --button-active-background-color: rgba(var(--#{$name}-#{600}-rgb), 0.95); // #{map.get($item, #{$btn-active-bg})};
     --button-active-border-color: var(--#{$name}-#{600}); // #{map.get($item, #{$btn-active-bg})};
+    border-color: var(--button-border-color);
+    background-color: var(--button-background-color);
     color: #{$light};
 
     &:disabled {
@@ -67,8 +88,17 @@ $btn-active-bg: 700;
       }
     }
 
-    &.btn-outline, &.btn-ghost {
-      border-color: var(--#{$name}-#{300});
+    &-outline,
+    &-ghost {
+      --button-background-color: var(--#{$name}-#{500}); // #{map.get($item, #{$btn-bg})};
+      --button-border-color: var(--#{$name}-#{500});
+      --button-hover-color: var(--button-hover-font-color);
+      --button-hover-background-color: var(--#{$name}-#{600}); // #{map.get($item, #{$btn-hover-bg})};
+      --button-hover-border-color: var(--#{$name}-#{600}); // #{map.get($item, #{$btn-hover-bg})};
+      --button-active-color: var(--button-active-font-color);
+      --button-active-background-color: rgba(var(--#{$name}-#{600}-rgb), 0.95); // #{map.get($item, #{$btn-active-bg})};
+      --button-active-border-color: var(--#{$name}-#{600}); // #{map.get($item, #{$btn-active-bg})};
+      border-color: var(--button-border-color);
       color: var(--button-background-color);
 
       &:disabled {
@@ -81,7 +111,7 @@ $btn-active-bg: 700;
         color: if($name==light, var(--#{light}-#{900}), var(--button-font-color)); // var(--button-font-color);
         // background-color: transparent;
         @if ($name==light) {
-          background-color: var(--#{light}-#{200}); // var(--button-font-color);
+          background-color: var(--#{light}-#{200});
         }
       }
 
@@ -89,7 +119,7 @@ $btn-active-bg: 700;
         // background-color: transparent;
         // color: var(--light-500);
         @if ($name==light) {
-          background-color: var(--#{light}-#{200}); // var(--button-font-color);
+          background-color: var(--#{light}-#{200});
         }
       }
 
@@ -97,12 +127,26 @@ $btn-active-bg: 700;
         border-color: var(--button-active-background-color);
         color: var(--button-font-color);
         @if ($name==light) {
-          background-color: var(--#{light}-#{300}); // var(--button-font-color);
-        }
-        @else {
+          background-color: var(--#{light}-#{300});
+        } @else {
           background-color: var(--button-active-background-color);
         }
       }
+    }
+
+    &:focus {
+      // @extend :focus-visible;
+    }
+
+    &-outline {
+      border-width: 1px;
+      border-style: solid;
+      background-color: transparent;
+    }
+
+    &-ghost {
+      border-color: transparent !important;
+      background-color: transparent;
     }
   }
 
@@ -112,4 +156,3 @@ $btn-active-bg: 700;
   //   }
   // }
 }
-

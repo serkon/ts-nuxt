@@ -10,8 +10,7 @@
         v-for="pageNum in pagesToShow"
         :key="pageNum"
         @click="goToPage(pageNum)"
-        :class="{ 'page-active btn-primary': pageNum === pagination.page, 'btn-ghost': false }"
-        class="page-number"
+        :class="pageNum === pagination.page ? 'page-active' : 'page-number'"
       >
         {{ pageNum }}
       </button>
@@ -35,13 +34,12 @@ export default Vue.extend({
   props: ['page', 'limit', 'total'],
   data() {
     return {
-      treshold: 2,
+      threshold: 3,
       pagination: {
         page: this.page || 1,
         limit: this.limit || 10,
         total: this.total || 0,
       },
-      test: 'red',
     };
   },
   computed: {
@@ -49,9 +47,11 @@ export default Vue.extend({
       return Math.ceil(this.pagination.total / this.pagination.limit);
     },
     pagesToShow(): number[] {
-      const startPage = Math.max(1, this.pagination.page - this.treshold);
-      const endPage = Math.min(this.totalPages, this.pagination.page + this.treshold);
-      return Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
+      const startPage = Math.max(1, this.pagination.page - this.threshold);
+      const endPage = Math.min(this.totalPages, this.pagination.page + this.threshold);
+      const limit = endPage - startPage + 1; // +1 to include startPage
+      const start = startPage > endPage - this.threshold * 2 && startPage - this.threshold * 2 > 0 ? endPage - this.threshold * 2 : startPage;
+      return Array.from({ length: this.threshold * 2 < limit ? limit : this.threshold * 2 + 1 }, (_, index) => start + index);
     },
   },
   methods: {
@@ -87,7 +87,6 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   padding: 6px 0;
-  background-color: v-bind(test);
   font-size: 14px;
 
   .page-meta {
@@ -99,15 +98,15 @@ export default Vue.extend({
   .pagination-actions {
     display: flex;
     align-items: flex-start;
-    @apply btn btn-secondary btn-sm;
 
     .page-number {
       cursor: pointer;
       transition: 0.3s;
+      @apply btn-xs btn btn-primary-ghost;
+    }
 
-      i {
-        font-size: 12px;
-      }
+    .page-active {
+      @apply btn-xs btn-primary;
     }
   }
 }
