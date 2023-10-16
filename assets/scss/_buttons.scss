@@ -48,6 +48,8 @@ $btn-active-bg: 700;
 
 // #### Generate Size Classes
 .btn {
+  display: flex;
+  align-items: center;
   // border-color: var(--button-border-color);
   // background-color: var(--button-background-color);
   text-overflow: ellipsis;

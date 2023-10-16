@@ -1,7 +1,6 @@
 <!-- TnTable.vue -->
 <template>
   <div>
-    {{ status }}
     <table aria-describedby="Data table" class="tn-table">
       <thead>
         <tr>

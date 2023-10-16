@@ -1,19 +1,20 @@
 <template>
-  <TnTable
-    :data="tableData"
-    :columns="tableColumns"
-    :hide="[]"
-    :sort="tableSort"
-    :filter="tableFilter"
-    :paging="tablePaging"
-    :select="[]"
-    @event-filter="emit"
-    @event-sort="emit"
-    @event-select="emit"
-    @event-pagination="emit"
-    @event="emit"
-  >
-    <!--
+  <div class="table-sample-page">
+    <TnTable
+      :data="tableData"
+      :columns="tableColumns"
+      :hide="[]"
+      :sort="tableSort"
+      :filter="tableFilter"
+      :paging="tablePaging"
+      :select="[]"
+      @event-filter="emit"
+      @event-sort="emit"
+      @event-select="emit"
+      @event-pagination="emit"
+      @event="emit"
+    >
+      <!--
       <template #head.name>Name</template>
       <template #head.surname>Patates</template>
       <template #head.age>sad</template>
@@ -23,9 +24,14 @@
       <template #column.name><button>...</button></template>
       <template #column="scope">{{ scope.row }}</template>
     -->
-    <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">{{ scope.row[column.field] }}</template>
-    <template #column.actions><button class="btn btn-sm btn-primary-outline">...</button></template>
-  </TnTable>
+      <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">{{ scope.row[column.field] }}</template>
+      <template #column.actions><button class="btn btn-sm btn-primary-outline">...</button></template>
+    </TnTable>
+
+    <pre class="exported mt-4 text-monospace bg-gray-50 p-2 rounded-md">
+      {{ exported }}
+    </pre>
+  </div>
 </template>
 
 <script lang="ts">
@@ -39,6 +45,7 @@ interface Data {
   tableFilter: Filter[];
   tableSort: Sort[];
   tablePaging: Paging;
+  exported: { filter: Filter[]; sort: Sort[]; paging: Paging };
 }
 
 export default Vue.extend({
@@ -70,9 +77,11 @@ export default Vue.extend({
       limit: 10,
       total: 323,
     },
+    exported: { filter: [], sort: [], paging: { page: 1, limit: 10, total: 323 } },
   }),
   methods: {
     emit(value: any) {
+      this.exported = value;
       console.log('emit. ', value);
     },
   },
