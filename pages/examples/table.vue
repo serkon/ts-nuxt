@@ -36,8 +36,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Paging } from '~/modules/@timus/table/components/TnPagination.vue';
-import { Column, Filter, Sort, TnTableEmitOutput } from '~/modules/@timus/table/components/TnTable.vue';
+import { Column, Filter, Sort, TnTableEmitOutput } from '~/modules/@timus-networks/table/components/TnTable.vue';
 
 interface Data {
   tableColumns: Column[];

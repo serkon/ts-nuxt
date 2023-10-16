@@ -34,7 +34,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@/modules/@timus/table/module',
+    '@/modules/@timus-networks/table/module',
     '@nuxtjs/stylelint-module',
   ],
 
