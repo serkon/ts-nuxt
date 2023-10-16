@@ -4,9 +4,9 @@
       :data="tableData"
       :columns="tableColumns"
       :hide="[]"
-      :sort="tableSort"
-      :filter="tableFilter"
-      :paging="tablePaging"
+      :sort="tableOptions.sort"
+      :filter="tableOptions.filter"
+      :paging="tableOptions.paging"
       :select="[]"
       @event-filter="emit"
       @event-sort="emit"
@@ -29,7 +29,7 @@
     </TnTable>
 
     <pre class="exported mt-4 text-monospace bg-gray-50 p-2 rounded-md">
-      {{ exported }}
+      {{ tableOptions }}
     </pre>
   </div>
 </template>
@@ -37,16 +37,22 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Paging } from '~/modules/@timus/table/components/TnPagination.vue';
-import { Column, Filter, Sort } from '~/modules/@timus/table/components/TnTable.vue';
+import { Column, Filter, Sort, TnTableEmitOutput } from '~/modules/@timus/table/components/TnTable.vue';
 
 interface Data {
   tableColumns: Column[];
   tableData: any[];
-  tableFilter: Filter[];
-  tableSort: Sort[];
-  tablePaging: Paging;
-  exported: { filter: Filter[]; sort: Sort[]; paging: Paging };
+  tableOptions: TnTableEmitOutput;
 }
+
+const option: TnTableEmitOutput = {
+  filter: [{ field: 'surname', value: ['Konakcı'] }],
+  sort: [
+    { field: 'age', alignment: 'asc' },
+    { field: 'surname', alignment: 'desc' },
+  ],
+  paging: { page: 1, limit: 10, total: 323 },
+};
 
 export default Vue.extend({
   name: 'TableSample',
@@ -67,21 +73,11 @@ export default Vue.extend({
       { name: 'Serkan', surname: 'Konakcı', age: 43 },
       { name: 'Sarp', surname: 'Konakcı', age: 13 },
     ],
-    tableFilter: [{ field: 'surname', value: ['Konakcı'] }],
-    tableSort: [
-      { field: 'age', alignment: 'asc' },
-      { field: 'surname', alignment: 'desc' },
-    ],
-    tablePaging: {
-      page: 1,
-      limit: 10,
-      total: 323,
-    },
-    exported: { filter: [], sort: [], paging: { page: 1, limit: 10, total: 323 } },
+    tableOptions: option,
   }),
   methods: {
     emit(value: any) {
-      this.exported = value;
+      this.tableOptions = value;
       console.log('emit. ', value);
     },
   },

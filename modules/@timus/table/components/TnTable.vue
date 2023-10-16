@@ -70,6 +70,12 @@ export interface Data {
   pagination: Paging;
 }
 
+export interface TnTableEmitOutput {
+  sort: Sort[];
+  filter: Filter[];
+  paging: Paging;
+}
+
 /**
  * TnTable component
  *
