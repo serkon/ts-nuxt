@@ -1,12 +1,14 @@
 <template>
   <div class="pagination" v-if="pagination.total > pagination.limit">
     <div class="page-meta">
-      <span>{{ pagination.total }} records</span>
-      <!--<span>{{ pagination.page }} / {{ totalPages }}</span>-->
+      <span>Total {{ pagination.total }} Records</span>
+      <!--<span>{{ pagination.page }}/{{ totalPages }}</span>-->
     </div>
     <div class="pagination-actions">
-      <button @click="toFirstPage" :disabled="pagination.page <= 1" class="page-number page-number-first">1</button>
-      <button @click="prevPage" :disabled="pagination.page <= 1" class="page-number page-number-prev">&larr;</button>
+      <template v-if="totalPages > threshold * 2 + 1">
+        <button @click="toFirstPage" :disabled="pagination.page <= 1" class="page-number page-number-first">1</button>
+        <button @click="prevPage" :disabled="pagination.page <= 1" class="page-number page-number-prev">&larr;</button>
+      </template>
       <button
         v-for="pageNum in pagesToShow"
         :key="pageNum"
@@ -15,11 +17,13 @@
       >
         {{ pageNum }}
       </button>
-      <button @click="nextPage" :disabled="pagination.page >= totalPages" class="page-number page-number-next">&rarr;</button>
-      <button @click="toLastPage" :disabled="pagination.page >= totalPages" class="page-number page-number-last">{{ totalPages }}</button>
+      <template v-if="totalPages > threshold * 2 + 1">
+        <button @click="nextPage" :disabled="pagination.page >= totalPages" class="page-number page-number-next">&rarr;</button>
+        <button @click="toLastPage" :disabled="pagination.page >= totalPages" class="page-number page-number-last">{{ totalPages }}</button>
+      </template>
     </div>
     <div class="pagination-goto">
-      <span>Go to:</span>
+      <span>Go to</span>
       <input
         type="number"
         v-model="goToInput"
@@ -30,12 +34,12 @@
       />
     </div>
     <div class="paging-limits">
-      <span>Records per page:</span>
-      <select v-model="pageLimit" @change="emit" class="form-control form-control-sm">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
+      <span v-if="false">Records per page:</span>
+      <select v-model="pageLimit" @change="emit" class="pagination-limit form-control form-control-sm">
+        <option value="10">10/page</option>
+        <option value="20">20/page</option>
+        <option value="50">50/page</option>
+        <option value="100">100/page</option>
       </select>
     </div>
   </div>
@@ -83,14 +87,23 @@ export default Vue.extend({
       return Math.ceil(this.pagination.total / this.pagination.limit);
     },
     pagesToShow(): number[] {
-      let sp = this.pagination.page - this.threshold > 0 ? this.pagination.page - this.threshold : 1;
-      let limit = sp + this.threshold * 2 < this.totalPages ? this.threshold * 2 + 1 : this.totalPages - sp + 1;
-      if (limit < this.threshold * 2 + 1 && this.totalPages - this.threshold * 2 > 0) {
-        limit = this.threshold * 2 + 1;
-        sp = this.totalPages - limit + 1;
+      const { page } = this.pagination;
+      // Basit bir aralık oluşturmak için yardımcı fonksiyon
+      const range = (start: number, end: number) => Array.from({ length: end - start + 1 }, (_, index) => start + index);
+      // Eğer toplam sayfa sayısı threshold'un iki katından azsa tüm sayfaları göster
+      if (this.totalPages <= this.threshold * 2) {
+        return range(1, this.totalPages);
       }
-
-      return Array.from({ length: limit }, (_, index) => sp + index);
+      // Mevcut sayfa başlangıçta ise
+      if (page <= this.threshold) {
+        return range(1, this.threshold * 2 + 1);
+      }
+      // Mevcut sayfa sondaysa
+      if (page >= this.totalPages - this.threshold + 1) {
+        return range(this.totalPages - this.threshold * 2, this.totalPages);
+      }
+      // Mevcut sayfa ortadaysa
+      return range(page - this.threshold, page + this.threshold);
     },
   },
   methods: {
@@ -125,30 +138,18 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .pagination {
   display: flex;
   align-items: center;
-  padding: 6px 0;
+  padding: 16px 0;
   font-size: 14px;
-  gap: 24px;
+  gap: 16px;
 
   .page-meta {
     flex-grow: 1;
     margin-right: 10px;
     color: #606266;
-  }
-
-  .pagination-goto {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-
-    .pagination-goto-input {
-      width: 50px;
-      text-align: center;
-      @apply form-control form-control-sm;
-    }
   }
 
   .pagination-actions {
@@ -163,6 +164,18 @@ export default Vue.extend({
 
     .page-active {
       @apply btn-xs btn-primary;
+    }
+  }
+
+  .pagination-goto {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    .pagination-goto-input {
+      width: 50px;
+      text-align: center;
+      @apply form-control form-control-sm;
     }
   }
 }

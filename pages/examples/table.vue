@@ -21,10 +21,10 @@
       <template #filter.surname />
       <template #column.surname><button>...</button></template>
       <template #column.name><button>...</button></template>
+      <template #column="scope">{{ scope.row }}</template>
     -->
     <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">{{ scope.row[column.field] }}</template>
     <template #column.actions><button class="btn btn-sm btn-primary-outline">...</button></template>
-    <template #column="scope">{{ scope.row }}</template>
   </TnTable>
 </template>
 
