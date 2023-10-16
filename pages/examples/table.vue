@@ -47,10 +47,7 @@ interface Data {
 
 const option: TnTableEmitOutput = {
   filter: [{ field: 'surname', value: ['Konakcı'] }],
-  sort: [
-    { field: 'age', alignment: 'asc' },
-    { field: 'surname', alignment: 'desc' },
-  ],
+  sort: [{ field: 'age', alignment: 'asc' }],
   paging: { page: 1, limit: 10, total: 323 },
 };
 
