@@ -1,7 +1,7 @@
 <template>
   <th v-if="!hide.includes(column.field)" class="filter">
     <slot v-bind="{ index, column, hide, filter }">
-      <input class="input-filter border" v-model="filter" type="text" v-if="dFilter.type === 'text'" />
+      <input class="filter-input" v-model="filter" type="text" v-if="dFilter.type === 'text'" />
     </slot>
   </th>
 </template>
@@ -66,8 +66,11 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="scss">
-.input-filter {
-  width: 100%;
+<style lang="scss" scoped>
+.filter {
+  input {
+    width: 100%;
+    @apply form-control form-control-sm;
+  }
 }
 </style>

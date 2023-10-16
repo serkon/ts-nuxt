@@ -1,11 +1,8 @@
 <template>
   <div class="pagination" v-if="pagination.total > pagination.limit">
     <div class="page-meta">
-      <span>{{ pagination.page }} / {{ totalPages }}</span>
-    </div>
-    <div class="pagination-goto">
-      <span>Go to:</span>
-      <input type="number" v-model="goToInput" @keyup.enter="goToPage(goToInput)" class="pagination-goto-input" :min="1" :max="totalPages" />
+      <span>{{ pagination.total }} records</span>
+      <!--<span>{{ pagination.page }} / {{ totalPages }}</span>-->
     </div>
     <div class="pagination-actions">
       <button @click="toFirstPage" :disabled="pagination.page <= 1" class="page-number page-number-first">1</button>
@@ -20,6 +17,26 @@
       </button>
       <button @click="nextPage" :disabled="pagination.page >= totalPages" class="page-number page-number-next">&rarr;</button>
       <button @click="toLastPage" :disabled="pagination.page >= totalPages" class="page-number page-number-last">{{ totalPages }}</button>
+    </div>
+    <div class="pagination-goto">
+      <span>Go to:</span>
+      <input
+        type="number"
+        v-model="goToInput"
+        @keyup.enter="goToPage(goToInput)"
+        class="form-control form-control-sm pagination-goto-input"
+        :min="1"
+        :max="totalPages"
+      />
+    </div>
+    <div class="paging-limits">
+      <span>Records per page:</span>
+      <select v-model="pageLimit" @change="emit" class="form-control form-control-sm">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
     </div>
   </div>
 </template>
@@ -47,16 +64,33 @@ export default Vue.extend({
       },
     };
   },
+  watch: {
+    'pagination.page'(newPage) {
+      this.goToInput = newPage;
+    },
+  },
   computed: {
+    pageLimit: {
+      get(): number {
+        return this.pagination.limit;
+      },
+      set(limit: number) {
+        this.pagination.limit = limit;
+        this.pagination.page = this.pagination.page > this.totalPages ? this.totalPages : this.pagination.page;
+      },
+    },
     totalPages(): number {
       return Math.ceil(this.pagination.total / this.pagination.limit);
     },
     pagesToShow(): number[] {
-      const startPage = Math.max(1, this.pagination.page - this.threshold);
-      const endPage = Math.min(this.totalPages, this.pagination.page + this.threshold);
-      const limit = endPage - startPage + 1; // +1 to include startPage
-      const start = startPage > endPage - this.threshold * 2 && startPage - this.threshold * 2 > 0 ? endPage - this.threshold * 2 : startPage;
-      return Array.from({ length: this.threshold * 2 < limit ? limit : this.threshold * 2 + 1 }, (_, index) => start + index);
+      let sp = this.pagination.page - this.threshold > 0 ? this.pagination.page - this.threshold : 1;
+      let limit = sp + this.threshold * 2 < this.totalPages ? this.threshold * 2 + 1 : this.totalPages - sp + 1;
+      if (limit < this.threshold * 2 + 1 && this.totalPages - this.threshold * 2 > 0) {
+        limit = this.threshold * 2 + 1;
+        sp = this.totalPages - limit + 1;
+      }
+
+      return Array.from({ length: limit }, (_, index) => sp + index);
     },
   },
   methods: {
@@ -83,7 +117,6 @@ export default Vue.extend({
     goToPage(pageNum: number) {
       const pNumber = Number(pageNum);
       this.pagination.page = pNumber < 1 ? 1 : pNumber > this.totalPages ? this.totalPages : pNumber;
-      this.goToInput = this.pagination.page;
       this.emit();
     },
     emit() {
@@ -109,10 +142,12 @@ export default Vue.extend({
   .pagination-goto {
     display: flex;
     gap: 6px;
+    align-items: center;
 
     .pagination-goto-input {
       width: 50px;
       text-align: center;
+      @apply form-control form-control-sm;
     }
   }
 
