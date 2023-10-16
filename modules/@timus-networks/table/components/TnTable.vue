@@ -37,7 +37,7 @@ export interface Column {
   field: string;
   label: string;
   width?: string;
-  filter?: FilterConfig;
+  filterConfig?: FilterConfig;
 }
 
 export interface Sort {
@@ -53,7 +53,7 @@ export interface Filter {
 export interface FilterConfig {
   options?: FilterOption[];
   type?: 'text' | 'dropdown' | 'checkbox';
-  mutli?: boolean;
+  multi?: boolean;
   callback?: (value: any) => void;
   disable?: boolean;
 }

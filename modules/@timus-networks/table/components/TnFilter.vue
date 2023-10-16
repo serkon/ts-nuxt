@@ -1,7 +1,7 @@
 <template>
-  <th v-if="!hide.includes(column.field)" class="filter">
-    <slot v-bind="{ index, column, hide, filter }">
-      <input class="filter-input" v-model="filter" type="text" v-if="dFilter.type === 'text'" />
+  <th v-if="!hide.includes(column.field)" class="filter" :style="{ width: column.width }">
+    <slot v-bind="{ index, column, hide, filter }" v-if="!mergedFilter.disable">
+      <input class="filter-input" v-model="filter" type="text" v-if="mergedFilter.type === 'text'" />
     </slot>
   </th>
 </template>
@@ -13,11 +13,11 @@ import { Column, Filter, FilterConfig, Sort } from './TnTable.vue';
 import { utils } from './utils';
 
 interface Data {
-  dFilter: FilterConfig;
+  mergedFilter: FilterConfig;
 }
 
 export default Vue.extend({
-  name: 'TnRow',
+  name: 'TnFilter',
   props: {
     column: {
       type: Object as PropType<Column>,
@@ -38,12 +38,13 @@ export default Vue.extend({
   },
   data(): Data {
     return {
-      dFilter: {
+      mergedFilter: {
         options: [],
         type: 'text',
-        mutli: false,
+        multi: false,
         callback: (value: any) => console.log('Filter:', value, this),
         disable: false,
+        ...this.$props.column.filterConfig,
       },
     };
   },
@@ -57,7 +58,7 @@ export default Vue.extend({
       },
       set(value: any | any[]) {
         utils.debounce(() => {
-          const newValue = value ? (!this.dFilter.mutli ? [value] : value) : [];
+          const newValue = value ? (!this.mergedFilter.multi ? [value] : value) : [];
           const updated: Filter = { field: this.column.field, value: newValue };
           this.$emit('event-filter', updated);
         }, 500)();

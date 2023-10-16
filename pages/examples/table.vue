@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Column, Filter, Sort, TnTableEmitOutput } from '~/modules/@timus-networks/table/components/TnTable.vue';
+import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table/components/TnTable.vue';
 
 interface Data {
   tableColumns: Column[];
@@ -59,11 +59,11 @@ export default Vue.extend({
         label: 'Name',
         width: '200',
         // TODO: filter type'a göre filtreleme component'leri eklenecek
-        filter: { options: [{ label: 'John', value: 'user-001' }], type: 'dropdown', mutli: true },
+        filterConfig: { options: [{ label: 'John', value: 'user-001' }], type: 'text', multi: false },
       },
       { field: 'age', label: 'Age' },
       { field: 'surname', label: 'Surname' },
-      { field: 'actions', label: 'Actions' },
+      { field: 'actions', label: 'Actions', filterConfig: { disable: true } },
     ],
     tableData: [
       { name: 'Serkan', surname: 'Konakcı', age: 43 },
