@@ -20,64 +20,145 @@ Installation
 ```
 
 Usage Example:
-
-```html
 Simple: Just add `data` and `columns` attribute, it be handled will handle with minimum requirement
 
+Simple:
+
+```html
 <template>
   <TnTable :data="tableData" :columns="columns" />
 </template>
+```
 
 Detailed:
 
+```vue
 <template>
-  <TnTable
-    :data="tableData"
-    :columns="columns"
-    :hide="[]"
-    :sort="[]"
-    :filter="[]"
-    :pagination="[]"
-    :select="[]"
-    @event-filter="filterEmit"
-    @event-sort="sortEmit"
-    @event-select="selectEmit"
-    @event-pagination="paginationEmit"
-    @event="changed"
-  >
-    <template #head.name="scope">Name</template>
-    <template #head.surname="scope">Patates</template>
-    <template #filter.surname="scope" />
-    <template #filter="scope">general</template>
-    <template #column="scope">{{ scope.row[scope.field] }} {{ scope.row.age < 20 ? '↓' : '↑' }}</template>
-    <template #column.surname="scope"> <button>...</button> </template>
-    <template #column.name="scope"> <button>...</button> </template>
-    <template v-for="column in columns" #[`column.${column.field}`]="scope">444{{ scope.row[column.field] }}</template>
-  </TnTable>
+  <div class="table-sample-page">
+    <div>
+      <h1 class="text-3xl font-bold w-full mb-4">Table Component Sample</h1>
+    </div>
+
+    <TnTable
+      :data="tableData"
+      :columns="tableColumns"
+      :hide="[]"
+      :sort="tableOptions.sort"
+      :filter="tableOptions.filter"
+      :paging="tableOptions.paging"
+      :select="[]"
+      @event-filter="emit"
+      @event-sort="emit"
+      @event-select="emit"
+      @event-pagination="emit"
+      @event="emit"
+    >
+      <!--
+      <template #head.name>Name</template>
+      <template #head.surname>Patates</template>
+      <template #head.age>sad</template>
+      template #filter.name>general</template>
+      <template #filter.surname />
+      <template #column.surname><button>...</button></template>
+      <template #column.name><button>...</button></template>
+      <template #column="scope">{{ scope.row }}</template>
+    -->
+      <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">{{ scope.row[column.field] }}</template>
+      <template #column.married="scope">
+        <span :class="scope.row.married ? 'text-green-500' : 'text-red-500'">{{ scope.row.married ? 'Married' : 'Single' }}</span>
+      </template>
+    </TnTable>
+
+    <pre class="exported mt-4 text-monospace bg-gray-50 p-2 rounded-md">
+      {{ tableOptions }}
+    </pre>
+  </div>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
+import Vue from 'vue';
+import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table/components/TnTable.vue';
 
-  export default Vue.extend({
-    name: 'TableSample',
-    data: () => ({
-      columns: [
-        { field: 'name', label: 'Name', width: '200', filter: { data: ['11', '123', '1234'], type: 'dropdown', mutli: true } },
-        { field: 'age', label: 'Age' },
-        { field: 'surname', label: 'Surname' },
-      ],
-      tableData: [
-        { name: 'Serkan', surname: 'Konakcı', age: 43 },
-        { name: 'Sarp', surname: 'Konakcı', age: 13 },
-      ],
-    }),
-  });
+const Hollywood = [
+  {
+    name: 'Johnny',
+    surname: 'Depp',
+    age: 58,
+    birthday: '1963-06-09',
+    horoscope: 'İkizler',
+    height: '178cm',
+    weight: '70kg',
+    married: false,
+  },
+  {
+    name: 'Sandra',
+    surname: 'Bullock',
+    age: 57,
+    birthday: '1964-07-26',
+    horoscope: 'Aslan',
+    height: '171cm',
+    weight: '54kg',
+    married: true,
+  },
+];
+
+interface Data {
+  tableColumns: Column[];
+  tableData: any[];
+  tableOptions: TnTableEmitOutput;
+}
+
+const option: TnTableEmitOutput = {
+  filter: [
+    { field: 'surname', value: 'Johansson' },
+    {
+      field: 'name',
+      value: ['user-001', 'user-002', 'user-003'],
+    },
+  ],
+  sort: [{ field: 'age', alignment: 'asc' }],
+  paging: { page: 1, limit: 10, total: 323 },
+};
+
+export default Vue.extend({
+  name: 'TableSample',
+  data: (): Data => ({
+    tableColumns: [
+      {
+        field: 'name',
+        label: 'Name',
+        width: '220px',
+        // TODO: filter type'a göre filtreleme component'leri eklenecek
+        filterConfig: {
+          options: [
+            { label: 'John Travolta', value: 'user-001' },
+            { label: 'Scarlett Johansson', value: 'user-002' },
+            { label: 'İlyas Salman', value: 'user-003' },
+          ],
+          type: 'select',
+          multi: true,
+          disable: false,
+        },
+      },
+      { field: 'surname', label: 'Surname' },
+      { field: 'age', label: 'Age', width: '200px' },
+      { field: 'height', label: 'Height' },
+      { field: 'weight', label: 'Weight' },
+      { field: 'horoscope', label: 'Horoscope' },
+      { field: 'birthday', label: 'Birthday' },
+      { field: 'married', label: 'Married' },
+    ],
+    tableData: Hollywood,
+    tableOptions: option,
+  }),
+  methods: {
+    emit(value: any) {
+      this.tableOptions = value;
+      console.log('emit. ', value);
+    },
+  },
+});
 </script>
-```
-
-```
-
 ```
 
 ### Filtering
