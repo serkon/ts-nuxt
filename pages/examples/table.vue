@@ -1,5 +1,9 @@
 <template>
   <div class="table-sample-page">
+    <div>
+      <h1 class="text-3xl font-bold w-full mb-4">Table Component Sample</h1>
+    </div>
+
     <TnTable
       :data="tableData"
       :columns="tableColumns"
@@ -42,10 +46,18 @@ interface Data {
   tableColumns: Column[];
   tableData: any[];
   tableOptions: TnTableEmitOutput;
+  options?: any[];
+  value4?: string;
 }
 
 const option: TnTableEmitOutput = {
-  filter: [{ field: 'surname', value: ['Konakcı'] }],
+  filter: [
+    { field: 'surname', value: 'Konakcı' },
+    {
+      field: 'name',
+      value: ['user-001', 'user-002', 'user-003'],
+    },
+  ],
   sort: [{ field: 'age', alignment: 'asc' }],
   paging: { page: 1, limit: 10, total: 323 },
 };
@@ -59,7 +71,16 @@ export default Vue.extend({
         label: 'Name',
         width: '200',
         // TODO: filter type'a göre filtreleme component'leri eklenecek
-        filterConfig: { options: [{ label: 'John', value: 'user-001' }], type: 'text', multi: false },
+        filterConfig: {
+          options: [
+            { label: 'John', value: 'user-001' },
+            { label: 'Jessica', value: 'user-002' },
+            { label: 'Alba', value: 'user-003' },
+          ],
+          type: 'select',
+          multi: true,
+          disable: false,
+        },
       },
       { field: 'age', label: 'Age' },
       { field: 'surname', label: 'Surname' },
@@ -70,6 +91,29 @@ export default Vue.extend({
       { name: 'Sarp', surname: 'Konakcı', age: 13 },
     ],
     tableOptions: option,
+    options: [
+      {
+        value: 'Option1',
+        label: 'Option1',
+      },
+      {
+        value: 'Option2',
+        label: 'Option2',
+      },
+      {
+        value: 'Option3',
+        label: 'Option3',
+      },
+      {
+        value: 'Option4',
+        label: 'Option4',
+      },
+      {
+        value: 'Option5',
+        label: 'Option5',
+      },
+    ],
+    value4: '',
   }),
   methods: {
     emit(value: any) {

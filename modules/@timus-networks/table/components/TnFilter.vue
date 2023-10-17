@@ -1,7 +1,45 @@
 <template>
   <th v-if="!hide.includes(column.field)" class="filter" :style="{ width: column.width }">
     <slot v-bind="{ index, column, hide, filter }" v-if="!mergedFilter.disable">
-      <input class="filter-input" v-model="filter" type="text" v-if="mergedFilter.type === 'text'" />
+      <!--
+        <input
+          class="filter-input"
+          v-model="filter"
+          type="text"
+          v-if="mergedFilter.type === 'text' && !mergedFilter.options?.length"
+          @input="testChanged"
+        />
+      -->
+      <el-input
+        v-if="mergedFilter.type === 'text' && !mergedFilter.options?.length"
+        clearable
+        v-model="filter"
+        placeholder="Please input"
+        size="small"
+        @input="testChanged"
+        class="w-full"
+      />
+      <!--
+        <select clearable placeholder="Select" v-model="filter" v-if="mergedFilter.type === 'select'">
+          <option v-for="option in mergedFilter.options" :key="option.value" :value="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+      -->
+      <el-select
+        v-if="mergedFilter.type === 'select'"
+        v-model="filter"
+        clearable
+        collapse-tags
+        filterable
+        size="small"
+        placeholder="Select"
+        :multiple="mergedFilter.multi"
+        @change="testChanged"
+        class="w-full"
+      >
+        <el-option v-for="item in mergedFilter.options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+      </el-select>
     </slot>
   </th>
 </template>
@@ -13,6 +51,7 @@ import { Column, Filter, FilterConfig, Sort } from './TnTable.vue';
 import { utils } from './utils';
 
 interface Data {
+  filter: string | string[];
   mergedFilter: FilterConfig;
 }
 
@@ -38,6 +77,7 @@ export default Vue.extend({
   },
   data(): Data {
     return {
+      filter: '',
       mergedFilter: {
         options: [],
         type: 'text',
@@ -48,28 +88,30 @@ export default Vue.extend({
       },
     };
   },
+  methods: {
+    testChanged(value: any) {
+      utils.debounce(() => {
+        const newValue = value;
+        console.log('Filter:', newValue);
+        const updated: Filter = { field: this.column.field, value: newValue };
+        this.$emit('event-filter', updated);
+      }, 500)();
+    },
+  },
+  mounted() {
+    this.filter = this.item?.value ?? '';
+  },
   computed: {
     item() {
-      return this.filtering.find((item) => item.field === this.column.field);
-    },
-    filter: {
-      get(): Filter | [] {
-        return this.item?.value[0] ?? [];
-      },
-      set(value: any | any[]) {
-        utils.debounce(() => {
-          const newValue = value ? (!this.mergedFilter.multi ? [value] : value) : [];
-          const updated: Filter = { field: this.column.field, value: newValue };
-          this.$emit('event-filter', updated);
-        }, 500)();
-      },
+      return this.filtering.find((item: Filter) => item.field === this.column.field);
     },
   },
 });
 </script>
 <style lang="scss" scoped>
 .filter {
-  input {
+  input,
+  select {
     width: 100%;
     @apply form-control form-control-sm;
   }

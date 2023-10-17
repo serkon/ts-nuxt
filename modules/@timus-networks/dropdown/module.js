@@ -3,7 +3,7 @@ import PackageJson from './package.json';
 
 export default function(moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
-    console.log('TnTable is ready');
+    console.log('TnDropdown is ready');
   });
 
   // get all options for the module

@@ -10,23 +10,25 @@ $input-config: (
 
 // #### Generate Size Classes
 .form-control {
-  border: 1px solid var(--#{$prefix}brand-100);
+  border: 1px solid var(--brand-100);
   border-radius: 4px;
-  color: var(--#{$prefix}secondary-500);
-  font-family: var(--#{$prefix}font-family);
+  color: var(--secondary-500);
+  font-family: var(--font-family);
+  font-weight: 400;
   text-overflow: ellipsis;
   white-space: nowrap;
   @each $size, $value in $input-config {
     &-#{$size} {
       @extend %icon-#{$size};
       @each $prop-name, $prop-value in $value {
-        --#{$prefix}btn-#{$size}-#{$prop-name}: #{$prop-value};
-        #{$prop-name}: var(--#{$prefix}btn-#{$size}-#{$prop-name});
+        --btn-#{$size}-#{$prop-name}: #{$prop-value};
+        #{$prop-name}: var(--btn-#{$size}-#{$prop-name});
       }
     }
   }
 
-  &:focus {
+  &:focus-visible {
+    border: 1px solid var(--brand-300);
     color: var(--secondary-500);
     // @extend :focus-visible;
   }

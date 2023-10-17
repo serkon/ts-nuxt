@@ -8,7 +8,11 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['element-ui/lib/theme-chalk/index.css', '@/assets/scss/main.scss'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+     '@/assets/scss/main.scss',
+    // '~/assets/tailwind.css'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['@/plugins/element-ui', '@/plugins/directives', '@/plugins/globals'],
@@ -35,13 +39,14 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@/modules/@timus-networks/table/module',
+    '@/modules/@timus-networks/dropdown/module',
     '@nuxtjs/stylelint-module',
   ],
 
   '@timus-networks/table': { server: false },
   tailwindcss: {
     cssPath: '~/assets/scss/main.scss',
-    configPath: 'tailwind.config',
+    configPath: '@/tailwind.config.js',
     exposeConfig: false,
     exposeLevel: 2,
     config: {},

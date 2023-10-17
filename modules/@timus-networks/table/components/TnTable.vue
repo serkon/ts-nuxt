@@ -47,12 +47,12 @@ export interface Sort {
 
 export interface Filter {
   field: string;
-  value: any[];
+  value: string | string[];
 }
 
 export interface FilterConfig {
   options?: FilterOption[];
-  type?: 'text' | 'dropdown' | 'checkbox';
+  type?: 'text' | 'dropdown' | 'select';
   multi?: boolean;
   callback?: (value: any) => void;
   disable?: boolean;
