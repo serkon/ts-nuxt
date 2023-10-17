@@ -1,0 +1,562 @@
+[
+  {
+    "name": "John",
+    "surname": "Travolta",
+    "age": 65,
+    "birthday": "1954-02-18",
+    "horoscope": "Kova",
+    "height": "188cm",
+    "weight": "90kg",
+    "married": true
+  },
+  {
+    "name": "Nicole",
+    "surname": "Kidman",
+    "age": 53,
+    "birthday": "1967-06-20",
+    "horoscope": "İkizler",
+    "height": "180cm",
+    "weight": "60kg",
+    "married": true
+  },
+  {
+    "name": "Leonardo",
+    "surname": "DiCaprio",
+    "age": 46,
+    "birthday": "1974-11-11",
+    "horoscope": "Akrep",
+    "height": "183cm",
+    "weight": "75kg",
+    "married": false
+  },
+  {
+    "name": "Angelina",
+    "surname": "Jolie",
+    "age": 45,
+    "birthday": "1975-06-04",
+    "horoscope": "İkizler",
+    "height": "169cm",
+    "weight": "54kg",
+    "married": false
+  },
+  {
+    "name": "Tom",
+    "surname": "Cruise",
+    "age": 58,
+    "birthday": "1962-07-03",
+    "horoscope": "Yengeç",
+    "height": "170cm",
+    "weight": "68kg",
+    "married": true
+  },
+  {
+    "name": "Julia",
+    "surname": "Roberts",
+    "age": 53,
+    "birthday": "1967-10-28",
+    "horoscope": "Akrep",
+    "height": "175cm",
+    "weight": "58kg",
+    "married": true
+  },
+  {
+    "name": "Brad",
+    "surname": "Pitt",
+    "age": 57,
+    "birthday": "1963-12-18",
+    "horoscope": "Yay",
+    "height": "180cm",
+    "weight": "78kg",
+    "married": true
+  },
+  {
+    "name": "Jennifer",
+    "surname": "Aniston",
+    "age": 52,
+    "birthday": "1969-02-11",
+    "horoscope": "Kova",
+    "height": "164cm",
+    "weight": "53kg",
+    "married": false
+  },
+  {
+    "name": "Johnny",
+    "surname": "Depp",
+    "age": 58,
+    "birthday": "1963-06-09",
+    "horoscope": "İkizler",
+    "height": "178cm",
+    "weight": "70kg",
+    "married": false
+  },
+  {
+    "name": "Sandra",
+    "surname": "Bullock",
+    "age": 57,
+    "birthday": "1964-07-26",
+    "horoscope": "Aslan",
+    "height": "171cm",
+    "weight": "54kg",
+    "married": true
+  },
+  {
+    "name": "Chris",
+    "surname": "Hemsworth",
+    "age": 38,
+    "birthday": "1983-08-11",
+    "horoscope": "Aslan",
+    "height": "190cm",
+    "weight": "95kg",
+    "married": true
+  },
+  {
+    "name": "Emma",
+    "surname": "Stone",
+    "age": 33,
+    "birthday": "1988-11-06",
+    "horoscope": "Akrep",
+    "height": "168cm",
+    "weight": "60kg",
+    "married": false
+  },
+  {
+    "name": "Ryan",
+    "surname": "Reynolds",
+    "age": 45,
+    "birthday": "1976-10-23",
+    "horoscope": "Akrep",
+    "height": "188cm",
+    "weight": "84kg",
+    "married": true
+  },
+  {
+    "name": "Scarlett",
+    "surname": "Johansson",
+    "age": 37,
+    "birthday": "1984-11-22",
+    "horoscope": "Yay",
+    "height": "160cm",
+    "weight": "57kg",
+    "married": true
+  },
+  {
+    "name": "Michael",
+    "surname": "Jordan",
+    "age": 59,
+    "birthday": "1963-02-17",
+    "horoscope": "Kova",
+    "height": "198cm",
+    "weight": "98kg",
+    "married": true
+  },
+  {
+    "name": "Cate",
+    "surname": "Blanchett",
+    "age": 53,
+    "birthday": "1969-05-14",
+    "horoscope": "Boğa",
+    "height": "174cm",
+    "weight": "59kg",
+    "married": true
+  },
+  {
+    "name": "Tom",
+    "surname": "Hanks",
+    "age": 66,
+    "birthday": "1956-07-09",
+    "horoscope": "Yengeç",
+    "height": "183cm",
+    "weight": "80kg",
+    "married": true
+  },
+  {
+    "name": "Natalie",
+    "surname": "Portman",
+    "age": 41,
+    "birthday": "1981-06-09",
+    "horoscope": "İkizler",
+    "height": "160cm",
+    "weight": "50kg",
+    "married": true
+  },
+  {
+    "name": "Will",
+    "surname": "Smith",
+    "age": 54,
+    "birthday": "1968-09-25",
+    "horoscope": "Terazi",
+    "height": "188cm",
+    "weight": "82kg",
+    "married": true
+  },
+  {
+    "name": "Kate",
+    "surname": "Winslet",
+    "age": 47,
+    "birthday": "1975-10-05",
+    "horoscope": "Terazi",
+    "height": "170cm",
+    "weight": "63kg",
+    "married": true
+  },
+  {
+    "name": "Hugh",
+    "surname": "Jackman",
+    "age": 54,
+    "birthday": "1968-10-12",
+    "horoscope": "Terazi",
+    "height": "188cm",
+    "weight": "82kg",
+    "married": true
+  },
+  {
+    "name": "Robert",
+    "surname": "Downey Jr.",
+    "age": 57,
+    "birthday": "1965-04-04",
+    "horoscope": "Koç",
+    "height": "174cm",
+    "weight": "78kg",
+    "married": true
+  },
+  {
+    "name": "Meryl",
+    "surname": "Streep",
+    "age": 72,
+    "birthday": "1949-06-22",
+    "horoscope": "Yengeç",
+    "height": "168cm",
+    "weight": "63kg",
+    "married": true
+  },
+  {
+    "name": "Dwayne",
+    "surname": "Johnson",
+    "age": 49,
+    "birthday": "1972-05-02",
+    "horoscope": "Boğa",
+    "height": "196cm",
+    "weight": "119kg",
+    "married": true
+  },
+  {
+    "name": "Charlize",
+    "surname": "Theron",
+    "age": 46,
+    "birthday": "1975-08-07",
+    "horoscope": "Aslan",
+    "height": "177cm",
+    "weight": "55kg",
+    "married": false
+  },
+  {
+    "name": "Keanu",
+    "surname": "Reeves",
+    "age": 57,
+    "birthday": "1964-09-02",
+    "horoscope": "Başak",
+    "height": "186cm",
+    "weight": "84kg",
+    "married": false
+  },
+  {
+    "name": "Anne",
+    "surname": "Hathaway",
+    "age": 39,
+    "birthday": "1982-11-12",
+    "horoscope": "Akrep",
+    "height": "170cm",
+    "weight": "56kg",
+    "married": true
+  },
+  {
+    "name": "George",
+    "surname": "Clooney",
+    "age": 60,
+    "birthday": "1961-05-06",
+    "horoscope": "Boğa",
+    "height": "180cm",
+    "weight": "78kg",
+    "married": true
+  },
+  {
+    "name": "Harrison",
+    "surname": "Ford",
+    "age": 79,
+    "birthday": "1942-07-13",
+    "horoscope": "Yengeç",
+    "height": "185cm",
+    "weight": "85kg",
+    "married": true
+  },
+  {
+    "name": "Mila",
+    "surname": "Kunis",
+    "age": 38,
+    "birthday": "1983-08-14",
+    "horoscope": "Aslan",
+    "height": "163cm",
+    "weight": "52kg",
+    "married": true
+  },
+  {
+    "name": "Matthew",
+    "surname": "McConaughey",
+    "age": 52,
+    "birthday": "1969-11-04",
+    "horoscope": "Akrep",
+    "height": "182cm",
+    "weight": "82kg",
+    "married": true
+  },
+  {
+    "name": "Jennifer",
+    "surname": "Lawrence",
+    "age": 31,
+    "birthday": "1990-08-15",
+    "horoscope": "Aslan",
+    "height": "175cm",
+    "weight": "63kg",
+    "married": true
+  },
+  {
+    "name": "Chris",
+    "surname": "Evans",
+    "age": 41,
+    "birthday": "1981-06-13",
+    "horoscope": "İkizler",
+    "height": "184cm",
+    "weight": "85kg",
+    "married": false
+  },
+  {
+    "name": "Halle",
+    "surname": "Berry",
+    "age": 55,
+    "birthday": "1966-08-14",
+    "horoscope": "Aslan",
+    "height": "166cm",
+    "weight": "55kg",
+    "married": false
+  },
+  {
+    "name": "Daniel",
+    "surname": "Craig",
+    "age": 53,
+    "birthday": "1968-03-02",
+    "horoscope": "Balık",
+    "height": "178cm",
+    "weight": "78kg",
+    "married": true
+  },
+  {
+    "name": "Angelina",
+    "surname": "Jolie",
+    "age": 46,
+    "birthday": "1975-06-04",
+    "horoscope": "İkizler",
+    "height": "169cm",
+    "weight": "54kg",
+    "married": false
+  },
+  {
+    "name": "Christian",
+    "surname": "Bale",
+    "age": 48,
+    "birthday": "1974-01-30",
+    "horoscope": "Kova",
+    "height": "183cm",
+    "weight": "83kg",
+    "married": true
+  },
+  {
+    "name": "Natalie",
+    "surname": "Portman",
+    "age": 41,
+    "birthday": "1981-06-09",
+    "horoscope": "İkizler",
+    "height": "160cm",
+    "weight": "50kg",
+    "married": true
+  },
+  {
+    "name": "Tom",
+    "surname": "Hardy",
+    "age": 44,
+    "birthday": "1977-09-15",
+    "horoscope": "Başak",
+    "height": "175cm",
+    "weight": "76kg",
+    "married": true
+  },
+  {
+    "name": "Chris",
+    "surname": "Pratt",
+    "age": 42,
+    "birthday": "1979-06-21",
+    "horoscope": "Yengeç",
+    "height": "188cm",
+    "weight": "83kg",
+    "married": true
+  },
+  {
+    "name": "Eva",
+    "surname": "Green",
+    "age": 41,
+    "birthday": "1980-07-05",
+    "horoscope": "Kanser",
+    "height": "168cm",
+    "weight": "54kg",
+    "married": false
+  },
+  {
+    "name": "Mark",
+    "surname": "Ruffalo",
+    "age": 54,
+    "birthday": "1967-11-22",
+    "horoscope": "Yay",
+    "height": "173cm",
+    "weight": "70kg",
+    "married": true
+  },
+  {
+    "name": "Amanda",
+    "surname": "Seyfried",
+    "age": 36,
+    "birthday": "1985-12-03",
+    "horoscope": "Yay",
+    "height": "159cm",
+    "weight": "49kg",
+    "married": true
+  },
+  {
+    "name": "Denzel",
+    "surname": "Washington",
+    "age": 67,
+    "birthday": "1954-12-28",
+    "horoscope": "Oğlak",
+    "height": "184cm",
+    "weight": "86kg",
+    "married": true
+  },
+  {
+    "name": "Keira",
+    "surname": "Knightley",
+    "age": 37,
+    "birthday": "1985-03-26",
+    "horoscope": "Koç",
+    "height": "170cm",
+    "weight": "54kg",
+    "married": true
+  },
+  {
+    "name": "Ben",
+    "surname": "Affleck",
+    "age": 49,
+    "birthday": "1972-08-15",
+    "horoscope": "Aslan",
+    "height": "192cm",
+    "weight": "102kg",
+    "married": true
+  },
+  {
+    "name": "Emma",
+    "surname": "Watson",
+    "age": 32,
+    "birthday": "1990-04-15",
+    "horoscope": "Koç",
+    "height": "165cm",
+    "weight": "53kg",
+    "married": false
+  },
+  {
+    "name": "Zac",
+    "surname": "Efron",
+    "age": 34,
+    "birthday": "1987-10-18",
+    "horoscope": "Terazi",
+    "height": "173cm",
+    "weight": "75kg",
+    "married": false
+  },
+  {
+    "name": "Penélope",
+    "surname": "Cruz",
+    "age": 47,
+    "birthday": "1974-04-28",
+    "horoscope": "Boğa",
+    "height": "168cm",
+    "weight": "62kg",
+    "married": true
+  },
+  {
+    "name": "Chris",
+    "surname": "Hemsworth",
+    "age": 38,
+    "birthday": "1983-08-11",
+    "horoscope": "Aslan",
+    "height": "190cm",
+    "weight": "95kg",
+    "married": true
+  },
+  {
+    "name": "Margot",
+    "surname": "Robbie",
+    "age": 31,
+    "birthday": "1990-07-02",
+    "horoscope": "Yengeç",
+    "height": "168cm",
+    "weight": "57kg",
+    "married": true
+  },
+  {
+    "name": "Chris",
+    "surname": "Rock",
+    "age": 57,
+    "birthday": "1965-02-07",
+    "horoscope": "Kova",
+    "height": "183cm",
+    "weight": "82kg",
+    "married": true
+  },
+  {
+    "name": "Jennifer",
+    "surname": "Garner",
+    "age": 49,
+    "birthday": "1972-04-17",
+    "horoscope": "Koç",
+    "height": "173cm",
+    "weight": "61kg",
+    "married": true
+  },
+  {
+    "name": "Javier",
+    "surname": "Bardem",
+    "age": 52,
+    "birthday": "1969-03-01",
+    "horoscope": "Balık",
+    "height": "180cm",
+    "weight": "77kg",
+    "married": true
+  },
+  {
+    "name": "Adele",
+    "surname": "Adkins",
+    "age": 33,
+    "birthday": "1988-05-05",
+    "horoscope": "Boğa",
+    "height": "175cm",
+    "weight": "70kg",
+    "married": true
+  },
+  {
+    "name": "Liam",
+    "surname": "Neeson",
+    "age": 69,
+    "birthday": "1952-06-07",
+    "horoscope": "İkizler",
+    "height": "193cm",
+    "weight": "96kg",
+    "married": true
+  }
+]

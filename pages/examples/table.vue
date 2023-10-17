@@ -29,7 +29,9 @@
       <template #column="scope">{{ scope.row }}</template>
     -->
       <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">{{ scope.row[column.field] }}</template>
-      <template #column.actions><button class="btn btn-sm btn-primary-outline">...</button></template>
+      <template #column.married="scope">
+        <span :class="scope.row.married ? 'text-green-500' : 'text-red-500'">{{ scope.row.married ? 'Married' : 'Single' }}</span>
+      </template>
     </TnTable>
 
     <pre class="exported mt-4 text-monospace bg-gray-50 p-2 rounded-md">
@@ -42,17 +44,38 @@
 import Vue from 'vue';
 import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table/components/TnTable.vue';
 
+const Hollywood = [
+  {
+    name: 'Johnny',
+    surname: 'Depp',
+    age: 58,
+    birthday: '1963-06-09',
+    horoscope: 'İkizler',
+    height: '178cm',
+    weight: '70kg',
+    married: false,
+  },
+  {
+    name: 'Sandra',
+    surname: 'Bullock',
+    age: 57,
+    birthday: '1964-07-26',
+    horoscope: 'Aslan',
+    height: '171cm',
+    weight: '54kg',
+    married: true,
+  },
+];
+
 interface Data {
   tableColumns: Column[];
   tableData: any[];
   tableOptions: TnTableEmitOutput;
-  options?: any[];
-  value4?: string;
 }
 
 const option: TnTableEmitOutput = {
   filter: [
-    { field: 'surname', value: 'Konakcı' },
+    { field: 'surname', value: 'Johansson' },
     {
       field: 'name',
       value: ['user-001', 'user-002', 'user-003'],
@@ -69,51 +92,29 @@ export default Vue.extend({
       {
         field: 'name',
         label: 'Name',
-        width: '200',
+        width: '220px',
         // TODO: filter type'a göre filtreleme component'leri eklenecek
         filterConfig: {
           options: [
-            { label: 'John', value: 'user-001' },
-            { label: 'Jessica', value: 'user-002' },
-            { label: 'Alba', value: 'user-003' },
+            { label: 'John Travolta', value: 'user-001' },
+            { label: 'Scarlett Johansson', value: 'user-002' },
+            { label: 'İlyas Salman', value: 'user-003' },
           ],
           type: 'select',
           multi: true,
           disable: false,
         },
       },
-      { field: 'age', label: 'Age' },
       { field: 'surname', label: 'Surname' },
-      { field: 'actions', label: 'Actions', filterConfig: { disable: true } },
+      { field: 'age', label: 'Age', width: '200px' },
+      { field: 'height', label: 'Height' },
+      { field: 'weight', label: 'Weight' },
+      { field: 'horoscope', label: 'Horoscope' },
+      { field: 'birthday', label: 'Birthday' },
+      { field: 'married', label: 'Married' },
     ],
-    tableData: [
-      { name: 'Serkan', surname: 'Konakcı', age: 43 },
-      { name: 'Sarp', surname: 'Konakcı', age: 13 },
-    ],
+    tableData: Hollywood,
     tableOptions: option,
-    options: [
-      {
-        value: 'Option1',
-        label: 'Option1',
-      },
-      {
-        value: 'Option2',
-        label: 'Option2',
-      },
-      {
-        value: 'Option3',
-        label: 'Option3',
-      },
-      {
-        value: 'Option4',
-        label: 'Option4',
-      },
-      {
-        value: 'Option5',
-        label: 'Option5',
-      },
-    ],
-    value4: '',
   }),
   methods: {
     emit(value: any) {

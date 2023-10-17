@@ -1,9 +1,24 @@
 {
   "name": "@timus-networks/table",
-  "version": "1.0.21",
-  "description": "Nuxt bileşen kütüphanesi",
+  "version": "1.0.23",
+  "description": "A customizable table component for Vue.js 2 applications.",
   "main": "module.js",
-  "scripts": {},
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serkon/timus-networks"
+  },
+  "keywords": [
+    "vue",
+    "table",
+    "component",
+    "vuejs",
+    "datatable"
+  ],
   "peerDependencies": {
     "vue": "^2.x"
   }
