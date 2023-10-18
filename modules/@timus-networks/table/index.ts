@@ -48,4 +48,5 @@ export interface TnTableEmitOutput {
   sort: Sort[];
   filter: Filter[];
   paging: Paging;
+  select: any[];
 }

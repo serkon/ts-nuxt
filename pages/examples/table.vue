@@ -9,10 +9,10 @@
       :data="tableData"
       :columns="tableColumns"
       :hide="[]"
+      :select="tableOptions.select"
       :sort="tableOptions.sort"
       :filter="tableOptions.filter"
       :paging="tableOptions.paging"
-      :select="[]"
       @event-filter="emit"
       @event-sort="emit"
       @event-select="emit"
@@ -43,6 +43,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Checkbox from '~/components/Checkbox.vue';
 import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table';
 
 const Hollywood = [
@@ -84,6 +85,7 @@ const option: TnTableEmitOutput = {
   ],
   sort: [{ field: 'age', alignment: 'asc' }],
   paging: { page: 1, limit: 10, total: 323 },
+  select: [Hollywood[0]],
 };
 
 export default Vue.extend({
@@ -94,7 +96,6 @@ export default Vue.extend({
         field: 'name',
         label: 'Name',
         width: '220px',
-        // TODO: filter type'a göre filtreleme component'leri eklenecek
         filterConfig: {
           options: [
             { label: 'John Travolta', value: 'user-001' },
@@ -120,8 +121,9 @@ export default Vue.extend({
   methods: {
     emit(value: any) {
       this.tableOptions = value;
-      console.log('emit. ', value);
+      console.log('emit:', value);
     },
   },
+  components: { Checkbox },
 });
 </script>

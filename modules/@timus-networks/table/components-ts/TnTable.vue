@@ -1,15 +1,17 @@
 <!-- TnTable.vue -->
 <template>
-  <div>
+  <div class="tn-table-container">
     <table aria-describedby="Data table" class="tn-table">
       <thead>
         <tr>
+          <th><input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" /></th>
           <TnHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
             <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
             <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
           </TnHead>
         </tr>
         <tr>
+          <th></th>
           <TnFilter v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, filtering }" @event-filter="eventFilter">
             <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
             <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
@@ -18,6 +20,7 @@
       </thead>
       <tbody>
         <tr v-for="(row, index) in data" :key="'tr' + index">
+          <td><input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" /></td>
           <TnColumn v-for="(column, colIndex) in columns" :key="'tr' + index + colIndex + column.field" v-bind="{ index, row, column, hide }">
             <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, row, column, hide }" />
             <slot else :name="'column'" v-bind="{ index, row, column, hide }" />
@@ -37,12 +40,14 @@ interface Data {
   sorting: Sort[];
   filtering: Filter[];
   pagination: Paging;
+  selection: any[];
 }
 
 export interface TnTableEmitOutput {
   sort: Sort[];
   filter: Filter[];
   paging: Paging;
+  select: any[];
 }
 
 /**
@@ -60,20 +65,39 @@ export default Vue.extend({
       filtering: this.filter || [],
       sorting: this.sort || [],
       pagination: this.paging || { page: 1, limit: 10, total: 0 },
+      selection: this.select || [],
     };
-  },
-  mounted() {
-    console.log('data', this.data);
   },
   computed: {
     status() {
-      return { sorting: this.sorting, filtering: this.filtering, paging: this.pagination };
+      return { sort: this.sorting, filter: this.filtering, paging: this.pagination, select: this.selection };
     },
+    isAllSelected(): boolean {
+      const allSelected = this.selection.length === this.data.length;
+      const checkboxElement = this.$refs.checkbox as HTMLInputElement | undefined;
+      checkboxElement && (checkboxElement.indeterminate = !allSelected && !!this.selection.length);
+      return this.selection.length === this.data.length;
+    },
+    isAnySelected(): boolean {
+      return this.selection.length > 0 && !this.isAllSelected;
+    },
+  },
+  mounted() {
+    const checkboxElement = this.$refs.checkbox as HTMLInputElement | undefined;
+    checkboxElement && (checkboxElement.indeterminate = this.isAnySelected);
   },
   methods: {
     hasSlot(name: string) {
       // eslint-disable-next-line vue/no-deprecated-dollar-scopedslots-api
       return !!this.$scopedSlots[name];
+    },
+    toggleAll() {
+      if (this.selection.length === this.data.length) {
+        this.selection = [];
+      } else {
+        this.selection = [...this.data];
+      }
+      this.eventSelection();
     },
     emitter() {
       this.$emit('event', this.status);
@@ -102,6 +126,11 @@ export default Vue.extend({
       this.$emit('event-paging', paging);
       this.emitter();
     },
+    eventSelection(): void {
+      console.log('### selection', this.selection);
+      this.$emit('event-select', this.selection);
+      this.emitter();
+    },
   },
 });
 
@@ -124,6 +153,10 @@ props: {
 </script>
 
 <style scoped lang="scss">
+.tn-checkbox {
+  cursor: pointer;
+}
+
 .tn-table {
   width: 100%;
   border-collapse: collapse;
