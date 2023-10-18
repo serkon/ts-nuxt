@@ -1,4 +1,4 @@
-class Utils {
+export class Utils {
   private timeout: ReturnType<typeof setTimeout> | null = null;
 
   debounce(func: Function, delay: number) {

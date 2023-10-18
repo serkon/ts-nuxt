@@ -1,12 +1,14 @@
 {
   "name": "@timus-networks/table",
-  "version": "1.0.26",
+  "version": "1.0.30",
   "description": "A customizable table component for Vue.js 2 applications.",
   "main": "module.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "convert": "node convert.js",
+    "pub": "npm run convert && npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -26,5 +28,8 @@
     "element-ui": "^2.15.10",
     "sass": "^1.69.0",
     "sass-loader": "^10.1.1"
+  },
+  "devDependencies": {
+    "glob": "^10.3.10"
   }
 }
