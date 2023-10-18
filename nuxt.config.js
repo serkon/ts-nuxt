@@ -38,11 +38,11 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    ['@/modules/@timus-networks/table/module', {friendlyFire: true}],
-    // '@/modules/@timus-networks/dropdown/module',
+    ['@/modules/@timus-networks/table/module', {friendlyFire: true, client: false, typescript: true}],
+    ['@/modules/@timus-networks/dropdown/module', {client: true}],
     '@nuxtjs/stylelint-module',
   ],
-  '@timus-networks/table': { server: false, typescript: false },
+  // '@timus-networks/table': { typescript: false },
   tailwindcss: {
     cssPath: '~/assets/scss/main.scss',
     configPath: '@/tailwind.config.js',

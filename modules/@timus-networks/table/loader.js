@@ -27,7 +27,7 @@ export function LoadComponent(options) {
   }
 }
 
-export function LoadPlugins(options) {
+export function LoadPlugins(options, all) {
   const pluginsToSync = [options.typescript ? 'plugins/ts-components-installer.js' : 'plugins/js-components-installer.js'];
 
   for (const pathString of pluginsToSync) {
@@ -35,8 +35,9 @@ export function LoadPlugins(options) {
 
     this.addPlugin({
       src: resolve(__dirname, pathString),
-      fileName: join(options.namespace, str),
+      fileName: join(options.namespace, pathString),
       options,
+      ...(options.client && {mode: 'client'})
     });
   }
 }

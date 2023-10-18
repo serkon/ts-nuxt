@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Timus, { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table';
+import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table';
 
 const Hollywood = [
   {
@@ -72,11 +72,6 @@ interface Data {
   tableColumns: Column[];
   tableData: any[];
   tableOptions: TnTableEmitOutput;
-  kader?: InstanceType<typeof Timus.TnTable>;
-}
-
-interface MyComponentRefs {
-  table: InstanceType<typeof Timus.TnTable>;
 }
 
 const option: TnTableEmitOutput = {
@@ -121,17 +116,11 @@ export default Vue.extend({
     ],
     tableData: Hollywood,
     tableOptions: option,
-    kader: {} as InstanceType<typeof Timus.TnTable>,
   }),
-  mounted() {
-    this.kader = this.$refs.table as InstanceType<typeof Timus.TnTable>;
-    console.log(this.kader);
-  },
   methods: {
     emit(value: any) {
       this.tableOptions = value;
       console.log('emit. ', value);
-      console.log('kader', this.kader);
     },
   },
 });
