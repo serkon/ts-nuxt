@@ -2,6 +2,7 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^~/(.*)$': '<rootDir>/$1',
+    '^@timus-networks/(.*)': '<rootDir>/modules/@timus-networks/$1/package.json',
     '^vue$': 'vue/dist/vue.common.js',
   },
   moduleFileExtensions: ['ts', 'js', 'vue', 'json'],
@@ -12,5 +13,5 @@ module.exports = {
   },
   collectCoverage: true,
   collectCoverageFrom: ['<rootDir>/components/**/*.vue', '<rootDir>/pages/**/*.vue'],
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jsdom'
 }
