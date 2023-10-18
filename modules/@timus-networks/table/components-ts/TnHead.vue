@@ -9,8 +9,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-
-import { Column, Sort } from './TnTable.vue';
+import { Column, Sort } from '../';
 
 export default Vue.extend({
   name: 'TnRow',

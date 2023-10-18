@@ -29,113 +29,74 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import { Paging } from './TnPagination.vue';
-
-export interface Column {
-  field: string;
-  label: string;
-  width?: string;
-  filterConfig?: FilterConfig;
-}
-
-export interface Sort {
-  field: string;
-  alignment: 'asc' | 'desc';
-}
-
-export interface Filter {
-  field: string;
-  value: string | string[];
-}
-
-export interface FilterConfig {
-  options?: FilterOption[];
-  type?: 'text' | 'dropdown' | 'select';
-  multi?: boolean;
-  callback?: (value: any) => void;
-  disable?: boolean;
-}
-
-interface FilterOption {
-  label: string;
-  value: any;
-  group?: string;
-}
-
-export interface Data {
-  sorting: Sort[];
-  filtering: Filter[];
-  pagination: Paging;
-}
-
-export interface TnTableEmitOutput {
-  sort: Sort[];
-  filter: Filter[];
-  paging: Paging;
-}
-
+<script>"use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = require("vue");
 /**
  * TnTable component
  *
  * @emitters
  * eventSort - (sorting: Order[]) Changes sorting and call change event
  */
-
-export default Vue.extend({
-  name: 'TnTable',
-  props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select'],
-  data(): Data {
-    return {
-      filtering: this.filter || [],
-      sorting: this.sort || [],
-      pagination: this.paging || { page: 1, limit: 10, total: 0 },
-    };
-  },
-  mounted() {
-    console.log('data', this.data);
-  },
-  computed: {
-    status() {
-      return { sorting: this.sorting, filtering: this.filtering, paging: this.pagination };
+exports.default = vue_1.default.extend({
+    name: 'TnTable',
+    props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select'],
+    data: function () {
+        return {
+            filtering: this.filter || [],
+            sorting: this.sort || [],
+            pagination: this.paging || { page: 1, limit: 10, total: 0 },
+        };
     },
-  },
-  methods: {
-    hasSlot(name: string) {
-      // eslint-disable-next-line vue/no-deprecated-dollar-scopedslots-api
-      return !!this.$scopedSlots[name];
+    mounted: function () {
+        console.log('data', this.data);
     },
-    emitter() {
-      this.$emit('event', this.status);
+    computed: {
+        status: function () {
+            return { sorting: this.sorting, filtering: this.filtering, paging: this.pagination };
+        },
     },
-    eventSort(field: string) {
-      const found = this.sorting.find((item) => item.field === field);
-
-      found && found.alignment === 'asc'
-        ? (found.alignment = 'desc')
-        : (this.sorting = !found ? [...this.sorting, { field, alignment: 'asc' }] : this.sorting.filter((item) => item.field !== field));
-      this.$emit('event-sort', this.sorting);
-      this.emitter();
+    methods: {
+        hasSlot: function (name) {
+            // eslint-disable-next-line vue/no-deprecated-dollar-scopedslots-api
+            return !!this.$scopedSlots[name];
+        },
+        emitter: function () {
+            this.$emit('event', this.status);
+        },
+        eventSort: function (field) {
+            var found = this.sorting.find(function (item) { return item.field === field; });
+            found && found.alignment === 'asc'
+                ? (found.alignment = 'desc')
+                : (this.sorting = !found ? __spreadArray(__spreadArray([], this.sorting, true), [{ field: field, alignment: 'asc' }], false) : this.sorting.filter(function (item) { return item.field !== field; }));
+            this.$emit('event-sort', this.sorting);
+            this.emitter();
+        },
+        eventFilter: function (filter) {
+            var found = this.filtering.find(function (item) { return item.field === filter.field; });
+            (found &&
+                (filter.value.length > 0 ? (found.value = filter.value) : (this.filtering = this.filtering.filter(function (item) { return item.field !== filter.field; })))) ||
+                (this.filtering = __spreadArray(__spreadArray([], this.filtering, true), [filter], false));
+            this.$emit('event-filter', this.filtering);
+            this.emitter();
+        },
+        eventPagination: function (paging) {
+            console.log('paging', paging);
+            this.pagination = paging;
+            this.$emit('event-paging', paging);
+            this.emitter();
+        },
     },
-    eventFilter(filter: Filter): void {
-      const found = this.filtering.find((item) => item.field === filter.field);
-
-      (found &&
-        (filter.value.length > 0 ? (found.value = filter.value) : (this.filtering = this.filtering.filter((item) => item.field !== filter.field)))) ||
-        (this.filtering = [...this.filtering, filter]);
-      this.$emit('event-filter', this.filtering);
-      this.emitter();
-    },
-    eventPagination(paging: Paging): void {
-      console.log('paging', paging);
-      this.pagination = paging;
-      this.$emit('event-paging', paging);
-      this.emitter();
-    },
-  },
 });
-
 /*
 props: {
   data: {

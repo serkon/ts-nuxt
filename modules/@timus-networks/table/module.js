@@ -3,21 +3,21 @@ import PackageJson from './package.json';
 
 export default function(moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
-    console.log('TnTable is ready');
+    console.log('@timus-networks/table is ready');
   });
 
   // get all options for the module
   const options = {
     ...moduleOptions,
-    ...this.options[PackageJson.name],
+    ...this.options[PackageJson.name], // bu external olarak nuxt.config içerisinde tanımlanan değer '@timus-networks/table' olarak direk json'daki
     version: PackageJson.version,
   };
 
-  // expose the namespace / set a default
-  if (!options.namespace) {
-    options.namespace = 'timus-networks';
-    options.server = options.server === true ? 'server' : 'client';
-  }
+  options.namespace = !options.namespace ? 'timus-networks/' + PackageJson.name.split('/')[1] : options.namespace;
+  options.typescript = !!options.typescript;
+  options.server = options.server === true ? 'server' : 'client';
+
+  console.log('Timus Table Options:', options);
 
   LoadPlugins.bind(this)(options);
   LoadComponent.bind(this)(options);

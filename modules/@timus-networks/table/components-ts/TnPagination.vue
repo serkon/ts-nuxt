@@ -48,12 +48,6 @@
 <script lang="ts">
 import Vue from 'vue';
 
-export interface Paging {
-  page: number;
-  limit: number;
-  total: number;
-}
-
 export default Vue.extend({
   name: 'TnPagination',
   props: ['page', 'limit', 'total'],

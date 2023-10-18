@@ -46,8 +46,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-
-import { Column, Filter, FilterConfig, Sort } from './TnTable.vue';
+import { Column, Filter, FilterConfig } from '../';
 import { utils } from './utils';
 
 interface Data {
