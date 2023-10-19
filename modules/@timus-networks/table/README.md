@@ -6,14 +6,16 @@ Installation
 - Add module path to `module` property in `nuxt.config.js` file
 
 ```json
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    ['@timus-networks/table', {deger: 'Serkan', patate: 'Kahve'}],
+    ['@timus-networks/table', {client: false, typescript: false}],
   ]
 ```
 
-- You can set manually some options inside the nuxt.config.js file. You can access these options from Component's variables using ref. This options holds under the `timus` property.
+- You can set manually `client` and `typescript` support properties.
+- If you render this component on client set value to `true`
+- If your prefer to use `typescript` while development set `typescipt` to `true`
+- Also you can set `namespace` of module path in `.nuxt` folder
 
 ```json
 "@timus-networks/table": {server: false},
@@ -40,27 +42,29 @@ Detailed:
     </div>
 
     <TnTable
+      ref="table"
       :data="tableData"
       :columns="tableColumns"
       :hide="[]"
+      :select="tableOptions.select"
       :sort="tableOptions.sort"
       :filter="tableOptions.filter"
       :paging="tableOptions.paging"
-      :select="[]"
+      no-filter
+      no-select
       @event-filter="emit"
       @event-sort="emit"
       @event-select="emit"
-      @event-pagination="emit"
+      @event-paging="emit"
       @event="emit"
     >
       <!--
       <template #head.name>Name</template>
-      <template #head.surname>Patates</template>
-      <template #head.age>sad</template>
-      template #filter.name>general</template>
-      <template #filter.surname />
-      <template #column.surname><button>...</button></template>
-      <template #column.name><button>...</button></template>
+      <template #head.surname>Surname</template>
+      <template #head.age>Age Of Trones</template>
+      <template #filter.name>Add some HTML</template>
+      <template #column.surname>Add some HTML</template>
+      <template #column.name>{{ scope.row[column.field]}}</template>
       <template #column="scope">{{ scope.row }}</template>
     -->
       <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">{{ scope.row[column.field] }}</template>
@@ -77,7 +81,8 @@ Detailed:
 
 <script lang="ts">
 import Vue from 'vue';
-import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table/components/TnTable.vue';
+import Checkbox from '~/components/Checkbox.vue';
+import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table';
 
 const Hollywood = [
   {
@@ -118,6 +123,7 @@ const option: TnTableEmitOutput = {
   ],
   sort: [{ field: 'age', alignment: 'asc' }],
   paging: { page: 1, limit: 10, total: 323 },
+  select: [Hollywood[0]],
 };
 
 export default Vue.extend({
@@ -127,8 +133,7 @@ export default Vue.extend({
       {
         field: 'name',
         label: 'Name',
-        width: '220px',
-        // TODO: filter type'a göre filtreleme component'leri eklenecek
+        width: '245px',
         filterConfig: {
           options: [
             { label: 'John Travolta', value: 'user-001' },
@@ -154,30 +159,18 @@ export default Vue.extend({
   methods: {
     emit(value: any) {
       this.tableOptions = value;
-      console.log('emit. ', value);
+      console.log('emit:', value);
     },
   },
+  components: { Checkbox },
 });
 </script>
 ```
 
-### Filtering
+### Notlar
 
-Filter için gönderdiğiniz değerler mevcut kolonda ilgili yere yazılıyor olacak:
+- Filter için gönderdiğiniz değerler mevcut kolonda ilgili yere yazılıyor olacak, bu sayede dışardan bir filtre uygulandıysa bu önyüzde tabloda ilgili alanda gösterilecek. Aynı işlemler `select`, `paging`, `sort` için de geçerlidir. Dışarıdan verdiğiniz değerler tabloya yansıyacaktır.
 
-```ts
-  data() {
-    return {
-      dFilter: {
-        ...{
-          data: { field: this.column.field, value: '' },
-          type: 'text',
-          mutli: false,
-          callback: (value: any) => console.log('Filter:', value, this),
-          disable: false,
-        },
-        ...this.$props.filtering,
-      },
-    };
-  },
-```
+- Her `select`, `paging`, `sort`, `select` in kendi event'ı tanımlanmıştır ve değeri methoda verilmektedir. `@event-select=onSelect` ile seçilen bir şey olduğunda onSelect methodu trigger edilecektir.
+
+- Her yaptığınız select, filter, sort ya da paging'den sonra @emit props'una vereceğiniz method tetiklenecektir. Bu methoda hepsi tek objede verilecektir. Bu sayede API'ye istek atarken bunları merge etmeye gerek duymayabilirsiniz. `@emit=onAnyAction` ile `{filtre, sort, paging, select}` bilgisine tek seferde ulaşabilirsiniz.

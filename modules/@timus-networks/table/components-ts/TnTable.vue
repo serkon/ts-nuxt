@@ -1,7 +1,7 @@
 <!-- TnTable.vue -->
 <template>
-  <div>
-    <div class="tn-table-container">
+  <div class="tn-table-container">
+    <div class="tn-table-overflow">
       <table aria-describedby="Data table" class="tn-table">
         <thead>
           <tr>
@@ -173,79 +173,83 @@ props: {
   border: 1px solid #dad9dd;
   border-radius: 12px;
 
-  .tn-table {
-    width: 100%;
-    border-collapse: collapse;
+  .tn-table-overflow {
+    overflow: auto;
 
-    tr {
-      height: 48px;
+    .tn-table {
+      width: 100%;
+      border-collapse: collapse;
 
-      th,
-      td {
-        padding: 8px 12px;
-        border-bottom: 1px solid #dad9dd;
-        color: #83818f;
-        font-size: 14px;
-        font-weight: 400;
-        text-align: left;
-        gap: 4px;
-      }
-    }
+      tr {
+        height: 48px;
 
-    thead {
-      // background-color: #f5f7fa;
-      .tn-header {
-        padding: 6px 10px;
-
-        .th-container {
-          position: relative;
-          display: flex;
+        th,
+        td {
+          padding: 8px 12px;
+          border-bottom: 1px solid #dad9dd;
+          color: #83818f;
+          font-size: 14px;
+          font-weight: 400;
+          text-align: left;
           gap: 4px;
-          align-items: center;
+        }
+      }
 
-          .sort {
-            display: inline-flex;
+      thead {
+        // background-color: #f5f7fa;
+        .tn-header {
+          padding: 6px 10px;
+
+          .th-container {
+            position: relative;
+            display: flex;
+            gap: 4px;
             align-items: center;
-            justify-content: center;
-            width: 12px;
-            height: 12px;
-            cursor: pointer;
-            user-select: none;
-            color: #222222;
 
-            &.deactive {
-              opacity: 0.4;
+            .sort {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 12px;
+              height: 12px;
+              cursor: pointer;
+              user-select: none;
+              color: #222222;
+
+              &.deactive {
+                opacity: 0.4;
+              }
             }
           }
         }
+
+        .filter {
+          border-top: none;
+          // background-color: #f9fbfd;
+        }
       }
 
-      .filter {
-        border-top: none;
-        // background-color: #f9fbfd;
-      }
-    }
-
-    tbody {
-      tr {
-        .tn-column {
-          padding: 6px 10px;
-        }
-
-        &:nth-child(odd) {
-          // background-color: #fafafa;
-        }
-
-        &:last-child {
-          td {
-            border-bottom: none;
+      tbody {
+        tr {
+          .tn-column {
+            padding: 6px 10px;
           }
-        }
 
-        .td-container {
-          display: flex;
-          align-items: center;
-          gap: 4px;
+          &:nth-child(odd) {
+            // background-color: #fafafa;
+          }
+
+          &:last-child {
+            td {
+              border-bottom: none;
+            }
+          }
+
+          .td-container {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
         }
       }
     }

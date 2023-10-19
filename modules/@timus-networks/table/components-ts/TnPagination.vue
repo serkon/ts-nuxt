@@ -4,7 +4,7 @@
       <span>Total {{ pagination.total }} Records</span>
       <!--<span>{{ pagination.page }}/{{ totalPages }}</span>-->
     </div>
-    <div class="pagination-actions">
+    <div class="pagination-actions hidden-sm-and-down">
       <template v-if="totalPages > threshold * 2 + 1">
         <button @click="toFirstPage" :disabled="pagination.page <= 1" class="page-number page-number-first">1</button>
         <button @click="prevPage" :disabled="pagination.page <= 1" class="page-number page-number-prev">&larr;</button>
