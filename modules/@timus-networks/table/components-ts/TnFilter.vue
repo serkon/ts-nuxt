@@ -91,7 +91,6 @@ export default Vue.extend({
     testChanged(value: any) {
       utils.debounce(() => {
         const newValue = value;
-        console.log('Filter:', newValue);
         const updated: Filter = { field: this.column.field, value: newValue };
         this.$emit('event-filter', updated);
       }, 500)();

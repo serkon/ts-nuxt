@@ -114,13 +114,11 @@ export default Vue.extend({
       this.emitter();
     },
     eventPagination(paging: Paging): void {
-      console.log('paging', paging);
       this.pagination = paging;
       this.$emit('event-paging', paging);
       this.emitter();
     },
     eventSelection(): void {
-      console.log('### selection', this.selection);
       this.$emit('event-select', this.selection);
       this.emitter();
     },

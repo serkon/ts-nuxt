@@ -29,7 +29,7 @@ export interface FilterConfig {
   disable?: boolean;
 }
 
-interface FilterOption {
+export interface FilterOption {
   label: string;
   value: any;
   group?: string;

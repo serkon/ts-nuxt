@@ -16,7 +16,7 @@
       @event-filter="emit"
       @event-sort="emit"
       @event-select="emit"
-      @event-pagination="emit"
+      @event-paging="emit"
       @event="emit"
     >
       <!--

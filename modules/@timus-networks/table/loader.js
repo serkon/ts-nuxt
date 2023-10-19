@@ -6,11 +6,11 @@ export function LoadComponent(options) {
   const foldersToSync = [options.typescript ? 'components-ts' : 'components-js'];
 
   const tsIndexFile = resolve(__dirname, './'); // bu index.ts dosyasını .nuxt/timus-networks/table adresine kopyalar
-  this.addTemplate({
-    src: resolve(tsIndexFile, 'index.ts'),
-    fileName: join(options.namespace, './', 'index.ts'),
-    options,
-  });
+  // this.addTemplate({
+  //   src: resolve(tsIndexFile, 'index.ts'),
+  //   fileName: join(options.namespace, './', 'index.ts'),
+  //   options,
+  // });
 
   for (const pathString of foldersToSync) {
     const path = resolve(__dirname, pathString);
