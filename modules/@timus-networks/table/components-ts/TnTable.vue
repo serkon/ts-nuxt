@@ -1,46 +1,53 @@
 <!-- TnTable.vue -->
 <template>
-  <div class="tn-table-container">
-    <div class="tn-table-overflow">
-      <table aria-describedby="Data table" class="tn-table">
-        <thead>
-          <tr>
-            <th class="tn-header" v-if="!isNoSelect">
-              <div class="th-container">
-                <input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" />
-              </div>
-            </th>
-            <TnHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
-              <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
-              <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
-            </TnHead>
-          </tr>
-          <tr v-if="!isNoFilter">
-            <th class="tn-column" v-if="!isNoSelect"></th>
-            <TnFilter v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, filtering }" @event-filter="eventFilter">
-              <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
-              <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
-            </TnFilter>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(row, rowIndex) in data" :key="'tr' + rowIndex">
-            <td class="tn-column" v-if="!isNoSelect">
-              <div class="td-container">
-                <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
-              </div>
-            </td>
-            <TnColumn
-              v-for="(column, index) in columns"
-              :key="'tr' + rowIndex + index + column.field"
-              v-bind="{ rowIndex, row, index, column, hide }"
-            >
-              <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
-              <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
-            </TnColumn>
-          </tr>
-        </tbody>
-      </table>
+  <div class="tn-table">
+    <div class="tn-table-container">
+      <div class="tn-table-overflow">
+        <table aria-describedby="Data table" class="tn-table-item">
+          <thead>
+            <tr>
+              <th class="tn-header" v-if="!isNoSelect">
+                <div class="th-container">
+                  <input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" />
+                </div>
+              </th>
+              <TnHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
+                <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
+                <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
+              </TnHead>
+            </tr>
+            <tr v-if="!isNoFilter">
+              <th class="tn-column" v-if="!isNoSelect"></th>
+              <TnFilter
+                v-for="(column, index) in columns"
+                :key="'th' + index"
+                v-bind="{ index, column, hide, filtering }"
+                @event-filter="eventFilter"
+              >
+                <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
+                <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
+              </TnFilter>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(row, rowIndex) in data" :key="'tr' + rowIndex">
+              <td class="tn-column" v-if="!isNoSelect">
+                <div class="td-container">
+                  <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
+                </div>
+              </td>
+              <TnColumn
+                v-for="(column, index) in columns"
+                :key="'tr' + rowIndex + index + column.field"
+                v-bind="{ rowIndex, row, index, column, hide }"
+              >
+                <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
+                <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
+              </TnColumn>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <TnPagination :page="pagination.page" :limit="pagination.limit" :total="pagination.total" @event-paging="eventPagination" />
   </div>
@@ -176,7 +183,7 @@ props: {
   .tn-table-overflow {
     overflow: auto;
 
-    .tn-table {
+    .tn-table-item {
       width: 100%;
       border-collapse: collapse;
 
