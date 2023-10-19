@@ -1,14 +1,13 @@
-###Installation
+## Installation
 
 - First install package `npm i @timus-networks/table`
 
 - Add package to `module` property in `nuxt.config.js` file
 
 ```json
-  modules: [
-    '@nuxtjs/axios',
-    ['@timus-networks/table', {client: false, typescript: false}],
-  ]
+{
+  "modules": ["@nuxtjs/axios", ["@timus-networks/table", { "client": false, "typescript": false }]]
+}
 ```
 
 - You can manually set the `client` and `typescript` support properties.
@@ -16,15 +15,15 @@
 - If you prefer to use `typescript` during development, set `typescript` to `true`.
 - You can also set the `namespace` to define the module path's position within the .nuxt folder.
 
-### Notes
+## Events
 
 - The table will directly reflect the values provided from outside for `select`, `filter`, `paging`, and `sort`.
 
-- For actions like `select`, `paging`, and `sort`, specific events have been defined. When these events are triggered, the corresponding values are passed to designated methods. For example, upon making a selection, using `@event-select=onSelect` will activate the `onSelect` method, and the selected items will be passed to it.
+- For actions like `select`, `paging`, `filter` and `sort`, specific events have been defined. When these events are triggered, the corresponding values are passed to designated methods. For example, upon making a selection, using `@event-select=onSelect` will activate the `onSelect` method, and the selected items will be passed to it. `@event-select, @event-filter`, `@event-sort`, `@event-paging` are defined.
 
 - When any action such as select, filter, sort, or paging is executed, the `@emit` event will automatically be triggered. This event aggregates the results of all the aforementioned actions into a single object. This can be especially useful for API requests, eliminating the need to merge these data separately. By using `@emit=onAnyAction`, you can access the aggregated data in the format `{select, paging, sort, filter}` in a single step.
 
-####Usage Example:
+## Usage Example:
 
 Just add `data` and `columns` attributes, and it will be handled with minimum requirements
 
