@@ -45,13 +45,11 @@
   </div>
 </template>
 
-<script>"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var vue_1 = require("vue");
-exports.default = vue_1.default.extend({
+<script>import Vue from 'vue';
+export default Vue.extend({
     name: 'TnPagination',
     props: ['page', 'limit', 'total'],
-    data: function () {
+    data() {
         return {
             goToInput: this.page || 1,
             threshold: 3,
@@ -63,27 +61,27 @@ exports.default = vue_1.default.extend({
         };
     },
     watch: {
-        'pagination.page': function (newPage) {
+        'pagination.page'(newPage) {
             this.goToInput = newPage;
         },
     },
     computed: {
         pageLimit: {
-            get: function () {
+            get() {
                 return this.pagination.limit;
             },
-            set: function (limit) {
+            set(limit) {
                 this.pagination.limit = limit;
                 this.pagination.page = this.pagination.page > this.totalPages ? this.totalPages : this.pagination.page;
             },
         },
-        totalPages: function () {
+        totalPages() {
             return Math.ceil(this.pagination.total / this.pagination.limit);
         },
-        pagesToShow: function () {
-            var page = this.pagination.page;
+        pagesToShow() {
+            const { page } = this.pagination;
             // Basit bir aralık oluşturmak için yardımcı fonksiyon
-            var range = function (start, end) { return Array.from({ length: end - start + 1 }, function (_, index) { return start + index; }); };
+            const range = (start, end) => Array.from({ length: end - start + 1 }, (_, index) => start + index);
             // Eğer toplam sayfa sayısı threshold'un iki katından azsa tüm sayfaları göster
             if (this.totalPages <= this.threshold * 2) {
                 return range(1, this.totalPages);
@@ -101,32 +99,32 @@ exports.default = vue_1.default.extend({
         },
     },
     methods: {
-        nextPage: function () {
+        nextPage() {
             if (this.pagination.page < this.totalPages) {
                 this.pagination.page++;
                 this.emit();
             }
         },
-        prevPage: function () {
+        prevPage() {
             if (this.pagination.page > 1) {
                 this.pagination.page--;
                 this.emit();
             }
         },
-        toFirstPage: function () {
+        toFirstPage() {
             this.pagination.page = 1;
             this.emit();
         },
-        toLastPage: function () {
+        toLastPage() {
             this.pagination.page = this.totalPages;
             this.emit();
         },
-        goToPage: function (pageNum) {
-            var pNumber = Number(pageNum);
+        goToPage(pageNum) {
+            const pNumber = Number(pageNum);
             this.pagination.page = pNumber < 1 ? 1 : pNumber > this.totalPages ? this.totalPages : pNumber;
             this.emit();
         },
-        emit: function () {
+        emit() {
             this.$emit('event-paging', this.pagination);
         },
     },

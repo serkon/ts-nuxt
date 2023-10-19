@@ -4,8 +4,8 @@ const execSync = require('child_process').execSync;
 const glob = require('glob');
 
 // components klasörü ile aynı seviyede output klasörü olup olmadığını kontrol et
-if (!fs.existsSync('output')) {
-    fs.mkdirSync('output');
+if (!fs.existsSync('components-js')) {
+    fs.mkdirSync('components-js');
 }
 
 // components'in içerisindeki her şeyi output'a kopyala
@@ -43,7 +43,7 @@ vueFiles.forEach((file) => {
       let hasError = false;
 
       try {
-          execSync(`tsc ${tsFilePath}`);
+          execSync(`tsc ${tsFilePath} --allowJs false --module ES6 --target ES6`, { encoding: 'utf8' });
       } catch (e) {
           // console.error("### Derleme hatası:", tsFilePath, e);
           // console.error('DERLEME HATASI: ', e.stdout.toString());

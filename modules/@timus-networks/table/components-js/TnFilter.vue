@@ -44,27 +44,14 @@
   </th>
 </template>
 
-<script>"use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var vue_1 = require("vue");
-var utils_1 = require("./utils");
-exports.default = vue_1.default.extend({
+<script>import Vue from 'vue';
+import { utils } from './utils';
+export default Vue.extend({
     name: 'TnFilter',
     props: {
         column: {
             type: Object,
-            default: function () { return ({}); },
+            default: () => ({}),
         },
         index: {
             type: Number,
@@ -72,39 +59,36 @@ exports.default = vue_1.default.extend({
         },
         hide: {
             type: Array,
-            default: function () { return []; },
+            default: () => [],
         },
         filtering: {
             type: Array,
-            default: function () { return []; },
+            default: () => [],
         },
     },
-    data: function () {
-        var _this = this;
+    data() {
         return {
             filter: '',
-            mergedFilter: __assign({ options: [], type: 'text', multi: false, callback: function (value) { return console.log('Filter:', value, _this); }, disable: false }, this.$props.column.filterConfig),
+            mergedFilter: Object.assign({ options: [], type: 'text', multi: false, callback: (value) => console.log('Filter:', value, this), disable: false }, this.$props.column.filterConfig),
         };
     },
     methods: {
-        testChanged: function (value) {
-            var _this = this;
-            utils_1.utils.debounce(function () {
-                var newValue = value;
+        testChanged(value) {
+            utils.debounce(() => {
+                const newValue = value;
                 console.log('Filter:', newValue);
-                var updated = { field: _this.column.field, value: newValue };
-                _this.$emit('event-filter', updated);
+                const updated = { field: this.column.field, value: newValue };
+                this.$emit('event-filter', updated);
             }, 500)();
         },
     },
-    mounted: function () {
+    mounted() {
         var _a, _b;
         this.filter = (_b = (_a = this.item) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : '';
     },
     computed: {
-        item: function () {
-            var _this = this;
-            return this.filtering.find(function (item) { return item.field === _this.column.field; });
+        item() {
+            return this.filtering.find((item) => item.field === this.column.field);
         },
     },
 });

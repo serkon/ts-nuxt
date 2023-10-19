@@ -7,15 +7,13 @@
   </th>
 </template>
 
-<script>"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var vue_1 = require("vue");
-exports.default = vue_1.default.extend({
+<script>import Vue from 'vue';
+export default Vue.extend({
     name: 'TnRow',
     props: {
         column: {
             type: Object,
-            default: function () { return ({}); },
+            default: () => ({}),
         },
         index: {
             type: Number,
@@ -23,17 +21,16 @@ exports.default = vue_1.default.extend({
         },
         hide: {
             type: Array,
-            default: function () { return []; },
+            default: () => [],
         },
         sorting: {
             type: Array,
-            default: function () { return []; },
+            default: () => [],
         },
     },
     computed: {
-        sort: function () {
-            var _this = this;
-            return this.sorting.find(function (item) { return item.field === _this.column.field; });
+        sort() {
+            return this.sorting.find((item) => item.field === this.column.field);
         },
     },
 });

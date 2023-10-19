@@ -5,10 +5,8 @@
   </td>
 </template>
 
-<script>"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var vue_1 = require("vue");
-exports.default = vue_1.default.extend({
+<script>import Vue from 'vue';
+export default Vue.extend({
     name: 'TnColumn',
     props: {
         field: {
@@ -21,15 +19,15 @@ exports.default = vue_1.default.extend({
         },
         row: {
             type: Object,
-            default: function () { },
+            default: () => { },
         },
         hide: {
             type: Array,
-            default: function () { return []; },
+            default: () => [],
         },
     },
     methods: {
-        sort: function () {
+        sort() {
             return this.label;
         },
     },

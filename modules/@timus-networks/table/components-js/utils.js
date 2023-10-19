@@ -1,26 +1,16 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.utils = exports.Utils = void 0;
-var Utils = /** @class */ (function () {
-    function Utils() {
+export class Utils {
+    constructor() {
         this.timeout = null;
     }
-    Utils.prototype.debounce = function (func, delay) {
-        var _this = this;
-        return function () {
-            var args = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i] = arguments[_i];
+    debounce(func, delay) {
+        return (...args) => {
+            if (this.timeout !== null) {
+                clearTimeout(this.timeout);
             }
-            if (_this.timeout !== null) {
-                clearTimeout(_this.timeout);
-            }
-            _this.timeout = setTimeout(function () {
-                func.apply(void 0, args);
+            this.timeout = setTimeout(() => {
+                func(...args);
             }, delay);
         };
-    };
-    return Utils;
-}());
-exports.Utils = Utils;
-exports.utils = new Utils();
+    }
+}
+export const utils = new Utils();
