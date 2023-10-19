@@ -1,5 +1,5 @@
 <template>
-  <th v-if="!hide.includes(column.field)" class="header">
+  <th v-if="!hide.includes(column.field)" class="tn-header">
     <div class="th-container">
       <slot v-bind="{ index, column, hide, sorting }">{{ column.label }}</slot>
       <span class="sort" :class="{ deactive: !sort }" @click="$emit('event-sort', column.field)">

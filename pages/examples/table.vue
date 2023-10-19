@@ -14,6 +14,7 @@
       :filter="tableOptions.filter"
       :paging="tableOptions.paging"
       no-filter
+      no-select
       @event-filter="emit"
       @event-sort="emit"
       @event-select="emit"

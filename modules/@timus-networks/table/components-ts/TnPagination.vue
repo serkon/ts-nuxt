@@ -62,7 +62,7 @@ export default Vue.extend({
   data() {
     return {
       goToInput: this.page || 1,
-      threshold: 3,
+      threshold: 2,
       pagination: {
         page: this.page || 1,
         limit: this.limit || 10,

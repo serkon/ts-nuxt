@@ -5,7 +5,7 @@
       <table aria-describedby="Data table" class="tn-table">
         <thead>
           <tr>
-            <th class="tn-column" v-if="!isNoFilter">
+            <th class="tn-header" v-if="!isNoSelect">
               <div class="th-container">
                 <input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" />
               </div>
@@ -15,8 +15,8 @@
               <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
             </TnHead>
           </tr>
-          <tr>
-            <th class="tn-column" v-if="!isNoFilter"></th>
+          <tr v-if="!isNoFilter">
+            <th class="tn-column" v-if="!isNoSelect"></th>
             <TnFilter v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, filtering }" @event-filter="eventFilter">
               <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
               <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
           <tr v-for="(row, rowIndex) in data" :key="'tr' + rowIndex">
-            <td class="tn-column" v-if="!isNoFilter">
+            <td class="tn-column" v-if="!isNoSelect">
               <div class="td-container">
                 <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
               </div>
@@ -66,7 +66,7 @@ interface Data {
 
 export default Vue.extend({
   name: 'TnTable',
-  props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter'],
+  props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter', 'noSelect'],
   data(): Data {
     return {
       filtering: this.filter || [],
@@ -76,6 +76,9 @@ export default Vue.extend({
     };
   },
   computed: {
+    isNoSelect() {
+      return this.noSelect === '';
+    },
     isNoFilter() {
       return this.noFilter === '';
     },
@@ -168,7 +171,7 @@ props: {
 .tn-table-container {
   padding: 12px 24px;
   border: 1px solid #dad9dd;
-  border-radius: 16px;
+  border-radius: 12px;
 
   .tn-table {
     width: 100%;
@@ -191,7 +194,9 @@ props: {
 
     thead {
       // background-color: #f5f7fa;
-      .header {
+      .tn-header {
+        padding: 6px 10px;
+
         .th-container {
           position: relative;
           display: flex;
