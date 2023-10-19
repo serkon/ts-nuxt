@@ -13,6 +13,7 @@
       :sort="tableOptions.sort"
       :filter="tableOptions.filter"
       :paging="tableOptions.paging"
+      no-filter
       @event-filter="emit"
       @event-sort="emit"
       @event-select="emit"
@@ -95,7 +96,7 @@ export default Vue.extend({
       {
         field: 'name',
         label: 'Name',
-        width: '220px',
+        width: '245px',
         filterConfig: {
           options: [
             { label: 'John Travolta', value: 'user-001' },

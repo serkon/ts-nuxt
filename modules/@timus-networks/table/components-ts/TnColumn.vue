@@ -1,36 +1,36 @@
 <!-- TnColumn.vue -->
 <template>
-  <td v-if="!hide.includes(field)" class="column">
-    <slot :row="row" :field="field" :label="label" :hide="hide">{{ row[field] }}</slot>
+  <td v-if="!hide.includes(column.field)" class="tn-column">
+    <div class="td-container">
+      <slot v-bind="{ row, hide, column, index, rowIndex }">{{ row[column.field] }}</slot>
+    </div>
   </td>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
+import { Column } from './interfaces';
 
 export default Vue.extend({
   name: 'TnColumn',
   props: {
-    field: {
-      type: String,
-      default: '',
-    },
-    label: {
-      type: String,
-      default: '',
-    },
     row: {
       type: Object as PropType<any>,
       default: () => {},
+    },
+    rowIndex: {
+      type: Number,
     },
     hide: {
       type: Array as PropType<string[]>,
       default: () => [],
     },
-  },
-  methods: {
-    sort(): string {
-      return this.label;
+    column: {
+      type: Object as PropType<Column>,
+      default: () => ({} as Column),
+    },
+    index: {
+      type: Number,
     },
   },
 });

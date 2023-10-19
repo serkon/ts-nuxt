@@ -1,9 +1,11 @@
 <template>
   <th v-if="!hide.includes(column.field)" class="header">
-    <slot v-bind="{ index, column, hide, sorting }">{{ column.label }}</slot>
-    <span class="sort" :class="{ deactive: !sort }" @click="$emit('event-sort', column.field)">
-      {{ sort?.alignment === 'asc' ? '↑' : sort?.alignment === 'desc' ? '↓' : '↑' }}
-    </span>
+    <div class="th-container">
+      <slot v-bind="{ index, column, hide, sorting }">{{ column.label }}</slot>
+      <span class="sort" :class="{ deactive: !sort }" @click="$emit('event-sort', column.field)">
+        {{ sort?.alignment === 'asc' ? '↑' : sort?.alignment === 'desc' ? '↓' : '↑' }}
+      </span>
+    </div>
   </th>
 </template>
 
@@ -38,12 +40,3 @@ export default Vue.extend({
   },
 });
 </script>
-<style scoped>
-.sort {
-  cursor: pointer;
-
-  &.deactive {
-    opacity: 0.5;
-  }
-}
-</style>

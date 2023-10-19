@@ -1,6 +1,6 @@
 <template>
-  <div class="pagination" v-if="pagination.total > pagination.limit">
-    <div class="page-meta">
+  <div class="pagination w-full" v-if="pagination.total > pagination.limit">
+    <div class="pagination-meta">
       <span>Total {{ pagination.total }} Records</span>
       <!--<span>{{ pagination.page }}/{{ totalPages }}</span>-->
     </div>
@@ -24,23 +24,31 @@
     </div>
     <div class="pagination-goto">
       <span>Go to</span>
-      <input
+      <!--
+        <input
         type="number"
         v-model="goToInput"
         @keyup.enter="goToPage(goToInput)"
         class="form-control form-control-sm pagination-goto-input"
         :min="1"
         :max="totalPages"
-      />
+        />
+      -->
+      <el-input class="pagination-goto-input" size="mini" v-model="goToInput" @change="goToPage(goToInput)" :min="1" :max="totalPages"></el-input>
     </div>
-    <div class="paging-limits">
+    <div class="pagination-limits">
       <span v-if="false">Records per page:</span>
-      <select v-model="pageLimit" @change="emit" class="pagination-limit form-control form-control-sm">
+      <!--
+        <select v-model="pageLimit" @change="emit" class="pagination-limit form-control form-control-sm">
         <option value="10">10/page</option>
         <option value="20">20/page</option>
         <option value="50">50/page</option>
         <option value="100">100/page</option>
-      </select>
+        </select>
+      -->
+      <el-select v-model="pageLimit" collapse-tags size="mini" @change="emit" class="pagination-limit-selection">
+        <el-option v-for="item in [10, 20, 50, 100]" :key="item" :label="`${item}/page`" :value="item"></el-option>
+      </el-select>
     </div>
   </div>
 </template>
@@ -140,24 +148,35 @@ export default Vue.extend({
   font-size: 14px;
   gap: 16px;
 
-  .page-meta {
+  .pagination-meta {
     flex-grow: 1;
     margin-right: 10px;
-    color: #606266;
+    color: #c1c0c7;
+    font-size: 14px;
+    font-weight: 400;
   }
 
   .pagination-actions {
     display: flex;
     align-items: flex-start;
+    gap: 6px;
 
     .page-number {
+      min-width: 16px;
+      color: #c1c0c7;
+      font-weight: 400;
+      text-align: center;
       cursor: pointer;
       transition: 0.3s;
-      @apply btn-xs btn btn-primary-ghost;
+
+      &:hover {
+        color: #8169e0;
+      }
     }
 
     .page-active {
-      @apply btn-xs btn-primary;
+      min-width: 16px;
+      color: #5737d6;
     }
   }
 
@@ -165,11 +184,27 @@ export default Vue.extend({
     display: flex;
     gap: 16px;
     align-items: center;
+    color: #c1c0c7;
+    font-size: 14px;
+    font-weight: 400;
 
     .pagination-goto-input {
       width: 50px;
       text-align: center;
-      @apply form-control form-control-sm;
+
+      input {
+        text-align: center;
+      }
+    }
+  }
+
+  .pagination-limits {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    .pagination-limit-selection {
+      width: 100px;
     }
   }
 }
