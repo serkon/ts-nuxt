@@ -1,7 +1,5 @@
 export class Utils {
-    constructor() {
-        this.timeout = null;
-    }
+    timeout = null;
     debounce(func, delay) {
         return (...args) => {
             if (this.timeout !== null) {

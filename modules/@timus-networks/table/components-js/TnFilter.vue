@@ -69,7 +69,14 @@ export default Vue.extend({
     data() {
         return {
             filter: '',
-            mergedFilter: Object.assign({ options: [], type: 'text', multi: false, callback: (value) => console.log('Filter:', value, this), disable: false }, this.$props.column.filterConfig),
+            mergedFilter: {
+                options: [],
+                type: 'text',
+                multi: false,
+                callback: (value) => console.log('Filter:', value, this),
+                disable: false,
+                ...this.$props.column.filterConfig,
+            },
         };
     },
     methods: {
@@ -83,8 +90,7 @@ export default Vue.extend({
         },
     },
     mounted() {
-        var _a, _b;
-        this.filter = (_b = (_a = this.item) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : '';
+        this.filter = this.item?.value ?? '';
     },
     computed: {
         item() {

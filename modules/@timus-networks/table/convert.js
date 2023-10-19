@@ -3,25 +3,27 @@ const path = require('path');
 const execSync = require('child_process').execSync;
 const glob = require('glob');
 
-// components klasörü ile aynı seviyede output klasörü olup olmadığını kontrol et
-if (!fs.existsSync('components-js')) {
-    fs.mkdirSync('components-js');
+// Eğer 'components-js' klasörü varsa sil
+if (fs.existsSync('components-js')) {
+  fs.rmSync('components-js', { recursive: true, force: true });
 }
 
+// Yeni bir 'components-js' klasörü oluştur
+fs.mkdirSync('components-js');
+
 // components'in içerisindeki her şeyi output'a kopyala
-const copyRecursiveSync = function(src, dest) {
-    const exists = fs.existsSync(src);
-    const stats = exists && fs.statSync(src);
-    const isDirectory = exists && stats.isDirectory();
-    if (exists && isDirectory) {
-        if (!fs.existsSync(dest)) fs.mkdirSync(dest);
-        fs.readdirSync(src).forEach(childItemName => {
-            copyRecursiveSync(path.join(src, childItemName),
-                path.join(dest, childItemName));
-        });
-    } else {
-        fs.copyFileSync(src, dest);
-    }
+const copyRecursiveSync = function (src, dest) {
+  const exists = fs.existsSync(src);
+  const stats = exists && fs.statSync(src);
+  const isDirectory = exists && stats.isDirectory();
+  if (exists && isDirectory) {
+    if (!fs.existsSync(dest)) fs.mkdirSync(dest);
+    fs.readdirSync(src).forEach((childItemName) => {
+      copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
+    });
+  } else {
+    fs.copyFileSync(src, dest);
+  }
 };
 
 copyRecursiveSync('./components-ts', './components-js');
@@ -34,31 +36,47 @@ vueFiles.forEach((file) => {
   const scriptMatch = content.match(/<script lang="ts">(.*?)<\/script>/s);
 
   if (scriptMatch) {
-      let tsCode = scriptMatch[1];
-      tsCode = tsCode.replace(/import .*?from '.*?.vue';/g, (match) => `// ${match}`);
+    let tsCode = scriptMatch[1];
+    tsCode = tsCode.replace(/import .*?from '.*?.vue';/g, (match) => `// ${match}`);
 
-      const tsFilePath = file.replace('.vue', '.temp.ts');
-      fs.writeFileSync(tsFilePath, tsCode, 'utf-8');
+    const tsFilePath = file.replace('.vue', '.temp.ts');
+    fs.writeFileSync(tsFilePath, tsCode, 'utf-8');
 
-      let hasError = false;
+    let hasError = false;
 
-      try {
-          execSync(`tsc ${tsFilePath} --allowJs false --module ES6 --target ES6`, { encoding: 'utf8' });
-      } catch (e) {
-          // console.error("### Derleme hatası:", tsFilePath, e);
-          // console.error('DERLEME HATASI: ', e.stdout.toString());
-          hasError = true;
-      }
+    try {
+      execSync(`tsc ${tsFilePath} --allowJs false --module esnext --target esnext --declaration true`, { encoding: 'utf8' });
+    } catch (e) {
+      // console.error("### Derleme hatası:", tsFilePath, e);
+      // console.error('DERLEME HATASI: ', e.stdout.toString());
+      hasError = true;
+    }
 
-      if (hasError) {
-          const jsCode = fs.readFileSync(tsFilePath.replace('.ts', '.js'), 'utf-8');
-          const finalJsCode = jsCode.replace(/\/\/ import/g, 'import');
-          const newContent = content.replace(/<script lang="ts">(.*?)<\/script>/s, `<script>${finalJsCode}</script>`);
-          fs.writeFileSync(file, newContent, 'utf-8');
-      }
+    if (hasError) {
+      const jsCode = fs.readFileSync(tsFilePath.replace('.ts', '.js'), 'utf-8');
+      const finalJsCode = jsCode.replace(/\/\/ import/g, 'import');
+      const newContent = content.replace(/<script lang="ts">(.*?)<\/script>/s, `<script>${finalJsCode}</script>`);
+      fs.writeFileSync(file, newContent, 'utf-8');
+    }
 
-      // Dosyaları sil
-      if (fs.existsSync(tsFilePath)) fs.unlinkSync(tsFilePath);
-      if (fs.existsSync(tsFilePath.replace('.ts', '.js'))) fs.unlinkSync(tsFilePath.replace('.ts', '.js'));
+    // Dosyaları sil
+    if (fs.existsSync(tsFilePath)) fs.unlinkSync(tsFilePath);
+    if (fs.existsSync(tsFilePath.replace('.ts', '.js'))) fs.unlinkSync(tsFilePath.replace('.ts', '.js'));
   }
 });
+
+// vueFiles.forEach döngüsünden sonra
+const declarationFiles = glob.sync('./components-js/**/*.d.ts');
+
+// Bu dosyaları import eden bir index.d.ts oluştur
+let imports = declarationFiles
+  .map((file) => {
+    // Dosya yolundan modül adını elde etmek için gereken işlemler
+    let modulePath = path.relative('.', file);
+    modulePath = modulePath.replace('.d.ts', '');
+    modulePath = modulePath.replace(/\\/g, '/'); // Windows için ters eğik çizgileri düzelt
+    return `import './${modulePath}';`;
+  })
+  .join('\n');
+
+fs.writeFileSync('./index.d.ts', imports);

@@ -31,5 +31,6 @@
   },
   "devDependencies": {
     "glob": "^10.3.10"
-  }
+  },
+  "typings": "./index.d.ts"
 }
