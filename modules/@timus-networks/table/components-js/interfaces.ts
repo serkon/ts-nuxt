@@ -1,12 +1,3 @@
-import TnTable from './components-ts/TnTable.vue';
-import TnHead from './components-ts/TnHead.vue';
-import TnFilter from './components-ts/TnFilter.vue';
-import TnColumn from './components-ts/TnColumn.vue';
-import TnPagination from './components-ts/TnPagination.vue';
-import { Utils, utils } from './components-ts/utils';
-
-export default { TnTable, TnColumn, TnFilter, TnHead, TnPagination, Utils, utils };
-
 export interface Paging {
   page: number;
   limit: number;

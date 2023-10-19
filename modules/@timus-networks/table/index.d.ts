@@ -1,6 +1,7 @@
-import './components-js/utils';
-import './components-js/TnTable.temp';
-import './components-js/TnPagination.temp';
-import './components-js/TnHead.temp';
-import './components-js/TnFilter.temp';
-import './components-js/TnColumn.temp';
+export * from './components-js/utils';
+export * from './components-js/TnTable.temp';
+export * from './components-js/TnPagination.temp';
+export * from './components-js/TnHead.temp';
+export * from './components-js/TnFilter.temp';
+export * from './components-js/TnColumn.temp';
+export * from './components-js/interfaces';

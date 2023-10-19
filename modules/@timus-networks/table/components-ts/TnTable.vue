@@ -34,20 +34,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Filter, Paging, Sort } from '../';
+import { Filter, Paging, Sort } from './interfaces';
 
 interface Data {
   sorting: Sort[];
   filtering: Filter[];
   pagination: Paging;
   selection: any[];
-}
-
-export interface TnTableEmitOutput {
-  sort: Sort[];
-  filter: Filter[];
-  paging: Paging;
-  select: any[];
 }
 
 /**

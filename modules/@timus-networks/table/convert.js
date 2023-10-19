@@ -75,7 +75,7 @@ let imports = declarationFiles
     let modulePath = path.relative('.', file);
     modulePath = modulePath.replace('.d.ts', '');
     modulePath = modulePath.replace(/\\/g, '/'); // Windows için ters eğik çizgileri düzelt
-    return `import './${modulePath}';`;
+    return `export * from './${modulePath}';`;
   })
   .join('\n');
 

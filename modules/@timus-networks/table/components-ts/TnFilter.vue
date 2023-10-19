@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { Column, Filter, FilterConfig } from '../';
+import { Column, Filter, FilterConfig } from './interfaces';
 import { utils } from './utils';
 
 interface Data {

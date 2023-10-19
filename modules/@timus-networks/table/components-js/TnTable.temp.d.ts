@@ -1,10 +1,3 @@
-import { Filter, Paging, Sort } from '../';
-export interface TnTableEmitOutput {
-    sort: Sort[];
-    filter: Filter[];
-    paging: Paging;
-    select: any[];
-}
 /**
  * TnTable component
  *
