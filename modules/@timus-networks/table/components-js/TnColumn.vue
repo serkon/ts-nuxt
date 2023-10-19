@@ -1,7 +1,9 @@
 <!-- TnColumn.vue -->
 <template>
-  <td v-if="!hide.includes(field)" class="column">
-    <slot :row="row" :field="field" :label="label" :hide="hide">{{ row[field] }}</slot>
+  <td v-if="!hide.includes(column.field)" class="tn-column">
+    <div class="td-container">
+      <slot v-bind="{ row, hide, column, index, rowIndex }">{{ row[column.field] }}</slot>
+    </div>
   </td>
 </template>
 
@@ -9,26 +11,23 @@
 export default Vue.extend({
     name: 'TnColumn',
     props: {
-        field: {
-            type: String,
-            default: '',
-        },
-        label: {
-            type: String,
-            default: '',
-        },
         row: {
             type: Object,
             default: () => { },
+        },
+        rowIndex: {
+            type: Number,
         },
         hide: {
             type: Array,
             default: () => [],
         },
-    },
-    methods: {
-        sort() {
-            return this.label;
+        column: {
+            type: Object,
+            default: () => ({}),
+        },
+        index: {
+            type: Number,
         },
     },
 });

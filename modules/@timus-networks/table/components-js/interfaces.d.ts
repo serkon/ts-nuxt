@@ -24,7 +24,7 @@ export interface FilterConfig {
     callback?: (value: any) => void;
     disable?: boolean;
 }
-interface FilterOption {
+export interface FilterOption {
     label: string;
     value: any;
     group?: string;
@@ -35,4 +35,3 @@ export interface TnTableEmitOutput {
     paging: Paging;
     select: any[];
 }
-export {};

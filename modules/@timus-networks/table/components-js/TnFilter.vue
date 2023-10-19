@@ -14,8 +14,8 @@
         v-if="mergedFilter.type === 'text' && !mergedFilter.options?.length"
         clearable
         v-model="filter"
-        placeholder="Please input"
-        size="small"
+        placeholder=""
+        size="mini"
         @input="testChanged"
         class="w-full"
       />
@@ -32,8 +32,8 @@
         clearable
         collapse-tags
         filterable
-        size="small"
-        placeholder="Select"
+        size="mini"
+        placeholder=""
         :multiple="mergedFilter.multi"
         @change="testChanged"
         class="w-full"
@@ -83,7 +83,6 @@ export default Vue.extend({
         testChanged(value) {
             utils.debounce(() => {
                 const newValue = value;
-                console.log('Filter:', newValue);
                 const updated = { field: this.column.field, value: newValue };
                 this.$emit('event-filter', updated);
             }, 500)();
@@ -99,12 +98,3 @@ export default Vue.extend({
     },
 });
 </script>
-<style lang="scss" scoped>
-.filter {
-  input,
-  select {
-    width: 100%;
-    @apply form-control form-control-sm;
-  }
-}
-</style>

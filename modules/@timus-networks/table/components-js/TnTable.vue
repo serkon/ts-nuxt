@@ -1,33 +1,54 @@
 <!-- TnTable.vue -->
 <template>
-  <div class="tn-table-container">
-    <table aria-describedby="Data table" class="tn-table">
-      <thead>
-        <tr>
-          <th><input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" /></th>
-          <TnHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
-            <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
-            <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
-          </TnHead>
-        </tr>
-        <tr>
-          <th></th>
-          <TnFilter v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, filtering }" @event-filter="eventFilter">
-            <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
-            <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
-          </TnFilter>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(row, index) in data" :key="'tr' + index">
-          <td><input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" /></td>
-          <TnColumn v-for="(column, colIndex) in columns" :key="'tr' + index + colIndex + column.field" v-bind="{ index, row, column, hide }">
-            <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, row, column, hide }" />
-            <slot else :name="'column'" v-bind="{ index, row, column, hide }" />
-          </TnColumn>
-        </tr>
-      </tbody>
-    </table>
+  <div class="tn-table">
+    <div class="tn-table-container">
+      <div class="tn-table-overflow">
+        <table aria-describedby="Data table" class="tn-table-item">
+          <thead>
+            <tr>
+              <th class="tn-header" v-if="!isNoSelect">
+                <div class="th-container">
+                  <input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" />
+                </div>
+              </th>
+              <TnHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
+                <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
+                <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
+              </TnHead>
+            </tr>
+            <tr v-if="!isNoFilter">
+              <th class="tn-column" v-if="!isNoSelect"></th>
+              <TnFilter
+                v-for="(column, index) in columns"
+                :key="'th' + index"
+                v-bind="{ index, column, hide, filtering }"
+                @event-filter="eventFilter"
+              >
+                <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
+                <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
+              </TnFilter>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(row, rowIndex) in data" :key="'tr' + rowIndex">
+              <td class="tn-column" v-if="!isNoSelect">
+                <div class="td-container">
+                  <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
+                </div>
+              </td>
+              <TnColumn
+                v-for="(column, index) in columns"
+                :key="'tr' + rowIndex + index + column.field"
+                v-bind="{ rowIndex, row, index, column, hide }"
+              >
+                <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
+                <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
+              </TnColumn>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <TnPagination :page="pagination.page" :limit="pagination.limit" :total="pagination.total" @event-paging="eventPagination" />
   </div>
 </template>
@@ -41,7 +62,7 @@
  */
 export default Vue.extend({
     name: 'TnTable',
-    props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select'],
+    props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter', 'noSelect'],
     data() {
         return {
             filtering: this.filter || [],
@@ -51,6 +72,12 @@ export default Vue.extend({
         };
     },
     computed: {
+        isNoSelect() {
+            return this.noSelect === '';
+        },
+        isNoFilter() {
+            return this.noFilter === '';
+        },
         status() {
             return { sort: this.sorting, filter: this.filtering, paging: this.pagination, select: this.selection };
         },
@@ -102,13 +129,11 @@ export default Vue.extend({
             this.emitter();
         },
         eventPagination(paging) {
-            console.log('paging', paging);
             this.pagination = paging;
             this.$emit('event-paging', paging);
             this.emitter();
         },
         eventSelection() {
-            console.log('### selection', this.selection);
             this.$emit('event-select', this.selection);
             this.emitter();
         },
@@ -132,67 +157,95 @@ props: {
 */
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .tn-checkbox {
   cursor: pointer;
 }
 
-.tn-table {
-  width: 100%;
-  border-collapse: collapse;
+.tn-table-container {
+  padding: 12px 24px;
+  border: 1px solid #dad9dd;
+  border-radius: 12px;
 
-  th,
-  td {
-    padding: 8px 12px;
-    border: 1px solid #ebebeb;
-    text-align: left;
-  }
+  .tn-table-overflow {
+    overflow: auto;
 
-  thead {
-    background-color: #f5f7fa;
+    .tn-table-item {
+      width: 100%;
+      border-collapse: collapse;
 
-    .header {
-      position: relative;
-      cursor: pointer;
+      tr {
+        height: 48px;
 
-      .sort {
-        position: absolute;
-        top: 50%;
-        right: 4px;
-        transform: translateY(-50%);
-        opacity: 0.7;
-
-        &.deactive {
-          opacity: 0.3;
+        th,
+        td {
+          padding: 8px 12px;
+          border-bottom: 1px solid #dad9dd;
+          color: #83818f;
+          font-size: 14px;
+          font-weight: 400;
+          text-align: left;
+          gap: 4px;
         }
       }
-    }
 
-    .filter {
-      border-top: none;
-      background-color: #f9fbfd;
+      thead {
+        // background-color: #f5f7fa;
+        .tn-header {
+          padding: 6px 10px;
 
-      input.filter {
-        padding: 6px 10px;
-        width: 100%;
-        border: 2px solid #acb8e1; // Daha kalın bir çerçeve
-        border-radius: 4px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 10%); // Hafif bir gölge
+          .th-container {
+            position: relative;
+            display: flex;
+            gap: 4px;
+            align-items: center;
 
-        &.deactive {
-          opacity: 0.5;
+            .sort {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 12px;
+              height: 12px;
+              cursor: pointer;
+              user-select: none;
+              color: #222222;
+
+              &.deactive {
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+
+        .filter {
+          border-top: none;
+          // background-color: #f9fbfd;
         }
       }
-    }
-  }
 
-  tbody {
-    .column {
-      background-color: #ffffff;
-    }
+      tbody {
+        tr {
+          .tn-column {
+            padding: 6px 10px;
+          }
 
-    tr:nth-child(odd) {
-      background-color: #fafafa;
+          &:nth-child(odd) {
+            // background-color: #fafafa;
+          }
+
+          &:last-child {
+            td {
+              border-bottom: none;
+            }
+          }
+
+          .td-container {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+        }
+      }
     }
   }
 }
