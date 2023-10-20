@@ -1,0 +1,36 @@
+{
+  "name": "@timus-networks/filter",
+  "version": "1.0.40",
+  "description": "A customizable filter component for Vue.js 2 applications.",
+  "main": "module.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "convert": "node js-converter.js",
+    "pub": "npm run convert && npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serkon/ts-nuxt.git"
+  },
+  "keywords": [
+    "vue",
+    "table",
+    "component",
+    "vuejs",
+    "datatable"
+  ],
+  "peerDependencies": {
+    "vue": "^2.x"
+  },
+  "dependencies": {
+    "element-ui": "^2.15.10",
+    "sass": "^1.69.0",
+    "sass-loader": "^10.1.1"
+  },
+  "devDependencies": {
+    "glob": "^10.3.10"
+  },
+  "typings": "./index.d.ts"
+}
