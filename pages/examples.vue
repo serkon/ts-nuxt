@@ -21,7 +21,7 @@ interface Data {
 export default {
   data(): Data {
     return {
-      components: ['table', 'dropdown', 'render', 'attrs'],
+      components: ['table', 'filter', 'dropdown', 'render', 'attrs'],
     };
   },
 };

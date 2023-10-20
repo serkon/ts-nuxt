@@ -39,6 +39,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     ['@/modules/@timus-networks/table/module', {friendlyFire: true, client: false, typescript: true}],
+    ['@/modules/@timus-networks/filter/module', {friendlyFire: true, client: false, typescript: true}],
     ['@/modules/@timus-networks/dropdown/module', {client: true}],
     '@nuxtjs/stylelint-module',
   ],
