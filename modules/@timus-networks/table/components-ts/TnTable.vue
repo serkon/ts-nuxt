@@ -11,14 +11,14 @@
                   <input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" />
                 </div>
               </th>
-              <TnHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
+              <TnTableHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
                 <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
                 <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
-              </TnHead>
+              </TnTableHead>
             </tr>
             <tr v-if="!isNoFilter">
               <th class="tn-column" v-if="!isNoSelect"></th>
-              <TnFilter
+              <TnTableFilter
                 v-for="(column, index) in columns"
                 :key="'th' + index"
                 v-bind="{ index, column, hide, filtering }"
@@ -26,7 +26,7 @@
               >
                 <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
                 <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
-              </TnFilter>
+              </TnTableFilter>
             </tr>
           </thead>
           <tbody>
@@ -36,20 +36,20 @@
                   <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
                 </div>
               </td>
-              <TnColumn
+              <TnTableColumn
                 v-for="(column, index) in columns"
                 :key="'tr' + rowIndex + index + column.field"
                 v-bind="{ rowIndex, row, index, column, hide }"
               >
                 <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
                 <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
-              </TnColumn>
+              </TnTableColumn>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <TnPagination :page="pagination.page" :limit="pagination.limit" :total="pagination.total" @event-paging="eventPagination" />
+    <TnTablePagination :page="pagination.page" :limit="pagination.limit" :total="pagination.total" @event-paging="eventPagination" />
   </div>
 </template>
 

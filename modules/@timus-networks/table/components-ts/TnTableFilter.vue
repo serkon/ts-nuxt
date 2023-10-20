@@ -55,7 +55,7 @@ interface Data {
 }
 
 export default Vue.extend({
-  name: 'TnFilter',
+  name: 'TnTableFilter',
   props: {
     column: {
       type: Object as PropType<Column>,

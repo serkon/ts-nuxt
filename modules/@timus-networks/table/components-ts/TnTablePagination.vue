@@ -57,7 +57,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'TnPagination',
+  name: 'TnTablePagination',
   props: ['page', 'limit', 'total'],
   data() {
     return {

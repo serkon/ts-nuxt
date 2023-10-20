@@ -14,7 +14,7 @@ import Vue, { PropType } from 'vue';
 import { Column, Sort } from './interfaces';
 
 export default Vue.extend({
-  name: 'TnRow',
+  name: 'TnTableHead',
   props: {
     column: {
       type: Object as PropType<Column>,

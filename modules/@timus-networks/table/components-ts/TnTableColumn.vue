@@ -12,7 +12,7 @@ import Vue, { PropType } from 'vue';
 import { Column } from './interfaces';
 
 export default Vue.extend({
-  name: 'TnColumn',
+  name: 'TnTableColumn',
   props: {
     row: {
       type: Object as PropType<any>,
