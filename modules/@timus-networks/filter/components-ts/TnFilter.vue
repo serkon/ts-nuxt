@@ -1,25 +1,14 @@
 <template>
   <div class="groups">
-    <button @click="addGroup(filters, filters.length - 1 ?? 0)" class="btn btn-primary-outline btn-md">Add Group</button>
-    <button @click="addFilter(filters, filters.length - 1)" class="btn btn-primary-outline btn-md">Add Fields +</button>
-
-    <div class="items" v-for="(item, itemIndex) in filters" :key="itemIndex">
-      <div>group: {{ item }}</div>
-      <template v-if="isArray(item)">
-        <!--
-          <button @click="addGroup(item, itemIndex)" class="btn btn-primary-outline btn-md">Add Group</button>
-        <button @click="removeGroup(itemIndex)" class="btn btn-primary-outline btn-md">Remove Group</button>
-        <button @click="addFilter(item, item.length - 1)" class="btn btn-primary-outline btn-md">+</button>
-        -->
-        <TnFilter :fields="fields" :filters="item"></TnFilter>
-      </template>
-      <template v-else>
-        <TnFilterRow :fields="fields" :value="item"></TnFilterRow>
-      </template>
+    <button @click="groupAdd(filters, filters.length - 1 ?? 0)" class="btn btn-primary-outline btn-md">+ Group</button>
+    <button @click="fieldAdd(filters, filters.length - 1)" class="btn btn-primary-outline btn-md">+ Fields</button>
+    <div class="items" v-for="(item, index) in filters" :key="index">
+      <div>item: {{ item }}</div>
+      <TnFilter :fields="fields" :filters="item" v-if="isArray(item)"></TnFilter>
+      <TnFilterItem :fields="fields" :value="item" :index="index" v-else></TnFilterItem>
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import { PropType } from 'vue/types';
 import Vue from 'vue';
@@ -30,13 +19,10 @@ export interface Field {
   field: string;
   operator: string;
   value: string;
+  condition: 'and' | 'or';
 }
 
-interface Data {
-  operators: string[];
-  // filters: any[];
-  // fields: string[];
-}
+interface Data {}
 
 export default Vue.extend({
   props: {
@@ -49,63 +35,21 @@ export default Vue.extend({
       default: () => [],
     },
   },
-  data(): Data {
-    return {
-      operators: ['equals', 'not equals', 'contains'],
-      // fields: ['name', 'age', 'city'],
-      // filters: [
-      //   [
-      //     { id: 1, field: 'name', operator: 'equals', value: 'John' },
-      //     { id: 2, field: 'age', operator: 'not equals', value: '25' },
-      //     { id: 3, field: 'city', operator: 'contains', value: 'Ankara' },
-      //   ],
-      // ],
-      // filters: this.value,
-    };
-  },
-  watch: {
-    filters: {
-      handler(newValue) {
-        // this.$emit('input', newValue); // Ana bileşene değişikliği bildiriyoruz
-      },
-      deep: true,
-    },
-  },
   methods: {
     isArray(a: any) {
       return Array.isArray(a);
     },
-    forceUpdate() {
-      this.$forceUpdate();
-    },
-    addFilter(group: any, position: number) {
-      debugger;
+    fieldAdd(group: any, position: number) {
       const newFilter = { id: utils.generateRandomId(), field: null, operator: null, value: '' };
       group.splice(position + 1, 0, newFilter);
     },
-    addX(group: any, position: number) {
-      this.filters.push(123);
-    },
-    removeFilter(group: any, index: number) {
+    fieldRemove(group: any, index: number) {
       group.splice(index, 1);
     },
-    applyFilters() {
-      // for (let filter of this.filters) {
-      //   console.log(`Filter: ${filter.field} ${filter.operator} ${filter.value}`);
-      // }
-    },
-    resetFilters() {
-      // this.filters = [{ field: null, operator: null, value: '' }];
-    },
-    saveFilters() {
-      console.log(this.filters);
-      this.$emit('emit', this.filters);
-    },
-    addGroup(group: any, groupIndex: number) {
-      console.log('addGroup', groupIndex);
+    groupAdd(group: any, groupIndex: number) {
       group.push([]);
     },
-    removeGroup(index: number) {
+    groupRemove(index: number) {
       this.filters.splice(index, 1);
     },
   },

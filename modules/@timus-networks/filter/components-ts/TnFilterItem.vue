@@ -1,5 +1,8 @@
 <template>
   <div>
+    <select v-model="value.condition" class="form-control form-control-md" :disabled="!index">
+      <option v-for="(c, index) in ['and', 'or']" :key="index" :value="c">{{ c }}</option>
+    </select>
     <select v-model="value.field" class="form-control form-control-md">
       <option v-for="(field, index) in fields" :key="index" :value="field">{{ field }}</option>
     </select>
@@ -21,7 +24,7 @@ interface Data {
 }
 
 export default Vue.extend({
-  name: 'TnFilterRow',
+  name: 'TnFilterField',
   props: {
     fields: {
       type: Array as () => Field[],
@@ -32,25 +35,22 @@ export default Vue.extend({
       type: Object,
       default: () => ({}),
     },
+    index: {
+      type: Number,
+    },
+  },
+  mounted() {
+    if (!this.value.field) {
+      this.value.field = this.fields[0];
+      this.value.operator = this.operators[0];
+      this.value.value = '';
+      !this.value.condition && this.$set(this.value, 'condition', this.index === 0 ? 'and' : 'or');
+    }
   },
   data(): Data {
     return {
       operators: ['equals', 'not equals', 'contains'],
     };
   },
-  methods: {
-    forceUpdate() {
-      this.$forceUpdate();
-    },
-    // diğer metodlar...
-  },
-  // watch: {
-  //   dataFieldValue: {
-  //     handler(newValue) {
-  //       this.$emit('event-field', newValue); // Ana bileşene değişikliği bildiriyoruz
-  //     },
-  //     deep: true,
-  //   },
-  // },
 });
 </script>
