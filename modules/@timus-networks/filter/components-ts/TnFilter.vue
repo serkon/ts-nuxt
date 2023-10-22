@@ -1,28 +1,33 @@
 <template>
-  <div class="groups">
-    <button @click="groupAdd(filters, filters.length - 1 ?? 0)" class="btn btn-primary-outline btn-md">+ Group</button>
-    <button @click="fieldAdd(filters, filters.length - 1)" class="btn btn-primary-outline btn-md">+ Fields</button>
-    <div class="items" v-for="(item, index) in filters" :key="index">
+  <div class="filter-groups">
+    <button @click="groupAdd" class="btn btn-primary-outline btn-md">+ Group</button>
+    <button @click="fieldAdd" class="btn btn-primary-outline btn-md">+ Fields</button>
+    <template class="filter-item" v-for="(item, index) in currentFilters">
       <div>item: {{ item }}</div>
-      <TnFilter :fields="fields" :filters="item" v-if="isArray(item)"></TnFilter>
+      <TnFilter :fields="fields" :filters="item" v-if="isGroup(item)"></TnFilter>
       <TnFilterItem :fields="fields" :value="item" :index="index" v-else></TnFilterItem>
-    </div>
+    </template>
   </div>
 </template>
+
 <script lang="ts">
 import { PropType } from 'vue/types';
 import Vue from 'vue';
 import { utils } from './utils';
 
-export interface Field {
+export type Field = {
   id: string;
-  field: string;
-  operator: string;
+  field: string | null;
+  operator: string | null;
   value: string;
-  condition: 'and' | 'or';
-}
+  condition: 'and' | 'or' | null;
+};
 
-interface Data {}
+export type Group = {
+  id: string;
+  condition: string;
+  rules: Field[];
+};
 
 export default Vue.extend({
   props: {
@@ -31,39 +36,54 @@ export default Vue.extend({
       required: true,
     },
     filters: {
-      type: Array as PropType<any[]>,
-      default: () => [],
+      type: [Array, Object] as PropType<(Field | Group)[] | Group>,
+      default: () => [] as (Field | Group)[] | Group,
+    },
+  },
+  computed: {
+    currentFilters(): (Field | Group)[] {
+      return 'rules' in this.filters ? this.filters.rules : (this.filters as (Field | Group)[]);
     },
   },
   methods: {
-    isArray(a: any) {
-      return Array.isArray(a);
+    isGroup(item: Field | Group): item is Group {
+      return 'rules' in item;
     },
-    fieldAdd(group: any, position: number) {
-      const newFilter = { id: utils.generateRandomId(), field: null, operator: null, value: '' };
-      group.splice(position + 1, 0, newFilter);
+    fieldAdd() {
+      const newFilter: Field = {
+        id: utils.generateRandomId(),
+        field: null,
+        operator: null,
+        value: '',
+        condition: null,
+      };
+      this.currentFilters.push(newFilter);
     },
-    fieldRemove(group: any, index: number) {
-      group.splice(index, 1);
+    fieldRemove(index: number) {
+      this.currentFilters.splice(index, 1);
     },
-    groupAdd(group: any, groupIndex: number) {
-      group.push([]);
+    groupAdd() {
+      this.currentFilters.push({
+        id: utils.generateRandomId(),
+        condition: '',
+        rules: [],
+      });
     },
     groupRemove(index: number) {
-      this.filters.splice(index, 1);
+      this.currentFilters.splice(index, 1);
     },
   },
 });
 </script>
 
 <style>
-.groups {
+.filter-groups {
   margin-bottom: 12px;
   padding: 16px;
   border: 1px solid red;
 }
 
-.items {
+.filter-item {
   margin: 16px 0;
   padding: 16px;
   border: 1px solid green;
