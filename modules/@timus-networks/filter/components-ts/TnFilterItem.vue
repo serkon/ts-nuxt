@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="items">
     <select v-model="value.condition" class="form-control form-control-md" :disabled="!index">
       <option v-for="(c, index) in ['and', 'or']" :key="index" :value="c">{{ c }}</option>
     </select>
