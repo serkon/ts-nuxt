@@ -11,7 +11,7 @@
 
 <script>import Vue from 'vue';
 export default Vue.extend({
-    name: 'TnRow',
+    name: 'TnTableHead',
     props: {
         column: {
             type: Object,

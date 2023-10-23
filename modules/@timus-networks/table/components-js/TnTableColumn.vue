@@ -9,7 +9,7 @@
 
 <script>import Vue from 'vue';
 export default Vue.extend({
-    name: 'TnColumn',
+    name: 'TnTableColumn',
     props: {
         row: {
             type: Object,

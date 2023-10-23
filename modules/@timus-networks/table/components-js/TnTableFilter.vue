@@ -47,7 +47,7 @@
 <script>import Vue from 'vue';
 import { utils } from './utils';
 export default Vue.extend({
-    name: 'TnFilter',
+    name: 'TnTableFilter',
     props: {
         column: {
             type: Object,
