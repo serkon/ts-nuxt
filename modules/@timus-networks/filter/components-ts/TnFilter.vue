@@ -1,11 +1,14 @@
 <template>
   <div class="filter-groups">
-    <button @click="groupAdd" class="btn btn-primary-outline btn-md">+ Group</button>
-    <button @click="fieldAdd" class="btn btn-primary-outline btn-md">+ Fields</button>
+    <div class="filter-actions">
+      <button @click="groupAdd" class="filter-add-group btn btn-primary-outline btn-xs">Add Group</button>
+      <button @click="fieldAdd" class="filter-add-field btn btn-primary-outline btn-xs">Add Fields</button>
+      <button @click="groupRemove" class="filter-remove-group btn btn-primary-outline btn-xs">Remove</button>
+    </div>
     <template class="filter-item" v-for="(item, index) in currentFilters">
-      <div>item: {{ item }}</div>
-      <TnFilter :fields="fields" :filters="item" v-if="isGroup(item)"></TnFilter>
-      <TnFilterItem :fields="fields" :value="item" :index="index" v-else></TnFilterItem>
+      <!-- <div>item: {{ item }}</div> -->
+      <TnFilter :fields="fields" :filters="item" v-if="isGroup(item)" @group-remove="eventRemove"></TnFilter>
+      <TnFilterItem :fields="fields" :value="item" :index="index" v-else @field-remove="eventRemove"></TnFilterItem>
     </template>
   </div>
 </template>
@@ -59,9 +62,6 @@ export default Vue.extend({
       };
       this.currentFilters.push(newFilter);
     },
-    fieldRemove(index: number) {
-      this.currentFilters.splice(index, 1);
-    },
     groupAdd() {
       this.currentFilters.push({
         id: utils.generateRandomId(),
@@ -69,23 +69,39 @@ export default Vue.extend({
         rules: [],
       });
     },
-    groupRemove(index: number) {
-      this.currentFilters.splice(index, 1);
+    groupRemove() {
+      this.$emit('group-remove', this.filters);
+    },
+    eventRemove($event: Group) {
+      const index = this.currentFilters.findIndex((item) => item.id === $event.id);
+      index > -1 && this.currentFilters.splice(index, 1);
+      console.log('eventRemove', $event);
     },
   },
 });
 </script>
 
 <style>
-.filter-groups {
+.filter-actions {
+  display: flex;
+  gap: 4px;
   margin-bottom: 12px;
+}
+
+.filter-groups {
+  display: flex;
+  flex-direction: column;
   padding: 16px;
-  border: 1px solid red;
+  border: 1px solid rgba(250, 0, 0, 5%);
+  background-color: rgba(250, 0, 0, 1%);
+  gap: 0;
 }
 
 .filter-item {
-  margin: 16px 0;
-  padding: 16px;
-  border: 1px solid green;
+  display: flex;
+  padding: 8px;
+  border-bottom: 1px solid rgba(0, 250, 150, 15%);
+  background-color: rgba(0, 250, 150, 5%);
+  gap: 12px;
 }
 </style>
