@@ -1,16 +1,16 @@
 <template>
   <div class="filter-item">
-    <select v-model="value.condition" class="form-control form-control-sm" :disabled="!index">
+    <select v-model="value.condition" class="filter-condition form-control form-control-sm" :disabled="!index">
       <option v-for="(c, index) in ['and', 'or']" :key="index" :value="c">{{ c }}</option>
     </select>
-    <select v-model="value.field" class="form-control form-control-sm">
+    <select v-model="value.field" class="filter-field form-control form-control-sm">
       <option v-for="(field, index) in fields" :key="index" :value="field">{{ field }}</option>
     </select>
-    <select v-model="value.operator" class="form-control form-control-sm">
+    <select v-model="value.operator" class="filter-operator form-control form-control-sm">
       <option v-for="op in operators" :key="op" :value="op">{{ op }}</option>
     </select>
-    <input v-model="value.value" class="form-control form-control-sm" />
-    <button class="btn btn-sm btn-primary-outline" @click="$emit('field-remove', value)">remove</button>
+    <input v-model="value.value" class="filter-value form-control form-control-sm" />
+    <button class="btn btn-sm btn-primary-outline" @click="$emit('field-remove', value)">x</button>
   </div>
 </template>
 
