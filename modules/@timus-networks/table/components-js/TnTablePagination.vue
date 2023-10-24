@@ -72,6 +72,15 @@ export default Vue.extend({
         'pagination.page'(newPage) {
             this.goToInput = newPage;
         },
+        page(value) {
+            this.pagination.page = value;
+        },
+        limit(value) {
+            this.pagination.limit = value;
+        },
+        total(value) {
+            this.pagination.total = value;
+        },
     },
     computed: {
         pageLimit: {
