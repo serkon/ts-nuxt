@@ -3,10 +3,9 @@
     <div class="filter-actions">
       <button @click="groupAdd" class="filter-add-group btn btn-primary-outline btn-xs">Add Group</button>
       <button @click="fieldAdd" class="filter-add-field btn btn-primary-outline btn-xs">Add Fields</button>
-      <button @click="groupRemove" class="filter-remove-group btn btn-primary-outline btn-xs">Remove</button>
+      <button @click="groupRemove" class="filter-remove-group btn btn-primary-outline btn-xs">X</button>
     </div>
     <template class="filter-item" v-for="(item, index) in currentFilters">
-      <!-- <div>item: {{ item }}</div> -->
       <TnFilter :fields="fields" :filters="item" v-if="isGroup(item)" @group-remove="eventRemove"></TnFilter>
       <TnFilterItem :fields="fields" :value="item" :index="index" v-else @field-remove="eventRemove"></TnFilterItem>
     </template>
@@ -53,14 +52,13 @@ export default Vue.extend({
       return 'rules' in item;
     },
     fieldAdd() {
-      const newFilter: Field = {
+      this.currentFilters.push({
         id: utils.generateRandomId(),
         field: null,
         operator: null,
         value: '',
         condition: null,
-      };
-      this.currentFilters.push(newFilter);
+      });
     },
     groupAdd() {
       this.currentFilters.push({
@@ -70,12 +68,15 @@ export default Vue.extend({
       });
     },
     groupRemove() {
-      this.$emit('group-remove', this.filters);
+      if (Array.isArray(this.filters)) {
+        this.currentFilters.splice(0, this.currentFilters.length);
+      } else this.$emit('group-remove', this.filters);
     },
     eventRemove($event: Group) {
+      // Burası parent gibi düşün alttan trigger edilen burada yakalanır ve listeden silinir
+      console.log('eventRemove', $event);
       const index = this.currentFilters.findIndex((item) => item.id === $event.id);
       index > -1 && this.currentFilters.splice(index, 1);
-      console.log('eventRemove', $event);
     },
   },
 });
@@ -84,8 +85,9 @@ export default Vue.extend({
 <style>
 .filter-actions {
   display: flex;
-  gap: 4px;
+  justify-content: flex-end;
   margin-bottom: 12px;
+  gap: 4px;
 }
 
 .filter-groups {
