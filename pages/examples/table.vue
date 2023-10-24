@@ -13,8 +13,6 @@
       :sort="tableOptions.sort"
       :filter="tableOptions.filter"
       :paging="tableOptions.paging"
-      no-filter
-      no-select
       @event-filter="emit"
       @event-sort="emit"
       @event-select="emit"
@@ -125,6 +123,14 @@ export default Vue.extend({
       this.tableOptions = value;
       console.log('emit:', value);
     },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.tableOptions.sort = [{ field: 'surname', alignment: 'asc' }];
+      this.tableOptions.select = [Hollywood[1], Hollywood[0]];
+      this.tableOptions.paging.total = 2500;
+      this.tableOptions.filter = [{ field: 'surname', value: 'Serkan' }];
+    }, 1000);
   },
   components: { Checkbox },
 });

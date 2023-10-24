@@ -150,6 +150,18 @@ export default Vue.extend({
       this.emitter();
     },
   },
+  watch: {
+    $props: {
+      deep: true,
+      immediate: true,
+      handler(value) {
+        this.sorting = value.sort;
+        this.pagination = value.paging;
+        this.filtering = value.filter;
+        this.selection = value.select;
+      },
+    },
+  },
 });
 
 /*

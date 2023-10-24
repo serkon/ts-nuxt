@@ -87,6 +87,15 @@ export default Vue.extend({
       },
     };
   },
+  watch: {
+    filtering: {
+      deep: true,
+      immediate: true,
+      handler(item) {
+        this.filter = this.item?.value ?? '';
+      },
+    },
+  },
   methods: {
     testChanged(value: any) {
       utils.debounce(() => {
@@ -95,9 +104,6 @@ export default Vue.extend({
         this.$emit('event-filter', updated);
       }, 500)();
     },
-  },
-  mounted() {
-    this.filter = this.item?.value ?? '';
   },
   computed: {
     item() {
