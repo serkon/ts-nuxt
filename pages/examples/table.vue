@@ -129,7 +129,7 @@ export default Vue.extend({
       this.tableOptions.sort = [{ field: 'surname', alignment: 'asc' }];
       this.tableOptions.select = [Hollywood[1], Hollywood[0]];
       this.tableOptions.paging.total = 2500;
-      this.tableOptions.filter = [{ field: 'surname', value: 'Serkan' }];
+      this.tableOptions.filter = [{ field: 'surname', value: 'Johansson' }];
     }, 1000);
   },
   components: { Checkbox },
