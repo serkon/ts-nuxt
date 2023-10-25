@@ -100,7 +100,6 @@ export default Vue.extend({
         label: 'Name',
         width: '245px',
         sticky: 'left',
-        sticky: 'left',
         filterConfig: {
           options: [
             { label: 'John Travolta', value: 'user-001' },
@@ -120,7 +119,7 @@ export default Vue.extend({
       { field: 'birthday', label: 'Birthday', sticky: 'both' },
       { field: 'married', label: 'Married', sticky: 'right' },
     ],
-    tableData: Hol,
+    tableData: Hollywood,
     tableOptions: option,
   }),
   methods: {
