@@ -57,6 +57,9 @@ export default Vue.extend({
       ],
     };
   },
+  mounted() {
+    console.log('translate:', this.$t);
+  },
   methods: {
     emit(value: any) {
       console.log('emit:', value);

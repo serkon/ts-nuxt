@@ -6,7 +6,7 @@
         <table aria-describedby="Data table" class="tn-table-item">
           <thead>
             <tr>
-              <th class="tn-header" v-if="!isNoSelect">
+              <th class="tn-header" v-if="!isNoSelect && isDataExist" scope="col">
                 <div class="th-container">
                   <input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" />
                 </div>
@@ -16,8 +16,8 @@
                 <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
               </TnTableHead>
             </tr>
-            <tr v-if="!isNoFilter">
-              <th class="tn-column" v-if="!isNoSelect"></th>
+            <tr v-if="!isNoFilter && isDataExist">
+              <th class="tn-column" v-if="!isNoSelect" scope="col"></th>
               <TnTableFilter
                 v-for="(column, index) in columns"
                 :key="'th' + index"
@@ -30,26 +30,38 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(row, rowIndex) in data" :key="'tr' + rowIndex">
-              <td class="tn-column" v-if="!isNoSelect">
-                <div class="td-container">
-                  <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
-                </div>
-              </td>
-              <TnTableColumn
-                v-for="(column, index) in columns"
-                :key="'tr' + rowIndex + index + column.field"
-                v-bind="{ rowIndex, row, index, column, hide }"
-              >
-                <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
-                <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
-              </TnTableColumn>
+            <template v-if="isDataExist">
+              <tr v-for="(row, rowIndex) in data" :key="'tr' + rowIndex">
+                <td class="tn-column" v-if="!isNoSelect">
+                  <div class="td-container">
+                    <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
+                  </div>
+                </td>
+                <TnTableColumn
+                  v-for="(column, index) in columns"
+                  :key="'tr' + rowIndex + index + column.field"
+                  v-bind="{ rowIndex, row, index, column, hide }"
+                >
+                  <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
+                  <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
+                </TnTableColumn>
+              </tr>
+            </template>
+            <tr v-else>
+              <td class="tn-column tn-column-empty" :colspan="columns.length">{{ translator(language.NoData, { total: 1000 }) }}</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <TnTablePagination :page="pagination.page" :limit="pagination.limit" :total="pagination.total" @event-paging="eventPagination" />
+    <TnTablePagination
+      :page="pagination.page"
+      :limit="pagination.limit"
+      :total="pagination.total"
+      :translate="translate"
+      @event-paging="eventPagination"
+      v-if="isDataExist"
+    />
   </div>
 </template>
 
@@ -62,6 +74,12 @@ interface Data {
   filtering: Filter[];
   pagination: Paging;
   selection: any[];
+  translator: (key: string, params?: { [key: string]: any }) => string;
+  language: typeof TableLanguage;
+}
+
+export enum TableLanguage {
+  NoData = 'No Data',
 }
 
 /**
@@ -73,16 +91,21 @@ interface Data {
 
 export default Vue.extend({
   name: 'TnTable',
-  props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter', 'noSelect'],
+  props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter', 'noSelect', 'translate'],
   data(): Data {
     return {
       filtering: this.filter || [],
       sorting: this.sort || [],
       pagination: this.paging || { page: 1, limit: 10, total: 0 },
       selection: this.select || [],
+      translator: this.translate || ((v: string): string => v),
+      language: TableLanguage,
     };
   },
   computed: {
+    isDataExist() {
+      return this.data.length > 0;
+    },
     isNoSelect() {
       return this.noSelect === '';
     },
@@ -268,6 +291,10 @@ props: {
             display: flex;
             align-items: center;
             gap: 4px;
+          }
+
+          .tn-column-empty {
+            text-align: center;
           }
         }
       }

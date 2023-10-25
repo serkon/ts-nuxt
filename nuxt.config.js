@@ -38,6 +38,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/i18n',
     ['@/modules/@timus-networks/table/module', {friendlyFire: true, client: false, typescript: true}],
     ['@/modules/@timus-networks/filter/module', {friendlyFire: true, client: false, typescript: true}],
     ['@/modules/@timus-networks/dropdown/module', {client: true}],
@@ -80,4 +81,27 @@ export default {
       }
     },
   },
+
+  i18n: {
+    locales:[
+      { code: 'en', iso: 'en-US', file: 'en.js', dir: 'ltr' },
+      { code: 'tr', iso: 'tr-TR', file: 'tr.js' },
+    ],
+    defaultLocale: 'en',
+    langDir: './locales',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          welcome: 'Welcome'
+        },
+        fr: {
+          welcome: 'Bienvenue'
+        },
+        es: {
+          welcome: 'Bienvenido'
+        }
+      }
+    }
+  }
 };

@@ -4,6 +4,7 @@
       <h1 class="text-3xl font-bold w-full mb-4">Table Component Sample</h1>
     </div>
 
+    {{ $t('hello') }}
     <TnTable
       ref="table"
       :data="tableData"
@@ -13,6 +14,7 @@
       :sort="tableOptions.sort"
       :filter="tableOptions.filter"
       :paging="tableOptions.paging"
+      :translate="$t"
       @event-filter="emit"
       @event-sort="emit"
       @event-select="emit"
@@ -130,6 +132,7 @@ export default Vue.extend({
       this.tableOptions.select = [Hollywood[1], Hollywood[0]];
       this.tableOptions.paging.total = 2500;
       this.tableOptions.filter = [{ field: 'surname', value: 'Johansson' }];
+      // this.tableData = [];
     }, 1000);
   },
   components: { Checkbox },
