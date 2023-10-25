@@ -8,6 +8,7 @@ export interface Column {
   field: string;
   label: string;
   width?: string;
+  sticky?: 'left' | 'right' | 'both';
   filterConfig?: FilterConfig;
 }
 
