@@ -15,6 +15,8 @@
       :filter="tableOptions.filter"
       :paging="tableOptions.paging"
       :translate="$t"
+      no-filter
+      no-select
       @event-filter="emit"
       @event-sort="emit"
       @event-select="emit"

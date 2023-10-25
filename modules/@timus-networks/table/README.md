@@ -60,6 +60,7 @@ Just add `data` and `columns` attributes, and it will be handled with minimum re
 
     <TnTable
       ref="table"
+      height="500px"
       :data="tableData"
       :columns="tableColumns"
       :hide="[]"
