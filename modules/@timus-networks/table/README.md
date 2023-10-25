@@ -15,6 +15,20 @@
 - If you prefer to use `typescript` during development, set `typescript` to `true`.
 - You can also set the `namespace` to define the module path's position within the .nuxt folder.
 
+## Language File
+
+Add below text to your language files. And set `translate` props to your translation method: <TnTable :translate='$t'></TnTable>
+
+<sub>`~/locals/en.js`</sub>
+
+```json
+  "No Data": 'No data',
+  "Total Records": 'Total {total} Records',
+  "GoTo": 'Go to',
+  "page": 'page',
+  "Records per page": "Records per page:",
+```
+
 ## Events
 
 - The table will directly reflect the values provided from outside for `select`, `filter`, `paging`, and `sort`.
@@ -53,6 +67,7 @@ Just add `data` and `columns` attributes, and it will be handled with minimum re
       :sort="tableOptions.sort"
       :filter="tableOptions.filter"
       :paging="tableOptions.paging"
+      :translate="$t"
       no-filter
       no-select
       @event-filter="emit"
