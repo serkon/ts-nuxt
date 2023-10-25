@@ -79,11 +79,12 @@ Just add `data` and `columns` attributes, and it will be handled with minimum re
     >
       <!--
       <template #head.name>Name</template>
-      <template #head.surname>Surname</template>
-      <template #head.age>Age Of Trones</template>
-      <template #filter.name>Add some HTML</template>
-      <template #column.surname>Add some HTML</template>
-      <template #column.name>{{ scope.row[column.field]}}</template>
+      <template #head.surname>Patates</template>
+      <template #head.age>sad</template>
+      template #filter.name>general</template>
+      <template #filter.surname />
+      <template #column.surname><button>...</button></template>
+      <template #column.name><button>...</button></template>
       <template #column="scope">{{ scope.row }}</template>
     -->
       <template v-for="column in tableColumns" #[`column.${column.field}`]="scope">{{ scope.row[column.field] }}</template>
@@ -100,8 +101,8 @@ Just add `data` and `columns` attributes, and it will be handled with minimum re
 
 <script lang="ts">
   import Vue from 'vue';
-  import Checkbox from '~/components/Checkbox.vue';
   import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table';
+  // import Hol from '@/assets/data/hollywood-50.json';
 
   const Hollywood = [
     {
@@ -132,6 +133,8 @@ Just add `data` and `columns` attributes, and it will be handled with minimum re
     tableOptions: TnTableEmitOutput;
   }
 
+  /* This will be your main table variables will send you backend */
+
   const option: TnTableEmitOutput = {
     filter: [
       { field: 'surname', value: 'Johansson' },
@@ -149,10 +152,12 @@ Just add `data` and `columns` attributes, and it will be handled with minimum re
     name: 'TableSample',
     data: (): Data => ({
       tableColumns: [
+        /* All acceptable configuration for columns */
         {
           field: 'name',
           label: 'Name',
           width: '245px',
+          sticky: 'left',
           filterConfig: {
             options: [
               { label: 'John Travolta', value: 'user-001' },
@@ -164,16 +169,17 @@ Just add `data` and `columns` attributes, and it will be handled with minimum re
             disable: false,
           },
         },
+        /* simple (minimum) column configuration */
         { field: 'surname', label: 'Surname' },
         { field: 'age', label: 'Age', width: '200px' },
         { field: 'height', label: 'Height' },
-        { field: 'weight', label: 'Weight' },
+        { field: 'weight', label: 'Weight', sticky: 'both' },
         { field: 'horoscope', label: 'Horoscope' },
         { field: 'birthday', label: 'Birthday' },
-        { field: 'married', label: 'Married' },
+        { field: 'married', label: 'Married', sticky: 'right' },
       ],
-      tableData: Hollywood,
-      tableOptions: option,
+      tableData: Hollywood, // <TnTable :data="tableData" /> The tableData property passed to the table component can either be set as an empty array or initialized with initial data.
+      tableOptions: option, // handling all table options to one point
     }),
     methods: {
       emit(value: any) {
@@ -181,7 +187,16 @@ Just add `data` and `columns` attributes, and it will be handled with minimum re
         console.log('emit:', value);
       },
     },
-    components: { Checkbox },
+    mounted() {
+      setTimeout(() => {
+        this.tableOptions.sort = [{ field: 'surname', alignment: 'asc' }];
+        this.tableOptions.select = [Hollywood[1], Hollywood[0]];
+        this.tableOptions.paging.total = 2500;
+        this.tableOptions.filter = [{ field: 'surname', value: 'Johansson' }];
+        // this.tableData = [];
+        console.log('Updated with Async Data sample');
+      }, 3000);
+    },
   });
 </script>
 ```

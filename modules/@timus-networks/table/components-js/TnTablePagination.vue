@@ -1,8 +1,7 @@
 <template>
   <div class="pagination w-full" v-if="pagination.total > pagination.limit">
     <div class="pagination-meta">
-      <span>Total {{ pagination.total }} Records</span>
-      <!--<span>{{ pagination.page }}/{{ totalPages }}</span>-->
+      <span>{{ translator(language.TotalRecords, { total: pagination.total }) }}</span>
     </div>
     <div class="pagination-actions hidden-sm-and-down">
       <template v-if="totalPages > threshold * 2 + 1">
@@ -23,7 +22,7 @@
       </template>
     </div>
     <div class="pagination-goto">
-      <span>Go to</span>
+      <span>{{ translator(language.GoTo) }}</span>
       <!--
         <input
         type="number"
@@ -37,7 +36,7 @@
       <el-input class="pagination-goto-input" size="mini" v-model="goToInput" @change="goToPage(goToInput)" :min="1" :max="totalPages"></el-input>
     </div>
     <div class="pagination-limits">
-      <span v-if="false">Records per page:</span>
+      <span v-if="false">{{ translator(language.RecordsPerPage) }}</span>
       <!--
         <select v-model="pageLimit" @change="emit" class="pagination-limit form-control form-control-sm">
         <option value="10">10/page</option>
@@ -47,16 +46,23 @@
         </select>
       -->
       <el-select v-model="pageLimit" collapse-tags size="mini" @change="emit" class="pagination-limit-selection">
-        <el-option v-for="item in [10, 20, 50, 100]" :key="item" :label="`${item}/page`" :value="item"></el-option>
+        <el-option v-for="item in [10, 20, 50, 100]" :key="item" :label="`${item}/${translator(language.Page)}`" :value="item"></el-option>
       </el-select>
     </div>
   </div>
 </template>
 
 <script>import Vue from 'vue';
+var PaginationLanguage;
+(function (PaginationLanguage) {
+    PaginationLanguage["TotalRecords"] = "Total Records";
+    PaginationLanguage["GoTo"] = "GoTo";
+    PaginationLanguage["Page"] = "page";
+    PaginationLanguage["RecordsPerPage"] = "Records per page";
+})(PaginationLanguage || (PaginationLanguage = {}));
 export default Vue.extend({
     name: 'TnTablePagination',
-    props: ['page', 'limit', 'total'],
+    props: ['page', 'limit', 'total', 'translate'],
     data() {
         return {
             goToInput: this.page || 1,
@@ -66,6 +72,8 @@ export default Vue.extend({
                 limit: this.limit || 10,
                 total: this.total || 0,
             },
+            translator: this.translate || ((v) => v),
+            language: PaginationLanguage,
         };
     },
     watch: {

@@ -8,8 +8,8 @@ export interface Column {
   field: string;
   label: string;
   width?: string;
-  sticky?: 'left' | 'right' | 'both';
   filterConfig?: FilterConfig;
+  sticky?: 'left' | 'right' | 'both';
 }
 
 export interface Sort {

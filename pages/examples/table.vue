@@ -47,7 +47,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Checkbox from '~/components/Checkbox.vue';
 import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table';
 // import Hol from '@/assets/data/hollywood-50.json';
 
@@ -80,6 +79,8 @@ interface Data {
   tableOptions: TnTableEmitOutput;
 }
 
+/* This will be your main table variables will send you backend */
+
 const option: TnTableEmitOutput = {
   filter: [
     { field: 'surname', value: 'Johansson' },
@@ -97,6 +98,7 @@ export default Vue.extend({
   name: 'TableSample',
   data: (): Data => ({
     tableColumns: [
+      /* All acceptable configuration for columns */
       {
         field: 'name',
         label: 'Name',
@@ -113,16 +115,17 @@ export default Vue.extend({
           disable: false,
         },
       },
+      /* simple (minimum) column configuration */
       { field: 'surname', label: 'Surname' },
       { field: 'age', label: 'Age', width: '200px' },
       { field: 'height', label: 'Height' },
-      { field: 'weight', label: 'Weight' },
+      { field: 'weight', label: 'Weight', sticky: 'both' },
       { field: 'horoscope', label: 'Horoscope' },
-      { field: 'birthday', label: 'Birthday', sticky: 'both' },
+      { field: 'birthday', label: 'Birthday' },
       { field: 'married', label: 'Married', sticky: 'right' },
     ],
-    tableData: Hollywood,
-    tableOptions: option,
+    tableData: Hollywood, // <TnTable :data="tableData" /> The tableData property passed to the table component can either be set as an empty array or initialized with initial data.
+    tableOptions: option, // handling all table options to one point
   }),
   methods: {
     emit(value: any) {
@@ -137,8 +140,8 @@ export default Vue.extend({
       this.tableOptions.paging.total = 2500;
       this.tableOptions.filter = [{ field: 'surname', value: 'Johansson' }];
       // this.tableData = [];
-    }, 1000);
+      console.log('Updated with Async Data sample');
+    }, 3000);
   },
-  components: { Checkbox },
 });
 </script>

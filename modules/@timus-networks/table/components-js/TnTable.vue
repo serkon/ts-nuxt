@@ -2,27 +2,42 @@
 <template>
   <div class="tn-table">
     <div class="tn-table-container">
-      <div class="tn-table-overflow">
-        <table aria-describedby="Data table" class="tn-table-item">
+      <div class="tn-table-overflow" :style="{ maxHeight: height }">
+        <table aria-describedby="Data table" class="tn-table-self">
           <thead>
             <tr>
-              <th class="tn-header" v-if="!isNoSelect">
+              <th class="tn-header" v-if="!isNoSelect && isDataExist" scope="col">
                 <div class="th-container">
                   <input type="checkbox" :checked="isAllSelected" @change="toggleAll" ref="checkbox" class="tn-checkbox" />
                 </div>
               </th>
-              <TnTableHead v-for="(column, index) in columns" :key="'th' + index" v-bind="{ index, column, hide, sorting }" @event-sort="eventSort">
+              <TnTableHead
+                v-for="(column, index) in columns"
+                :key="'th' + index"
+                v-bind="{ index, column, hide, sorting }"
+                @event-sort="eventSort"
+                :class="{
+                  'sticky sticky-left': column.sticky === 'left',
+                  'sticky sticky-right': column.sticky === 'right',
+                  'sticky sticky-both': column.sticky === 'both',
+                }"
+              >
                 <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
                 <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
               </TnTableHead>
             </tr>
-            <tr v-if="!isNoFilter">
-              <th class="tn-column" v-if="!isNoSelect"></th>
+            <tr v-if="!isNoFilter && isDataExist">
+              <th class="tn-column" v-if="!isNoSelect" scope="col"></th>
               <TnTableFilter
                 v-for="(column, index) in columns"
                 :key="'th' + index"
                 v-bind="{ index, column, hide, filtering }"
                 @event-filter="eventFilter"
+                :class="{
+                  'sticky sticky-left': column.sticky === 'left',
+                  'sticky sticky-right': column.sticky === 'right',
+                  'sticky sticky-both': column.sticky === 'both',
+                }"
               >
                 <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
                 <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
@@ -30,30 +45,51 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(row, rowIndex) in data" :key="'tr' + rowIndex">
-              <td class="tn-column" v-if="!isNoSelect">
-                <div class="td-container">
-                  <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
-                </div>
-              </td>
-              <TnTableColumn
-                v-for="(column, index) in columns"
-                :key="'tr' + rowIndex + index + column.field"
-                v-bind="{ rowIndex, row, index, column, hide }"
-              >
-                <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
-                <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
-              </TnTableColumn>
+            <template v-if="isDataExist">
+              <tr v-for="(row, rowIndex) in data" :key="'tr' + rowIndex">
+                <td class="tn-column" v-if="!isNoSelect">
+                  <div class="td-container">
+                    <input type="checkbox" v-model="selection" :value="row" @change="eventSelection" class="tn-checkbox" />
+                  </div>
+                </td>
+                <TnTableColumn
+                  v-for="(column, index) in columns"
+                  :key="'tr' + rowIndex + index + column.field"
+                  v-bind="{ rowIndex, row, index, column, hide }"
+                  :class="{
+                    'sticky sticky-left': column.sticky === 'left',
+                    'sticky sticky-right': column.sticky === 'right',
+                    'sticky sticky-both': column.sticky === 'both',
+                  }"
+                >
+                  <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
+                  <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
+                </TnTableColumn>
+              </tr>
+            </template>
+            <tr v-else>
+              <td class="tn-column tn-column-empty" :colspan="columns.length">{{ translator(language.NoData, { total: 1000 }) }}</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <TnTablePagination :page="pagination.page" :limit="pagination.limit" :total="pagination.total" @event-paging="eventPagination" />
+    <TnTablePagination
+      :page="pagination.page"
+      :limit="pagination.limit"
+      :total="pagination.total"
+      :translate="translate"
+      @event-paging="eventPagination"
+      v-if="isDataExist"
+    />
   </div>
 </template>
 
 <script>import Vue from 'vue';
+export var TableLanguage;
+(function (TableLanguage) {
+    TableLanguage["NoData"] = "No Data";
+})(TableLanguage || (TableLanguage = {}));
 /**
  * TnTable component
  *
@@ -62,16 +98,21 @@
  */
 export default Vue.extend({
     name: 'TnTable',
-    props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter', 'noSelect'],
+    props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter', 'noSelect', 'translate', 'height'],
     data() {
         return {
             filtering: this.filter || [],
             sorting: this.sort || [],
             pagination: this.paging || { page: 1, limit: 10, total: 0 },
             selection: this.select || [],
+            translator: this.translate || ((v) => v),
+            language: TableLanguage,
         };
     },
     computed: {
+        isDataExist() {
+            return this.data.length > 0;
+        },
         isNoSelect() {
             return this.noSelect === '';
         },
@@ -182,9 +223,12 @@ props: {
   .tn-table-overflow {
     overflow: auto;
 
-    .tn-table-item {
+    .tn-table-self {
+      position: relative;
       width: 100%;
-      border-collapse: collapse;
+      overflow: auto;
+      border-collapse: separate;
+      border-spacing: 0;
 
       tr {
         height: 48px;
@@ -196,15 +240,64 @@ props: {
           color: #83818f;
           font-size: 14px;
           font-weight: 400;
+          line-height: 16px;
           text-align: left;
           gap: 4px;
-        }
-      }
 
-      thead {
-        // background-color: #f5f7fa;
-        .tn-header {
+          &.sticky {
+            position: sticky;
+            z-index: 1;
+            background-color: #ffffff;
+            transition: all 0.3s;
+          }
+
+          &.sticky-left {
+            left: 0;
+            box-shadow: 3px 1px 4px rgba(0, 0, 0, 5%);
+          }
+
+          &.sticky-right {
+            right: 0;
+            box-shadow: -3px 1px 4px rgba(0, 0, 0, 5%);
+          }
+
+          &.sticky-both {
+            right: 0;
+            left: 0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 12%);
+          }
+        }
+
+        th {
           padding: 6px 10px;
+          background: #ffffff;
+
+          &.tn-header {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+
+            &.sticky {
+              z-index: 2;
+
+              &.sticky-left {
+                box-shadow: 3px 1px 4px rgba(0, 0, 0, 5%);
+              }
+
+              &.sticky-right {
+                box-shadow: -3px 1px 4px rgba(0, 0, 0, 5%);
+              }
+
+              &.sticky-both {
+                box-shadow: 0 -3px 4px rgba(0, 0, 0, 12%);
+              }
+            }
+          }
+
+          &.filter {
+            border-top: none;
+            // background-color: #f9fbfd;
+          }
 
           .th-container {
             position: relative;
@@ -228,11 +321,6 @@ props: {
             }
           }
         }
-
-        .filter {
-          border-top: none;
-          // background-color: #f9fbfd;
-        }
       }
 
       tbody {
@@ -255,6 +343,10 @@ props: {
             display: flex;
             align-items: center;
             gap: 4px;
+          }
+
+          .tn-column-empty {
+            text-align: center;
           }
         }
       }

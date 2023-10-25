@@ -1,3 +1,6 @@
+export declare enum TableLanguage {
+    NoData = "No Data"
+}
 /**
  * TnTable component
  *
