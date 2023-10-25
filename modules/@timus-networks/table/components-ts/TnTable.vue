@@ -2,7 +2,7 @@
 <template>
   <div class="tn-table">
     <div class="tn-table-container">
-      <div class="tn-table-overflow" :style="{ height: height }">
+      <div class="tn-table-overflow" :style="{ maxHeight: height }">
         <table aria-describedby="Data table" class="tn-table-self">
           <thead>
             <tr>

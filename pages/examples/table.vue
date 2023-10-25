@@ -6,7 +6,7 @@
 
     <TnTable
       ref="table"
-      :height="'500px'"
+      height="500px"
       :data="tableData"
       :columns="tableColumns"
       :hide="[]"
@@ -47,7 +47,7 @@
 import Vue from 'vue';
 import Checkbox from '~/components/Checkbox.vue';
 import { Column, TnTableEmitOutput } from '~/modules/@timus-networks/table';
-import Hol from '@/assets/data/hollywood-50.json';
+// import Hol from '@/assets/data/hollywood-50.json';
 
 const Hollywood = [
   {
@@ -100,6 +100,7 @@ export default Vue.extend({
         label: 'Name',
         width: '245px',
         sticky: 'left',
+        sticky: 'left',
         filterConfig: {
           options: [
             { label: 'John Travolta', value: 'user-001' },
@@ -115,8 +116,8 @@ export default Vue.extend({
       { field: 'age', label: 'Age', width: '200px' },
       { field: 'height', label: 'Height' },
       { field: 'weight', label: 'Weight' },
-      { field: 'horoscope', label: 'Horoscope', sticky: 'both' },
-      { field: 'birthday', label: 'Birthday' },
+      { field: 'horoscope', label: 'Horoscope' },
+      { field: 'birthday', label: 'Birthday', sticky: 'both' },
       { field: 'married', label: 'Married', sticky: 'right' },
     ],
     tableData: Hol,
