@@ -11,7 +11,7 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
      '@/assets/scss/main.scss',
-    // '~/assets/tailwind.css'
+         // '~/assets/tailwind.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -42,6 +42,7 @@ export default {
     ['@/modules/@timus-networks/table/module', {friendlyFire: true, client: false, typescript: true}],
     ['@/modules/@timus-networks/filter/module', {friendlyFire: true, client: false, typescript: true}],
     ['@/modules/@timus-networks/dropdown/module', {client: true}],
+    ['@/modules/@timus-networks/icon/module', {friendlyFire: true, client: false, typescript: true}],
     '@nuxtjs/stylelint-module',
   ],
   // '@timus-networks/table': { typescript: false },

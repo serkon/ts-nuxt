@@ -13,12 +13,9 @@ export default function(moduleOptions) {
     version: PackageJson.version,
   };
 
-
   options.namespace = !options.namespace ? 'timus-networks/' + PackageJson.name.split('/')[1] : options.namespace;
   options.typescript = !!options.typescript;
   options.client = options.client === true;
-
-  console.log('Timus Table Options:', options);
 
   LoadPlugins.bind(this)(options, this.options);
   LoadComponent.bind(this)(options);

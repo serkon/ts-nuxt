@@ -1,7 +1,8 @@
 <template>
   <div class="table-sample-page">
     <div>
-      <h1 class="text-3xl font-bold w-full mb-4">Table Component Sample</h1>
+      <h1 class="isax-activity icon-xxl text-3xl font-bold w-full mb-4">Table Component Sample</h1>
+      <TnIcon icon="isax-activity" size="xxs" />ddd
     </div>
 
     <TnTable
@@ -145,3 +146,9 @@ export default Vue.extend({
   },
 });
 </script>
+<style>
+.tc {
+  border: 1px solid red;
+  font-family: iconsax, Helvetica, sans-serif;
+}
+</style>
