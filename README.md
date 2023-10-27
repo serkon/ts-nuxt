@@ -1,3 +1,11 @@
+# python & nodejs
+- şuanki kullandığım python sürümü 3.12.0
+- nodejs sürümü ise node 21.1.0
+- Python 3.12 ile "distutils" modülü varsayılan olarak gelmiyor olabilir. Bu modülü kurmak için:  `pip3 install setuptools` çalıştırmalısın. Yoksa şu hatayı verir:
+`npm ERR! ModuleNotFoundError: No module named 'distutils'`
+
+
+
 # ts-starter
 
 ```js

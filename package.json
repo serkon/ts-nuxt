@@ -14,7 +14,8 @@
     "lintfix": "prettier --write --list-different . && npm run lint:js -- --fix && npm run lint:style -- --fix",
     "prepare": "husky install && npm run setup:husky",
     "setup:husky": "husky set .husky/pre-push \"npx lint-staged && npm test -- --watchAll=false\" && husky set .husky/commit-msg \"npx commitlint --edit $1\"",
-    "test": "jest"
+    "test": "jest",
+    "### preinstall": "pip3 install setuptools"
   },
   "husky": {
     "hooks": {

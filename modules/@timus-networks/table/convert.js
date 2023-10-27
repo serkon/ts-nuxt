@@ -43,9 +43,10 @@ vueFiles.forEach((file) => {
     fs.writeFileSync(tsFilePath, tsCode, 'utf-8');
 
     let hasError = false;
+    const tscPath = path.resolve(__dirname, '../../../node_modules/.bin/tsc');
 
     try {
-      execSync(`tsc ${tsFilePath} --allowJs false --module esnext --target esnext --declaration true`, { encoding: 'utf8' });
+      execSync(`${tscPath} ${tsFilePath} --allowJs false --module esnext --target esnext --declaration true`, { encoding: 'utf8' });
     } catch (e) {
       // console.error("### Derleme hatası:", tsFilePath, e);
       // console.error('DERLEME HATASI: ', e.stdout.toString());
@@ -53,6 +54,12 @@ vueFiles.forEach((file) => {
     }
 
     if (hasError) {
+      // temp.d.ts dosyasını yeniden oluştur ve adını
+      const tsOutputFilePath = tsFilePath.replace('.temp.ts', '.temp.d.ts');
+      const desiredOutputFilePath = tsFilePath.replace('.temp.ts', '.d.ts');
+      if (fs.existsSync(tsOutputFilePath)) {
+        fs.renameSync(tsOutputFilePath, desiredOutputFilePath);
+      }
       const jsCode = fs.readFileSync(tsFilePath.replace('.ts', '.js'), 'utf-8');
       const finalJsCode = jsCode.replace(/\/\/ import/g, 'import');
       const newContent = content.replace(/<script lang="ts">(.*?)<\/script>/s, `<script>${finalJsCode}</script>`);
@@ -80,3 +87,4 @@ let imports = declarationFiles
   .join('\n');
 
 fs.writeFileSync('./index.d.ts', imports);
+console.log("### index.d.ts dosyası oluşturuldu.");
