@@ -16,11 +16,7 @@
                 :key="'th' + index"
                 v-bind="{ index, column, hide, sorting }"
                 @event-sort="eventSort"
-                :class="{
-                  'sticky sticky-left': column.sticky === 'left',
-                  'sticky sticky-right': column.sticky === 'right',
-                  'sticky sticky-both': column.sticky === 'both',
-                }"
+                :class="isSticky(column)"
               >
                 <slot v-if="hasSlot('head.' + column.field)" :name="'head.' + column.field" v-bind="{ index, column, hide, sorting }" />
                 <slot v-else :name="'head'" v-bind="{ index, column, hide }" />
@@ -33,11 +29,7 @@
                 :key="'th' + index"
                 v-bind="{ index, column, hide, filtering }"
                 @event-filter="eventFilter"
-                :class="{
-                  'sticky sticky-left': column.sticky === 'left',
-                  'sticky sticky-right': column.sticky === 'right',
-                  'sticky sticky-both': column.sticky === 'both',
-                }"
+                :class="isSticky(column)"
               >
                 <slot v-if="hasSlot('filter.' + column.field)" :name="'filter.' + column.field" v-bind="{ index, column, hide, filtering }" />
                 <slot v-else :name="'filter'" v-bind="{ index, column, hide, filtering }" />
@@ -56,11 +48,7 @@
                   v-for="(column, index) in columns"
                   :key="'tr' + rowIndex + index + column.field"
                   v-bind="{ rowIndex, row, index, column, hide }"
-                  :class="{
-                    'sticky sticky-left': column.sticky === 'left',
-                    'sticky sticky-right': column.sticky === 'right',
-                    'sticky sticky-both': column.sticky === 'both',
-                  }"
+                  :class="isSticky(column)"
                 >
                   <slot v-if="hasSlot('column.' + column.field)" :name="'column.' + column.field" v-bind="{ index, rowIndex, row, column, hide }" />
                   <slot else :name="'column'" v-bind="{ index: rowIndex, row, column, hide }" />
@@ -87,7 +75,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Filter, Paging, Sort } from './interfaces';
+import { Column, Filter, Paging, Sort } from './interfaces';
 
 interface Data {
   sorting: Sort[];
@@ -150,6 +138,11 @@ export default Vue.extend({
     checkboxElement && (checkboxElement.indeterminate = this.isAnySelected);
   },
   methods: {
+    isSticky(column: Column): string {
+      if (!this.isDataExist || !column.sticky) return '';
+      let position = column.sticky === 'left' || column.sticky === 'right' ? column.sticky : 'both';
+      return `sticky sticky-${position}`;
+    },
     hasSlot(name: string) {
       // eslint-disable-next-line vue/no-deprecated-dollar-scopedslots-api
       return !!this.$scopedSlots[name];
