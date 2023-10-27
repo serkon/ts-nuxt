@@ -253,18 +253,18 @@ props: {
 
           &.sticky-left {
             left: 0;
-            box-shadow: 3px 1px 4px rgba(0, 0, 0, 5%);
+            box-shadow: 3px 1px 4px #f0f0f0;
           }
 
           &.sticky-right {
             right: 0;
-            box-shadow: -3px 1px 4px rgba(0, 0, 0, 5%);
+            box-shadow: -3px 1px 4px #f0f0f0;
           }
 
           &.sticky-both {
             right: 0;
             left: 0;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 12%);
+            box-shadow: 0 1px 4px #efefef;
           }
         }
 
@@ -281,15 +281,15 @@ props: {
               z-index: 2;
 
               &.sticky-left {
-                box-shadow: 3px 1px 4px rgba(0, 0, 0, 5%);
+                box-shadow: 3px -2px 4px #f0f0f0;
               }
 
               &.sticky-right {
-                box-shadow: -3px 1px 4px rgba(0, 0, 0, 5%);
+                box-shadow: -3px -2px 4px #f0f0f0;
               }
 
               &.sticky-both {
-                box-shadow: 0 -3px 4px rgba(0, 0, 0, 12%);
+                box-shadow: 0 -3px 4px #efefef;
               }
             }
           }

@@ -9,7 +9,6 @@ export interface Column {
   label: string;
   width?: string;
   filterConfig?: FilterConfig;
-  sticky?: 'left' | 'right' | 'both';
 }
 
 export interface Sort {
