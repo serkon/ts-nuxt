@@ -28,5380 +28,5398 @@
     text-transform: none;
     speak: never;
   }
+
+  &.icon-left {
+    &::after {
+      content: none;
+    }
+  }
+
+  &.icon-right {
+    &::before {
+      content: none;
+    }
+  }
+
+  &:not(.icon-left, .icon-right) {
+    &::after {
+      content: none;
+    }
+  }
 }
 
 .isax-d-cube-scan {
-  &::before {
+  &::before, &::after {
     content: $isax-d-cube-scan;
   }
 }
 
 .isax-d-rotate {
-  &::before {
+  &::before, &::after {
     content: $isax-d-rotate;
   }
 }
 
 .isax-d-square {
-  &::before {
+  &::before, &::after {
     content: $isax-d-square;
   }
 }
 
 .isax-dcube {
-  &::before {
+  &::before, &::after {
     content: $isax-dcube;
   }
 }
 
 .isax-square {
-  &::before {
+  &::before, &::after {
     content: $isax-square;
   }
 }
 
 .isax-support {
-  &::before {
+  &::before, &::after {
     content: $isax-support;
   }
 }
 
 .isax-activity {
-  &::before {
+  &::before, &::after {
     content: $isax-activity;
   }
 }
 
 .isax-add-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-add-circle;
   }
 }
 
 .isax-add-square {
-  &::before {
+  &::before, &::after {
     content: $isax-add-square;
   }
 }
 
 .isax-add {
-  &::before {
+  &::before, &::after {
     content: $isax-add;
   }
 }
 
 .isax-additem {
-  &::before {
+  &::before, &::after {
     content: $isax-additem;
   }
 }
 
 .isax-airdrop {
-  &::before {
+  &::before, &::after {
     content: $isax-airdrop;
   }
 }
 
 .isax-airplane-square {
-  &::before {
+  &::before, &::after {
     content: $isax-airplane-square;
   }
 }
 
 .isax-airplane {
-  &::before {
+  &::before, &::after {
     content: $isax-airplane;
   }
 }
 
 .isax-airpod {
-  &::before {
+  &::before, &::after {
     content: $isax-airpod;
   }
 }
 
 .isax-airpods {
-  &::before {
+  &::before, &::after {
     content: $isax-airpods;
   }
 }
 
 .isax-alarm {
-  &::before {
+  &::before, &::after {
     content: $isax-alarm;
   }
 }
 
 .isax-align-bottom {
-  &::before {
+  &::before, &::after {
     content: $isax-align-bottom;
   }
 }
 
 .isax-align-horizontally {
-  &::before {
+  &::before, &::after {
     content: $isax-align-horizontally;
   }
 }
 
 .isax-align-left {
-  &::before {
+  &::before, &::after {
     content: $isax-align-left;
   }
 }
 
 .isax-align-right {
-  &::before {
+  &::before, &::after {
     content: $isax-align-right;
   }
 }
 
 .isax-align-vertically {
-  &::before {
+  &::before, &::after {
     content: $isax-align-vertically;
   }
 }
 
 .isax-aquarius {
-  &::before {
+  &::before, &::after {
     content: $isax-aquarius;
   }
 }
 
 .isax-archive-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-archive-1;
   }
 }
 
 .isax-archive-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-archive-2;
   }
 }
 
 .isax-archive-add {
-  &::before {
+  &::before, &::after {
     content: $isax-archive-add;
   }
 }
 
 .isax-archive-book {
-  &::before {
+  &::before, &::after {
     content: $isax-archive-book;
   }
 }
 
 .isax-archive-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-archive-minus;
   }
 }
 
 .isax-archive-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-archive-slash;
   }
 }
 
 .isax-archive-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-archive-tick;
   }
 }
 
 .isax-archive {
-  &::before {
+  &::before, &::after {
     content: $isax-archive;
   }
 }
 
 .isax-arrange-circle-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrange-circle-2;
   }
 }
 
 .isax-arrange-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-arrange-circle;
   }
 }
 
 .isax-arrange-square-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrange-square-2;
   }
 }
 
 .isax-arrange-square {
-  &::before {
+  &::before, &::after {
     content: $isax-arrange-square;
   }
 }
 
 .isax-arrow-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-2;
   }
 }
 
 .isax-arrow-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-3;
   }
 }
 
 .isax-arrow-bottom {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-bottom;
   }
 }
 
 .isax-arrow-circle-down {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-circle-down;
   }
 }
 
 .isax-arrow-circle-left {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-circle-left;
   }
 }
 
 .isax-arrow-circle-right {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-circle-right;
   }
 }
 
 .isax-arrow-circle-up {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-circle-up;
   }
 }
 
 .isax-arrow-down-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-down-1;
   }
 }
 
 .isax-arrow-down-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-down-2;
   }
 }
 
 .isax-arrow-down {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-down;
   }
 }
 
 .isax-arrow-left-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-left-1;
   }
 }
 
 .isax-arrow-left-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-left-2;
   }
 }
 
 .isax-arrow-left-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-left-3;
   }
 }
 
 .isax-arrow-left {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-left;
   }
 }
 
 .isax-arrow-right-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-right-1;
   }
 }
 
 .isax-arrow-right-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-right-2;
   }
 }
 
 .isax-arrow-right-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-right-3;
   }
 }
 
 .isax-arrow-right-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-right-4;
   }
 }
 
 .isax-arrow-right {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-right;
   }
 }
 
 .isax-arrow-square-down {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-square-down;
   }
 }
 
 .isax-arrow-square-left {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-square-left;
   }
 }
 
 .isax-arrow-square-up {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-square-up;
   }
 }
 
 .isax-arrow-square {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-square;
   }
 }
 
 .isax-arrow-swap-horizontal {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-swap-horizontal;
   }
 }
 
 .isax-arrow-swap {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-swap;
   }
 }
 
 .isax-arrow-up-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-up-1;
   }
 }
 
 .isax-arrow-up-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-up-2;
   }
 }
 
 .isax-arrow-up-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-up-3;
   }
 }
 
 .isax-arrow-up {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow-up;
   }
 }
 
 .isax-arrow {
-  &::before {
+  &::before, &::after {
     content: $isax-arrow;
   }
 }
 
 .isax-attach-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-attach-circle;
   }
 }
 
 .isax-attach-square {
-  &::before {
+  &::before, &::after {
     content: $isax-attach-square;
   }
 }
 
 .isax-audio-square {
-  &::before {
+  &::before, &::after {
     content: $isax-audio-square;
   }
 }
 
 .isax-autobrightness {
-  &::before {
+  &::before, &::after {
     content: $isax-autobrightness;
   }
 }
 
 .isax-award {
-  &::before {
+  &::before, &::after {
     content: $isax-award;
   }
 }
 
 .isax-back-square {
-  &::before {
+  &::before, &::after {
     content: $isax-back-square;
   }
 }
 
 .isax-backward-5-seconds {
-  &::before {
+  &::before, &::after {
     content: $isax-backward-5-seconds;
   }
 }
 
 .isax-backward-10-seconds {
-  &::before {
+  &::before, &::after {
     content: $isax-backward-10-seconds;
   }
 }
 
 .isax-backward-15-seconds {
-  &::before {
+  &::before, &::after {
     content: $isax-backward-15-seconds;
   }
 }
 
 .isax-backward-item {
-  &::before {
+  &::before, &::after {
     content: $isax-backward-item;
   }
 }
 
 .isax-backward {
-  &::before {
+  &::before, &::after {
     content: $isax-backward;
   }
 }
 
 .isax-bag-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-bag-2;
   }
 }
 
 .isax-bag-cross-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-bag-cross-1;
   }
 }
 
 .isax-bag-cross {
-  &::before {
+  &::before, &::after {
     content: $isax-bag-cross;
   }
 }
 
 .isax-bag-happy {
-  &::before {
+  &::before, &::after {
     content: $isax-bag-happy;
   }
 }
 
 .isax-bag-tick-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-bag-tick-2;
   }
 }
 
 .isax-bag-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-bag-tick;
   }
 }
 
 .isax-bag-timer {
-  &::before {
+  &::before, &::after {
     content: $isax-bag-timer;
   }
 }
 
 .isax-bag {
-  &::before {
+  &::before, &::after {
     content: $isax-bag;
   }
 }
 
 .isax-bank {
-  &::before {
+  &::before, &::after {
     content: $isax-bank;
   }
 }
 
 .isax-barcode {
-  &::before {
+  &::before, &::after {
     content: $isax-barcode;
   }
 }
 
 .isax-battery-3full {
-  &::before {
+  &::before, &::after {
     content: $isax-battery-3full;
   }
 }
 
 .isax-battery-charging {
-  &::before {
+  &::before, &::after {
     content: $isax-battery-charging;
   }
 }
 
 .isax-battery-disable {
-  &::before {
+  &::before, &::after {
     content: $isax-battery-disable;
   }
 }
 
 .isax-battery-empty-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-battery-empty-1;
   }
 }
 
 .isax-battery-empty {
-  &::before {
+  &::before, &::after {
     content: $isax-battery-empty;
   }
 }
 
 .isax-battery-full {
-  &::before {
+  &::before, &::after {
     content: $isax-battery-full;
   }
 }
 
 .isax-bezier {
-  &::before {
+  &::before, &::after {
     content: $isax-bezier;
   }
 }
 
 .isax-bill {
-  &::before {
+  &::before, &::after {
     content: $isax-bill;
   }
 }
 
 .isax-bitcoin-card {
-  &::before {
+  &::before, &::after {
     content: $isax-bitcoin-card;
   }
 }
 
 .isax-bitcoin-convert {
-  &::before {
+  &::before, &::after {
     content: $isax-bitcoin-convert;
   }
 }
 
 .isax-bitcoin-refresh {
-  &::before {
+  &::before, &::after {
     content: $isax-bitcoin-refresh;
   }
 }
 
 .isax-blend-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-blend-2;
   }
 }
 
 .isax-blend {
-  &::before {
+  &::before, &::after {
     content: $isax-blend;
   }
 }
 
 .isax-bluetooth-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-bluetooth-2;
   }
 }
 
 .isax-bluetooth-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-bluetooth-circle;
   }
 }
 
 .isax-bluetooth-rectangle {
-  &::before {
+  &::before, &::after {
     content: $isax-bluetooth-rectangle;
   }
 }
 
 .isax-bluetooth {
-  &::before {
+  &::before, &::after {
     content: $isax-bluetooth;
   }
 }
 
 .isax-blur {
-  &::before {
+  &::before, &::after {
     content: $isax-blur;
   }
 }
 
 .isax-book-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-book-1;
   }
 }
 
 .isax-book-saved {
-  &::before {
+  &::before, &::after {
     content: $isax-book-saved;
   }
 }
 
 .isax-book-square {
-  &::before {
+  &::before, &::after {
     content: $isax-book-square;
   }
 }
 
 .isax-book {
-  &::before {
+  &::before, &::after {
     content: $isax-book;
   }
 }
 
 .isax-bookmark-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-bookmark-2;
   }
 }
 
 .isax-bookmark {
-  &::before {
+  &::before, &::after {
     content: $isax-bookmark;
   }
 }
 
 .isax-box-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-box-1;
   }
 }
 
 .isax-box-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-box-2;
   }
 }
 
 .isax-box-add {
-  &::before {
+  &::before, &::after {
     content: $isax-box-add;
   }
 }
 
 .isax-box-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-box-remove;
   }
 }
 
 .isax-box-search {
-  &::before {
+  &::before, &::after {
     content: $isax-box-search;
   }
 }
 
 .isax-box-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-box-tick;
   }
 }
 
 .isax-box-time {
-  &::before {
+  &::before, &::after {
     content: $isax-box-time;
   }
 }
 
 .isax-box {
-  &::before {
+  &::before, &::after {
     content: $isax-box;
   }
 }
 
 .isax-briefcase {
-  &::before {
+  &::before, &::after {
     content: $isax-briefcase;
   }
 }
 
 .isax-brifecase-cross {
-  &::before {
+  &::before, &::after {
     content: $isax-brifecase-cross;
   }
 }
 
 .isax-brifecase-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-brifecase-tick;
   }
 }
 
 .isax-brifecase-timer {
-  &::before {
+  &::before, &::after {
     content: $isax-brifecase-timer;
   }
 }
 
 .isax-broom {
-  &::before {
+  &::before, &::after {
     content: $isax-broom;
   }
 }
 
 .isax-brush-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-brush-1;
   }
 }
 
 .isax-brush-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-brush-2;
   }
 }
 
 .isax-brush-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-brush-3;
   }
 }
 
 .isax-brush-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-brush-4;
   }
 }
 
 .isax-brush {
-  &::before {
+  &::before, &::after {
     content: $isax-brush;
   }
 }
 
 .isax-bubble {
-  &::before {
+  &::before, &::after {
     content: $isax-bubble;
   }
 }
 
 .isax-bucket-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-bucket-circle;
   }
 }
 
 .isax-bucket-square {
-  &::before {
+  &::before, &::after {
     content: $isax-bucket-square;
   }
 }
 
 .isax-bucket {
-  &::before {
+  &::before, &::after {
     content: $isax-bucket;
   }
 }
 
 .isax-building-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-building-3;
   }
 }
 
 .isax-building-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-building-4;
   }
 }
 
 .isax-building {
-  &::before {
+  &::before, &::after {
     content: $isax-building;
   }
 }
 
 .isax-buildings-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-buildings-2;
   }
 }
 
 .isax-buildings {
-  &::before {
+  &::before, &::after {
     content: $isax-buildings;
   }
 }
 
 .isax-buliding {
-  &::before {
+  &::before, &::after {
     content: $isax-buliding;
   }
 }
 
 .isax-bus {
-  &::before {
+  &::before, &::after {
     content: $isax-bus;
   }
 }
 
 .isax-buy-crypto {
-  &::before {
+  &::before, &::after {
     content: $isax-buy-crypto;
   }
 }
 
 .isax-cake {
-  &::before {
+  &::before, &::after {
     content: $isax-cake;
   }
 }
 
 .isax-calculator {
-  &::before {
+  &::before, &::after {
     content: $isax-calculator;
   }
 }
 
 .isax-calendar-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar-1;
   }
 }
 
 .isax-calendar-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar-2;
   }
 }
 
 .isax-calendar-add {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar-add;
   }
 }
 
 .isax-calendar-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar-circle;
   }
 }
 
 .isax-calendar-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar-edit;
   }
 }
 
 .isax-calendar-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar-remove;
   }
 }
 
 .isax-calendar-search {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar-search;
   }
 }
 
 .isax-calendar-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar-tick;
   }
 }
 
 .isax-calendar {
-  &::before {
+  &::before, &::after {
     content: $isax-calendar;
   }
 }
 
 .isax-call-add {
-  &::before {
+  &::before, &::after {
     content: $isax-call-add;
   }
 }
 
 .isax-call-calling {
-  &::before {
+  &::before, &::after {
     content: $isax-call-calling;
   }
 }
 
 .isax-call-incoming {
-  &::before {
+  &::before, &::after {
     content: $isax-call-incoming;
   }
 }
 
 .isax-call-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-call-minus;
   }
 }
 
 .isax-call-outgoing {
-  &::before {
+  &::before, &::after {
     content: $isax-call-outgoing;
   }
 }
 
 .isax-call-received {
-  &::before {
+  &::before, &::after {
     content: $isax-call-received;
   }
 }
 
 .isax-call-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-call-remove;
   }
 }
 
 .isax-call-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-call-slash;
   }
 }
 
 .isax-call {
-  &::before {
+  &::before, &::after {
     content: $isax-call;
   }
 }
 
 .isax-camera-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-camera-slash;
   }
 }
 
 .isax-camera {
-  &::before {
+  &::before, &::after {
     content: $isax-camera;
   }
 }
 
 .isax-candle-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-candle-2;
   }
 }
 
 .isax-candle {
-  &::before {
+  &::before, &::after {
     content: $isax-candle;
   }
 }
 
 .isax-car {
-  &::before {
+  &::before, &::after {
     content: $isax-car;
   }
 }
 
 .isax-card-add {
-  &::before {
+  &::before, &::after {
     content: $isax-card-add;
   }
 }
 
 .isax-card-coin {
-  &::before {
+  &::before, &::after {
     content: $isax-card-coin;
   }
 }
 
 .isax-card-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-card-edit;
   }
 }
 
 .isax-card-pos {
-  &::before {
+  &::before, &::after {
     content: $isax-card-pos;
   }
 }
 
 .isax-card-receive {
-  &::before {
+  &::before, &::after {
     content: $isax-card-receive;
   }
 }
 
 .isax-card-remove-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-card-remove-1;
   }
 }
 
 .isax-card-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-card-remove;
   }
 }
 
 .isax-card-send {
-  &::before {
+  &::before, &::after {
     content: $isax-card-send;
   }
 }
 
 .isax-card-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-card-slash;
   }
 }
 
 .isax-card-tick-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-card-tick-1;
   }
 }
 
 .isax-card-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-card-tick;
   }
 }
 
 .isax-card {
-  &::before {
+  &::before, &::after {
     content: $isax-card;
   }
 }
 
 .isax-cards {
-  &::before {
+  &::before, &::after {
     content: $isax-cards;
   }
 }
 
 .isax-category-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-category-2;
   }
 }
 
 .isax-category {
-  &::before {
+  &::before, &::after {
     content: $isax-category;
   }
 }
 
 .isax-cd {
-  &::before {
+  &::before, &::after {
     content: $isax-cd;
   }
 }
 
 .isax-chart-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-chart-1;
   }
 }
 
 .isax-chart-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-chart-2;
   }
 }
 
 .isax-chart-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-chart-3;
   }
 }
 
 .isax-chart-21 {
-  &::before {
+  &::before, &::after {
     content: $isax-chart-21;
   }
 }
 
 .isax-chart-fail {
-  &::before {
+  &::before, &::after {
     content: $isax-chart-fail;
   }
 }
 
 .isax-chart-square {
-  &::before {
+  &::before, &::after {
     content: $isax-chart-square;
   }
 }
 
 .isax-chart-success {
-  &::before {
+  &::before, &::after {
     content: $isax-chart-success;
   }
 }
 
 .isax-chart {
-  &::before {
+  &::before, &::after {
     content: $isax-chart;
   }
 }
 
 .isax-check {
-  &::before {
+  &::before, &::after {
     content: $isax-check;
   }
 }
 
 .isax-chrome {
-  &::before {
+  &::before, &::after {
     content: $isax-chrome;
   }
 }
 
 .isax-clipboard-close {
-  &::before {
+  &::before, &::after {
     content: $isax-clipboard-close;
   }
 }
 
 .isax-clipboard-export {
-  &::before {
+  &::before, &::after {
     content: $isax-clipboard-export;
   }
 }
 
 .isax-clipboard-import {
-  &::before {
+  &::before, &::after {
     content: $isax-clipboard-import;
   }
 }
 
 .isax-clipboard-text {
-  &::before {
+  &::before, &::after {
     content: $isax-clipboard-text;
   }
 }
 
 .isax-clipboard-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-clipboard-tick;
   }
 }
 
 .isax-clipboard {
-  &::before {
+  &::before, &::after {
     content: $isax-clipboard;
   }
 }
 
 .isax-clock-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-clock-1;
   }
 }
 
 .isax-clock {
-  &::before {
+  &::before, &::after {
     content: $isax-clock;
   }
 }
 
 .isax-close-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-close-circle;
   }
 }
 
 .isax-close-square {
-  &::before {
+  &::before, &::after {
     content: $isax-close-square;
   }
 }
 
 .isax-cloud-add {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-add;
   }
 }
 
 .isax-cloud-change {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-change;
   }
 }
 
 .isax-cloud-connection {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-connection;
   }
 }
 
 .isax-cloud-cross {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-cross;
   }
 }
 
 .isax-cloud-drizzle {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-drizzle;
   }
 }
 
 .isax-cloud-fog {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-fog;
   }
 }
 
 .isax-cloud-lightning {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-lightning;
   }
 }
 
 .isax-cloud-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-minus;
   }
 }
 
 .isax-cloud-notif {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-notif;
   }
 }
 
 .isax-cloud-plus {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-plus;
   }
 }
 
 .isax-cloud-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-remove;
   }
 }
 
 .isax-cloud-snow {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-snow;
   }
 }
 
 .isax-cloud-sunny {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud-sunny;
   }
 }
 
 .isax-cloud {
-  &::before {
+  &::before, &::after {
     content: $isax-cloud;
   }
 }
 
 .isax-code-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-code-1;
   }
 }
 
 .isax-code-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-code-circle;
   }
 }
 
 .isax-code {
-  &::before {
+  &::before, &::after {
     content: $isax-code;
   }
 }
 
 .isax-coffee {
-  &::before {
+  &::before, &::after {
     content: $isax-coffee;
   }
 }
 
 .isax-coin-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-coin-1;
   }
 }
 
 .isax-coin {
-  &::before {
+  &::before, &::after {
     content: $isax-coin;
   }
 }
 
 .isax-color-swatch {
-  &::before {
+  &::before, &::after {
     content: $isax-color-swatch;
   }
 }
 
 .isax-colorfilter {
-  &::before {
+  &::before, &::after {
     content: $isax-colorfilter;
   }
 }
 
 .isax-colors-square {
-  &::before {
+  &::before, &::after {
     content: $isax-colors-square;
   }
 }
 
 .isax-command-square {
-  &::before {
+  &::before, &::after {
     content: $isax-command-square;
   }
 }
 
 .isax-command {
-  &::before {
+  &::before, &::after {
     content: $isax-command;
   }
 }
 
 .isax-component {
-  &::before {
+  &::before, &::after {
     content: $isax-component;
   }
 }
 
 .isax-computing {
-  &::before {
+  &::before, &::after {
     content: $isax-computing;
   }
 }
 
 .isax-convert-3d-cube {
-  &::before {
+  &::before, &::after {
     content: $isax-convert-3d-cube;
   }
 }
 
 .isax-convert-card {
-  &::before {
+  &::before, &::after {
     content: $isax-convert-card;
   }
 }
 
 .isax-convert {
-  &::before {
+  &::before, &::after {
     content: $isax-convert;
   }
 }
 
 .isax-convertshape-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-convertshape-2;
   }
 }
 
 .isax-convertshape {
-  &::before {
+  &::before, &::after {
     content: $isax-convertshape;
   }
 }
 
 .isax-copy-success {
-  &::before {
+  &::before, &::after {
     content: $isax-copy-success;
   }
 }
 
 .isax-copy {
-  &::before {
+  &::before, &::after {
     content: $isax-copy;
   }
 }
 
 .isax-copyright {
-  &::before {
+  &::before, &::after {
     content: $isax-copyright;
   }
 }
 
 .isax-courthouse {
-  &::before {
+  &::before, &::after {
     content: $isax-courthouse;
   }
 }
 
 .isax-cpu-charge {
-  &::before {
+  &::before, &::after {
     content: $isax-cpu-charge;
   }
 }
 
 .isax-cpu-setting {
-  &::before {
+  &::before, &::after {
     content: $isax-cpu-setting;
   }
 }
 
 .isax-cpu {
-  &::before {
+  &::before, &::after {
     content: $isax-cpu;
   }
 }
 
 .isax-creative-commons {
-  &::before {
+  &::before, &::after {
     content: $isax-creative-commons;
   }
 }
 
 .isax-crop {
-  &::before {
+  &::before, &::after {
     content: $isax-crop;
   }
 }
 
 .isax-crown-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-crown-1;
   }
 }
 
 .isax-crown {
-  &::before {
+  &::before, &::after {
     content: $isax-crown;
   }
 }
 
 .isax-cup {
-  &::before {
+  &::before, &::after {
     content: $isax-cup;
   }
 }
 
 .isax-danger {
-  &::before {
+  &::before, &::after {
     content: $isax-danger;
   }
 }
 
 .isax-data-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-data-2;
   }
 }
 
 .isax-data {
-  &::before {
+  &::before, &::after {
     content: $isax-data;
   }
 }
 
 .isax-designtools {
-  &::before {
+  &::before, &::after {
     content: $isax-designtools;
   }
 }
 
 .isax-device-message {
-  &::before {
+  &::before, &::after {
     content: $isax-device-message;
   }
 }
 
 .isax-devices-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-devices-1;
   }
 }
 
 .isax-devices {
-  &::before {
+  &::before, &::after {
     content: $isax-devices;
   }
 }
 
 .isax-diagram {
-  &::before {
+  &::before, &::after {
     content: $isax-diagram;
   }
 }
 
 .isax-diamonds {
-  &::before {
+  &::before, &::after {
     content: $isax-diamonds;
   }
 }
 
 .isax-direct-down {
-  &::before {
+  &::before, &::after {
     content: $isax-direct-down;
   }
 }
 
 .isax-direct-inbox {
-  &::before {
+  &::before, &::after {
     content: $isax-direct-inbox;
   }
 }
 
 .isax-direct-left {
-  &::before {
+  &::before, &::after {
     content: $isax-direct-left;
   }
 }
 
 .isax-direct-normal {
-  &::before {
+  &::before, &::after {
     content: $isax-direct-normal;
   }
 }
 
 .isax-direct-notification {
-  &::before {
+  &::before, &::after {
     content: $isax-direct-notification;
   }
 }
 
 .isax-direct-right {
-  &::before {
+  &::before, &::after {
     content: $isax-direct-right;
   }
 }
 
 .isax-direct-send {
-  &::before {
+  &::before, &::after {
     content: $isax-direct-send;
   }
 }
 
 .isax-direct-up {
-  &::before {
+  &::before, &::after {
     content: $isax-direct-up;
   }
 }
 
 .isax-direct {
-  &::before {
+  &::before, &::after {
     content: $isax-direct;
   }
 }
 
 .isax-directbox-default {
-  &::before {
+  &::before, &::after {
     content: $isax-directbox-default;
   }
 }
 
 .isax-directbox-notif {
-  &::before {
+  &::before, &::after {
     content: $isax-directbox-notif;
   }
 }
 
 .isax-directbox-receive {
-  &::before {
+  &::before, &::after {
     content: $isax-directbox-receive;
   }
 }
 
 .isax-directbox-send {
-  &::before {
+  &::before, &::after {
     content: $isax-directbox-send;
   }
 }
 
 .isax-discount-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-discount-circle;
   }
 }
 
 .isax-discount-shape {
-  &::before {
+  &::before, &::after {
     content: $isax-discount-shape;
   }
 }
 
 .isax-discover-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-discover-1;
   }
 }
 
 .isax-discover {
-  &::before {
+  &::before, &::after {
     content: $isax-discover;
   }
 }
 
 .isax-dislike {
-  &::before {
+  &::before, &::after {
     content: $isax-dislike;
   }
 }
 
 .isax-document-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-document-1;
   }
 }
 
 .isax-document-cloud {
-  &::before {
+  &::before, &::after {
     content: $isax-document-cloud;
   }
 }
 
 .isax-document-code-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-document-code-2;
   }
 }
 
 .isax-document-code {
-  &::before {
+  &::before, &::after {
     content: $isax-document-code;
   }
 }
 
 .isax-document-copy {
-  &::before {
+  &::before, &::after {
     content: $isax-document-copy;
   }
 }
 
 .isax-document-download {
-  &::before {
+  &::before, &::after {
     content: $isax-document-download;
   }
 }
 
 .isax-document-favorite {
-  &::before {
+  &::before, &::after {
     content: $isax-document-favorite;
   }
 }
 
 .isax-document-filter {
-  &::before {
+  &::before, &::after {
     content: $isax-document-filter;
   }
 }
 
 .isax-document-forward {
-  &::before {
+  &::before, &::after {
     content: $isax-document-forward;
   }
 }
 
 .isax-document-like {
-  &::before {
+  &::before, &::after {
     content: $isax-document-like;
   }
 }
 
 .isax-document-normal {
-  &::before {
+  &::before, &::after {
     content: $isax-document-normal;
   }
 }
 
 .isax-document-previous {
-  &::before {
+  &::before, &::after {
     content: $isax-document-previous;
   }
 }
 
 .isax-document-sketch {
-  &::before {
+  &::before, &::after {
     content: $isax-document-sketch;
   }
 }
 
 .isax-document-text-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-document-text-1;
   }
 }
 
 .isax-document-text {
-  &::before {
+  &::before, &::after {
     content: $isax-document-text;
   }
 }
 
 .isax-document-upload {
-  &::before {
+  &::before, &::after {
     content: $isax-document-upload;
   }
 }
 
 .isax-document {
-  &::before {
+  &::before, &::after {
     content: $isax-document;
   }
 }
 
 .isax-dollar-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-dollar-circle;
   }
 }
 
 .isax-dollar-square {
-  &::before {
+  &::before, &::after {
     content: $isax-dollar-square;
   }
 }
 
 .isax-driver-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-driver-2;
   }
 }
 
 .isax-driver-refresh {
-  &::before {
+  &::before, &::after {
     content: $isax-driver-refresh;
   }
 }
 
 .isax-driver {
-  &::before {
+  &::before, &::after {
     content: $isax-driver;
   }
 }
 
 .isax-driving {
-  &::before {
+  &::before, &::after {
     content: $isax-driving;
   }
 }
 
 .isax-edit-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-edit-2;
   }
 }
 
 .isax-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-edit;
   }
 }
 
 .isax-electricity {
-  &::before {
+  &::before, &::after {
     content: $isax-electricity;
   }
 }
 
 .isax-element-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-element-2;
   }
 }
 
 .isax-element-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-element-3;
   }
 }
 
 .isax-element-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-element-4;
   }
 }
 
 .isax-element-equal {
-  &::before {
+  &::before, &::after {
     content: $isax-element-equal;
   }
 }
 
 .isax-element-plus {
-  &::before {
+  &::before, &::after {
     content: $isax-element-plus;
   }
 }
 
 .isax-emoji-happy {
-  &::before {
+  &::before, &::after {
     content: $isax-emoji-happy;
   }
 }
 
 .isax-emoji-normal {
-  &::before {
+  &::before, &::after {
     content: $isax-emoji-normal;
   }
 }
 
 .isax-emoji-sad {
-  &::before {
+  &::before, &::after {
     content: $isax-emoji-sad;
   }
 }
 
 .isax-empty-wallet-add {
-  &::before {
+  &::before, &::after {
     content: $isax-empty-wallet-add;
   }
 }
 
 .isax-empty-wallet-change {
-  &::before {
+  &::before, &::after {
     content: $isax-empty-wallet-change;
   }
 }
 
 .isax-empty-wallet-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-empty-wallet-remove;
   }
 }
 
 .isax-empty-wallet-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-empty-wallet-tick;
   }
 }
 
 .isax-empty-wallet-time {
-  &::before {
+  &::before, &::after {
     content: $isax-empty-wallet-time;
   }
 }
 
 .isax-empty-wallet {
-  &::before {
+  &::before, &::after {
     content: $isax-empty-wallet;
   }
 }
 
 .isax-eraser-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-eraser-1;
   }
 }
 
 .isax-eraser {
-  &::before {
+  &::before, &::after {
     content: $isax-eraser;
   }
 }
 
 .isax-export-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-export-1;
   }
 }
 
 .isax-export-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-export-2;
   }
 }
 
 .isax-export-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-export-3;
   }
 }
 
 .isax-export {
-  &::before {
+  &::before, &::after {
     content: $isax-export;
   }
 }
 
 .isax-external-drive {
-  &::before {
+  &::before, &::after {
     content: $isax-external-drive;
   }
 }
 
 .isax-eye-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-eye-slash;
   }
 }
 
 .isax-eye {
-  &::before {
+  &::before, &::after {
     content: $isax-eye;
   }
 }
 
 .isax-fatrows {
-  &::before {
+  &::before, &::after {
     content: $isax-fatrows;
   }
 }
 
 .isax-favorite-chart {
-  &::before {
+  &::before, &::after {
     content: $isax-favorite-chart;
   }
 }
 
 .isax-filter-add {
-  &::before {
+  &::before, &::after {
     content: $isax-filter-add;
   }
 }
 
 .isax-filter-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-filter-edit;
   }
 }
 
 .isax-filter-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-filter-remove;
   }
 }
 
 .isax-filter-search {
-  &::before {
+  &::before, &::after {
     content: $isax-filter-search;
   }
 }
 
 .isax-filter-square {
-  &::before {
+  &::before, &::after {
     content: $isax-filter-square;
   }
 }
 
 .isax-filter-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-filter-tick;
   }
 }
 
 .isax-filter {
-  &::before {
+  &::before, &::after {
     content: $isax-filter;
   }
 }
 
 .isax-finger-cricle {
-  &::before {
+  &::before, &::after {
     content: $isax-finger-cricle;
   }
 }
 
 .isax-finger-scan {
-  &::before {
+  &::before, &::after {
     content: $isax-finger-scan;
   }
 }
 
 .isax-firstline {
-  &::before {
+  &::before, &::after {
     content: $isax-firstline;
   }
 }
 
 .isax-flag-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-flag-2;
   }
 }
 
 .isax-flag {
-  &::before {
+  &::before, &::after {
     content: $isax-flag;
   }
 }
 
 .isax-flash-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-flash-1;
   }
 }
 
 .isax-flash-circle-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-flash-circle-1;
   }
 }
 
 .isax-flash-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-flash-circle;
   }
 }
 
 .isax-flash-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-flash-slash;
   }
 }
 
 .isax-flash {
-  &::before {
+  &::before, &::after {
     content: $isax-flash;
   }
 }
 
 .isax-folder-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-folder-2;
   }
 }
 
 .isax-folder-add {
-  &::before {
+  &::before, &::after {
     content: $isax-folder-add;
   }
 }
 
 .isax-folder-cloud {
-  &::before {
+  &::before, &::after {
     content: $isax-folder-cloud;
   }
 }
 
 .isax-folder-connection {
-  &::before {
+  &::before, &::after {
     content: $isax-folder-connection;
   }
 }
 
 .isax-folder-cross {
-  &::before {
+  &::before, &::after {
     content: $isax-folder-cross;
   }
 }
 
 .isax-folder-favorite {
-  &::before {
+  &::before, &::after {
     content: $isax-folder-favorite;
   }
 }
 
 .isax-folder-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-folder-minus;
   }
 }
 
 .isax-folder-open {
-  &::before {
+  &::before, &::after {
     content: $isax-folder-open;
   }
 }
 
 .isax-folder {
-  &::before {
+  &::before, &::after {
     content: $isax-folder;
   }
 }
 
 .isax-forbidden-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-forbidden-2;
   }
 }
 
 .isax-forbidden {
-  &::before {
+  &::before, &::after {
     content: $isax-forbidden;
   }
 }
 
 .isax-format-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-format-circle;
   }
 }
 
 .isax-format-square {
-  &::before {
+  &::before, &::after {
     content: $isax-format-square;
   }
 }
 
 .isax-forward-5-seconds {
-  &::before {
+  &::before, &::after {
     content: $isax-forward-5-seconds;
   }
 }
 
 .isax-forward-10-seconds {
-  &::before {
+  &::before, &::after {
     content: $isax-forward-10-seconds;
   }
 }
 
 .isax-forward-15-seconds {
-  &::before {
+  &::before, &::after {
     content: $isax-forward-15-seconds;
   }
 }
 
 .isax-forward-item {
-  &::before {
+  &::before, &::after {
     content: $isax-forward-item;
   }
 }
 
 .isax-forward-square {
-  &::before {
+  &::before, &::after {
     content: $isax-forward-square;
   }
 }
 
 .isax-forward {
-  &::before {
+  &::before, &::after {
     content: $isax-forward;
   }
 }
 
 .isax-frame-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-frame-1;
   }
 }
 
 .isax-frame-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-frame-2;
   }
 }
 
 .isax-frame-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-frame-3;
   }
 }
 
 .isax-frame-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-frame-4;
   }
 }
 
 .isax-frame {
-  &::before {
+  &::before, &::after {
     content: $isax-frame;
   }
 }
 
 .isax-gallery-add {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery-add;
   }
 }
 
 .isax-gallery-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery-edit;
   }
 }
 
 .isax-gallery-export {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery-export;
   }
 }
 
 .isax-gallery-favorite {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery-favorite;
   }
 }
 
 .isax-gallery-import {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery-import;
   }
 }
 
 .isax-gallery-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery-remove;
   }
 }
 
 .isax-gallery-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery-slash;
   }
 }
 
 .isax-gallery-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery-tick;
   }
 }
 
 .isax-gallery {
-  &::before {
+  &::before, &::after {
     content: $isax-gallery;
   }
 }
 
 .isax-game {
-  &::before {
+  &::before, &::after {
     content: $isax-game;
   }
 }
 
 .isax-gameboy {
-  &::before {
+  &::before, &::after {
     content: $isax-gameboy;
   }
 }
 
 .isax-gas-station {
-  &::before {
+  &::before, &::after {
     content: $isax-gas-station;
   }
 }
 
 .isax-gemini-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-gemini-2;
   }
 }
 
 .isax-gemini {
-  &::before {
+  &::before, &::after {
     content: $isax-gemini;
   }
 }
 
 .isax-ghost {
-  &::before {
+  &::before, &::after {
     content: $isax-ghost;
   }
 }
 
 .isax-gift {
-  &::before {
+  &::before, &::after {
     content: $isax-gift;
   }
 }
 
 .isax-glass-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-glass-1;
   }
 }
 
 .isax-glass {
-  &::before {
+  &::before, &::after {
     content: $isax-glass;
   }
 }
 
 .isax-global-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-global-edit;
   }
 }
 
 .isax-global-refresh {
-  &::before {
+  &::before, &::after {
     content: $isax-global-refresh;
   }
 }
 
 .isax-global-search {
-  &::before {
+  &::before, &::after {
     content: $isax-global-search;
   }
 }
 
 .isax-global {
-  &::before {
+  &::before, &::after {
     content: $isax-global;
   }
 }
 
 .isax-gps-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-gps-slash;
   }
 }
 
 .isax-gps {
-  &::before {
+  &::before, &::after {
     content: $isax-gps;
   }
 }
 
 .isax-grammerly {
-  &::before {
+  &::before, &::after {
     content: $isax-grammerly;
   }
 }
 
 .isax-graph {
-  &::before {
+  &::before, &::after {
     content: $isax-graph;
   }
 }
 
 .isax-grid-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-1;
   }
 }
 
 .isax-grid-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-2;
   }
 }
 
 .isax-grid-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-3;
   }
 }
 
 .isax-grid-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-4;
   }
 }
 
 .isax-grid-5 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-5;
   }
 }
 
 .isax-grid-6 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-6;
   }
 }
 
 .isax-grid-7 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-7;
   }
 }
 
 .isax-grid-8 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-8;
   }
 }
 
 .isax-grid-9 {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-9;
   }
 }
 
 .isax-grid-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-edit;
   }
 }
 
 .isax-grid-eraser {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-eraser;
   }
 }
 
 .isax-grid-lock {
-  &::before {
+  &::before, &::after {
     content: $isax-grid-lock;
   }
 }
 
 .isax-happyemoji {
-  &::before {
+  &::before, &::after {
     content: $isax-happyemoji;
   }
 }
 
 .isax-hashtag-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-hashtag-1;
   }
 }
 
 .isax-hashtag-down {
-  &::before {
+  &::before, &::after {
     content: $isax-hashtag-down;
   }
 }
 
 .isax-hashtag-up {
-  &::before {
+  &::before, &::after {
     content: $isax-hashtag-up;
   }
 }
 
 .isax-hashtag {
-  &::before {
+  &::before, &::after {
     content: $isax-hashtag;
   }
 }
 
 .isax-headphone {
-  &::before {
+  &::before, &::after {
     content: $isax-headphone;
   }
 }
 
 .isax-headphones {
-  &::before {
+  &::before, &::after {
     content: $isax-headphones;
   }
 }
 
 .isax-health {
-  &::before {
+  &::before, &::after {
     content: $isax-health;
   }
 }
 
 .isax-heart-add {
-  &::before {
+  &::before, &::after {
     content: $isax-heart-add;
   }
 }
 
 .isax-heart-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-heart-circle;
   }
 }
 
 .isax-heart-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-heart-edit;
   }
 }
 
 .isax-heart-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-heart-remove;
   }
 }
 
 .isax-heart-search {
-  &::before {
+  &::before, &::after {
     content: $isax-heart-search;
   }
 }
 
 .isax-heart-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-heart-slash;
   }
 }
 
 .isax-heart-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-heart-tick;
   }
 }
 
 .isax-heart {
-  &::before {
+  &::before, &::after {
     content: $isax-heart;
   }
 }
 
 .isax-hierarchy-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-hierarchy-2;
   }
 }
 
 .isax-hierarchy-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-hierarchy-3;
   }
 }
 
 .isax-hierarchy-square-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-hierarchy-square-2;
   }
 }
 
 .isax-hierarchy-square-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-hierarchy-square-3;
   }
 }
 
 .isax-hierarchy-square {
-  &::before {
+  &::before, &::after {
     content: $isax-hierarchy-square;
   }
 }
 
 .isax-hierarchy {
-  &::before {
+  &::before, &::after {
     content: $isax-hierarchy;
   }
 }
 
 .isax-home-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-home-1;
   }
 }
 
 .isax-home-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-home-2;
   }
 }
 
 .isax-home-hashtag {
-  &::before {
+  &::before, &::after {
     content: $isax-home-hashtag;
   }
 }
 
 .isax-home-trend-down {
-  &::before {
+  &::before, &::after {
     content: $isax-home-trend-down;
   }
 }
 
 .isax-home-trend-up {
-  &::before {
+  &::before, &::after {
     content: $isax-home-trend-up;
   }
 }
 
 .isax-home-wifi {
-  &::before {
+  &::before, &::after {
     content: $isax-home-wifi;
   }
 }
 
 .isax-home {
-  &::before {
+  &::before, &::after {
     content: $isax-home;
   }
 }
 
 .isax-hospital {
-  &::before {
+  &::before, &::after {
     content: $isax-hospital;
   }
 }
 
 .isax-house-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-house-2;
   }
 }
 
 .isax-house {
-  &::before {
+  &::before, &::after {
     content: $isax-house;
   }
 }
 
 .isax-icon {
-  &::before {
+  &::before, &::after {
     content: $isax-icon;
   }
 }
 
 .isax-image {
-  &::before {
+  &::before, &::after {
     content: $isax-image;
   }
 }
 
 .isax-import-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-import-1;
   }
 }
 
 .isax-import-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-import-2;
   }
 }
 
 .isax-import {
-  &::before {
+  &::before, &::after {
     content: $isax-import;
   }
 }
 
 .isax-info-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-info-circle;
   }
 }
 
 .isax-information {
-  &::before {
+  &::before, &::after {
     content: $isax-information;
   }
 }
 
 .isax-instagram {
-  &::before {
+  &::before, &::after {
     content: $isax-instagram;
   }
 }
 
 .isax-judge {
-  &::before {
+  &::before, &::after {
     content: $isax-judge;
   }
 }
 
 .isax-kanban {
-  &::before {
+  &::before, &::after {
     content: $isax-kanban;
   }
 }
 
 .isax-key-square {
-  &::before {
+  &::before, &::after {
     content: $isax-key-square;
   }
 }
 
 .isax-key {
-  &::before {
+  &::before, &::after {
     content: $isax-key;
   }
 }
 
 .isax-keyboard-open {
-  &::before {
+  &::before, &::after {
     content: $isax-keyboard-open;
   }
 }
 
 .isax-keyboard {
-  &::before {
+  &::before, &::after {
     content: $isax-keyboard;
   }
 }
 
 .isax-lamp-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-lamp-1;
   }
 }
 
 .isax-lamp-charge {
-  &::before {
+  &::before, &::after {
     content: $isax-lamp-charge;
   }
 }
 
 .isax-lamp-on {
-  &::before {
+  &::before, &::after {
     content: $isax-lamp-on;
   }
 }
 
 .isax-lamp-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-lamp-slash;
   }
 }
 
 .isax-lamp {
-  &::before {
+  &::before, &::after {
     content: $isax-lamp;
   }
 }
 
 .isax-language-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-language-circle;
   }
 }
 
 .isax-language-square {
-  &::before {
+  &::before, &::after {
     content: $isax-language-square;
   }
 }
 
 .isax-layer {
-  &::before {
+  &::before, &::after {
     content: $isax-layer;
   }
 }
 
 .isax-level {
-  &::before {
+  &::before, &::after {
     content: $isax-level;
   }
 }
 
 .isax-lifebuoy {
-  &::before {
+  &::before, &::after {
     content: $isax-lifebuoy;
   }
 }
 
 .isax-like-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-like-1;
   }
 }
 
 .isax-like-dislike {
-  &::before {
+  &::before, &::after {
     content: $isax-like-dislike;
   }
 }
 
 .isax-like-shapes {
-  &::before {
+  &::before, &::after {
     content: $isax-like-shapes;
   }
 }
 
 .isax-like-tag {
-  &::before {
+  &::before, &::after {
     content: $isax-like-tag;
   }
 }
 
 .isax-like {
-  &::before {
+  &::before, &::after {
     content: $isax-like;
   }
 }
 
 .isax-link-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-link-1;
   }
 }
 
 .isax-link-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-link-2;
   }
 }
 
 .isax-link-21 {
-  &::before {
+  &::before, &::after {
     content: $isax-link-21;
   }
 }
 
 .isax-link-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-link-circle;
   }
 }
 
 .isax-link-square {
-  &::before {
+  &::before, &::after {
     content: $isax-link-square;
   }
 }
 
 .isax-link {
-  &::before {
+  &::before, &::after {
     content: $isax-link;
   }
 }
 
 .isax-location-add {
-  &::before {
+  &::before, &::after {
     content: $isax-location-add;
   }
 }
 
 .isax-location-cross {
-  &::before {
+  &::before, &::after {
     content: $isax-location-cross;
   }
 }
 
 .isax-location-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-location-minus;
   }
 }
 
 .isax-location-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-location-slash;
   }
 }
 
 .isax-location-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-location-tick;
   }
 }
 
 .isax-location {
-  &::before {
+  &::before, &::after {
     content: $isax-location;
   }
 }
 
 .isax-lock-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-lock-1;
   }
 }
 
 .isax-lock-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-lock-circle;
   }
 }
 
 .isax-lock-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-lock-slash;
   }
 }
 
 .isax-lock {
-  &::before {
+  &::before, &::after {
     content: $isax-lock;
   }
 }
 
 .isax-login-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-login-1;
   }
 }
 
 .isax-login {
-  &::before {
+  &::before, &::after {
     content: $isax-login;
   }
 }
 
 .isax-logout-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-logout-1;
   }
 }
 
 .isax-logout {
-  &::before {
+  &::before, &::after {
     content: $isax-logout;
   }
 }
 
 .isax-lovely {
-  &::before {
+  &::before, &::after {
     content: $isax-lovely;
   }
 }
 
 .isax-magic-star {
-  &::before {
+  &::before, &::after {
     content: $isax-magic-star;
   }
 }
 
 .isax-magicpen {
-  &::before {
+  &::before, &::after {
     content: $isax-magicpen;
   }
 }
 
 .isax-main-component {
-  &::before {
+  &::before, &::after {
     content: $isax-main-component;
   }
 }
 
 .isax-man {
-  &::before {
+  &::before, &::after {
     content: $isax-man;
   }
 }
 
 .isax-map-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-map-1;
   }
 }
 
 .isax-map {
-  &::before {
+  &::before, &::after {
     content: $isax-map;
   }
 }
 
 .isax-mask-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-mask-1;
   }
 }
 
 .isax-mask-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-mask-2;
   }
 }
 
 .isax-mask {
-  &::before {
+  &::before, &::after {
     content: $isax-mask;
   }
 }
 
 .isax-math {
-  &::before {
+  &::before, &::after {
     content: $isax-math;
   }
 }
 
 .isax-maximize-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-maximize-1;
   }
 }
 
 .isax-maximize-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-maximize-2;
   }
 }
 
 .isax-maximize-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-maximize-3;
   }
 }
 
 .isax-maximize-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-maximize-4;
   }
 }
 
 .isax-maximize-21 {
-  &::before {
+  &::before, &::after {
     content: $isax-maximize-21;
   }
 }
 
 .isax-maximize-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-maximize-circle;
   }
 }
 
 .isax-maximize {
-  &::before {
+  &::before, &::after {
     content: $isax-maximize;
   }
 }
 
 .isax-medal-star {
-  &::before {
+  &::before, &::after {
     content: $isax-medal-star;
   }
 }
 
 .isax-medal {
-  &::before {
+  &::before, &::after {
     content: $isax-medal;
   }
 }
 
 .isax-menu-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-menu-1;
   }
 }
 
 .isax-menu-board {
-  &::before {
+  &::before, &::after {
     content: $isax-menu-board;
   }
 }
 
 .isax-menu {
-  &::before {
+  &::before, &::after {
     content: $isax-menu;
   }
 }
 
 .isax-message-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-message-2;
   }
 }
 
 .isax-message-add-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-message-add-1;
   }
 }
 
 .isax-message-add {
-  &::before {
+  &::before, &::after {
     content: $isax-message-add;
   }
 }
 
 .isax-message-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-message-circle;
   }
 }
 
 .isax-message-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-message-edit;
   }
 }
 
 .isax-message-favorite {
-  &::before {
+  &::before, &::after {
     content: $isax-message-favorite;
   }
 }
 
 .isax-message-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-message-minus;
   }
 }
 
 .isax-message-notif {
-  &::before {
+  &::before, &::after {
     content: $isax-message-notif;
   }
 }
 
 .isax-message-programming {
-  &::before {
+  &::before, &::after {
     content: $isax-message-programming;
   }
 }
 
 .isax-message-question {
-  &::before {
+  &::before, &::after {
     content: $isax-message-question;
   }
 }
 
 .isax-message-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-message-remove;
   }
 }
 
 .isax-message-search {
-  &::before {
+  &::before, &::after {
     content: $isax-message-search;
   }
 }
 
 .isax-message-square {
-  &::before {
+  &::before, &::after {
     content: $isax-message-square;
   }
 }
 
 .isax-message-text-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-message-text-1;
   }
 }
 
 .isax-message-text {
-  &::before {
+  &::before, &::after {
     content: $isax-message-text;
   }
 }
 
 .isax-message-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-message-tick;
   }
 }
 
 .isax-message-time {
-  &::before {
+  &::before, &::after {
     content: $isax-message-time;
   }
 }
 
 .isax-message {
-  &::before {
+  &::before, &::after {
     content: $isax-message;
   }
 }
 
 .isax-messages-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-messages-1;
   }
 }
 
 .isax-messages-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-messages-2;
   }
 }
 
 .isax-messages-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-messages-3;
   }
 }
 
 .isax-messages {
-  &::before {
+  &::before, &::after {
     content: $isax-messages;
   }
 }
 
 .isax-microphone-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-microphone-2;
   }
 }
 
 .isax-microphone-slash-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-microphone-slash-1;
   }
 }
 
 .isax-microphone-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-microphone-slash;
   }
 }
 
 .isax-microphone {
-  &::before {
+  &::before, &::after {
     content: $isax-microphone;
   }
 }
 
 .isax-microscope {
-  &::before {
+  &::before, &::after {
     content: $isax-microscope;
   }
 }
 
 .isax-milk {
-  &::before {
+  &::before, &::after {
     content: $isax-milk;
   }
 }
 
 .isax-mini-music-sqaure {
-  &::before {
+  &::before, &::after {
     content: $isax-mini-music-sqaure;
   }
 }
 
 .isax-minus-cirlce {
-  &::before {
+  &::before, &::after {
     content: $isax-minus-cirlce;
   }
 }
 
 .isax-minus-square {
-  &::before {
+  &::before, &::after {
     content: $isax-minus-square;
   }
 }
 
 .isax-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-minus;
   }
 }
 
 .isax-mirror {
-  &::before {
+  &::before, &::after {
     content: $isax-mirror;
   }
 }
 
 .isax-mirroring-screen {
-  &::before {
+  &::before, &::after {
     content: $isax-mirroring-screen;
   }
 }
 
 .isax-mobile-programming {
-  &::before {
+  &::before, &::after {
     content: $isax-mobile-programming;
   }
 }
 
 .isax-mobile {
-  &::before {
+  &::before, &::after {
     content: $isax-mobile;
   }
 }
 
 .isax-money-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-money-2;
   }
 }
 
 .isax-money-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-money-3;
   }
 }
 
 .isax-money-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-money-4;
   }
 }
 
 .isax-money-add {
-  &::before {
+  &::before, &::after {
     content: $isax-money-add;
   }
 }
 
 .isax-money-change {
-  &::before {
+  &::before, &::after {
     content: $isax-money-change;
   }
 }
 
 .isax-money-forbidden {
-  &::before {
+  &::before, &::after {
     content: $isax-money-forbidden;
   }
 }
 
 .isax-money-recive {
-  &::before {
+  &::before, &::after {
     content: $isax-money-recive;
   }
 }
 
 .isax-money-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-money-remove;
   }
 }
 
 .isax-money-send {
-  &::before {
+  &::before, &::after {
     content: $isax-money-send;
   }
 }
 
 .isax-money-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-money-tick;
   }
 }
 
 .isax-money-time {
-  &::before {
+  &::before, &::after {
     content: $isax-money-time;
   }
 }
 
 .isax-money {
-  &::before {
+  &::before, &::after {
     content: $isax-money;
   }
 }
 
 .isax-moneys {
-  &::before {
+  &::before, &::after {
     content: $isax-moneys;
   }
 }
 
 .isax-monitor-mobbile {
-  &::before {
+  &::before, &::after {
     content: $isax-monitor-mobbile;
   }
 }
 
 .isax-monitor-recorder {
-  &::before {
+  &::before, &::after {
     content: $isax-monitor-recorder;
   }
 }
 
 .isax-monitor {
-  &::before {
+  &::before, &::after {
     content: $isax-monitor;
   }
 }
 
 .isax-moon {
-  &::before {
+  &::before, &::after {
     content: $isax-moon;
   }
 }
 
 .isax-more-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-more-2;
   }
 }
 
 .isax-more-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-more-circle;
   }
 }
 
 .isax-more-square {
-  &::before {
+  &::before, &::after {
     content: $isax-more-square;
   }
 }
 
 .isax-more {
-  &::before {
+  &::before, &::after {
     content: $isax-more;
   }
 }
 
 .isax-mouse-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-mouse-1;
   }
 }
 
 .isax-mouse-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-mouse-circle;
   }
 }
 
 .isax-mouse-square {
-  &::before {
+  &::before, &::after {
     content: $isax-mouse-square;
   }
 }
 
 .isax-mouse {
-  &::before {
+  &::before, &::after {
     content: $isax-mouse;
   }
 }
 
 .isax-music-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-music-circle;
   }
 }
 
 .isax-music-dashboard {
-  &::before {
+  &::before, &::after {
     content: $isax-music-dashboard;
   }
 }
 
 .isax-music-filter {
-  &::before {
+  &::before, &::after {
     content: $isax-music-filter;
   }
 }
 
 .isax-music-library-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-music-library-2;
   }
 }
 
 .isax-music-play {
-  &::before {
+  &::before, &::after {
     content: $isax-music-play;
   }
 }
 
 .isax-music-playlist {
-  &::before {
+  &::before, &::after {
     content: $isax-music-playlist;
   }
 }
 
 .isax-music-square-add {
-  &::before {
+  &::before, &::after {
     content: $isax-music-square-add;
   }
 }
 
 .isax-music-square-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-music-square-remove;
   }
 }
 
 .isax-music-square-search {
-  &::before {
+  &::before, &::after {
     content: $isax-music-square-search;
   }
 }
 
 .isax-music-square {
-  &::before {
+  &::before, &::after {
     content: $isax-music-square;
   }
 }
 
 .isax-music {
-  &::before {
+  &::before, &::after {
     content: $isax-music;
   }
 }
 
 .isax-musicnote {
-  &::before {
+  &::before, &::after {
     content: $isax-musicnote;
   }
 }
 
 .isax-next {
-  &::before {
+  &::before, &::after {
     content: $isax-next;
   }
 }
 
 .isax-note-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-note-1;
   }
 }
 
 .isax-note-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-note-2;
   }
 }
 
 .isax-note-21 {
-  &::before {
+  &::before, &::after {
     content: $isax-note-21;
   }
 }
 
 .isax-note-add {
-  &::before {
+  &::before, &::after {
     content: $isax-note-add;
   }
 }
 
 .isax-note-favorite {
-  &::before {
+  &::before, &::after {
     content: $isax-note-favorite;
   }
 }
 
 .isax-note-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-note-remove;
   }
 }
 
 .isax-note-square {
-  &::before {
+  &::before, &::after {
     content: $isax-note-square;
   }
 }
 
 .isax-note-text {
-  &::before {
+  &::before, &::after {
     content: $isax-note-text;
   }
 }
 
 .isax-note {
-  &::before {
+  &::before, &::after {
     content: $isax-note;
   }
 }
 
 .isax-notification-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-notification-1;
   }
 }
 
 .isax-notification-bing {
-  &::before {
+  &::before, &::after {
     content: $isax-notification-bing;
   }
 }
 
 .isax-notification-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-notification-circle;
   }
 }
 
 .isax-notification-favorite {
-  &::before {
+  &::before, &::after {
     content: $isax-notification-favorite;
   }
 }
 
 .isax-notification-status {
-  &::before {
+  &::before, &::after {
     content: $isax-notification-status;
   }
 }
 
 .isax-notification {
-  &::before {
+  &::before, &::after {
     content: $isax-notification;
   }
 }
 
 .isax-omega-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-omega-circle;
   }
 }
 
 .isax-omega-square {
-  &::before {
+  &::before, &::after {
     content: $isax-omega-square;
   }
 }
 
 .isax-paintbucket {
-  &::before {
+  &::before, &::after {
     content: $isax-paintbucket;
   }
 }
 
 .isax-paperclip-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-paperclip-2;
   }
 }
 
 .isax-paperclip {
-  &::before {
+  &::before, &::after {
     content: $isax-paperclip;
   }
 }
 
 .isax-password-check {
-  &::before {
+  &::before, &::after {
     content: $isax-password-check;
   }
 }
 
 .isax-path-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-path-2;
   }
 }
 
 .isax-path-square {
-  &::before {
+  &::before, &::after {
     content: $isax-path-square;
   }
 }
 
 .isax-path {
-  &::before {
+  &::before, &::after {
     content: $isax-path;
   }
 }
 
 .isax-pause-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-pause-circle;
   }
 }
 
 .isax-pause {
-  &::before {
+  &::before, &::after {
     content: $isax-pause;
   }
 }
 
 .isax-pen-add {
-  &::before {
+  &::before, &::after {
     content: $isax-pen-add;
   }
 }
 
 .isax-pen-close {
-  &::before {
+  &::before, &::after {
     content: $isax-pen-close;
   }
 }
 
 .isax-pen-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-pen-remove;
   }
 }
 
 .isax-pen-tool-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-pen-tool-2;
   }
 }
 
 .isax-pen-tool {
-  &::before {
+  &::before, &::after {
     content: $isax-pen-tool;
   }
 }
 
 .isax-people {
-  &::before {
+  &::before, &::after {
     content: $isax-people;
   }
 }
 
 .isax-percentage-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-percentage-circle;
   }
 }
 
 .isax-percentage-square {
-  &::before {
+  &::before, &::after {
     content: $isax-percentage-square;
   }
 }
 
 .isax-personalcard {
-  &::before {
+  &::before, &::after {
     content: $isax-personalcard;
   }
 }
 
 .isax-pet {
-  &::before {
+  &::before, &::after {
     content: $isax-pet;
   }
 }
 
 .isax-pharagraphspacing {
-  &::before {
+  &::before, &::after {
     content: $isax-pharagraphspacing;
   }
 }
 
 .isax-picture-frame {
-  &::before {
+  &::before, &::after {
     content: $isax-picture-frame;
   }
 }
 
 .isax-play-add {
-  &::before {
+  &::before, &::after {
     content: $isax-play-add;
   }
 }
 
 .isax-play-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-play-circle;
   }
 }
 
 .isax-play-cricle {
-  &::before {
+  &::before, &::after {
     content: $isax-play-cricle;
   }
 }
 
 .isax-play-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-play-remove;
   }
 }
 
 .isax-play {
-  &::before {
+  &::before, &::after {
     content: $isax-play;
   }
 }
 
 .isax-presention-chart {
-  &::before {
+  &::before, &::after {
     content: $isax-presention-chart;
   }
 }
 
 .isax-previous {
-  &::before {
+  &::before, &::after {
     content: $isax-previous;
   }
 }
 
 .isax-printer-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-printer-slash;
   }
 }
 
 .isax-printer {
-  &::before {
+  &::before, &::after {
     content: $isax-printer;
   }
 }
 
 .isax-profile-2user {
-  &::before {
+  &::before, &::after {
     content: $isax-profile-2user;
   }
 }
 
 .isax-profile-add {
-  &::before {
+  &::before, &::after {
     content: $isax-profile-add;
   }
 }
 
 .isax-profile-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-profile-circle;
   }
 }
 
 .isax-profile-delete {
-  &::before {
+  &::before, &::after {
     content: $isax-profile-delete;
   }
 }
 
 .isax-profile-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-profile-remove;
   }
 }
 
 .isax-profile-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-profile-tick;
   }
 }
 
 .isax-programming-arrow {
-  &::before {
+  &::before, &::after {
     content: $isax-programming-arrow;
   }
 }
 
 .isax-programming-arrows {
-  &::before {
+  &::before, &::after {
     content: $isax-programming-arrows;
   }
 }
 
 .isax-quote-down-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-quote-down-circle;
   }
 }
 
 .isax-quote-down-square {
-  &::before {
+  &::before, &::after {
     content: $isax-quote-down-square;
   }
 }
 
 .isax-quote-down {
-  &::before {
+  &::before, &::after {
     content: $isax-quote-down;
   }
 }
 
 .isax-quote-up-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-quote-up-circle;
   }
 }
 
 .isax-quote-up-square {
-  &::before {
+  &::before, &::after {
     content: $isax-quote-up-square;
   }
 }
 
 .isax-quote-up {
-  &::before {
+  &::before, &::after {
     content: $isax-quote-up;
   }
 }
 
 .isax-radar-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-radar-1;
   }
 }
 
 .isax-radar-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-radar-2;
   }
 }
 
 .isax-radar {
-  &::before {
+  &::before, &::after {
     content: $isax-radar;
   }
 }
 
 .isax-radio {
-  &::before {
+  &::before, &::after {
     content: $isax-radio;
   }
 }
 
 .isax-ram-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-ram-2;
   }
 }
 
 .isax-ram {
-  &::before {
+  &::before, &::after {
     content: $isax-ram;
   }
 }
 
 .isax-ranking-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-ranking-1;
   }
 }
 
 .isax-ranking {
-  &::before {
+  &::before, &::after {
     content: $isax-ranking;
   }
 }
 
 .isax-receipt-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-1;
   }
 }
 
 .isax-receipt-2-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-2-1;
   }
 }
 
 .isax-receipt-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-2;
   }
 }
 
 .isax-receipt-add {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-add;
   }
 }
 
 .isax-receipt-discount {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-discount;
   }
 }
 
 .isax-receipt-disscount {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-disscount;
   }
 }
 
 .isax-receipt-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-edit;
   }
 }
 
 .isax-receipt-item {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-item;
   }
 }
 
 .isax-receipt-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-minus;
   }
 }
 
 .isax-receipt-search {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-search;
   }
 }
 
 .isax-receipt-square {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-square;
   }
 }
 
 .isax-receipt-text {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt-text;
   }
 }
 
 .isax-receipt {
-  &::before {
+  &::before, &::after {
     content: $isax-receipt;
   }
 }
 
 .isax-receive-square-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-receive-square-2;
   }
 }
 
 .isax-receive-square {
-  &::before {
+  &::before, &::after {
     content: $isax-receive-square;
   }
 }
 
 .isax-received {
-  &::before {
+  &::before, &::after {
     content: $isax-received;
   }
 }
 
 .isax-record-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-record-circle;
   }
 }
 
 .isax-record {
-  &::before {
+  &::before, &::after {
     content: $isax-record;
   }
 }
 
 .isax-recovery-convert {
-  &::before {
+  &::before, &::after {
     content: $isax-recovery-convert;
   }
 }
 
 .isax-redo {
-  &::before {
+  &::before, &::after {
     content: $isax-redo;
   }
 }
 
 .isax-refresh-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-refresh-2;
   }
 }
 
 .isax-refresh-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-refresh-circle;
   }
 }
 
 .isax-refresh-left-square {
-  &::before {
+  &::before, &::after {
     content: $isax-refresh-left-square;
   }
 }
 
 .isax-refresh-right-square {
-  &::before {
+  &::before, &::after {
     content: $isax-refresh-right-square;
   }
 }
 
 .isax-refresh-square-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-refresh-square-2;
   }
 }
 
 .isax-refresh {
-  &::before {
+  &::before, &::after {
     content: $isax-refresh;
   }
 }
 
 .isax-repeat-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-repeat-circle;
   }
 }
 
 .isax-repeat {
-  &::before {
+  &::before, &::after {
     content: $isax-repeat;
   }
 }
 
 .isax-repeate-music {
-  &::before {
+  &::before, &::after {
     content: $isax-repeate-music;
   }
 }
 
 .isax-repeate-one {
-  &::before {
+  &::before, &::after {
     content: $isax-repeate-one;
   }
 }
 
 .isax-reserve {
-  &::before {
+  &::before, &::after {
     content: $isax-reserve;
   }
 }
 
 .isax-rotate-left-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-rotate-left-1;
   }
 }
 
 .isax-rotate-left {
-  &::before {
+  &::before, &::after {
     content: $isax-rotate-left;
   }
 }
 
 .isax-rotate-right-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-rotate-right-1;
   }
 }
 
 .isax-rotate-right {
-  &::before {
+  &::before, &::after {
     content: $isax-rotate-right;
   }
 }
 
 .isax-route-square {
-  &::before {
+  &::before, &::after {
     content: $isax-route-square;
   }
 }
 
 .isax-routing-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-routing-2;
   }
 }
 
 .isax-routing {
-  &::before {
+  &::before, &::after {
     content: $isax-routing;
   }
 }
 
 .isax-row-horizontal {
-  &::before {
+  &::before, &::after {
     content: $isax-row-horizontal;
   }
 }
 
 .isax-row-vertical {
-  &::before {
+  &::before, &::after {
     content: $isax-row-vertical;
   }
 }
 
 .isax-ruler {
-  &::before {
+  &::before, &::after {
     content: $isax-ruler;
   }
 }
 
 .isax-rulerpen {
-  &::before {
+  &::before, &::after {
     content: $isax-rulerpen;
   }
 }
 
 .isax-safe-home {
-  &::before {
+  &::before, &::after {
     content: $isax-safe-home;
   }
 }
 
 .isax-sagittarius {
-  &::before {
+  &::before, &::after {
     content: $isax-sagittarius;
   }
 }
 
 .isax-save-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-save-2;
   }
 }
 
 .isax-save-add {
-  &::before {
+  &::before, &::after {
     content: $isax-save-add;
   }
 }
 
 .isax-save-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-save-minus;
   }
 }
 
 .isax-save-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-save-remove;
   }
 }
 
 .isax-scan-barcode {
-  &::before {
+  &::before, &::after {
     content: $isax-scan-barcode;
   }
 }
 
 .isax-scan {
-  &::before {
+  &::before, &::after {
     content: $isax-scan;
   }
 }
 
 .isax-scanner {
-  &::before {
+  &::before, &::after {
     content: $isax-scanner;
   }
 }
 
 .isax-scanning {
-  &::before {
+  &::before, &::after {
     content: $isax-scanning;
   }
 }
 
 .isax-scissor-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-scissor-1;
   }
 }
 
 .isax-scissor {
-  &::before {
+  &::before, &::after {
     content: $isax-scissor;
   }
 }
 
 .isax-screenmirroring {
-  &::before {
+  &::before, &::after {
     content: $isax-screenmirroring;
   }
 }
 
 .isax-scroll {
-  &::before {
+  &::before, &::after {
     content: $isax-scroll;
   }
 }
 
 .isax-search-favorite-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-search-favorite-1;
   }
 }
 
 .isax-search-favorite {
-  &::before {
+  &::before, &::after {
     content: $isax-search-favorite;
   }
 }
 
 .isax-search-normal-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-search-normal-1;
   }
 }
 
 .isax-search-normal {
-  &::before {
+  &::before, &::after {
     content: $isax-search-normal;
   }
 }
 
 .isax-search-status-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-search-status-1;
   }
 }
 
 .isax-search-status {
-  &::before {
+  &::before, &::after {
     content: $isax-search-status;
   }
 }
 
 .isax-search-zoom-in-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-search-zoom-in-1;
   }
 }
 
 .isax-search-zoom-in {
-  &::before {
+  &::before, &::after {
     content: $isax-search-zoom-in;
   }
 }
 
 .isax-search-zoom-out-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-search-zoom-out-1;
   }
 }
 
 .isax-search-zoom-out {
-  &::before {
+  &::before, &::after {
     content: $isax-search-zoom-out;
   }
 }
 
 .isax-security-card {
-  &::before {
+  &::before, &::after {
     content: $isax-security-card;
   }
 }
 
 .isax-security-safe {
-  &::before {
+  &::before, &::after {
     content: $isax-security-safe;
   }
 }
 
 .isax-security-time {
-  &::before {
+  &::before, &::after {
     content: $isax-security-time;
   }
 }
 
 .isax-security-user {
-  &::before {
+  &::before, &::after {
     content: $isax-security-user;
   }
 }
 
 .isax-security {
-  &::before {
+  &::before, &::after {
     content: $isax-security;
   }
 }
 
 .isax-send-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-send-1;
   }
 }
 
 .isax-send-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-send-2;
   }
 }
 
 .isax-send-sqaure-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-send-sqaure-2;
   }
 }
 
 .isax-send-square {
-  &::before {
+  &::before, &::after {
     content: $isax-send-square;
   }
 }
 
 .isax-send {
-  &::before {
+  &::before, &::after {
     content: $isax-send;
   }
 }
 
 .isax-setting-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-setting-2;
   }
 }
 
 .isax-setting-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-setting-3;
   }
 }
 
 .isax-setting-4 {
-  &::before {
+  &::before, &::after {
     content: $isax-setting-4;
   }
 }
 
 .isax-setting-5 {
-  &::before {
+  &::before, &::after {
     content: $isax-setting-5;
   }
 }
 
 .isax-setting {
-  &::before {
+  &::before, &::after {
     content: $isax-setting;
   }
 }
 
 .isax-settings {
-  &::before {
+  &::before, &::after {
     content: $isax-settings;
   }
 }
 
 .isax-shapes-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-shapes-1;
   }
 }
 
 .isax-shapes {
-  &::before {
+  &::before, &::after {
     content: $isax-shapes;
   }
 }
 
 .isax-share {
-  &::before {
+  &::before, &::after {
     content: $isax-share;
   }
 }
 
 .isax-shield-cross {
-  &::before {
+  &::before, &::after {
     content: $isax-shield-cross;
   }
 }
 
 .isax-shield-search {
-  &::before {
+  &::before, &::after {
     content: $isax-shield-search;
   }
 }
 
 .isax-shield-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-shield-slash;
   }
 }
 
 .isax-shield-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-shield-tick;
   }
 }
 
 .isax-shield {
-  &::before {
+  &::before, &::after {
     content: $isax-shield;
   }
 }
 
 .isax-ship {
-  &::before {
+  &::before, &::after {
     content: $isax-ship;
   }
 }
 
 .isax-shop-add {
-  &::before {
+  &::before, &::after {
     content: $isax-shop-add;
   }
 }
 
 .isax-shop-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-shop-remove;
   }
 }
 
 .isax-shop {
-  &::before {
+  &::before, &::after {
     content: $isax-shop;
   }
 }
 
 .isax-shopping-bag {
-  &::before {
+  &::before, &::after {
     content: $isax-shopping-bag;
   }
 }
 
 .isax-shopping-cart {
-  &::before {
+  &::before, &::after {
     content: $isax-shopping-cart;
   }
 }
 
 .isax-shuffle {
-  &::before {
+  &::before, &::after {
     content: $isax-shuffle;
   }
 }
 
 .isax-sidebar-bottom {
-  &::before {
+  &::before, &::after {
     content: $isax-sidebar-bottom;
   }
 }
 
 .isax-sidebar-left {
-  &::before {
+  &::before, &::after {
     content: $isax-sidebar-left;
   }
 }
 
 .isax-sidebar-right {
-  &::before {
+  &::before, &::after {
     content: $isax-sidebar-right;
   }
 }
 
 .isax-sidebar-top {
-  &::before {
+  &::before, &::after {
     content: $isax-sidebar-top;
   }
 }
 
 .isax-signpost {
-  &::before {
+  &::before, &::after {
     content: $isax-signpost;
   }
 }
 
 .isax-simcard-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-simcard-1;
   }
 }
 
 .isax-simcard-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-simcard-2;
   }
 }
 
 .isax-simcard {
-  &::before {
+  &::before, &::after {
     content: $isax-simcard;
   }
 }
 
 .isax-size {
-  &::before {
+  &::before, &::after {
     content: $isax-size;
   }
 }
 
 .isax-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-slash;
   }
 }
 
 .isax-slider-horizontal-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-slider-horizontal-1;
   }
 }
 
 .isax-slider-horizontal {
-  &::before {
+  &::before, &::after {
     content: $isax-slider-horizontal;
   }
 }
 
 .isax-slider-vertical-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-slider-vertical-1;
   }
 }
 
 .isax-slider-vertical {
-  &::before {
+  &::before, &::after {
     content: $isax-slider-vertical;
   }
 }
 
 .isax-slider {
-  &::before {
+  &::before, &::after {
     content: $isax-slider;
   }
 }
 
 .isax-smallcaps {
-  &::before {
+  &::before, &::after {
     content: $isax-smallcaps;
   }
 }
 
 .isax-smart-car {
-  &::before {
+  &::before, &::after {
     content: $isax-smart-car;
   }
 }
 
 .isax-smart-home {
-  &::before {
+  &::before, &::after {
     content: $isax-smart-home;
   }
 }
 
 .isax-smileys {
-  &::before {
+  &::before, &::after {
     content: $isax-smileys;
   }
 }
 
 .isax-sms-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-sms-edit;
   }
 }
 
 .isax-sms-notification {
-  &::before {
+  &::before, &::after {
     content: $isax-sms-notification;
   }
 }
 
 .isax-sms-search {
-  &::before {
+  &::before, &::after {
     content: $isax-sms-search;
   }
 }
 
 .isax-sms-star {
-  &::before {
+  &::before, &::after {
     content: $isax-sms-star;
   }
 }
 
 .isax-sms-tracking {
-  &::before {
+  &::before, &::after {
     content: $isax-sms-tracking;
   }
 }
 
 .isax-sms {
-  &::before {
+  &::before, &::after {
     content: $isax-sms;
   }
 }
 
 .isax-sort {
-  &::before {
+  &::before, &::after {
     content: $isax-sort;
   }
 }
 
 .isax-sound {
-  &::before {
+  &::before, &::after {
     content: $isax-sound;
   }
 }
 
 .isax-speaker {
-  &::before {
+  &::before, &::after {
     content: $isax-speaker;
   }
 }
 
 .isax-speedometer {
-  &::before {
+  &::before, &::after {
     content: $isax-speedometer;
   }
 }
 
 .isax-star-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-star-1;
   }
 }
 
 .isax-star-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-star-slash;
   }
 }
 
 .isax-star {
-  &::before {
+  &::before, &::after {
     content: $isax-star;
   }
 }
 
 .isax-status-up {
-  &::before {
+  &::before, &::after {
     content: $isax-status-up;
   }
 }
 
 .isax-status {
-  &::before {
+  &::before, &::after {
     content: $isax-status;
   }
 }
 
 .isax-sticker {
-  &::before {
+  &::before, &::after {
     content: $isax-sticker;
   }
 }
 
 .isax-stickynote {
-  &::before {
+  &::before, &::after {
     content: $isax-stickynote;
   }
 }
 
 .isax-stop-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-stop-circle;
   }
 }
 
 .isax-stop {
-  &::before {
+  &::before, &::after {
     content: $isax-stop;
   }
 }
 
 .isax-story {
-  &::before {
+  &::before, &::after {
     content: $isax-story;
   }
 }
 
 .isax-strongbox-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-strongbox-2;
   }
 }
 
 .isax-strongbox {
-  &::before {
+  &::before, &::after {
     content: $isax-strongbox;
   }
 }
 
 .isax-subtitle {
-  &::before {
+  &::before, &::after {
     content: $isax-subtitle;
   }
 }
 
 .isax-sun-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-sun-1;
   }
 }
 
 .isax-sun-fog {
-  &::before {
+  &::before, &::after {
     content: $isax-sun-fog;
   }
 }
 
 .isax-sun {
-  &::before {
+  &::before, &::after {
     content: $isax-sun;
   }
 }
 
 .isax-tag-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-tag-2;
   }
 }
 
 .isax-tag-cross {
-  &::before {
+  &::before, &::after {
     content: $isax-tag-cross;
   }
 }
 
 .isax-tag-right {
-  &::before {
+  &::before, &::after {
     content: $isax-tag-right;
   }
 }
 
 .isax-tag-user {
-  &::before {
+  &::before, &::after {
     content: $isax-tag-user;
   }
 }
 
 .isax-tag {
-  &::before {
+  &::before, &::after {
     content: $isax-tag;
   }
 }
 
 .isax-task-square {
-  &::before {
+  &::before, &::after {
     content: $isax-task-square;
   }
 }
 
 .isax-task {
-  &::before {
+  &::before, &::after {
     content: $isax-task;
   }
 }
 
 .isax-teacher {
-  &::before {
+  &::before, &::after {
     content: $isax-teacher;
   }
 }
 
 .isax-text-block {
-  &::before {
+  &::before, &::after {
     content: $isax-text-block;
   }
 }
 
 .isax-text-bold {
-  &::before {
+  &::before, &::after {
     content: $isax-text-bold;
   }
 }
 
 .isax-text-italic {
-  &::before {
+  &::before, &::after {
     content: $isax-text-italic;
   }
 }
 
 .isax-text-underline {
-  &::before {
+  &::before, &::after {
     content: $isax-text-underline;
   }
 }
 
 .isax-text {
-  &::before {
+  &::before, &::after {
     content: $isax-text;
   }
 }
 
 .isax-textalign-center {
-  &::before {
+  &::before, &::after {
     content: $isax-textalign-center;
   }
 }
 
 .isax-textalign-justifycenter {
-  &::before {
+  &::before, &::after {
     content: $isax-textalign-justifycenter;
   }
 }
 
 .isax-textalign-justifyleft {
-  &::before {
+  &::before, &::after {
     content: $isax-textalign-justifyleft;
   }
 }
 
 .isax-textalign-justifyright {
-  &::before {
+  &::before, &::after {
     content: $isax-textalign-justifyright;
   }
 }
 
 .isax-textalign-left {
-  &::before {
+  &::before, &::after {
     content: $isax-textalign-left;
   }
 }
 
 .isax-textalign-right {
-  &::before {
+  &::before, &::after {
     content: $isax-textalign-right;
   }
 }
 
 .isax-tick-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-tick-circle;
   }
 }
 
 .isax-tick-square {
-  &::before {
+  &::before, &::after {
     content: $isax-tick-square;
   }
 }
 
 .isax-ticket-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-ticket-2;
   }
 }
 
 .isax-ticket-discount {
-  &::before {
+  &::before, &::after {
     content: $isax-ticket-discount;
   }
 }
 
 .isax-ticket-expired {
-  &::before {
+  &::before, &::after {
     content: $isax-ticket-expired;
   }
 }
 
 .isax-ticket-star {
-  &::before {
+  &::before, &::after {
     content: $isax-ticket-star;
   }
 }
 
 .isax-ticket {
-  &::before {
+  &::before, &::after {
     content: $isax-ticket;
   }
 }
 
 .isax-timer-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-timer-1;
   }
 }
 
 .isax-timer-pause {
-  &::before {
+  &::before, &::after {
     content: $isax-timer-pause;
   }
 }
 
 .isax-timer-start {
-  &::before {
+  &::before, &::after {
     content: $isax-timer-start;
   }
 }
 
 .isax-timer {
-  &::before {
+  &::before, &::after {
     content: $isax-timer;
   }
 }
 
 .isax-toggle-off-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-toggle-off-circle;
   }
 }
 
 .isax-toggle-off {
-  &::before {
+  &::before, &::after {
     content: $isax-toggle-off;
   }
 }
 
 .isax-toggle-on-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-toggle-on-circle;
   }
 }
 
 .isax-toggle-on {
-  &::before {
+  &::before, &::after {
     content: $isax-toggle-on;
   }
 }
 
 .isax-trade {
-  &::before {
+  &::before, &::after {
     content: $isax-trade;
   }
 }
 
 .isax-transaction-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-transaction-minus;
   }
 }
 
 .isax-translate {
-  &::before {
+  &::before, &::after {
     content: $isax-translate;
   }
 }
 
 .isax-trash {
-  &::before {
+  &::before, &::after {
     content: $isax-trash;
   }
 }
 
 .isax-tree {
-  &::before {
+  &::before, &::after {
     content: $isax-tree;
   }
 }
 
 .isax-trend-down {
-  &::before {
+  &::before, &::after {
     content: $isax-trend-down;
   }
 }
 
 .isax-trend-up {
-  &::before {
+  &::before, &::after {
     content: $isax-trend-up;
   }
 }
 
 .isax-triangle {
-  &::before {
+  &::before, &::after {
     content: $isax-triangle;
   }
 }
 
 .isax-truck-fast {
-  &::before {
+  &::before, &::after {
     content: $isax-truck-fast;
   }
 }
 
 .isax-truck-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-truck-remove;
   }
 }
 
 .isax-truck-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-truck-tick;
   }
 }
 
 .isax-truck-time {
-  &::before {
+  &::before, &::after {
     content: $isax-truck-time;
   }
 }
 
 .isax-truck {
-  &::before {
+  &::before, &::after {
     content: $isax-truck;
   }
 }
 
 .isax-trush-square {
-  &::before {
+  &::before, &::after {
     content: $isax-trush-square;
   }
 }
 
 .isax-undo {
-  &::before {
+  &::before, &::after {
     content: $isax-undo;
   }
 }
 
 .isax-unlimited {
-  &::before {
+  &::before, &::after {
     content: $isax-unlimited;
   }
 }
 
 .isax-unlock {
-  &::before {
+  &::before, &::after {
     content: $isax-unlock;
   }
 }
 
 .isax-user-add {
-  &::before {
+  &::before, &::after {
     content: $isax-user-add;
   }
 }
 
 .isax-user-cirlce-add {
-  &::before {
+  &::before, &::after {
     content: $isax-user-cirlce-add;
   }
 }
 
 .isax-user-edit {
-  &::before {
+  &::before, &::after {
     content: $isax-user-edit;
   }
 }
 
 .isax-user-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-user-minus;
   }
 }
 
 .isax-user-octagon {
-  &::before {
+  &::before, &::after {
     content: $isax-user-octagon;
   }
 }
 
 .isax-user-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-user-remove;
   }
 }
 
 .isax-user-search {
-  &::before {
+  &::before, &::after {
     content: $isax-user-search;
   }
 }
 
 .isax-user-square {
-  &::before {
+  &::before, &::after {
     content: $isax-user-square;
   }
 }
 
 .isax-user-tag {
-  &::before {
+  &::before, &::after {
     content: $isax-user-tag;
   }
 }
 
 .isax-user-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-user-tick;
   }
 }
 
 .isax-user {
-  &::before {
+  &::before, &::after {
     content: $isax-user;
   }
 }
 
 .isax-verify {
-  &::before {
+  &::before, &::after {
     content: $isax-verify;
   }
 }
 
 .isax-video-add {
-  &::before {
+  &::before, &::after {
     content: $isax-video-add;
   }
 }
 
 .isax-video-circle {
-  &::before {
+  &::before, &::after {
     content: $isax-video-circle;
   }
 }
 
 .isax-video-horizontal {
-  &::before {
+  &::before, &::after {
     content: $isax-video-horizontal;
   }
 }
 
 .isax-video-octagon {
-  &::before {
+  &::before, &::after {
     content: $isax-video-octagon;
   }
 }
 
 .isax-video-play {
-  &::before {
+  &::before, &::after {
     content: $isax-video-play;
   }
 }
 
 .isax-video-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-video-remove;
   }
 }
 
 .isax-video-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-video-slash;
   }
 }
 
 .isax-video-square {
-  &::before {
+  &::before, &::after {
     content: $isax-video-square;
   }
 }
 
 .isax-video-tick {
-  &::before {
+  &::before, &::after {
     content: $isax-video-tick;
   }
 }
 
 .isax-video-time {
-  &::before {
+  &::before, &::after {
     content: $isax-video-time;
   }
 }
 
 .isax-video-vertical {
-  &::before {
+  &::before, &::after {
     content: $isax-video-vertical;
   }
 }
 
 .isax-video {
-  &::before {
+  &::before, &::after {
     content: $isax-video;
   }
 }
 
 .isax-voice-cricle {
-  &::before {
+  &::before, &::after {
     content: $isax-voice-cricle;
   }
 }
 
 .isax-voice-square {
-  &::before {
+  &::before, &::after {
     content: $isax-voice-square;
   }
 }
 
 .isax-volume-cross {
-  &::before {
+  &::before, &::after {
     content: $isax-volume-cross;
   }
 }
 
 .isax-volume-high {
-  &::before {
+  &::before, &::after {
     content: $isax-volume-high;
   }
 }
 
 .isax-volume-low-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-volume-low-1;
   }
 }
 
 .isax-volume-low {
-  &::before {
+  &::before, &::after {
     content: $isax-volume-low;
   }
 }
 
 .isax-volume-mute {
-  &::before {
+  &::before, &::after {
     content: $isax-volume-mute;
   }
 }
 
 .isax-volume-slash {
-  &::before {
+  &::before, &::after {
     content: $isax-volume-slash;
   }
 }
 
 .isax-volume-up {
-  &::before {
+  &::before, &::after {
     content: $isax-volume-up;
   }
 }
 
 .isax-wallet-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-1;
   }
 }
 
 .isax-wallet-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-2;
   }
 }
 
 .isax-wallet-3 {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-3;
   }
 }
 
 .isax-wallet-add-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-add-1;
   }
 }
 
 .isax-wallet-add {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-add;
   }
 }
 
 .isax-wallet-check {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-check;
   }
 }
 
 .isax-wallet-minus {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-minus;
   }
 }
 
 .isax-wallet-money {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-money;
   }
 }
 
 .isax-wallet-remove {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-remove;
   }
 }
 
 .isax-wallet-search {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet-search;
   }
 }
 
 .isax-wallet {
-  &::before {
+  &::before, &::after {
     content: $isax-wallet;
   }
 }
 
 .isax-warning-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-warning-2;
   }
 }
 
 .isax-watch-status {
-  &::before {
+  &::before, &::after {
     content: $isax-watch-status;
   }
 }
 
 .isax-watch {
-  &::before {
+  &::before, &::after {
     content: $isax-watch;
   }
 }
 
 .isax-weight-1 {
-  &::before {
+  &::before, &::after {
     content: $isax-weight-1;
   }
 }
 
 .isax-weight {
-  &::before {
+  &::before, &::after {
     content: $isax-weight;
   }
 }
 
 .isax-wifi-square {
-  &::before {
+  &::before, &::after {
     content: $isax-wifi-square;
   }
 }
 
 .isax-wifi {
-  &::before {
+  &::before, &::after {
     content: $isax-wifi;
   }
 }
 
 .isax-wind-2 {
-  &::before {
+  &::before, &::after {
     content: $isax-wind-2;
   }
 }
 
 .isax-wind {
-  &::before {
+  &::before, &::after {
     content: $isax-wind;
   }
 }
 
 .isax-woman {
-  &::before {
+  &::before, &::after {
     content: $isax-woman;
   }
 }
