@@ -4,7 +4,7 @@
       <h1 class="text-3xl font-bold w-full mb-4">Filter Component Sample</h1>
     </div>
 
-    <TnFilter :fields="fields" :filters="filters"></TnFilter>
+    <TnFilter :fields="fields" :filters="filters" @emit="emit"></TnFilter>
 
     <pre class="exported mt-4 text-monospace bg-gray-50 p-2 rounded-md">
       {{ filters }}
