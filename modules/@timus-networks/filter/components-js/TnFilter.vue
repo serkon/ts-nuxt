@@ -10,18 +10,27 @@
         <button @click="groupRemove" class="filter-remove-group btn btn-primary-outline btn-xs">X</button>
       </div>
     </div>
-    <template class="filter-item" v-for="(item, index) in currentFilters">
-      <TnFilter :fields="fields" :filters="item" v-if="isGroup(item)" @group-remove="eventRemove" :index="index"></TnFilter>
+    <div class="filter-item-todo" v-for="(item, index) in currentFilters" :key="item.id">
+      <TnFilter
+        :fields="fields"
+        :filters="item"
+        v-if="isGroup(item)"
+        :index="index"
+        :isTopLevel="false"
+        @group-remove="eventRemove"
+        @trigger-parent="emitter"
+      ></TnFilter>
       <TnFilterItem
+        v-else
         :fields="fields"
         :value="item"
         :index="index"
-        v-else
-        @field-remove="eventRemove"
         :class="{ 'filter-item-first': index === lastField }"
+        @field-remove="eventRemove"
+        @trigger-parent="emitter"
       >
       </TnFilterItem>
-    </template>
+    </div>
   </div>
 </template>
 
@@ -38,8 +47,13 @@ export default Vue.extend({
             default: () => [],
         },
         index: {
+            // TODO: parent index ile güncelle
             type: Number,
             default: 0,
+        },
+        isTopLevel: {
+            type: Boolean,
+            default: true,
         },
     },
     computed: {
@@ -76,12 +90,47 @@ export default Vue.extend({
             });
         },
         groupRemove() {
-            Array.isArray(this.filters) ? this.currentFilters.splice(0, this.currentFilters.length) : this.$emit('group-remove', this.filters);
+            Array.isArray(this.filters)
+                ? (this.currentFilters.splice(0, this.currentFilters.length), this.emitter()) // herşeyi sıfırlama butonu sağ üstteki (2 method çalışıyor dikkat et: splice ve emitter methodları. Virgül ile ayırdım)
+                : this.$emit('group-remove', this.filters);
         },
         eventRemove($event) {
             // Burası parent gibi düşün alttan trigger edilen burada yakalanır ve listeden silinir
             const index = this.currentFilters.findIndex((item) => item.id === $event.id);
             index > -1 && this.currentFilters.splice(index, 1);
+            this.emitter();
+        },
+        emitter() {
+            this.isTopLevel ? this.$emit('emit', this.convertToJQL(this.currentFilters)) : this.$emit('trigger-parent');
+        },
+        convertToJQL(rules) {
+            return rules
+                .reduce((acc, rule, idx) => {
+                if (rule.rules) {
+                    const nestedJQL = this.convertToJQL(rule.rules);
+                    if (nestedJQL) {
+                        acc.push(`(${nestedJQL})`);
+                    }
+                }
+                else {
+                    const operatorMapping = {
+                        equals: '=',
+                        'not equals': '!=',
+                        contains: '~',
+                    };
+                    const operator = operatorMapping[rule.operator] || '=';
+                    const value = rule.value;
+                    acc.push(`${rule.field} ${operator} "${value}"`);
+                }
+                const nextRule = rules[idx + 1];
+                if (nextRule && nextRule.condition && ((nextRule.rules && nextRule.rules.length > 0) || !nextRule.rules)) {
+                    acc.push(nextRule.condition.toUpperCase());
+                }
+                return acc;
+            }, [])
+                .join(' ')
+                .trim()
+                .replace(/^(AND|OR) /, ''); // Başlangıçtaki 'AND' veya 'OR' ifadelerini kaldır
         },
     },
 });
