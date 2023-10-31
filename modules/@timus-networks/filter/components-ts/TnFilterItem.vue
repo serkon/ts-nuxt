@@ -1,6 +1,5 @@
 <template>
   <div class="filter-item">
-    {{ setValue }}
     <select v-model="setValue.condition" class="filter-condition form-control form-control-sm" :disabled="!index">
       <option v-for="(c, optionIndex) in ['and', 'or']" :key="optionIndex" :value="c">{{ c }}</option>
     </select>

@@ -4,6 +4,7 @@
       <h1 class="text-3xl font-bold w-full mb-4">Filter Component Sample</h1>
     </div>
 
+    {{ jql }}
     <TnFilter :fields="fields" :filters="filters" @emit="emit"></TnFilter>
 
     <pre class="exported mt-4 text-monospace bg-gray-50 p-2 rounded-md">
@@ -55,6 +56,7 @@ export default Vue.extend({
         //   { id: 'user-002', field: 'age', operator: 'not equals', value: '25' },
         // ],
       ],
+      jql: '',
     };
   },
   mounted() {
@@ -63,6 +65,7 @@ export default Vue.extend({
   methods: {
     emit(value: any) {
       console.log('emit:', value);
+      this.jql = value;
     },
   },
 });
