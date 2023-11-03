@@ -7,7 +7,7 @@ function generateColors(baseName, start = 100, end = 900, step = 100) {
   return colors;
 }
 
-const colorNames = ['primary', 'secondary', 'gray', 'danger', 'success', 'warning', ]
+const colorNames = ['primary', 'secondary', 'gray', 'danger', 'success', 'warning', 'info' ]
 
 const colors = colorNames.reduce((acc, color) => {
   return {...acc, [`${color}`]: generateColors(color, 100, 900)}
