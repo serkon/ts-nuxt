@@ -20,7 +20,7 @@
 
 ```js
 tailwindcss: {
-  cssPath: '~/static/scss/main.scss',
+  // cssPath: '~/static/scss/main.scss',
   configPath: '@/tailwind.config.js',
   exposeConfig: false,
   exposeLevel: 2,

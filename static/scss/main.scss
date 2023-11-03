@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'variables';
+@import 'colors';
+@import 'containers';
+@import 'fonts';
+@import 'icons';
+@import 'buttons.scss';
+@import 'inputs.scss';
+@import 'selectbox.scss';
+@import "element-ui.scss";
+
+  // @import 'layers.scss';
+body {
+  background-color: #ffffff;
+}
+
+[v-cloak] {
+  display: none;
+  border: 1px solid red;
+}
