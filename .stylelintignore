@@ -1,0 +1,3 @@
+static/scss/element-ui/**/*.scss
+node_modules/**/*.scss
+modules/@timus-networks/theme/scss/element-ui

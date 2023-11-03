@@ -66,6 +66,8 @@ $btn-active-bg: 700;
 // #### Generate Color Classes
 
 @each $name, $item in $theme {
+  $name: "#{$name}";
+
   .btn-#{$name} {
     $light: if($name==light, var(--#{secondary}-#{600}), var(--button-font-color)); // var(--button-font-color); //
 

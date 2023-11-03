@@ -1,0 +1,17 @@
+/* theme color */
+$--color-primary: #6959FB;
+$--color-secondary: #20A987;
+$--color-gray: #A8A6B1;
+$--color-info: #00b3ff;
+$--color-danger: #EB4848;
+$--color-success: #69B64F;
+$--color-warning: #F9A307;
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+// @import "~element-ui/packages/theme-chalk/src/index";
+
+@import "./element-ui/index.scss";
+
+
+

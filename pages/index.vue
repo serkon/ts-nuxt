@@ -15,10 +15,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style>
-.nuxt-logo {
-  height: 180px;
-  border: 1 px solid red;
-}
-</style>

@@ -1,10 +1,8 @@
 <template>
   <div class="table-sample-page">
     <div>
-      <h1 class="isax-activity icon-xxl text-3xl font-bold w-full mb-4">Table Component Sample</h1>
-      <TnIcon icon="isax-activity" size="xxs" />ddd
+      <h1 class="text-3xl font-bold w-full mb-4">Table Component Sample</h1>
     </div>
-
     <TnTable
       ref="table"
       height="500px"

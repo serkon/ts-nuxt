@@ -1,0 +1,38 @@
+{
+  "name": "@timus-networks/theme",
+  "version": "1.0.0",
+  "description": "A comprehensive Nuxt.js module providing a tailored theme experience with integrated TailwindCSS support for applications.",
+  "main": "module.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "convert": "node js-converter.js",
+    "pub": "npm run convert && npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serkon/ts-nuxt.git"
+  },
+  "keywords": [
+    "nuxt",
+    "module",
+    "component",
+    "vuejs",
+    "theme",
+    "tailwind"
+  ],
+  "peerDependencies": {
+    "vue": "^2.x"
+  },
+  "author": "Serkan Konakcı<serkan.konakci@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "*",
+    "sass-loader": "*",
+    "tailwindcss": "*"
+  },
+  "devDependencies": {
+    "glob": "*"
+  },
+  "typings": "./index.d.ts"
+}

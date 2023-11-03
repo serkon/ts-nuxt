@@ -9,8 +9,9 @@
 @import 'buttons.scss';
 @import 'inputs.scss';
 @import 'selectbox.scss';
-@import 'layers.scss';
+@import "element-ui.scss";
 
+  // @import 'layers.scss';
 body {
   background-color: #ffffff;
 }
