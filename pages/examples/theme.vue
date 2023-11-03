@@ -8,7 +8,7 @@
     <button class="btn btn-primary btn-sm">asdasdad</button>
     <el-row>
       <el-button>Default</el-button>
-      <el-button type="primary" icon="isax-airdrop">Primary</el-button>
+      <el-button type="primary" class="isax-airdrop icon-right">Primary</el-button>
       <el-button type="text" class="danger">Text</el-button>
       <el-button type="light">Light</el-button>
       <el-button type="gray">Gray</el-button>

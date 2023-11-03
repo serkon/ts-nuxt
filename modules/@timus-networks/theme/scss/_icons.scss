@@ -28,7 +28,7 @@ $icon-config: (
   }
 
   &::after {
-    content: none;
+    // content: none;
     // margin-right: 2px;
   }
 
@@ -48,7 +48,7 @@ $icon-config: (
     }
 
     &::after {
-      content: '';
+      // content: '';
     }
 
     &-outline {
