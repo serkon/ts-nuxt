@@ -21,7 +21,7 @@ async function copyDirectory(src, dest) {
 
 export default function (moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
-    console.log(`${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
+    console.log(`#### ${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
   });
 
   // Assest'si, static fonts altına iconsax olarak gönderiyorum ve nuxt.config'in css'ine ekliyorum

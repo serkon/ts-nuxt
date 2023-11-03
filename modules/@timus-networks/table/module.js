@@ -1,9 +1,9 @@
 import { LoadComponent, LoadPlugins } from './loader';
 import PackageJson from './package.json';
 
-export default function(moduleOptions) {
+export default function (moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
-    console.log('@timus-networks/table is ready');
+    console.log(`#### ${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
   });
 
   // get all options for the module
@@ -13,12 +13,9 @@ export default function(moduleOptions) {
     version: PackageJson.version,
   };
 
-
   options.namespace = !options.namespace ? 'timus-networks/' + PackageJson.name.split('/')[1] : options.namespace;
   options.typescript = !!options.typescript;
   options.client = options.client === true;
-
-  console.log('Timus Table Options:', options);
 
   LoadPlugins.bind(this)(options, this.options);
   LoadComponent.bind(this)(options);

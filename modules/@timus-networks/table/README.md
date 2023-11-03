@@ -17,9 +17,9 @@
 
 ## Language File
 
-Add below text to your language files. And set `translate` props to your translation method: <TnTable :translate='$t'></TnTable>
+Set `translate` props to your translation method: `<TnTable :translate='$t'></TnTable>`
 
-<sub>`~/locals/en.js`</sub>
+And add below text to your language files. Generally it is located in `~/locals/en.js` file.
 
 ```json
   "No Data": 'No data',

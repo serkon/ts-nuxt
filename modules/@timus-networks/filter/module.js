@@ -3,7 +3,7 @@ import PackageJson from './package.json';
 
 export default function(moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
-    console.log(`${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
+    console.log(`#### ${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
   });
 
   // get all options for the module

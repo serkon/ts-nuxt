@@ -14,10 +14,8 @@ export function LoadComponent(options) {
 
   for (const pathString of foldersToSync) {
     const path = resolve(__dirname, pathString);
-
     for (const file of readdirSync(path)) {
-
-      console.log('#### loading:', `.nuxt/${ options.namespace }/${ pathString }/${ file}` );
+      // console.log('#### loading:', `.nuxt/${ options.namespace }/${ pathString }/${ file}` );
       this.addTemplate({
         src: resolve(path, file),
         fileName: join(options.namespace, pathString, file),
