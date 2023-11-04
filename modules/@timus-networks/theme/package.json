@@ -1,13 +1,14 @@
 {
   "name": "@timus-networks/theme",
-  "version": "1.0.2",
+  "version": "1.0.8",
   "description": "A comprehensive Nuxt.js module providing a tailored theme experience with integrated TailwindCSS support for applications.",
   "main": "module.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "convert": "node js-converter.js",
-    "pub": "npm run convert && npm publish --access public"
+    "convert-js": "node convert-js.js",
+    "convert-sass": "node convert-sass.js",
+    "pub": "npm run convert-js && npm run convert-sass && npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -29,10 +30,13 @@
   "dependencies": {
     "sass": "*",
     "sass-loader": "*",
-    "tailwindcss": "*"
+    "tailwindcss": "*",
+    "@nuxtjs/tailwindcss": "^6.9.4"
   },
   "devDependencies": {
-    "glob": "*"
+    "glob": "*",
+    "sass": "*",
+    "sass-loader": "*"
   },
   "typings": "./index.d.ts"
 }

@@ -26,7 +26,7 @@ export function LoadComponent(options) {
 }
 
 export function LoadPlugins(options, all) {
-  const pluginsToSync = ['plugins/theme-provider.ts', options.typescript ? 'plugins/ts-components-installer.js' : 'plugins/js-components-installer.js'];
+  const pluginsToSync = ['plugins/theme-provider.js', options.typescript ? 'plugins/ts-components-installer.js' : 'plugins/js-components-installer.js'];
 
   for (const pathString of pluginsToSync) {
     const str = pathString.replace(/(\.[^\.]+)$/, `.${options.server}$1`);

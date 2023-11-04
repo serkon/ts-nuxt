@@ -23,18 +23,20 @@ export default function (moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
     this.options.tailwindcss.config.darkMode = 'class';
     console.log(`#### ${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
-    console.log(this.options.tailwindcss)
+    console.log(this.options.tailwindcss);
   });
 
-  this.nuxt.hook('build:before', async () => {
-    const sourceDir = resolve(__dirname, './scss/');
-    const destDir = resolve(this.options.srcDir, 'static/scss/');
+  this.nuxt.hook('build:before', async (nuxt) => {
+    const sourceDir = resolve(__dirname, './output/');
+    const destDir = resolve(this.options.srcDir, 'static/style/');
     await copyDirectory(sourceDir, destDir);
+    this.options.css.push('@/static/style/main.css');
   });
 
   // Assest'si, static fonts altına iconsax olarak gönderiyorum ve nuxt.config'in css'ine ekliyorum
   // this.options.css.push('@/static/scss/_element-ui.scss');
-  this.options.css.push('@/static/scss/main.scss');
+  // this.options.css.push('@/static/scss/main.scss');
+  // this.options.css.push('@/static/scss/main.css');
 
   // get all options for the module
   const options = {
@@ -59,4 +61,3 @@ export default function (moduleOptions) {
 
 // REQUIRED if publishing the module as npm package
 module.exports.meta = require('./package.json');
-
