@@ -1,5 +1,5 @@
 <template>
-  <i :icon="icon" />
+  <i :class="classes" />
 </template>
 
 <script>import Vue from 'vue';
@@ -9,6 +9,18 @@ export default Vue.extend({
         icon: {
             type: String,
             required: true,
+        },
+        size: {
+            type: String,
+            default: 'sm',
+        },
+    },
+    computed: {
+        classes() {
+            return {
+                [`icon-${this.size}`]: true,
+                [`${this.icon}`]: true,
+            };
         },
     },
 });

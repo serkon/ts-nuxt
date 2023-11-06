@@ -1,13 +1,14 @@
 {
   "name": "@timus-networks/icon",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Nuxt module for Iconsax icons",
   "main": "module.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "convert": "node js-converter.js",
-    "pub": "npm run convert && npm publish --access public"
+    "convert-ts-to-js": "node convert-js.js",
+    "generate-icon-js": "node ./generator/generate-icon-js.js",
+    "pub": "npm run convert-ts-to-js && npm run generate-icon-js && npm publish --access public"
   },
   "repository": {
     "type": "git",

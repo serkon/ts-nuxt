@@ -20,18 +20,20 @@ async function copyDirectory(src, dest) {
 }
 
 export default function (moduleOptions) {
-  this.nuxt.hook('ready', (_nuxt) => {
-    console.log(`#### ${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
-  });
 
-  // Assest'si, static fonts altına iconsax olarak gönderiyorum ve nuxt.config'in css'ine ekliyorum
-  this.options.css.push('@/static/fonts/iconsax/style.scss');
   this.nuxt.hook('build:before', async () => {
     const sourceDir = resolve(__dirname, './assets/');
     const destDir = resolve(this.options.srcDir, 'static/fonts/iconsax/');
 
     await copyDirectory(sourceDir, destDir);
   });
+
+  this.nuxt.hook('ready', (_nuxt) => {
+    console.log(`#### ${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
+  });
+
+  // Assest'si, static fonts altına iconsax olarak gönderiyorum ve nuxt.config'in css'ine ekliyorum
+  this.options.css.push('@/static/fonts/iconsax/style.scss');
 
   // get all options for the module
   const options = {
