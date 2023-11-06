@@ -2,12 +2,12 @@
   <div class="text-black dark:text-white dark:bg-gray-800 p-4">
     <h1 class="isax-airdrop icon-xxl">Dynamic Theming with Nuxt</h1>
     <p>Experience the power of dynamic theming. Click the button below to toggle between light and dark modes.</p>
-    <button @click="toggleTheme" class="btn btn-sm btn-primary dark:btn-light mt-4">{{ buttonText }}</button>
+    <button @click="toggleTheme" class="btn btn-sm btn-primary dark:btn-light mt-12">{{ buttonText }}</button>
     <div class="bg-primary-800">teeeee</div>
     +<TnIcon icon="isax-activity" size="md" />+
     <button class="btn btn-primary btn-sm">asdasdad</button>
 
-    <h2 class="mt-4">Fill Button</h2>
+    <h2 class="mt-12">Fill Button</h2>
     <el-row>
       <el-button>Default</el-button>
       <el-button type="primary" class="isax-airdrop icon-right">Primary</el-button>
@@ -20,7 +20,7 @@
       <el-button type="danger">Danger</el-button>
     </el-row>
 
-    <h2 class="mt-4">Outline Button</h2>
+    <h2 class="mt-12">Outline Button</h2>
     <el-row>
       <el-button plain>Plain</el-button>
       <el-button type="primary" plain>Primary</el-button>
@@ -31,7 +31,7 @@
       <el-button type="danger" plain>Danger</el-button>
     </el-row>
 
-    <h2 class="mt-4">Sized Button</h2>
+    <h2 class="mt-12">Sized Button</h2>
     <el-row>
       <el-button>Default</el-button>
       <el-button size="large">Large</el-button>
@@ -40,13 +40,40 @@
       <el-button size="mini">Mini</el-button>
     </el-row>
 
-    <h2 class="mt-4">Rounded Sized Button</h2>
+    <h2 class="mt-12">Rounded Sized Button</h2>
     <el-row>
       <el-button round>Default</el-button>
       <el-button size="medium" round>Medium</el-button>
       <el-button size="small" round>Small</el-button>
       <el-button size="mini" round>Mini</el-button>
     </el-row>
+
+    <h2 class="mt-12">Disabled Sized Button</h2>
+    <el-row>
+      <el-button disabled>Default</el-button>
+      <el-button type="primary" disabled>Primary</el-button>
+      <el-button type="success" disabled>Success</el-button>
+      <el-button type="info" disabled>Info</el-button>
+      <el-button type="warning" disabled>Warning</el-button>
+      <el-button type="danger" disabled>Danger</el-button>
+    </el-row>
+
+    <el-row>
+      <el-button plain disabled>Plain</el-button>
+      <el-button type="primary" plain disabled>Primary</el-button>
+      <el-button type="success" plain disabled>Success</el-button>
+      <el-button type="info" plain disabled>Info</el-button>
+      <el-button type="warning" plain disabled>Warning</el-button>
+      <el-button type="danger" plain disabled>Danger</el-button>
+    </el-row>
+
+    <h2 class="mt-12">Icon Button</h2>
+    <el-button type="primary" class="isax-trash"></el-button>
+    <el-button type="primary" icon="el-icon-delete"></el-button>
+    <el-button type="primary" icon="el-icon-search">Search</el-button>
+    <el-button type="primary">Upload<i class="el-icon-upload el-icon-right"></i></el-button>
+
+    <h2 class="mt-12">Input Text</h2>
     <el-row>
       <el-input placeholder="Please input"></el-input>
     </el-row>

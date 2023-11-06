@@ -19,11 +19,10 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
   @return $in-map;
 }
 
-
 @include b(button) {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: $button-icon-gap;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
@@ -56,12 +55,6 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
     border: 0;
   }
 
-  & [class*='el-icon-'] {
-    & + span {
-      margin-left: 5px;
-    }
-  }
-
   @include when(plain) {
     &:hover,
     &:focus {
@@ -83,31 +76,6 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
     border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
   }
 
-  @include when(disabled) {
-    &,
-    &:hover,
-    &:focus {
-      color: $--button-disabled-font-color;
-      cursor: not-allowed;
-      background-image: none;
-      background-color: $--button-disabled-background-color;
-      border-color: $--button-disabled-border-color;
-    }
-
-    &.el-button--text {
-      background-color: transparent;
-    }
-
-    &.is-plain {
-      &,
-      &:hover,
-      &:focus {
-        background-color: $--color-white;
-        border-color: $--button-disabled-border-color;
-        color: $--button-disabled-font-color;
-      }
-    }
-  }
   @include when(loading) {
     position: relative;
     pointer-events: none;
@@ -270,4 +238,12 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
       }
     }
   }
+}
+
+.el-button:not(:has(> span:not(:empty))) {
+  padding: $button-empty-icon-padding;
+}
+
+.el-icon-right:before{
+  margin-left: $button-icon-gap;
 }

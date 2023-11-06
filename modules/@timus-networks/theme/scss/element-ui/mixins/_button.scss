@@ -60,7 +60,7 @@
     &:hover,
     &:focus,
     &:active {
-      color: if($color == light, var(--gray-200), var(--#{$color}-#{$disabled}));
+      color: if($color == light, var(--gray-200), var(--#{$color}-100));
       background-color: var(--#{$color}-#{$disabled});
       border-color: var(--#{$color}-#{$disabled});
     }

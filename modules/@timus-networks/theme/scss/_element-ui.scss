@@ -15,6 +15,9 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 $--border-color-base: #d9d9d9;
 /* Button
 -------------------------- */
+$button-empty-icon-padding: 9px;
+$button-icon-gap: 6px;
+
 $--button-font-weight: 500;
 $--button-default-background-color: var(--primary-700);
 $--button-default-border-color: map-get(map-get($theme, primary), '700');

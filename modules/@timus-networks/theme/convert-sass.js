@@ -17,9 +17,9 @@ function compileSass() {
 
     // CSS dosyasını kaydedin
     fs.writeFileSync(cssPath, result.css);
-    console.log('@timus-networks/theme SCSS compiled successfully.');
+    console.log('### @timus-networks/theme SCSS compiled successfully.');
   } catch (err) {
-    console.error('@timus-networks/theme SCSS compile error:', err);
+    console.error('### @timus-networks/theme SCSS compile error:', err);
   }
 }
 
