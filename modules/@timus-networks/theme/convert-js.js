@@ -38,7 +38,6 @@ vueFiles.forEach((file) => {
 
   if (content) {
     if (scriptMatch) {
-      console.log('###', scriptMatch);
       let tsCode = scriptMatch[1];
       tsCode = tsCode.replace(/import .*?from '.*?.vue';/g, (match) => `// ${match}`);
 
