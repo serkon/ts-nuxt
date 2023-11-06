@@ -26,10 +26,23 @@ export default function (moduleOptions) {
   });
 
   this.nuxt.hook('build:before', async (nuxt) => {
-    const sourceDir = resolve(__dirname, './output/');
-    const destDir = resolve(this.options.srcDir, 'static/style/');
-    await copyDirectory(sourceDir, destDir);
-    this.options.css.push('@/static/style/main.css');
+    const directories = [{source: 'output', target: 'static/'}, {source: 'fonts', target: 'static/fonts'}];
+    directories.forEach(async directory => {
+      const sourceDir = resolve(__dirname, `./${directory.source}/`);
+      const destDir = resolve(this.options.srcDir, `./${directory.target}/`);
+      await copyDirectory(sourceDir, destDir);
+    });
+
+    this.options.css.push('@/static/fonts/poppins/100.css');
+    this.options.css.push('@/static/fonts/poppins/200.css');
+    this.options.css.push('@/static/fonts/poppins/300.css');
+    this.options.css.push('@/static/fonts/poppins/400.css');
+    this.options.css.push('@/static/fonts/poppins/500.css');
+    this.options.css.push('@/static/fonts/poppins/600.css');
+    this.options.css.push('@/static/fonts/poppins/700.css');
+    this.options.css.push('@/static/fonts/poppins/800.css');
+    this.options.css.push('@/static/fonts/poppins/900.css');
+    this.options.css.push('@/static/main.css');
   });
 
   // Assest'si, static fonts altına iconsax olarak gönderiyorum ve nuxt.config'in css'ine ekliyorum
