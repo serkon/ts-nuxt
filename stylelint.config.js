@@ -169,6 +169,10 @@ module.exports = {
     'color-function-notation': 'legacy',
     'import-notation': 'string',
     'at-rule-no-unknown': null,
+    "scss/at-rule-no-unknown": true,
+    "function-no-unknown": [true, {
+      "ignoreFunctions": ["map-get"]
+    }]
   },
   overrides: [
     {

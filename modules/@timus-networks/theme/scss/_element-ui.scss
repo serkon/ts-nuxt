@@ -1,14 +1,44 @@
 /* theme color */
-$--color-primary: #6959FB;
-$--color-secondary: #20A987;
-$--color-gray: #A8A6B1;
-$--color-info: #00b3ff;
-$--color-danger: #EB4848;
-$--color-success: #69B64F;
-$--color-warning: #F9A307;
+$--color-white: #ffffff;
+$--color-primary: map-get(map-get($theme, primary), '500');;
+$--color-secondary: map-get(map-get($theme, secondary), '500');
+$--color-gray: map-get(map-get($theme, gray), '500');
+$--color-info: map-get(map-get($theme, info), '500');
+$--color-danger: map-get(map-get($theme, danger), '500');
+$--color-success: map-get(map-get($theme, success), '500');
+$--color-warning: map-get(map-get($theme, warning), '500');
 /* icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
-
 // @import "~element-ui/packages/theme-chalk/src/index";
+
+
+$--border-color-base: #d9d9d9;
+/* Button
+-------------------------- */
+$--button-font-weight: 500;
+$--button-default-background-color: var(--primary-700);
+$--button-default-border-color: map-get(map-get($theme, primary), '700');
+$--button-default-font-color: $--color-white;
+
+$--button-large-font-size: 16px;
+$--button-large-border-radius: 8px;
+$--button-large-padding-vertical: 11px;
+$--button-large-padding-horizontal: 16px;
+
+$--button-medium-font-size: 16px;
+$--button-medium-border-radius: 8px;
+$--button-medium-padding-vertical: 9px;
+$--button-medium-padding-horizontal: 16px;
+
+$--button-small-font-size: 14px;
+$--button-small-border-radius: 8px;
+$--button-small-padding-vertical: 7px;
+$--button-small-padding-horizontal: 16px;
+
+$--button-font-size: $--button-medium-font-size;
+$--button-border-radius: $--button-medium-border-radius;
+$--button-padding-vertical: $--button-medium-padding-vertical;
+$--button-padding-horizontal: $--button-medium-padding-horizontal;
+
 
 @import "./element-ui/index.scss";

@@ -23,7 +23,6 @@ export default function (moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
     this.options.tailwindcss.config.darkMode = 'class';
     console.log(`#### ${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
-    console.log(this.options.tailwindcss);
   });
 
   this.nuxt.hook('build:before', async (nuxt) => {

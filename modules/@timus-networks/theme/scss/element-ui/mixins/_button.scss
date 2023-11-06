@@ -31,7 +31,7 @@
 }
 
 @mixin button-variant($color, $default: 500, $hover: 400, $active: 600, $disabled: 200) {
-  color: if($color == light, var(--gray-500), $--color-white);
+  color: if($color == light, var(--gray-700), $--color-white);
   background-color: var(--#{$color}-#{$default});
   border-color: var(--#{$color}-#{$default});
 
@@ -39,20 +39,20 @@
   &:focus {
     background: var(--#{$color}-#{$hover});
     border-color: var(--#{$color}-#{$hover});
-    color: if($color == light, var(--gray-400), $--color-white);
+    color: if($color == light, var(--gray-500), $--color-white);
   }
 
   &:active {
     background: var(--#{$color}-#{$active});
     border-color: var(--#{$color}-#{$active});
-    color: if($color == light, var(--gray-700), $--color-white);
+    color: if($color == light, var(--gray-900), $--color-white);
     outline: none;
   }
 
   &.is-active {
     background: var(--#{$color}-#{$active});
     border-color: var(--#{$color}-#{$active});
-    color: if($color == light, var(--gray-700), $--color-white);
+    color: if($color == light, var(--gray-900), $--color-white);
   }
 
   &.is-disabled {

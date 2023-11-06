@@ -6,6 +6,8 @@
     <div class="bg-primary-800">teeeee</div>
     +<TnIcon icon="isax-activity" size="md" />+
     <button class="btn btn-primary btn-sm">asdasdad</button>
+
+    <h2 class="mt-4">Fill Button</h2>
     <el-row>
       <el-button>Default</el-button>
       <el-button type="primary" class="isax-airdrop icon-right">Primary</el-button>
@@ -17,6 +19,8 @@
       <el-button type="warning">Warning</el-button>
       <el-button type="danger">Danger</el-button>
     </el-row>
+
+    <h2 class="mt-4">Outline Button</h2>
     <el-row>
       <el-button plain>Plain</el-button>
       <el-button type="primary" plain>Primary</el-button>
@@ -25,6 +29,26 @@
       <el-button type="light" plain>Light</el-button>
       <el-button type="warning" plain>Warning</el-button>
       <el-button type="danger" plain>Danger</el-button>
+    </el-row>
+
+    <h2 class="mt-4">Sized Button</h2>
+    <el-row>
+      <el-button>Default</el-button>
+      <el-button size="large">Large</el-button>
+      <el-button size="medium">Medium</el-button>
+      <el-button size="small">Small</el-button>
+      <el-button size="mini">Mini</el-button>
+    </el-row>
+
+    <h2 class="mt-4">Rounded Sized Button</h2>
+    <el-row>
+      <el-button round>Default</el-button>
+      <el-button size="medium" round>Medium</el-button>
+      <el-button size="small" round>Small</el-button>
+      <el-button size="mini" round>Mini</el-button>
+    </el-row>
+    <el-row>
+      <el-input placeholder="Please input"></el-input>
     </el-row>
   </div>
 </template>

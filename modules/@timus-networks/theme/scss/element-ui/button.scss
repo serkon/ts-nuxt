@@ -19,6 +19,7 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
   @return $in-map;
 }
 
+
 @include b(button) {
   display: inline-flex;
   align-items: center;
@@ -42,24 +43,13 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
     margin-left: 10px;
   }
 
+  @extend .el-button--primary;
+
   @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
 
   &.el-button--text {
     text-decoration: underline;
     border: transparent;
-  }
-
-  &:hover,
-  &:focus {
-    color: $--color-primary;
-    border-color: $--color-primary-light-7;
-    background-color: $--color-primary-light-9;
-  }
-
-  &:active {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-    outline: none;
   }
 
   &::-moz-focus-inner {
@@ -146,14 +136,15 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
   // Her düğme tipi ve durumu için özel renk değerlerin tanımı
   $button-variant-values: (
     'primary': (
-      'hover': 500,
       'default': 700,
-      'active': 600 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,
+      'hover': 500,
+      'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,
     ),
-    'secondary': (
-      // 'secondary' için özel değerler tanımlanmamış, tüm durumlar için mixin'in varsayılanları kullanılacak
-    ),
-    // Diğer düğme tipleri için de benzer şekilde...
+    'light': (
+      'default': 700,
+      'hover': 500,
+      'active': 900,
+    )
   );
 
   // Her düğme tipi için mixin'i çağırın
@@ -175,6 +166,12 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
     }
   }
 
+  @include m(large) {
+    @include button-size($--button-large-padding-vertical, $--button-large-padding-horizontal, $--button-large-font-size, $--button-large-border-radius);
+    @include when(circle) {
+      padding: $--button-large-padding-vertical;
+    }
+  }
   @include m(small) {
     @include button-size(
       $--button-small-padding-vertical,
@@ -192,6 +189,7 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
       padding: $--button-mini-padding-vertical;
     }
   }
+
 }
 
 @include b(button-group) {
