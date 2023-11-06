@@ -157,7 +157,6 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
       padding: $--button-mini-padding-vertical;
     }
   }
-
 }
 
 @include b(button-group) {
@@ -224,17 +223,17 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
     }
   }
 
-  @each $type in (primary, success, warning, danger, info) {
+  @each $type in $button-types {
     .el-button--#{$type} {
       &:first-child {
-        border-right-color: rgba($--color-white, 0.5);
+        border-right-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
       }
       &:last-child {
-        border-left-color: rgba($--color-white, 0.5);
+        border-left-color: var(--#{$type}-400);   // rgba($--color-white, 0.12);
       }
       &:not(:first-child):not(:last-child) {
-        border-left-color: rgba($--color-white, 0.5);
-        border-right-color: rgba($--color-white, 0.5);
+        border-left-color: var(--#{$type}-400);  // rgba($--color-white, 0.12);
+        border-right-color: var(--#{$type}-400);  // rgba($--color-white, 0.12);
       }
     }
   }

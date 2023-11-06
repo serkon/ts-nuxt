@@ -1,6 +1,6 @@
 /* theme color */
 $--color-white: #ffffff;
-$--color-primary: map-get(map-get($theme, primary), '500');;
+$--color-primary: map-get(map-get($theme, primary), '500');
 $--color-secondary: map-get(map-get($theme, secondary), '500');
 $--color-gray: map-get(map-get($theme, gray), '500');
 $--color-info: map-get(map-get($theme, info), '500');
@@ -37,6 +37,11 @@ $--button-small-font-size: 14px;
 $--button-small-border-radius: 8px;
 $--button-small-padding-vertical: 7px;
 $--button-small-padding-horizontal: 16px;
+
+$--button-mini-font-size: 12px;
+$--button-mini-border-radius: 8px;
+$--button-mini-padding-vertical: 7px;
+$--button-mini-padding-horizontal: 16px;
 
 $--button-font-size: $--button-medium-font-size;
 $--button-border-radius: $--button-medium-border-radius;

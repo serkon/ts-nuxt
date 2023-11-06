@@ -31,6 +31,17 @@
       <el-button type="danger" plain>Danger</el-button>
     </el-row>
 
+    <h2 class="mt-12">Outline Button</h2>
+    <el-row>
+      <el-button type="primary" class="ghost">Plain</el-button>
+      <el-button type="primary" class="ghost">Primary</el-button>
+      <el-button type="success" class="ghost">Success</el-button>
+      <el-button type="info" class="ghost">Info</el-button>
+      <el-button type="light" class="ghost">Light</el-button>
+      <el-button type="warning" class="ghost">Warning</el-button>
+      <el-button type="danger" class="ghost">Danger</el-button>
+    </el-row>
+
     <h2 class="mt-12">Sized Button</h2>
     <el-row>
       <el-button>Default</el-button>
@@ -72,6 +83,19 @@
     <el-button type="primary" icon="el-icon-delete"></el-button>
     <el-button type="primary" icon="el-icon-search">Search</el-button>
     <el-button type="primary">Upload<i class="el-icon-upload el-icon-right"></i></el-button>
+
+    <h2 class="mt-12">Input Text</h2>
+    <el-button-group>
+      <el-button type="primary" icon="el-icon-arrow-left">Previous Page</el-button>
+      <el-button type="primary" icon="el-icon-arrow-left">Previous Page</el-button>
+      <el-button type="primary" icon="el-icon-arrow-left">Previous Page</el-button>
+      <el-button type="primary" icon="el-icon-arrow-left">Previous Page</el-button>
+    </el-button-group>
+    <el-button-group>
+      <el-button type="danger" icon="el-icon-arrow-left">Previous Page</el-button>
+      <el-button type="danger" icon="el-icon-arrow-left">Previous Page</el-button>
+      <el-button type="danger" icon="el-icon-arrow-left">Previous Page</el-button>
+    </el-button-group>
 
     <h2 class="mt-12">Input Text</h2>
     <el-row>
