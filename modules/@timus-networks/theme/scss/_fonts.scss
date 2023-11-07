@@ -10,23 +10,26 @@ $font-config-d: (
   'd6': ( font-size: 2.625rem, line-height: 3.15rem, ),
 );
 $font-config-h: (
-  h1: ( font-size: 2.5rem, line-height: 3rem, ),
-  h2: ( font-size: 2rem, line-height: 2.4rem, ),
-  h3: ( font-size: 1.75rem, line-height: 2.4rem, ),
-  h4: ( font-size: 1.5rem, line-height: 1.8125rem, ),
-  h5: ( font-size: 1.25rem, line-height: 1.5rem, ),
-  h6: ( font-size: 1rem, line-height: 1.2rem, ),
+  h1: ( font-size: 24px, line-height: 30px, ),
+  h2: ( font-size: 20px, line-height: 24px, ),
+  h3: ( font-size: 18px, line-height: 22px, ),
+  h4: ( font-size: 14px, line-height: 18px, ),
+  h5: ( font-size: 12px, line-height: 16px, ),
+  h6: ( font-size: 10px, line-height: 14px, ),
 );
 $font-config-body: (
-  'lead': ( font-size: 1.25rem, line-height: 1.875rem, letter-spacing: -0.01rem),
-  'body-16': ( font-size: 1rem, line-height: 1.75rem, ),
-  'body-14': ( font-size: 0.875rem, line-height: 1.25rem, ),
-  'body-12': ( font-size: 0.75rem, line-height: 1.25rem, ),
-  'caption-16': ( font-size: 1rem, line-height: 1rem, ),
-  'caption-14': ( font-size: 0.875rem, line-height: 0.875rem, ),
-  'caption-12': ( font-size: 0.75rem, line-height: 0.75rem, ),
-  'caption-10': ( font-size: 0.625rem, line-height: 0.625rem, ),
-  'caption-8': ( font-size: 0.5rem, line-height: 0.5rem, ),
+  'p-lg': ( font-size: 16px, line-height: 18px),
+  'p-md': ( font-size: 14px, line-height: 16px, ),
+  'p-md-c': ( font-size: 14px, line-height: 24px, ),
+  'p-sm': ( font-size: 12px, line-height: 14px, ),
+  'p-xs': ( font-size: 10px, line-height: 14px, ),
+  'p-xxs': ( font-size: 8px, line-height: 10px, ),
+  'b-md': ( font-size: 16px, line-height: 24px, ),
+  'b-lg': ( font-size: 16px, line-height: 24px, ),
+  'b-sm': ( font-size: 14px, line-height: 18px, ),
+  'b-md-u': ( font-size: 16px, line-height: 24px, ),
+  'b-lg-u': ( font-size: 16px, line-height: 24px, ),
+  'b-sm-u': ( font-size: 14px, line-height: 18px, ),
 );
 
 %d {
