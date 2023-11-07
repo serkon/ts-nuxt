@@ -54,7 +54,7 @@ $font-config-body: (
   }
 }
 @each $selector, $value in $font-config-h {
-  #{$selector}, %#{$selector} {
+  #{$selector}, .#{$selector}, %#{$selector} {
     @extend %h;
     @each $prop-name, $prop-value in $value {
       --#{$font-prefix}-#{$selector}-#{$prop-name}: #{$prop-value};

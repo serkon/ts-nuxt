@@ -23,10 +23,18 @@ export function LoadComponent(options) {
       });
     }
   }
+
+  this.extendRoutes((routes, resolve) => {
+    const pathString = options.typescript ? 'components-ts' : 'components-js';
+    routes.push({
+      path: '/theme',
+      component: resolve(__dirname, pathString, 'TimusSamples.vue'),
+    });
+  });
 }
 
 export function LoadPlugins(options, all) {
-  const pluginsToSync = ['plugins/theme-provider.js', options.typescript ? 'plugins/ts-components-installer.js' : 'plugins/js-components-installer.js'];
+  const pluginsToSync = ['plugins/html-to-string.js', 'plugins/theme-provider.js', options.typescript ? 'plugins/ts-components-installer.js' : 'plugins/js-components-installer.js'];
 
   for (const pathString of pluginsToSync) {
     const str = pathString.replace(/(\.[^\.]+)$/, `.${options.server}$1`);

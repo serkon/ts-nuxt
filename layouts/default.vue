@@ -10,6 +10,8 @@
           <NuxtLink to="/">Home</NuxtLink>
           <NuxtLink to="/sample">Sample</NuxtLink>
           <NuxtLink to="/examples">Components</NuxtLink>
+          <NuxtLink to="/theme">Theme</NuxtLink>
+          <NuxtLink to="/icons">Icons</NuxtLink>
         </ul>
       </section>
     </header>
