@@ -28,8 +28,6 @@ export default {
   },
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
@@ -47,6 +45,8 @@ export default {
     ['@/modules/@timus-networks/icon/module', { friendlyFire: true, client: true, typescript: true }],
     ['@/modules/@timus-networks/theme/module', { friendlyFire: true, client: true, typescript: true }],
     ['@/modules/@timus-networks/dropdown/module', { client: true }],
+        // https://go.nuxtjs.dev/tailwindcss
+        '@nuxtjs/tailwindcss',
   ],
   // '@timus-networks/table': { typescript: false },
   tailwindcss: {

@@ -22,7 +22,7 @@
       <div class="h2 text-gray-600">FontSize</div>
       <div class="h2 text-gray-600 hidden md:block">LineHeight</div>
       <template v-for="(item, index) in helperClasses">
-        <div class="flex items-center text-gray-800" :class="item.name">{{ item.name }}</div>
+        <component :is="item.name" class="flex items-center text-gray-800">{{ item.name }}</component>
         <div class="flex items-center">{{ item.fontSize }}</div>
         <div class="flex items-center hidden md:block">{{ item.lineHeight }}</div>
       </template>
@@ -42,6 +42,8 @@ export default Vue.extend({
         { name: 'h2', fontSize: '20px', lineHeight: '24px' },
         { name: 'h3', fontSize: '18px', lineHeight: '22px' },
         { name: 'h4', fontSize: '14px', lineHeight: '18px' },
+        { name: 'h5', fontSize: '12px', lineHeight: '16px' },
+        { name: 'h6', fontSize: '10px', lineHeight: '14px' },
       ],
       helperClasses: [
         { name: 'p-lg', fontSize: '16px', lineHeight: '18px' },
@@ -61,3 +63,8 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.header {
+}
+</style>

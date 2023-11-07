@@ -14,9 +14,12 @@ const colors = colorNames.reduce((acc, color) => {
 }, {})
 
 module.exports = {
+  mode: 'jit',
   content: [
     "./pages/**/*.{html,js,vue}",
-    './.nuxt/timus-networks/**/*.vue',
+    './.nuxt/**/*.{js,jsx,ts,tsx,vue}',
+  ],
+  safelist: [
   ],
   theme: {
     extend: {

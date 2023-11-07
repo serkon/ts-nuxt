@@ -2,17 +2,17 @@
   <div class="container">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="Button" name="first">
-        <ThemeButtonExample></ThemeButtonExample>
+        <ThemeButtons></ThemeButtons>
       </el-tab-pane>
-      <el-tab-pane label="Config" name="second">Config</el-tab-pane>
+      <el-tab-pane label="Typography" name="second">
+        <ThemeTypo></ThemeTypo>
+      </el-tab-pane>
       <el-tab-pane label="Role" name="third">Role</el-tab-pane>
       <el-tab-pane label="Task" name="fourth">Task</el-tab-pane>
     </el-tabs>
   </div>
 </template>
 <script>
-import ThemeButtonExample from './ThemeButtonExample.vue';
-
 export default {
   data() {
     return {
@@ -24,6 +24,5 @@ export default {
       console.log(tab, event);
     },
   },
-  components: { ThemeButtonExample },
 };
 </script>

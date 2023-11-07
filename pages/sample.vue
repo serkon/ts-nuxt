@@ -3,7 +3,6 @@
     <h1>Welcome to library</h1>
     <AutoLoadComponent />
     <NuxtTestSample />
-    <TnTable ref="table" :data="[{ name: 'Timus', surname: 'Networks' }]" :columns="[{ title: 'Name', field: 'name' }]" />
   </div>
 </template>
 
@@ -16,11 +15,6 @@ export default Vue.extend({
     return {
       title: 'Sample page',
     };
-  },
-  mounted() {
-    const { table } = this.$refs;
-
-    console.log('module @timus-networks/table altındaki TableCreate componenti özellikleri: ', (table as any).timus);
   },
 });
 </script>
