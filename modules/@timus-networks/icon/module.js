@@ -20,7 +20,6 @@ async function copyDirectory(src, dest) {
 }
 
 export default function (moduleOptions) {
-
   this.nuxt.hook('build:before', async () => {
     const sourceDir = resolve(__dirname, './assets/');
     const destDir = resolve(this.options.srcDir, 'static/fonts/iconsax/');
@@ -54,8 +53,22 @@ export default function (moduleOptions) {
   //   src: path.resolve(__dirname, 'components/TableCreate.vue'),
   //   fileName: 'components/TableCreate.vue'
   // });
+
+  // this.addTemplate({
+  //   src: resolve(__dirname, 'TimusIcons.vue'),
+  //   fileName: 'custom-page.vue', // Dosya Nuxt build dizinine kopyalanırken kullanılacak isim
+  //   options: {
+  //     // Buraya şablonunuza özel seçenekler ekleyebilirsiniz
+  //   }
+  // });
+  // this.extendRoutes((routes, resolve) => {
+  //   routes.push({
+  //     name: 'don',
+  //     path: '/don',
+  //     component: resolve(__dirname, 'TimusIcons.vue'),
+  //   });
+  // });
 }
 
 // REQUIRED if publishing the module as npm package
 module.exports.meta = require('./package.json');
-

@@ -31,7 +31,7 @@
       <el-button type="danger" plain>Danger</el-button>
     </el-row>
 
-    <h2 class="mt-12">Outline Button</h2>
+    <h2 class="mt-12">Ghost Button</h2>
     <el-row>
       <el-button type="primary" class="ghost">Plain</el-button>
       <el-button type="primary" class="ghost">Primary</el-button>

@@ -2,7 +2,6 @@ import { readdirSync } from 'fs';
 import { join, resolve } from 'path';
 
 export function LoadComponent(options) {
-
   const foldersToSync = [options.typescript ? 'components-ts' : 'components-js'];
 
   // const tsIndexFile = resolve(__dirname, './'); // bu index.ts dosyasını .nuxt/timus-networks/table adresine kopyalar
@@ -23,6 +22,14 @@ export function LoadComponent(options) {
       });
     }
   }
+
+  this.extendRoutes((routes, resolve) => {
+    const pathString = options.typescript ? 'components-ts' : 'components-js';
+    routes.push({
+      path: '/icons',
+      component: resolve(__dirname, pathString, 'TimusIcons.vue'),
+    });
+  });
 }
 
 export function LoadPlugins(options, all) {
@@ -35,7 +42,7 @@ export function LoadPlugins(options, all) {
       src: resolve(__dirname, pathString),
       fileName: join(options.namespace, pathString),
       options,
-      ...(options.client && {mode: 'client'})
+      ...(options.client && { mode: 'client' }),
     });
   }
 }
