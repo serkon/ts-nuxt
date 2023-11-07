@@ -15,7 +15,7 @@ export default Vue.extend({
   },
   mounted() {
     console.log('PageComponents mounted');
-    this.$router.push('table');
+    this.$router.push('/examples/table');
   },
 });
 </script>
