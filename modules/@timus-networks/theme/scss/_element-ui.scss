@@ -10,13 +10,14 @@ $--color-warning: map-get(map-get($theme, warning), '500');
 /* icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 // @import "~element-ui/packages/theme-chalk/src/index";
-
-
-$--border-color-base: #d9d9d9;
+/* Border
+-------------------------- */
+$--border-color-base: var(--gray-300);
+$--border-radius-base: 8px;
 /* Button
 -------------------------- */
-$button-empty-icon-padding: 9px;
-$button-icon-gap: 6px;
+$custom-button-empty-icon-padding: 9px;
+$custom-button-icon-gap: 6px;
 
 $--button-font-weight: 500;
 $--button-default-background-color: var(--primary-700);
@@ -47,6 +48,43 @@ $--button-font-size: $--button-medium-font-size;
 $--button-border-radius: $--button-medium-border-radius;
 $--button-padding-vertical: $--button-medium-padding-vertical;
 $--button-padding-horizontal: $--button-medium-padding-horizontal;
+/* Input
+-------------------------- */
+$custom-input-box-shadow: 0 2px 0 2px rgba(213, 205, 245, 40%);
+$custom-input-padding: 12px;
+$custom-input-prepend-background-color: var(--primary-600);
+$custom-input-prepend-color: $--color-white;
+$--select-input-color: $--color-white;
 
+
+$--input-font-size: 14px;
+$--input-font-color: var(--gray-900);
+$--input-height: 36px;
+$--input-border-color: var(--gray-400);
+$--input-border-radius: $--border-radius-base;
+$--input-background-color: $--color-white;
+$--input-icon-color: var(--gray-900);
+$--input-placeholder-color: var(--gray-400);
+$--input-max-width: 100%;
+
+$--input-hover-border: var(--primary-700);
+$--input-clear-hover-color: var(--primary-700);
+
+$--input-focus-border: var(--primary-600);
+$--input-focus-fill: $--color-white;
+
+$--input-disabled-fill: var(--gray-300);
+$--input-disabled-border: var(--gray-300);
+$--input-disabled-color: var(--gray-500);
+$--input-disabled-placeholder-color: var(--gray-400);
+
+$--input-large-font-size: 14px;
+$--input-large-height: 40px;
+$--input-medium-font-size: 14px;
+$--input-medium-height: 36px;
+$--input-small-font-size: 14px;
+$--input-small-height: 30px;
+$--input-mini-font-size: 14px;
+$--input-mini-height: 28px;
 
 @import "./element-ui/index.scss";

@@ -1,7 +1,6 @@
 @import "mixins/mixins";
 @import "common/var";
 @import "common/popup";
-@import "input";
 
 @include b(message-box) {
   display: inline-block;

@@ -22,7 +22,7 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
 @include b(button) {
   display: inline-flex;
   align-items: center;
-  gap: $button-icon-gap;
+  gap: $custom-button-icon-gap;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
@@ -240,9 +240,9 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
 }
 
 .el-button:not(:has(> span:not(:empty))) {
-  padding: $button-empty-icon-padding;
+  padding: $custom-button-empty-icon-padding;
 }
 
 .el-icon-right:before{
-  margin-left: $button-icon-gap;
+  margin-left: $custom-button-icon-gap;
 }

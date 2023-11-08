@@ -1,5 +1,26 @@
 <template>
   <div class="pt-8 pb-16 flex gap-12 flex-col">
+    <el-input-number v-model="inputNumber" controls-position="right" :min="1" :max="10" disabled></el-input-number>
+    <el-date-picker
+      v-model="input"
+      type="daterange"
+      align="right"
+      start-placeholder="Start Date"
+      end-placeholder="End Date"
+      default-value="2010-10-01"
+    >
+    </el-date-picker>
+    <el-time-select
+      v-model="input"
+      :picker-options="{
+        start: '08:30',
+        step: '00:15',
+        end: '18:30',
+      }"
+      placeholder="Select time"
+    >
+    </el-time-select>
+
     <section>
       <h1>Basic</h1>
       <p class="p-lg my-6">
@@ -63,7 +84,8 @@
     <section>
       <h1>Input with icon</h1>
       <p class="p-lg my-6">Etkileşime kapalı 'disabled' butonlarımız, kullanılamaz durumları göstermek için kullanılır.</p>
-      <div class="grid grid-flow-col auto-cols-max">
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-input placeholder="Pick a date" suffix-icon="isax-add-circle" v-model="input1"> </el-input>
         <el-input placeholder="Pick a date" suffix-icon="el-icon-date" v-model="input1"> </el-input>
         <el-input placeholder="Type something" prefix-icon="el-icon-search" v-model="input2"> </el-input>
       </div>
@@ -87,8 +109,10 @@
     <section>
       <h1>Autosize Textarea</h1>
       <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
-      <el-input type="textarea" autosize placeholder="Please input" v-model="textarea1"></el-input>
-      <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4 }" placeholder="Please input" v-model="textarea2"></el-input>
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-input type="textarea" autosize placeholder="Please input" v-model="textarea1"></el-input>
+        <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4 }" placeholder="Please input" v-model="textarea2"></el-input>
+      </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
       </div>
@@ -97,20 +121,22 @@
     <section>
       <h1>Mixed input</h1>
       <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
-      <el-input placeholder="Please input" v-model="input1">
-        <template slot="prepend">Http://</template>
-      </el-input>
-      <el-input placeholder="Please input" v-model="input2">
-        <template slot="append">.com</template>
-      </el-input>
-      <el-input placeholder="Please input" v-model="input3" class="input-with-select">
-        <el-select v-model="select" slot="prepend" placeholder="Select">
-          <el-option label="Restaurant" value="1"></el-option>
-          <el-option label="Order No." value="2"></el-option>
-          <el-option label="Tel" value="3"></el-option>
-        </el-select>
-        <el-button slot="append" icon="el-icon-search"></el-button>
-      </el-input>
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-input placeholder="Please input" v-model="input1">
+          <template slot="prepend">Http://</template>
+        </el-input>
+        <el-input placeholder="Please input" v-model="input2">
+          <template slot="append">.com</template>
+        </el-input>
+        <el-input placeholder="Please input" v-model="input3" class="input-with-select">
+          <el-select v-model="select" slot="prepend" placeholder="Select">
+            <el-option label="Restaurant" value="1"></el-option>
+            <el-option label="Order No." value="2"></el-option>
+            <el-option label="Tel" value="3"></el-option>
+          </el-select>
+          <el-button slot="append" icon="el-icon-search"></el-button>
+        </el-input>
+      </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
       </div>
@@ -122,8 +148,8 @@
         İkonlarla zenginleştirilmiş butonlarımız, görsel bir ipucu sunar ve kullanıcı deneyimini artırır. Tüm ikonlarımızın listesini görmek için
         <nuxt-link to="/icons" class="text-blue-600 hover:underline">buraya tıklayın</nuxt-link>.
       </p>
-      <div class="grid grid-flow-col auto-cols-max">
-        <el-input placeholder="Please Input" v-model="input1"></el-input>
+      <div class="grid grid-flow-col auto-cols-max items-center gap-4">
+        <el-input size="large" placeholder="Please Input" v-model="input1"> </el-input>
         <el-input size="medium" placeholder="Please Input" v-model="input2"> </el-input>
         <el-input size="small" placeholder="Please Input" v-model="input3"> </el-input>
         <el-input size="mini" placeholder="Please Input" v-model="input4"> </el-input>
@@ -139,21 +165,23 @@
     <section>
       <h1>Autocomplete</h1>
       <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
-      <el-autocomplete
-        class="inline-input"
-        v-model="state1"
-        :fetch-suggestions="querySearch"
-        placeholder="Please Input"
-        @select="handleSelect"
-      ></el-autocomplete>
-      <el-autocomplete
-        class="inline-input"
-        v-model="state2"
-        :fetch-suggestions="querySearch"
-        placeholder="Please Input"
-        :trigger-on-focus="false"
-        @select="handleSelect"
-      ></el-autocomplete>
+      <div class="grid grid-flow-col auto-cols-max items-center gap-4">
+        <el-autocomplete
+          class="inline-input"
+          v-model="state1"
+          :fetch-suggestions="querySearch"
+          placeholder="Please Input"
+          @select="handleSelect"
+        ></el-autocomplete>
+        <el-autocomplete
+          class="inline-input"
+          v-model="state2"
+          :fetch-suggestions="querySearch"
+          placeholder="Please Input"
+          :trigger-on-focus="false"
+          @select="handleSelect"
+        ></el-autocomplete>
+      </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
       </div>
@@ -192,8 +220,10 @@
     <section>
       <h1>Limit length</h1>
       <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
-      <el-input type="text" placeholder="Please input" v-model="text" maxlength="10" show-word-limit> </el-input>
-      <el-input type="textarea" placeholder="Please input" v-model="textarea" maxlength="30" show-word-limit> </el-input>
+      <div class="grid grid-flow-col auto-cols-max items-center gap-4">
+        <el-input type="text" placeholder="Please input" v-model="text" maxlength="10" show-word-limit> </el-input>
+        <el-input type="textarea" placeholder="Please input" v-model="textarea" maxlength="30" show-word-limit> </el-input>
+      </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
       </div>
@@ -207,6 +237,7 @@ export default Vue.extend({
   name: 'TimusButtonSample',
   data() {
     return {
+      inputNumber: '',
       input: '',
       input1: '',
       input2: '',

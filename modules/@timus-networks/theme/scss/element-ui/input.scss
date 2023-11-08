@@ -11,7 +11,7 @@
   @include e(inner) {
     display: block;
     resize: vertical;
-    padding: 5px 15px;
+    padding: 5px $custom-input-padding;
     line-height: 1.5;
     box-sizing: border-box;
     width: 100%;
@@ -29,11 +29,13 @@
 
     &:hover {
       border-color: $--input-hover-border;
+      box-shadow: $custom-input-box-shadow;
     }
 
     &:focus {
       outline: none;
       border-color: $--input-focus-border;
+      box-shadow: $custom-input-box-shadow;
     }
   }
 
@@ -72,7 +74,7 @@
 
 @include b(input) {
   position: relative;
-  font-size: $--font-size-base;
+  font-size: $--input-font-size;
   display: inline-block;
   width: 100%;
   @include scroll-bar;
@@ -116,7 +118,7 @@
     height: $--input-height;
     line-height: $--input-height;
     outline: none;
-    padding: 0 15px;
+    padding: 0 $custom-input-padding;
     transition: $--border-transition-base;
     width: 100%;
 
@@ -130,11 +132,13 @@
 
     &:hover {
       border-color: $--input-hover-border;
+      box-shadow: $custom-input-box-shadow;
     }
 
     &:focus {
       outline: none;
       border-color: $--input-focus-border;
+      box-shadow: $custom-input-box-shadow;
     }
   }
 
@@ -231,6 +235,18 @@
     }
   }
 
+  @include m(large) {
+    font-size: $--input-large-font-size;
+
+    @include e(inner) {
+      height: $--input-large-height;
+      line-height: $--input-large-height;
+    }
+
+    .el-input__icon {
+      line-height: $--input-large-height;
+    }
+  }
   @include m(medium) {
     font-size: $--input-medium-font-size;
 
@@ -282,12 +298,12 @@
   }
 
   @include e((append, prepend)) {
-    background-color: $--background-color-base;
-    color: $--color-info;
+    background-color: $custom-input-prepend-background-color;
+    color: $custom-input-prepend-color;
     vertical-align: middle;
     display: table-cell;
     position: relative;
-    border: $--border-base;
+    border: $custom-input-prepend-background-color;
     border-radius: $--input-border-radius;
     padding: 0 20px;
     width: 1px;
@@ -295,6 +311,7 @@
 
     &:focus {
       outline: none;
+      box-shadow: $custom-input-box-shadow;
     }
 
     .el-select,
@@ -311,6 +328,8 @@
       color: inherit;
       border-top: 0;
       border-bottom: 0;
+      border-bottom-left-radius: $--input-border-radius;
+      border-top-left-radius: $--input-border-radius;
     }
 
     .el-button,
