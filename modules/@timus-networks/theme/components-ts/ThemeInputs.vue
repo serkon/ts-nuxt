@@ -1,126 +1,154 @@
 <template>
   <div class="pt-8 pb-16 flex gap-12 flex-col">
-    <el-input-number v-model="inputNumber" controls-position="right" :min="1" :max="10" disabled></el-input-number>
-    <el-date-picker
-      v-model="input"
-      type="daterange"
-      align="right"
-      start-placeholder="Start Date"
-      end-placeholder="End Date"
-      default-value="2010-10-01"
-    >
-    </el-date-picker>
-    <el-time-select
-      v-model="input"
-      :picker-options="{
-        start: '08:30',
-        step: '00:15',
-        end: '18:30',
-      }"
-      placeholder="Select time"
-    >
-    </el-time-select>
+    <section>
+      <h1>Date Range Picker</h1>
+      <p class="p-lg my-6">
+        Tarih aralığı seçici, kullanıcının bir başlangıç ve bitiş tarihi seçmesine olanak tanır, bu da planlama ve raporlama işlemleri için idealdir.
+      </p>
+      <el-date-picker
+        v-model="input"
+        type="daterange"
+        align="right"
+        start-placeholder="Start Date"
+        end-placeholder="End Date"
+        default-value="2010-10-01"
+      ></el-date-picker>
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <p class="text-xs">
+          <code
+            >&lt;el-date-picker v-model="input" type="daterange" align="left" start-placeholder="Start" end-placeholder="End"
+            default-value=""&gt;&lt;/el-date-picker&gt;</code
+          >
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h1>Time Select</h1>
+      <p class="p-lg my-6">
+        Zaman seçici, kullanıcının belirli bir zaman aralığından bir zaman dilimi seçmesine imkan tanır. Bu, randevu veya rezervasyon gibi zaman
+        belirli işlemler için kullanışlıdır.
+      </p>
+      <el-time-select
+        v-model="input"
+        :picker-options="{
+          start: '08:30',
+          step: '00:15',
+          end: '18:30',
+        }"
+        placeholder="Select time"
+      ></el-time-select>
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <p class="text-xs">
+          Zaman seçimi için:
+          <code
+            >&lt;el-time-select v-model="input" :picker-options="{ start: '08:30', step: '00:15', end: '18:30' }" placeholder="Select
+            time"&gt;&lt;/el-time-select&gt;</code
+          >
+        </p>
+      </div>
+    </section>
 
     <section>
       <h1>Basic</h1>
-      <p class="p-lg my-6">
-        "Fill" stili butonlar, içeriği tamamen kaplayan renge sahip butonlardır. Bu butonlar, kullanıcının dikkatini çekmek ve önemli eylemleri
-        vurgulamak için idealdir.
-      </p>
+      <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
       <div class="grid grid-flow-col auto-cols-max">
         <el-input placeholder="Please input" v-model="input"></el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
           Örnek kullanım:
-          <code>&lt;el-button :type="'primary'"&gt;Primary&lt;/el-button&gt;</code>
+          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
       <h1>Disabled</h1>
-      <p class="p-lg my-6">Çevresi çizgili ve içi transparan olan 'outline' butonlarımız, daha hafif bir tasarım dili sunar.</p>
+      <p class="p-lg my-6">Kullanıcı etkileşimini engellemek için giriş bileşenini devre dışı bırakabilirsiniz.</p>
       <div class="grid grid-flow-col auto-cols-max">
         <el-input placeholder="Please input" v-model="input" :disabled="true"> </el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
-          Outline görünümü için, buton elementinize <code>class="outline"</code> ekleyin. Örnek:
-          <code>&lt;el-button class="outline"&gt;Button&lt;/el-button&gt;</code>
+          Devre dışı bırakmak için, <code>disabled</code> özelliğini ekleyin. Örnek:
+          <code>&lt;el-input placeholder="Please input" v-model="input" disabled&gt;&lt;/el-input&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
       <h1>Clearable</h1>
-      <p class="p-lg my-6">Hemen hemen şeffaf 'ghost' butonlarımız, minimalist tasarımlar için uygundur ve arka planla uyum sağlar.</p>
+      <p class="p-lg my-6">Kullanıcıların girdikleri metni tek bir tıklamayla silmelerini sağlayan temizlenebilir giriş bileşeni.</p>
       <div class="grid grid-flow-col auto-cols-max">
         <el-input placeholder="Please input" v-model="input" clearable> </el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
-          Ghost görünümü için, buton elementinize <code>class="ghost"</code> ekleyin. Örnek:
-          <code>&lt;el-button class="ghost"&gt;Button&lt;/el-button&gt;</code>
+          Temizlenebilir bir giriş için, <code>clearable</code> özelliğini ekleyin. Örnek:
+          <code>&lt;el-input placeholder="Please input" v-model="input" clearable&gt;&lt;/el-input&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
-      <h1>Password box</h1>
-      <p class="p-lg my-6">Farklı boyutlardaki butonlarımız, çeşitli arayüz ihtiyaçlarına yanıt vermek için tasarlanmıştır.</p>
+      <h1>Password</h1>
+      <p class="p-lg my-6">Şifre girişi için kullanılan giriş bileşeni, metni gizler ve şifre gösterme/ gizleme seçeneği sunar.</p>
       <div class="grid grid-flow-col auto-cols-max items-center">
         <el-input placeholder="Please input password" v-model="input" show-password></el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
           Örnekler:
-          <code>&lt;el-button :size="'large'"&gt;Button&lt;/el-button&gt;</code> ya da
-          <code>&lt;el-button :size="'small'"&gt;Button&lt;/el-button&gt;</code>
+          <code>&lt;el-input placeholder="Please input password" v-model="input" show-password&gt;&lt;/el-input&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
       <h1>Input with icon</h1>
-      <p class="p-lg my-6">Etkileşime kapalı 'disabled' butonlarımız, kullanılamaz durumları göstermek için kullanılır.</p>
+      <p class="p-lg my-6">İkonlarla zenginleştirilmiş giriş bileşenleri, görsel bir ipucu sunar ve kullanıcı deneyimini artırır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-input placeholder="Pick a date" suffix-icon="isax-add-circle" v-model="input1"> </el-input>
-        <el-input placeholder="Pick a date" suffix-icon="el-icon-date" v-model="input1"> </el-input>
         <el-input placeholder="Type something" prefix-icon="el-icon-search" v-model="input2"> </el-input>
       </div>
-      <div class="my-4 p-4 border-l-4 border-red-600 bg-red-100">
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
-          Butonu devre dışı bırakmak için, <code>disabled</code> özelliğini ekleyin. Örnek:
-          <code>&lt;el-button disabled&gt;Button&lt;/el-button&gt;</code>
+          Bir ikon ile giriş için, <code>prefix-icon</code> veya <code>suffix-icon</code> özelliklerini kullanın. Örnek:
+          <code>&lt;el-input placeholder="Type something" prefix-icon="el-icon-search" v-model="input2"&gt;&lt;/el-input&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
       <h1>Textarea</h1>
-      <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
+      <p class="p-lg my-6">Metin alanı girişi, birden fazla satırı destekleyen ve daha büyük metin bloklarını girmek için kullanılır.</p>
       <el-input type="textarea" :rows="2" placeholder="Please input" v-model="textarea"></el-input>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
+        <p class="text-xs">
+          Textarea kullanımı için:
+          <code>&lt;el-input type="textarea" :rows="2" placeholder="Please input" v-model="textarea"&gt;&lt;/el-input&gt;</code>
+        </p>
       </div>
     </section>
 
     <section>
       <h1>Autosize Textarea</h1>
-      <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
+      <p class="p-lg my-6">Otomatik boyutlandırma özelliği, içeriğe bağlı olarak yüksekliği otomatik olarak ayarlayan bir metin alanıdır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-input type="textarea" autosize placeholder="Please input" v-model="textarea1"></el-input>
         <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4 }" placeholder="Please input" v-model="textarea2"></el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
+        <p class="text-xs">
+          Autosize Textarea için:
+          <code>&lt;el-input type="textarea" autosize placeholder="Please input" v-model="textarea1"&gt;&lt;/el-input&gt;</code>
+        </p>
       </div>
     </section>
 
     <section>
       <h1>Mixed input</h1>
-      <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
+      <p class="p-lg my-6">Ön ek veya son ek içeren giriş bileşenleri, giriş alanlarına ekstra içerik ekleyerek daha açıklayıcı olabilir.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-input placeholder="Please input" v-model="input1">
           <template slot="prepend">Http://</template>
@@ -138,16 +166,16 @@
         </el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
+        <p class="text-xs">
+          Ön ek veya son ek içeren giriş bileşenleri için:
+          <code>&lt;el-input placeholder="Please input"&gt;&lt;template slot="prepend"&gt;Http://&lt;/template&gt;&lt;/el-input&gt;</code>
+        </p>
       </div>
     </section>
 
     <section>
       <h1>Sizes</h1>
-      <p class="p-lg my-6">
-        İkonlarla zenginleştirilmiş butonlarımız, görsel bir ipucu sunar ve kullanıcı deneyimini artırır. Tüm ikonlarımızın listesini görmek için
-        <nuxt-link to="/icons" class="text-blue-600 hover:underline">buraya tıklayın</nuxt-link>.
-      </p>
+      <p class="p-lg my-6">Farklı boyutlardaki giriş bileşenleri, çeşitli arayüz ihtiyaçlarına yanıt vermek için tasarlanmıştır.</p>
       <div class="grid grid-flow-col auto-cols-max items-center gap-4">
         <el-input size="large" placeholder="Please Input" v-model="input1"> </el-input>
         <el-input size="medium" placeholder="Please Input" v-model="input2"> </el-input>
@@ -156,15 +184,15 @@
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
-          Örnekler:
-          <code>&lt;el-button type="primary" class="isax-trash"&gt;&lt;/el-button&gt;</code>. Sağda ikon için <code>class="icon-right"</code> ekleyin.
+          Farklı boyutlardaki giriş bileşenleri için:
+          <code>&lt;el-input size="large" placeholder="Please Input" v-model="input1"&gt;&lt;/el-input&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
       <h1>Autocomplete</h1>
-      <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
+      <p class="p-lg my-6">Otomatik tamamlama bileşeni, kullanıcıların yazarken öneriler almasını sağlar ve verimliliği artırır.</p>
       <div class="grid grid-flow-col auto-cols-max items-center gap-4">
         <el-autocomplete
           class="inline-input"
@@ -183,13 +211,19 @@
         ></el-autocomplete>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
+        <p class="text-xs">
+          Otomatik tamamlama bileşeni için:
+          <code>
+            &lt;el-autocomplete v-model="state1" :fetch-suggestions="querySearch" placeholder="Please Input"
+            @select="handleSelect"&gt;&lt;/el-autocomplete&gt;
+          </code>
+        </p>
       </div>
     </section>
 
     <section>
       <h1>Custom template</h1>
-      <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
+      <p class="p-lg my-6">Otomatik tamamlama bileşeni, özel şablonlar ile özelleştirilebilir, böylece daha fazla bilgi gösterebilirsiniz.</p>
       <el-autocomplete
         popper-class="my-autocomplete"
         v-model="state"
@@ -197,35 +231,50 @@
         placeholder="Please input"
         @select="handleSelect"
       >
-        <i class="el-icon-edit el-input__icon" slot="suffix" @click="handleIconClick"> </i>
+        <i class="el-icon-edit el-input__icon" slot="suffix" @click="handleIconClick"></i>
         <template slot-scope="{ item }">
           <div class="value">{{ item.value }}</div>
           <span class="link">{{ item.link }}</span>
         </template>
       </el-autocomplete>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
+        <p class="text-xs">
+          Özel şablon kullanımı için:
+          <code>
+            &lt;el-autocomplete v-model="state" :fetch-suggestions="querySearch" @select="handleSelect"&gt;&lt;!-- slotlar
+            --&gt;&lt;/el-autocomplete&gt;
+          </code>
+        </p>
       </div>
     </section>
 
     <section>
       <h1>Remote search</h1>
-      <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
+      <p class="p-lg my-6">Uzaktan arama ile otomatik tamamlama, sunucu tarafında gerçek zamanlı arama sonuçları getirir.</p>
       <el-autocomplete v-model="state" :fetch-suggestions="querySearchAsync" placeholder="Please input" @select="handleSelect"></el-autocomplete>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
+        <p class="text-xs">
+          Uzaktan arama için:
+          <code>
+            &lt;el-autocomplete v-model="state" :fetch-suggestions="querySearchAsync" placeholder="Please input"
+            @select="handleSelect"&gt;&lt;/el-autocomplete&gt;
+          </code>
+        </p>
       </div>
     </section>
 
     <section>
       <h1>Limit length</h1>
-      <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
+      <p class="p-lg my-6">Uzunluk sınırı, kullanıcıların girebileceği karakter sayısını sınırlar ve aşırı uzun girişleri önler.</p>
       <div class="grid grid-flow-col auto-cols-max items-center gap-4">
-        <el-input type="text" placeholder="Please input" v-model="text" maxlength="10" show-word-limit> </el-input>
-        <el-input type="textarea" placeholder="Please input" v-model="textarea" maxlength="30" show-word-limit> </el-input>
+        <el-input type="text" placeholder="Please input" v-model="text" maxlength="10" show-word-limit></el-input>
+        <el-input type="textarea" placeholder="Please input" v-model="textarea" maxlength="30" show-word-limit></el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
+        <p class="text-xs">
+          Uzunluk sınırı için:
+          <code>&lt;el-input type="text" placeholder="Please input" v-model="text" maxlength="10" show-word-limit&gt;&lt;/el-input&gt;</code>
+        </p>
       </div>
     </section>
   </div>
