@@ -1,4 +1,3 @@
-
 function generateColors(baseName, start = 100, end = 900, step = 100) {
   const colors = {};
   for (let i = start; i <= end; i += step) {
@@ -7,24 +6,20 @@ function generateColors(baseName, start = 100, end = 900, step = 100) {
   return colors;
 }
 
-const colorNames = ['primary', 'secondary', 'gray', 'danger', 'success', 'warning', 'info' ]
+const colorNames = ['primary', 'secondary', 'gray', 'danger', 'success', 'warning', 'info'];
 
 const colors = colorNames.reduce((acc, color) => {
-  return {...acc, [`${color}`]: generateColors(color, 100, 900)}
-}, {})
+  return { ...acc, [`${color}`]: generateColors(color, 100, 900) };
+}, {});
 
 module.exports = {
   mode: 'jit',
-  content: [
-    "./pages/**/*.{html,js,vue}",
-    './.nuxt/**/*.{js,jsx,ts,tsx,vue}',
-  ],
-  safelist: [
-  ],
+  content: ['./pages/**/*.{html,js,vue}', './.nuxt/**/*.{js,jsx,ts,tsx,vue}', './components/**/*.{html,js,vue}', './layouts/**/*.{html,js,vue}'],
+  safelist: [],
   theme: {
     extend: {
-      colors: colors
+      colors: colors,
     },
   },
   plugins: [],
-}
+};

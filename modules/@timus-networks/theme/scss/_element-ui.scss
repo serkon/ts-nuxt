@@ -9,6 +9,9 @@ $--color-success: map-get(map-get($theme, success), '500');
 $--color-warning: map-get(map-get($theme, warning), '500');
 /* icon font path, required */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+
+$--color-text-regular: var(--gray-900);
 // @import "~element-ui/packages/theme-chalk/src/index";
 /* Border
 -------------------------- */
@@ -86,5 +89,22 @@ $--input-small-font-size: 14px;
 $--input-small-height: 30px;
 $--input-mini-font-size: 14px;
 $--input-mini-height: 28px;
+/*
+--------------------------
+Form Item
+--------------------------
+*/
+$--form-label-font-size: 14px;
+$custom-form-label-top-line-height: 18px;
+$custom-form-label-padding-bottom: 6px;
+$custom-form-label-font-color: var(--gray-900);
+$custom-form-label-font-weight: 500;
+$custom-form-label-required-color: var(--danger-500);
+$custom-form-label-error-color: var(--danger-500);
+$custom-form-label-large-line-height: 40px;
+$custom-form-label-medium-line-height: 36px;
+$custom-form-label-small-line-height: 32px;
+$custom-form-label-mini-line-height: 28px;
+
 
 @import "./element-ui/index.scss";

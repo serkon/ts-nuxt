@@ -1,2 +1,6 @@
 scss
 scss/**
+fonts/poppins/**/*.md
+fonts/poppins/LICENSE*
+fonts/poppins/metadata.json
+fonts/poppins/unicode.json

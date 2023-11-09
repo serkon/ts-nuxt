@@ -9,11 +9,18 @@
     }
   }
   @include m(label-top) {
-    & .el-form-item__label {
-      float: none;
-      display: inline-block;
+    .el-form-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .el-form-item__label {
+      // float: none;
+      // display: inline-block;
+      // padding: 0 0 10px 0;
       text-align: left;
-      padding: 0 0 10px 0;
+      line-height: $custom-form-label-top-line-height;
+      padding: 0 0 $custom-form-label-padding-bottom 0;
     }
   }
   @include m(inline) {
@@ -36,7 +43,7 @@
   }
 }
 @include b(form-item) {
-  margin-bottom: 22px;
+  // margin-bottom: 22px;
   @include utils-clearfix;
 
   & .el-form-item {
@@ -47,23 +54,31 @@
     display: none;
   }
 
-  @include m(medium) {
+  @include m(large) {
     .el-form-item__label {
-      line-height: 36px;
+      line-height: $custom-form-label-large-line-height;
     }
     .el-form-item__content {
-      line-height: 36px;
+      line-height: $custom-form-label-large-line-height;
+    }
+  }
+  @include m(medium) {
+    .el-form-item__label {
+      line-height: $custom-form-label-medium-line-height;
+    }
+    .el-form-item__content {
+      line-height: $custom-form-label-medium-line-height;
     }
   }
   @include m(small) {
     .el-form-item__label {
-      line-height: 32px;
+      line-height: $custom-form-label-small-line-height;
     }
     .el-form-item__content {
-      line-height: 32px;
+      line-height: $custom-form-label-small-line-height;
     }
     &.el-form-item {
-      margin-bottom: 18px;
+      // margin-bottom: 18px;
     }
     .el-form-item__error {
       padding-top: 2px;
@@ -71,13 +86,13 @@
   }
   @include m(mini) {
     .el-form-item__label {
-      line-height: 28px;
+      line-height: $custom-form-label-mini-line-height;
     }
     .el-form-item__content {
-      line-height: 28px;
+      line-height: $custom-form-label-mini-line-height;
     }
     &.el-form-item {
-      margin-bottom: 18px;
+      // margin-bottom: 18px;
     }
     .el-form-item__error {
       padding-top: 1px;
@@ -97,13 +112,14 @@
     vertical-align: middle;
     float: left;
     font-size: $--form-label-font-size;
-    color: $--color-text-regular;
-    line-height: 40px;
+    font-weight: $custom-form-label-font-weight;
+    color: $custom-form-label-font-color;
+    line-height: $custom-form-label-medium-line-height;
     padding: 0 12px 0 0;
     box-sizing: border-box;
   }
   @include e(content) {
-    line-height: 40px;
+    line-height: $custom-form-label-medium-line-height;
     position: relative;
     font-size: 14px;
     @include utils-clearfix;
