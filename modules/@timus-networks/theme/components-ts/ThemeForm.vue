@@ -1,5 +1,41 @@
 <template>
   <div>
+    <section>
+      <h1>Checkbox</h1>
+      <p class="p-lg my-6">
+        Tarih aralığı seçici, kullanıcının bir başlangıç ve bitiş tarihi seçmesine olanak tanır, bu da planlama ve raporlama işlemleri için idealdir.
+      </p>
+      <el-checkbox-group v-model="checkList" class="mb-6">
+        <el-checkbox label="Option A"></el-checkbox>
+        <el-checkbox label="Option B"></el-checkbox>
+        <el-checkbox label="Option C"></el-checkbox>
+        <el-checkbox label="disabled" disabled></el-checkbox>
+        <el-checkbox label="selected and disabled" disabled></el-checkbox>
+      </el-checkbox-group>
+
+      <el-checkbox-group v-model="checkboxGroup1">
+        <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
+      </el-checkbox-group>
+
+      <el-checkbox-group v-model="checkboxGroup1" size="mini" disabled>
+        <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
+      </el-checkbox-group>
+
+      <el-checkbox-group v-model="checkboxGroup1" size="small">
+        <el-checkbox label="Option1" border></el-checkbox>
+        <el-checkbox label="Option2" border disabled></el-checkbox>
+      </el-checkbox-group>
+
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <p class="text-xs">
+          <code
+            >&lt;el-date-picker v-model="input" type="daterange" align="left" start-placeholder="Start" end-placeholder="End"
+            default-value=""&gt;&lt;/el-date-picker&gt;</code
+          >
+        </p>
+      </div>
+    </section>
+
     <el-time-select
       v-model="time"
       :picker-options="{
@@ -116,10 +152,14 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
+const cityOptions = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen'];
 
 export default Vue.extend({
   data() {
     return {
+      checkboxGroup1: ['Shanghai'],
+      cities: cityOptions,
+      checkList: ['selected and disabled', 'Option A'],
       time: '',
       sizeForm: {
         name: '',

@@ -1,7 +1,6 @@
 @import "mixins/mixins";
 @import "common/var";
 @import "common/transition";
-@import "checkbox";
 
 @include b(tree) {
   position: relative;
