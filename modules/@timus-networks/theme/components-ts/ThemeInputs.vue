@@ -12,7 +12,9 @@
         start-placeholder="Start Date"
         end-placeholder="End Date"
         default-value="2010-10-01"
-      ></el-date-picker>
+        class="danger"
+      >
+      </el-date-picker>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
           <code
@@ -53,7 +55,7 @@
       <h1>Basic</h1>
       <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
       <div class="grid grid-flow-col auto-cols-max">
-        <el-input placeholder="Please input" v-model="input"></el-input>
+        <el-input placeholder="Please input" v-model="input" class="danger"></el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -150,19 +152,21 @@
       <h1>Mixed input</h1>
       <p class="p-lg my-6">Ön ek veya son ek içeren giriş bileşenleri, giriş alanlarına ekstra içerik ekleyerek daha açıklayıcı olabilir.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-input placeholder="Please input" v-model="input1">
+        <el-input placeholder="Please input" v-model="input1" type="success">
           <template slot="prepend">Http://</template>
         </el-input>
+
         <el-input placeholder="Please input" v-model="input2">
           <template slot="append">.com</template>
         </el-input>
+
         <el-input placeholder="Please input" v-model="input3" class="input-with-select">
-          <el-select v-model="select" slot="prepend" placeholder="Select">
+          <el-select v-model="select" slot="append" placeholder="Select">
             <el-option label="Restaurant" value="1"></el-option>
             <el-option label="Order No." value="2"></el-option>
             <el-option label="Tel" value="3"></el-option>
           </el-select>
-          <el-button slot="append" icon="el-icon-search"></el-button>
+          <el-button slot="prepend" icon="el-icon-search"></el-button>
         </el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -194,13 +198,8 @@
       <h1>Autocomplete</h1>
       <p class="p-lg my-6">Otomatik tamamlama bileşeni, kullanıcıların yazarken öneriler almasını sağlar ve verimliliği artırır.</p>
       <div class="grid grid-flow-col auto-cols-max items-center gap-4">
-        <el-autocomplete
-          class="inline-input"
-          v-model="state1"
-          :fetch-suggestions="querySearch"
-          placeholder="Please Input"
-          @select="handleSelect"
-        ></el-autocomplete>
+        <el-autocomplete class="inline-input" v-model="state1" :fetch-suggestions="querySearch" placeholder="Please Input" @select="handleSelect">
+        </el-autocomplete>
         <el-autocomplete
           class="inline-input"
           v-model="state2"
@@ -208,7 +207,8 @@
           placeholder="Please Input"
           :trigger-on-focus="false"
           @select="handleSelect"
-        ></el-autocomplete>
+        >
+        </el-autocomplete>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">

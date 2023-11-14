@@ -5,7 +5,7 @@
 @import 'mixins/utils';
 
 // Düğme tiplerini ve karşılık gelen renkleri içeren bir liste
-$button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
+$button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
 
 // Derin bir map yapısından değer almak için yardımcı bir fonksiyon
 @function map-get-deep($map, $keys...) {
@@ -116,7 +116,7 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
   );
 
   // Her düğme tipi için mixin'i çağırın
-  @each $type in $button-types {
+  @each $type in $button-colors {
     // Her bir durum için varsayılan değerleri ayarlayın
     $default: map-get-deep($button-variant-values, $type, 'default') or 500;
     $hover: map-get-deep($button-variant-values, $type, 'hover') or 400;
@@ -223,7 +223,7 @@ $button-types: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'i
     }
   }
 
-  @each $type in $button-types {
+  @each $type in $button-colors {
     .el-button--#{$type} {
       &:first-child {
         border-right-color: var(--#{$type}-400); // rgba($--color-white, 0.12);

@@ -79,6 +79,10 @@
   width: 100%;
   @include scroll-bar;
 
+  &.danger .el-input__inner {
+    border-color: var(--danger-500);
+  }
+
   & .el-input__clear {
     color: $--input-icon-color;
     font-size: $--input-font-size;
