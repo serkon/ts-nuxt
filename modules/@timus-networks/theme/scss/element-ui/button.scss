@@ -38,9 +38,6 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
   transition: 0.1s;
   font-weight: $--button-font-weight;
   @include utils-user-select(none);
-  & + & {
-    margin-left: 10px;
-  }
 
   @extend .el-button--primary;
 

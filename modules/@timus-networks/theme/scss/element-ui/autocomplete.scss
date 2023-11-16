@@ -2,7 +2,6 @@
 @import "mixins/utils";
 @import "common/var";
 @import "./scrollbar.scss";
-@import "./popper";
 
 @include b(autocomplete) {
   position: relative;

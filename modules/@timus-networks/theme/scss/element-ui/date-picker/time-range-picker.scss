@@ -1,31 +1,33 @@
-@import "../common/var";
+@import '../common/var';
 
 @include b(time-range-picker) {
   width: 354px;
   overflow: visible;
-
   @include e(content) {
     position: relative;
-    text-align: center;
-    padding: 10px;
+    display: flex;
+    padding: 16px;
+    gap: 16px;
   }
-
   @include e(cell) {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    padding: 4px 7px 7px;
+    padding: 0;
     width: 50%;
-    display: inline-block;
   }
-
   @include e(header) {
-    margin-bottom: 5px;
-    text-align: center;
-    font-size: 14px;
+    margin-bottom: 16px;
+    color: var(--gray-900);
+    font-weight: 500;
+    @extend .h4;
   }
-
   @include e(body) {
-    border-radius:2px;
-    border: 1px solid $--datepicker-border-color;
+    border: $custom-popper-border;
+    border-radius: $--border-radius-base;
   }
 }
+
+
+

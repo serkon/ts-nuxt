@@ -3,6 +3,10 @@
 @import "common/var";
 
 @include b(popper) {
+  border: $custom-popper-border;
+  box-shadow: $custom-box-shadow;
+  border-radius: $--border-radius-base;
+
   .popper__arrow,
   .popper__arrow::after {
     position: absolute;
@@ -14,7 +18,7 @@
   }
 
   .popper__arrow {
-    border-width: $--popover-arrow-size;
+    border-width: $--popover-arrow-size + 2px;
     filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.03))
   }
 
@@ -28,7 +32,7 @@
   }
 
   &[x-placement^="top"] .popper__arrow {
-    bottom: -$--popover-arrow-size;
+    bottom: -$--popover-arrow-size + $--popover-arrow-move-position;
     left: 50%;
     margin-right: math.div($--tooltip-arrow-size, 2);
     border-top-color: $--popover-border-color;
@@ -47,7 +51,7 @@
   }
 
   &[x-placement^="bottom"] .popper__arrow {
-    top: -$--popover-arrow-size;
+    top: -$--popover-arrow-size + $--popover-arrow-move-position;
     left: 50%;
     margin-right: math.div($--tooltip-arrow-size, 2);
     border-top-width: 0;
@@ -67,7 +71,7 @@
 
   &[x-placement^="right"] .popper__arrow {
     top: 50%;
-    left: -$--popover-arrow-size;
+    left: -$--popover-arrow-size + $--popover-arrow-move-position;
     margin-bottom: math.div($--tooltip-arrow-size, 2);
     border-right-color: $--popover-border-color;
     border-left-width: 0;
@@ -86,7 +90,7 @@
 
   &[x-placement^="left"] .popper__arrow {
     top: 50%;
-    right: -$--popover-arrow-size;
+    right: -$--popover-arrow-size + $--popover-arrow-move-position;
     margin-bottom: math.div($--tooltip-arrow-size, 2);
     border-right-width: 0;
     border-left-color: $--popover-border-color;

@@ -175,7 +175,15 @@ $--checkbox-button-checked-background-color: $--color-primary;
 $--checkbox-button-checked-font-color: $--color-white;
 /// color||Color|0
 $--checkbox-button-checked-border-color: $--color-primary;
-
-
+/*
+--------------------------
+Popper
+--------------------------
+*/
+$--popover-border-color: var(--gray-400);
+$custom-popper-border: 1px solid $--popover-border-color;
+$custom-box-shadow: 0 1px 2px 0 rgba(26, 11, 94, 10%);
+$--popover-arrow-size: 10px;
+$--popover-arrow-move-position: -2px;
 
 @import "./element-ui/index.scss";
