@@ -6,7 +6,7 @@
         "Fill" stili butonlar, içeriği tamamen kaplayan renge sahip butonlardır. Bu butonlar, kullanıcının dikkatini çekmek ve önemli eylemleri
         vurgulamak için idealdir.
       </p>
-      <div class="grid grid-flow-col auto-cols-max">
+      <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-button :type="item" v-for="(item, index) in colors" :key="index">{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
@@ -20,7 +20,7 @@
     <section>
       <h1>Outline</h1>
       <p class="p-lg my-6">Çevresi çizgili ve içi transparan olan 'outline' butonlarımız, daha hafif bir tasarım dili sunar.</p>
-      <div class="grid grid-flow-col auto-cols-max">
+      <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-button :type="item" v-for="(item, index) in colors" :key="index" class="outline" plain>{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -34,7 +34,7 @@
     <section>
       <h1>Ghost</h1>
       <p class="p-lg my-6">Hemen hemen şeffaf 'ghost' butonlarımız, minimalist tasarımlar için uygundur ve arka planla uyum sağlar.</p>
-      <div class="grid grid-flow-col auto-cols-max">
+      <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-button :type="item" v-for="(item, index) in colors" :key="index" class="ghost">{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -48,7 +48,7 @@
     <section>
       <h1>Size</h1>
       <p class="p-lg my-6">Farklı boyutlardaki butonlarımız, çeşitli arayüz ihtiyaçlarına yanıt vermek için tasarlanmıştır.</p>
-      <div class="grid grid-flow-col auto-cols-max items-center">
+      <div class="grid grid-flow-col auto-cols-max items-center gap-4">
         <el-button :size="item" v-for="(item, index) in sizes" :key="index" type="primary">{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -63,7 +63,7 @@
     <section>
       <h1>Disabled</h1>
       <p class="p-lg my-6">Etkileşime kapalı 'disabled' butonlarımız, kullanılamaz durumları göstermek için kullanılır.</p>
-      <div class="grid grid-flow-col auto-cols-max">
+      <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-button :type="item" v-for="(item, index) in colors" :key="index" disabled>{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-red-600 bg-red-100">
@@ -80,7 +80,7 @@
         İkonlarla zenginleştirilmiş butonlarımız, görsel bir ipucu sunar ve kullanıcı deneyimini artırır. Tüm ikonlarımızın listesini görmek için
         <nuxt-link to="/icons" class="text-blue-600 hover:underline">buraya tıklayın</nuxt-link>.
       </p>
-      <div class="grid grid-flow-col auto-cols-max">
+      <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-button type="primary" class="isax-trash"></el-button>
         <el-button type="primary" class="isax-chart"></el-button>
         <el-button type="primary" class="isax-clipboard-text icon-right">icon-right</el-button>
@@ -97,15 +97,17 @@
     <section>
       <h1>Groups</h1>
       <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
-      <el-button-group>
-        <el-button type="primary" class="isax-arrow-left">Previous Page</el-button>
-        <el-button type="primary" class="isax-arrow-right-1 icon-right">Next Page</el-button>
-      </el-button-group>
-      <el-button-group>
-        <el-button type="primary" icon="isax-textalign-justifyleft"></el-button>
-        <el-button type="primary" icon="isax-textalign-center"></el-button>
-        <el-button type="primary" icon="isax-textalign-justifyright"></el-button>
-      </el-button-group>
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <el-button-group>
+          <el-button type="primary" class="isax-arrow-left">Previous Page</el-button>
+          <el-button type="primary" class="isax-arrow-right-1 icon-right">Next Page</el-button>
+        </el-button-group>
+        <el-button-group>
+          <el-button type="primary" icon="isax-textalign-justifyleft"></el-button>
+          <el-button type="primary" icon="isax-textalign-center"></el-button>
+          <el-button type="primary" icon="isax-textalign-justifyright"></el-button>
+        </el-button-group>
+      </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
       </div>

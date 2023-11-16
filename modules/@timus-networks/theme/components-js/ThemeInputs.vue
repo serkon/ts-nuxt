@@ -152,19 +152,21 @@
       <h1>Mixed input</h1>
       <p class="p-lg my-6">Ön ek veya son ek içeren giriş bileşenleri, giriş alanlarına ekstra içerik ekleyerek daha açıklayıcı olabilir.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-input placeholder="Please input" v-model="input1">
+        <el-input placeholder="Please input" v-model="input1" type="success">
           <template slot="prepend">Http://</template>
         </el-input>
+
         <el-input placeholder="Please input" v-model="input2">
           <template slot="append">.com</template>
         </el-input>
+
         <el-input placeholder="Please input" v-model="input3" class="input-with-select">
-          <el-select v-model="select" slot="prepend" placeholder="Select">
+          <el-select v-model="select" slot="append" placeholder="Select">
             <el-option label="Restaurant" value="1"></el-option>
             <el-option label="Order No." value="2"></el-option>
             <el-option label="Tel" value="3"></el-option>
           </el-select>
-          <el-button slot="append" icon="el-icon-search"></el-button>
+          <el-button slot="prepend" icon="el-icon-search"></el-button>
         </el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
