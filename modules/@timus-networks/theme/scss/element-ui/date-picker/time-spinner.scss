@@ -90,16 +90,15 @@
     height: 32px;
     line-height: 32px;
     font-size: 12px;
-    color: $--color-text-regular;
+    color: $custom-time-spinner-color-deactive;
 
     &:hover:not(.disabled):not(.active) {
-      background: $--background-color-base;
+      background: $custom-time-spinner-hover-background;
       cursor: pointer;
     }
 
     &.active:not(.disabled) {
-      color: $--color-text-primary;
-      font-weight: bold;
+      color: $custom-time-spinner-color-active;
     }
 
     &.disabled {

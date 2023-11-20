@@ -35,14 +35,20 @@
   background-color: var(--#{$color}-#{$default});
   border-color: var(--#{$color}-#{$default});
 
+  &.fill {
+    color: if($color == light, var(--gray-700), $--color-white);
+    background-color: var(--#{$color}-#{$default});
+    border-color: var(--#{$color}-#{$default});
+  }
+
   &.ghost {
-    border: transparent;
+    border-color: transparent;
     background: transparent;
     color: var(--#{$color}-#{$default});
   }
 
-  &:hover,
-  &:focus,
+  &:hover,&.fill:hover,
+  &:focus,&.fill:focus,
   &.ghost:hover,
   &.ghost:focus {
     background: var(--#{$color}-#{$hover});
@@ -58,13 +64,13 @@
     outline: none;
   }
 
-  &.is-active {
+  &.is-active,&.fill.is-active {
     background: var(--#{$color}-#{$active});
     border-color: var(--#{$color}-#{$active});
     color: if($color == light, var(--gray-900), $--color-white);
   }
 
-  &.is-disabled {
+  &.is-disabled, &.fill.is-disabled {
     &,
     &:hover,
     &:focus,

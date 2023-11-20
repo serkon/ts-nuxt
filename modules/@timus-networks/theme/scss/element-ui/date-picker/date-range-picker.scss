@@ -48,7 +48,7 @@
     padding: 16px;
 
     @include when(left) {
-      border-right: 1px solid $--datepicker-inner-border-color;
+      border-right: 1px solid $custom-picker-border-color;
     }
     .el-date-range-picker__header {
 
@@ -70,7 +70,7 @@
 
   @include e(time-header) {
     position: relative;
-    border-bottom: 1px solid $--datepicker-inner-border-color;
+    border-bottom: 1px solid $custom-picker-border-color;
     font-size: 12px;
     padding: 8px 5px 5px 5px;
     display: table;

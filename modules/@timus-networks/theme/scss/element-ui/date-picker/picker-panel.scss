@@ -1,4 +1,4 @@
-@import "../common/var";
+@import '../common/var';
 
 @include b(picker-panel) {
   color: $--color-text-regular;
@@ -11,7 +11,7 @@
 
   @include e((body, body-wrapper)) {
     &::after {
-      content: "";
+      content: '';
       display: table;
       clear: both;
     }
@@ -19,16 +19,31 @@
 
   @include e(content) {
     position: relative;
-    margin: 15px;
+    margin: $custom-picker-header-padding;
   }
 
   @include e(footer) {
-    border-top: 1px solid $--datepicker-inner-border-color;
-    padding: 4px;
-    text-align: right;
-    background-color: $--color-white;
+    border-top: 1px solid $custom-picker-border-color;
+    padding: $custom-picker-header-padding;
     position: relative;
     font-size: 0;
+    display: flex;
+    gap: $custom-picker-gap;
+    background-color: $--color-white;
+
+    .el-button {
+      flex-grow: 1;
+      justify-content: center;
+      text-decoration: none;
+
+      @extend .el-button, .el-button--primary, .el-button--mini, .outline;
+
+      &:last-child {
+        background-color: var(--primary-700);
+        color: $--color-white;
+        @extend .el-button, .el-button--primary, .el-button--mini;
+      }
+    }
   }
 
   @include e(shortcut) {
@@ -98,20 +113,19 @@
   }
 }
 
-.el-picker-panel *[slot=sidebar],
+.el-picker-panel *[slot='sidebar'],
 .el-picker-panel__sidebar {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 110px;
-  border-right: 1px solid $--datepicker-inner-border-color;
+  border-right: 1px solid $custom-picker-border-color;
   box-sizing: border-box;
   padding-top: 6px;
-  background-color: $--color-white;
   overflow: auto;
 }
 
-.el-picker-panel *[slot=sidebar] + .el-picker-panel__body,
+.el-picker-panel *[slot='sidebar'] + .el-picker-panel__body,
 .el-picker-panel__sidebar + .el-picker-panel__body {
   margin-left: 110px;
 }

@@ -18,7 +18,7 @@
   }
 
   .el-picker-panel__content {
-    width: 292px;
+    // width: 292px;
   }
 
   table {
@@ -28,22 +28,21 @@
 
   @include e(editor-wrap) {
     position: relative;
-    display: table-cell;
-    padding: 0 5px;
   }
 
   @include e(time-header) {
     position: relative;
-    border-bottom: 1px solid $--datepicker-inner-border-color;
-    font-size: 12px;
-    padding: 8px 5px 5px 5px;
-    display: table;
+    border-bottom: 1px solid $custom-picker-border-color;
+    padding: $custom-picker-header-padding;
+    display: flex;
+    gap: $custom-picker-gap;
     width: 100%;
     box-sizing: border-box;
   }
 
   @include e(header) {
-    margin: 12px;
+    padding: $custom-picker-header-padding $custom-picker-header-padding 0 $custom-picker-header-padding;
+    line-height: 22px;
     text-align: center;
 
     @include m(bordered) {
@@ -58,13 +57,12 @@
   }
 
   @include e(header-label) {
-    font-size: 16px;
-    font-weight: 500;
     padding: 0 5px;
-    line-height: 22px;
     text-align: center;
     cursor: pointer;
     color: $--color-text-regular;
+
+    @extend .h4;
 
     &:hover {
       color: $--datepicker-hover-font-color;

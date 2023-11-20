@@ -15,11 +15,11 @@
   padding: 8px 10px;
   font-size: 14px;
   line-height: 20px;
+  color: $custom-time-spinner-color-deactive;
 }
 
 .time-select-item.selected:not(.disabled) {
   color: $--color-primary;
-  font-weight: bold;
 }
 
 .time-select-item.disabled {
@@ -28,7 +28,6 @@
 }
 
 .time-select-item:hover {
-  background-color: $--background-color-base;
-  font-weight: bold;
+  color: $custom-time-spinner-color-active;
   cursor: pointer;
 }

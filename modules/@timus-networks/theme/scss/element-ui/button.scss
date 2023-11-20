@@ -19,7 +19,7 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
   @return $in-map;
 }
 
-@include b(button) {
+%button {
   display: inline-flex;
   align-items: center;
   gap: $custom-button-icon-gap;
@@ -27,7 +27,9 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
   white-space: nowrap;
   cursor: pointer;
   background: $--button-default-background-color;
-  border: $--border-base;
+  border-width: 1px;
+  border-style: solid;
+  // border: $--border-base;
   border-color: $--button-default-border-color;
   color: $--button-default-font-color;
   -webkit-appearance: none;
@@ -45,7 +47,146 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
 
   &.el-button--text {
     text-decoration: underline;
-    border: transparent;
+    border-color: transparent;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  @include when(plain) {
+    &:hover,
+    &:focus {
+      background: $--color-white;
+      border-color: $--color-primary;
+      color: $--color-primary;
+    }
+
+    &:active {
+      background: $--color-white;
+      border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      outline: none;
+    }
+  }
+
+  @include when(active) {
+    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+  }
+
+  @include when(loading) {
+    position: relative;
+    pointer-events: none;
+
+    &:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: inherit;
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+  }
+  @include when(round) {
+    border-radius: 20px;
+    padding: 12px 23px;
+  }
+  @include when(circle) {
+    border-radius: 50%;
+    padding: $--button-padding-vertical;
+  }
+
+  // Her düğme tipi ve durumu için özel renk değerlerin tanımı
+  $button-variant-values: (
+    'primary': (
+      'default': 700,
+      'hover': 500,
+      'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,
+    ),
+    'light': (
+      'default': 700,
+      'hover': 500,
+      'active': 900,
+    )
+  );
+
+  // Her düğme tipi için mixin'i çağırın
+  @each $type in $button-colors {
+    // Her bir durum için varsayılan değerleri ayarlayın
+    $default: map-get-deep($button-variant-values, $type, 'default') or 500;
+    $hover: map-get-deep($button-variant-values, $type, 'hover') or 400;
+    $active: map-get-deep($button-variant-values, $type, 'active') or 600;
+    $disabled: map-get-deep($button-variant-values, $type, 'disabled') or 200;
+
+    @include m(#{$type}) {
+      @include button-variant($type, $default, $hover, $active, $disabled);
+    }
+
+    @include m(text) {
+      &.#{$type} {
+        @include button-plain($type, $default, $hover, $active, $disabled);
+      }
+    }
+  }
+
+  @include m(large) {
+    @include button-size($--button-large-padding-vertical, $--button-large-padding-horizontal, $--button-large-font-size, $--button-large-border-radius);
+    @include when(circle) {
+      padding: $--button-large-padding-vertical;
+    }
+  }
+  @include m(small) {
+    @include button-size(
+      $--button-small-padding-vertical,
+      $--button-small-padding-horizontal,
+      $--button-small-font-size,
+      $--button-small-border-radius
+    );
+    @include when(circle) {
+      padding: $--button-small-padding-vertical;
+    }
+  }
+  @include m(mini) {
+    @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
+    @include when(circle) {
+      padding: $--button-mini-padding-vertical;
+    }
+  }
+}
+
+@include b(button) {
+  display: inline-flex;
+  align-items: center;
+  gap: $custom-button-icon-gap;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: $--button-default-background-color;
+  border-width: 1px;
+  border-style: solid;
+  // border: $--border-base;
+  border-color: $--button-default-border-color;
+  color: $--button-default-font-color;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: 0.1s;
+  font-weight: $--button-font-weight;
+  @include utils-user-select(none);
+
+  @extend .el-button--primary;
+
+  @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
+
+  &.el-button--text {
+    text-decoration: underline;
+    border-color: transparent;
   }
 
   &::-moz-focus-inner {
