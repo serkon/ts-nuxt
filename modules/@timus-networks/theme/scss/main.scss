@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-content;
+  }
+}
+
 @import 'variables';
 @import 'colors';
 @import 'containers';
@@ -10,6 +17,8 @@
 @import 'inputs.scss';
 @import 'selectbox.scss';
 @import "element-ui.scss";
+
+
 
   // @import 'layers.scss';
 body {

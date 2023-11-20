@@ -6,8 +6,8 @@
       <el-tab-pane label="Inputs" name="third"><ThemeInputs></ThemeInputs></el-tab-pane>
       <el-tab-pane label="Numbers" name="fourth"><ThemeInputNumbers></ThemeInputNumbers></el-tab-pane>
       <el-tab-pane label="Picker" name="five"><ThemeTimePicker></ThemeTimePicker></el-tab-pane>
-      <el-tab-pane label="Select" name="five"><ThemeTimePicker></ThemeTimePicker></el-tab-pane>
-      <el-tab-pane label="Form" name="six"><ThemeForm></ThemeForm>></el-tab-pane>
+      <el-tab-pane label="Select" name="six"><ThemeSelect></ThemeSelect></el-tab-pane>
+      <el-tab-pane label="Form" name="seven"><ThemeForm></ThemeForm>></el-tab-pane>
     </el-tabs>
   </div>
 </template>

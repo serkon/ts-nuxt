@@ -15,8 +15,8 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     // '~/static/scss/_element-ui.scss',
-   // 'element-ui/lib/theme-chalk/index.css',
-   // "element-ui/packages/theme-chalk/src/index.scss",
+    // 'element-ui/lib/theme-chalk/index.css',
+    // "element-ui/packages/theme-chalk/src/index.scss",
     // '@/assets/scss/main.scss',
     // '~/assets/tailwind.css'
   ],
@@ -40,26 +40,15 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/i18n',
+    '@nuxtjs/tailwindcss',
     ['@/modules/@timus-networks/table/module', { friendlyFire: true, client: false, typescript: true }],
     ['@/modules/@timus-networks/filter/module', { friendlyFire: true, client: false, typescript: true }],
     ['@/modules/@timus-networks/icon/module', { friendlyFire: true, client: true, typescript: true }],
     ['@/modules/@timus-networks/theme/module', { friendlyFire: true, client: true, typescript: true }],
     ['@/modules/@timus-networks/dropdown/module', { client: true }],
-        // https://go.nuxtjs.dev/tailwindcss
-        '@nuxtjs/tailwindcss',
   ],
   // '@timus-networks/table': { typescript: false },
-  tailwindcss: {
-    // cssPath: '~/static/scss/main.scss',
-    configPath: '~/tailwind.config.js',
-    exposeConfig: false,
-    exposeLevel: 2,
-    config: {
-      darkMode: 'class',
-    },
-    injectPosition: 'first',
-    viewer: true,
-  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
@@ -74,16 +63,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          'postcss-import': {},
-          'tailwindcss/nesting': 'postcss-nesting',
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
   },
   i18n: {
     locales: [

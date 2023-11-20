@@ -13,6 +13,7 @@ const colors = colorNames.reduce((acc, color) => {
 }, {});
 
 module.exports = {
+  darkMode: 'class',
   mode: 'jit',
   content: ['./pages/**/*.{html,js,vue}', './.nuxt/**/*.{js,jsx,ts,tsx,vue}', './components/**/*.{html,js,vue}', './layouts/**/*.{html,js,vue}'],
   safelist: [],

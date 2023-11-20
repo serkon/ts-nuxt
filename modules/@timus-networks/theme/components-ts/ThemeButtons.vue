@@ -97,7 +97,7 @@
     <section>
       <h1>Groups</h1>
       <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
-      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+      <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-button-group>
           <el-button type="primary" class="isax-arrow-left">Previous Page</el-button>
           <el-button type="primary" class="isax-arrow-right-1 icon-right">Next Page</el-button>

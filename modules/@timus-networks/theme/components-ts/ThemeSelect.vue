@@ -1,27 +1,27 @@
 <template>
   <div class="pt-8 pb-16 flex gap-12 flex-col">
     <section>
-      <h1>Fill</h1>
-      <p class="p-lg my-6">
-        "Fill" stili butonlar, içeriği tamamen kaplayan renge sahip butonlardır. Bu butonlar, kullanıcının dikkatini çekmek ve önemli eylemleri
-        vurgulamak için idealdir.
-      </p>
+      <h1>Basic usage</h1>
+      <p class="p-lg my-6">v-model is the value of el-option that is currently selected.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button :type="item" v-for="(item, index) in colors" :key="index">{{ item }}</el-button>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          Örnek kullanım:
           <code>&lt;el-button :type="'primary'"&gt;Primary&lt;/el-button&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
-      <h1>Outline</h1>
-      <p class="p-lg my-6">Çevresi çizgili ve içi transparan olan 'outline' butonlarımız, daha hafif bir tasarım dili sunar.</p>
+      <h1>Disabled option</h1>
+      <p class="p-lg my-6">Set the value of disabled in el-option to true to disable this option.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button :type="item" v-for="(item, index) in colors" :key="index" class="outline" plain>{{ item }}</el-button>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"> </el-option>
+        </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -32,10 +32,12 @@
     </section>
 
     <section>
-      <h1>Ghost</h1>
-      <p class="p-lg my-6">Hemen hemen şeffaf 'ghost' butonlarımız, minimalist tasarımlar için uygundur ve arka planla uyum sağlar.</p>
+      <h1>Disabled select</h1>
+      <p class="p-lg my-6">Set disabled of el-select to make it disabled.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button :type="item" v-for="(item, index) in colors" :key="index" class="ghost">{{ item }}</el-button>
+        <el-select v-model="value" disabled placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -46,25 +48,31 @@
     </section>
 
     <section>
-      <h1>Size</h1>
+      <h1>Clearable single select</h1>
       <p class="p-lg my-6">Farklı boyutlardaki butonlarımız, çeşitli arayüz ihtiyaçlarına yanıt vermek için tasarlanmıştır.</p>
       <div class="grid grid-flow-col auto-cols-max items-center gap-4">
-        <el-button :size="item" v-for="(item, index) in sizes" :key="index" type="primary">{{ item }}</el-button>
+        <el-select v-model="value" clearable placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
           Örnekler:
-          <code>&lt;el-button :size="'large'"&gt;Button&lt;/el-button&gt;</code> ya da
-          <code>&lt;el-button :size="'small'"&gt;Button&lt;/el-button&gt;</code>
+          <code>&lt;el-button :size="'large'"&gt;Button&lt;/el-button&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
-      <h1>Disabled</h1>
+      <h1>Basic multiple select</h1>
       <p class="p-lg my-6">Etkileşime kapalı 'disabled' butonlarımız, kullanılamaz durumları göstermek için kullanılır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button :type="item" v-for="(item, index) in colors" :key="index" disabled>{{ item }}</el-button>
+        <el-select v-model="value1" multiple placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        </el-select>
+        <el-select v-model="value2" multiple collapse-tags style="margin-left: 20px" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-red-600 bg-red-100">
         <p class="text-xs">
@@ -75,16 +83,18 @@
     </section>
 
     <section>
-      <h1>Icons</h1>
+      <h1>Custom template</h1>
       <p class="p-lg my-6">
         İkonlarla zenginleştirilmiş butonlarımız, görsel bir ipucu sunar ve kullanıcı deneyimini artırır. Tüm ikonlarımızın listesini görmek için
         <nuxt-link to="/icons" class="text-blue-600 hover:underline">buraya tıklayın</nuxt-link>.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button type="primary" class="isax-trash"></el-button>
-        <el-button type="primary" class="isax-chart"></el-button>
-        <el-button type="primary" class="isax-clipboard-text icon-right">icon-right</el-button>
-        <el-button type="primary" :class="item" v-for="(item, index) in icons" :key="index">{{ item }}</el-button>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in cities" :key="item.value" :label="item.label" :value="item.value">
+            <span style="float: left">{{ item.label }}</span>
+            <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
+          </el-option>
+        </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -95,18 +105,14 @@
     </section>
 
     <section>
-      <h1>Groups</h1>
-      <p class="p-lg my-6">Buton gruplarımız, ilgili işlemleri bir arada toplayarak kullanıcı arayüzünü düzenler.</p>
-      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <el-button-group>
-          <el-button type="primary" class="isax-arrow-left">Previous Page</el-button>
-          <el-button type="primary" class="isax-arrow-right-1 icon-right">Next Page</el-button>
-        </el-button-group>
-        <el-button-group>
-          <el-button type="primary" icon="isax-textalign-justifyleft"></el-button>
-          <el-button type="primary" icon="isax-textalign-center"></el-button>
-          <el-button type="primary" icon="isax-textalign-justifyright"></el-button>
-        </el-button-group>
+      <h1>Grouping</h1>
+      <p class="p-lg my-6">Display options in groups.</p>
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-select v-model="value" placeholder="Select">
+          <el-option-group v-for="group in groups" :key="group.label" :label="group.label">
+            <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+          </el-option-group>
+        </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">Buton grupları için <code>&lt;el-button-group&gt;</code> kullanın.</p>
@@ -121,10 +127,93 @@ export default Vue.extend({
   name: 'TimusButtonSample',
   data() {
     return {
-      colors: ['primary', 'secondary', 'gray', 'info', 'success', 'wanring', 'danger'],
-      status: ['outline', 'ghost', 'rounder', 'disabled'],
-      sizes: ['large', 'medium', 'small', 'mini'],
-      icons: ['isax-bag', 'isax-calculator'],
+      cities: [
+        {
+          value: 'Beijing',
+          label: 'Beijing',
+        },
+        {
+          value: 'Shanghai',
+          label: 'Shanghai',
+        },
+        {
+          value: 'Nanjing',
+          label: 'Nanjing',
+        },
+        {
+          value: 'Chengdu',
+          label: 'Chengdu',
+        },
+        {
+          value: 'Shenzhen',
+          label: 'Shenzhen',
+        },
+        {
+          value: 'Guangzhou',
+          label: 'Guangzhou',
+        },
+      ],
+      groups: [
+        {
+          label: 'Popular cities',
+          options: [
+            {
+              value: 'Shanghai',
+              label: 'Shanghai',
+            },
+            {
+              value: 'Beijing',
+              label: 'Beijing',
+            },
+          ],
+        },
+        {
+          label: 'City name',
+          options: [
+            {
+              value: 'Chengdu',
+              label: 'Chengdu',
+            },
+            {
+              value: 'Shenzhen',
+              label: 'Shenzhen',
+            },
+            {
+              value: 'Guangzhou',
+              label: 'Guangzhou',
+            },
+            {
+              value: 'Dalian',
+              label: 'Dalian',
+            },
+          ],
+        },
+      ],
+      options: [
+        {
+          value: 'Option1',
+          label: 'Option1',
+        },
+        {
+          value: 'Option2',
+          label: 'Option2',
+        },
+        {
+          value: 'Option3',
+          label: 'Option3',
+        },
+        {
+          value: 'Option4',
+          label: 'Option4',
+        },
+        {
+          value: 'Option5',
+          label: 'Option5',
+        },
+      ],
+      value: '',
+      value1: [],
+      value2: [],
     };
   },
   computed: {
