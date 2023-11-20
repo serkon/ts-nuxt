@@ -89,7 +89,7 @@
   @include e(item) {
     height: 32px;
     line-height: 32px;
-    font-size: 12px;
+    font-size: 14px;
     color: $custom-time-spinner-color-deactive;
 
     &:hover:not(.disabled):not(.active) {

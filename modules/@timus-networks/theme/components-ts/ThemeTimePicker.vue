@@ -177,10 +177,10 @@
       <h2>Date Range</h2>
       <p class="p-md-c my-6">Tarih aralığı seçici, bir başlangıç ve bitiş tarihi seçmenize olanak tanır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-date-picker v-model="value1" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date">
+        <el-date-picker v-model="datr1" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date">
         </el-date-picker>
         <el-date-picker
-          v-model="value2"
+          v-model="datr2"
           type="daterange"
           align="right"
           unlink-panels

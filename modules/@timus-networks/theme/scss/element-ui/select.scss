@@ -1,20 +1,18 @@
-@import "mixins/mixins";
-@import "mixins/utils";
-@import "common/var";
-@import "select-dropdown";
-@import "tag";
-@import "option";
-@import "option-group";
-@import "scrollbar";
+@import 'mixins/mixins';
+@import 'mixins/utils';
+@import 'common/var';
+@import 'select-dropdown';
+@import 'option';
+@import 'option-group';
+@import 'scrollbar';
 
 @include b(select) {
   display: inline-block;
   position: relative;
 
-  .el-select__tags
-    >span {
-      display: contents;
-    }
+  .el-select__tags > span {
+    display: contents;
+  }
 
   &:hover {
     .el-input__inner {
@@ -33,9 +31,8 @@
 
   .el-input {
     & .el-select__caret {
-      color: $--select-input-color;
       font-size: $--select-input-font-size;
-      transition: transform .3s;
+      transition: transform 0.3s;
       transform: rotateZ(180deg);
       cursor: pointer;
 
@@ -132,19 +129,33 @@
     max-width: 100%;
     align-items: center;
 
+    &.el-tag--info {
+      background-color: var(--primary-200);
+      border-color: var(--primary-200);
+      color: var(--primary-700);
+
+      .el-tag__close {
+        color: mix($--tag-primary-color, $--color-white, 100%);
+        &:hover {
+          color: $--color-white;
+          background-color: mix($--tag-primary-color, $--color-white, 100%);
+        }
+      }
+    }
+
     &__close.el-icon-close {
-      background-color: $--color-text-placeholder;
+      background-color: $--custom-tag-close-background-color;
       top: 0;
       color: $--color-white;
       flex-shrink: 0;
 
       &:hover {
-        background-color: $--color-text-secondary;
+        background-color: $--custom-tag-close-hover-background-color;
       }
 
       &::before {
         display: block;
-        transform: translate(0, .5px);
+        transform: translate(0, 0.5px);
       }
     }
   }

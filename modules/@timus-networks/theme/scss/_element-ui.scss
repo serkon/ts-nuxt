@@ -60,12 +60,10 @@ $custom-input-box-shadow: 0 3px 0 0 rgba(213, 205, 245, 40%);
 $custom-input-padding: 12px;
 $custom-input-prepend-background-color: var(--primary-600);
 $custom-input-prepend-color: $--color-white;
-$--select-input-color: $--color-white;
-
 
 $--input-font-size: 14px;
 $--input-font-color: var(--gray-900);
-$--input-height: 36px;
+$--input-height: 40px;
 $--input-border-color: var(--gray-400);
 $--input-border-radius: $--border-radius-base;
 $--input-background-color: $--color-white;
@@ -80,7 +78,7 @@ $--input-focus-border: var(--primary-600);
 $--input-focus-fill: $--color-white;
 
 $--input-disabled-fill: var(--gray-300);
-$--input-disabled-border: var(--gray-500);
+$--input-disabled-border: var(--gray-300);
 $--input-disabled-color: var(--gray-500);
 $--input-disabled-placeholder-color: var(--gray-400);
 
@@ -205,10 +203,33 @@ $--datepicker-inrange-hover-background-color: var(--primary-100);
 Time Spinner
 --------------------------
 */
-$custom-time-spinner-color-active: var(--gray-900);
-$custom-time-spinner-color-deactive: var(--gray-400);
+$custom-time-spinner-color-active: var(--primary-700);
+$custom-time-spinner-color-deactive: var(--gray-700);
 $custom-time-spinner-center-lines: var(--gray-400);
-$custom-time-spinner-size: 16px;
-$custom-time-spinner-hover-background: var(--gray-100);
+$custom-time-spinner-hover-background: transparent;
+/*
+--------------------------
+Select
+--------------------------
+*/
+$custom-option-padding: 16px;
+$custom-option-font-weight: 500;
+$custom-option-group-seperator-border-color: $custom-picker-border-color;
+$--select-option-height: 32px;
+$--select-font-size: 14px;
+$--select-option-color: $custom-time-spinner-color-deactive;
+$--select-option-selected-font-color: $custom-time-spinner-color-active;
+$--select-input-color: $--input-icon-color;
+
+$--select-group-color: var(--gray-400);
+$--select-group-height: 30px;
+$--select-group-font-size: 10px;
+/*
+--------------------------
+Tag
+--------------------------
+*/
+$--custom-tag-close-background-color: transparent;
+$--custom-tag-close-hover-background-color: transparent;
 
 @import "./element-ui/index.scss";

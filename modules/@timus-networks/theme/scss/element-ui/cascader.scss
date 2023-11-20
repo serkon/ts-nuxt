@@ -1,6 +1,5 @@
 @import "mixins/mixins";
 @import "common/var";
-@import "./tag";
 @import "./cascader-panel";
 
 @include b(cascader) {

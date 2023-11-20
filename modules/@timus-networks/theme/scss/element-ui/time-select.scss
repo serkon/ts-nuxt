@@ -12,9 +12,11 @@
 }
 
 .time-select-item {
-  padding: 8px 10px;
-  font-size: 14px;
-  line-height: 20px;
+  padding: 0 $custom-option-padding;
+  font-size: $--select-font-size;
+  font-weight: $custom-option-font-weight;
+  line-height: $--select-option-height;
+  height: $--select-option-height;
   color: $custom-time-spinner-color-deactive;
 }
 

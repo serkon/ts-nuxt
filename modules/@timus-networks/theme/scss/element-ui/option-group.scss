@@ -2,7 +2,7 @@
 @import "common/var";
 
 @include b(select-group) {
-  $gap: 20px;
+  $gap: $custom-option-padding;
 
   margin: 0;
   padding: 0;
@@ -24,7 +24,7 @@
         right: $gap;
         bottom: 12px;
         height: 1px;
-        background: $--border-color-light;
+        background: $custom-option-group-seperator-border-color;
       }
     }
   }

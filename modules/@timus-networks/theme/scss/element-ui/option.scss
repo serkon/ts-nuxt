@@ -4,7 +4,7 @@
 @include b(select-dropdown) {
   @include e(item) {
     font-size: $--select-font-size;
-    padding: 0 20px;
+    padding: 0 $custom-option-padding;
     position: relative;
     white-space: nowrap;
     overflow: hidden;
@@ -14,6 +14,7 @@
     line-height: $--select-option-height;
     box-sizing: border-box;
     cursor: pointer;
+    font-weight: $custom-option-font-weight;
 
     @include when(disabled) {
       color: $--select-option-disabled-color;
@@ -25,12 +26,11 @@
     }
 
     &.hover, &:hover {
-      background-color: $--select-option-hover-background;
+      color: $custom-time-spinner-color-active;
     }
 
     &.selected {
       color: $--select-option-selected-font-color;
-      font-weight: bold;
     }
   }
 }

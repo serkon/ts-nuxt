@@ -66,11 +66,11 @@
     <section>
       <h1>Basic multiple select</h1>
       <p class="p-lg my-6">Etkileşime kapalı 'disabled' butonlarımız, kullanılamaz durumları göstermek için kullanılır.</p>
-      <div class="grid grid-flow-col auto-cols-max gap-4">
+      <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
         <el-select v-model="value1" multiple placeholder="Select">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
         </el-select>
-        <el-select v-model="value2" multiple collapse-tags style="margin-left: 20px" placeholder="Select">
+        <el-select v-model="value2" multiple collapse-tags placeholder="Select" type="primary">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
         </el-select>
       </div>
