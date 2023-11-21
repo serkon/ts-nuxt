@@ -1,7 +1,7 @@
-@import "mixins/mixins";
-@import "mixins/utils";
+@import 'mixins/mixins';
+@import 'mixins/utils';
 @import 'mixins/button';
-@import "common/var";
+@import 'common/var';
 
 @include b(radio) {
   color: $--radio-font-color;
@@ -95,13 +95,14 @@
 
     @include when(disabled) {
       .el-radio__inner {
-        background-color: $--radio-disabled-input-fill;
-        border-color: $--radio-disabled-input-border-color;
+        background-color: $--checkbox-disabled-input-fill;
+        border-color: $--checkbox-disabled-border-color;
         cursor: not-allowed;
+        box-shadow: $custom-checkbox-disabled-input-inset-border;
 
         &::after {
           cursor: not-allowed;
-          background-color: $--radio-disabled-icon-color;
+          border-color: $--checkbox-disabled-icon-color;
         }
 
         & + .el-radio__label {
@@ -110,11 +111,11 @@
       }
       &.is-checked {
         .el-radio__inner {
-          background-color: $--radio-disabled-checked-input-fill;
-          border-color: $--radio-disabled-checked-input-border-color;
+          background-color: $--checkbox-disabled-checked-input-fill;
+          border-color: $--checkbox-disabled-checked-input-border-color;
 
           &::after {
-            background-color: $--radio-disabled-checked-icon-color;
+            border-color: $--checkbox-disabled-checked-icon-color;
           }
         }
       }
@@ -126,11 +127,11 @@
 
     @include when(checked) {
       .el-radio__inner {
+        background: $custom-radio-checked-background-color;
         border-color: $--radio-checked-input-border-color;
-        background: $--radio-checked-icon-color;
 
         &::after {
-          transform: translate(-50%, -50%) scale(1);
+          transform: rotate(45deg) scaleY(1);
         }
       }
 
@@ -157,20 +158,23 @@
     box-sizing: border-box;
 
     &:hover {
-      border-color: $--radio-input-border-color-hover;
+      //border-color: $--radio-input-border-color-hover;
     }
 
     &::after {
-      width: 4px;
-      height: 4px;
-      border-radius: $--radio-input-border-radius;
-      background-color: $--color-white;
-      content: "";
+      box-sizing: content-box;
+      content: '';
+      border: $custom-checkbox-checked-icon-weight solid $--checkbox-checked-icon-color;
+      border-left: 0;
+      border-top: 0;
+      height: 7px;
+      left: 4px;
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      transition: transform .15s ease-in;
+      top: 1px;
+      transform: rotate(45deg) scaleY(0);
+      width: 3px;
+      transition: transform 0.15s ease-in 0.05s;
+      transform-origin: center;
     }
   }
 
@@ -186,7 +190,8 @@
     margin: 0;
   }
 
-  &:focus:not(.is-focus):not(:active):not(.is-disabled) { /*获得焦点时 样式提醒*/
+  &:focus:not(.is-focus):not(:active):not(.is-disabled) {
+    /*获得焦点时 样式提醒*/
     .el-radio__inner {
       box-shadow: 0 0 2px 2px $--radio-input-border-color-hover;
     }
