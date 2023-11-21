@@ -79,16 +79,16 @@
 
   @include e(item) {
     list-style: none;
-    line-height: 36px;
-    padding: 0 20px;
+    line-height: $--select-option-height;
+    padding: 0 $custom-option-padding;
     margin: 0;
-    font-size: $--font-size-base;
-    color: $--color-text-regular;
+    font-size: $--select-option-font-size;
+    color: $--select-option-font-color;
     cursor: pointer;
     outline: none;
     &:not(.is-disabled):hover, &:focus {
-      background-color: $--dropdown-menuItem-hover-fill;
-      color: $--dropdown-menuItem-hover-color;
+      background-color: $--select-option-hover-background;
+      color: $--select-option-font-color-selected;
     }
 
     i {
@@ -100,14 +100,14 @@
 
       position: relative;
       margin-top: $divided-offset;
-      border-top: 1px solid $--border-color-lighter;
+      border-top: 1px solid $custom-option-seperator-border-color;
 
       &:before {
         content: '';
         height: $divided-offset;
         display: block;
         margin: 0 -20px;
-        background-color: $--color-white;
+        background-color: $custom-option-divided-background;
       }
     }
 

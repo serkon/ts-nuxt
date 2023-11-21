@@ -3,13 +3,13 @@
 
 @include b(select-dropdown) {
   @include e(item) {
-    font-size: $--select-font-size;
+    font-size: $--select-option-font-size;
     padding: 0 $custom-option-padding;
     position: relative;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: $--select-option-color;
+    color: $--select-option-font-color;
     height: $--select-option-height;
     line-height: $--select-option-height;
     box-sizing: border-box;
@@ -26,11 +26,12 @@
     }
 
     &.hover, &:hover {
-      color: $custom-time-spinner-color-active;
+      color: $--select-option-font-color-selected;
+      background-color: $--select-option-hover-background;
     }
 
     &.selected {
-      color: $--select-option-selected-font-color;
+      color: $--select-option-font-color-selected;
     }
   }
 }

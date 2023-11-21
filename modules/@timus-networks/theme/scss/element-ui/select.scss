@@ -41,11 +41,11 @@
       }
 
       @include when(show-close) {
-        font-size: $--select-font-size;
+        font-size: $--select-option-font-size;
         text-align: center;
         transform: rotateZ(180deg);
         border-radius: $--border-radius-circle;
-        color: $--select-input-color;
+        color: $--select-input-font-color;
         transition: $--color-transition-base;
 
         &:hover {
@@ -79,7 +79,7 @@
     padding: 0;
     margin-left: 15px;
     color: $--select-multiple-input-color;
-    font-size: $--select-font-size;
+    font-size: $--select-option-font-size;
     appearance: none;
     height: 28px;
     background-color: transparent;
@@ -94,7 +94,7 @@
     top: 8px;
     z-index: $--index-top;
     right: 25px;
-    color: $--select-input-color;
+    color: $--select-input-font-color;
     line-height: 18px;
     font-size: $--select-input-font-size;
 

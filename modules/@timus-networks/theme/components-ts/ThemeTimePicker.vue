@@ -2,6 +2,62 @@
   <div class="pt-8 pb-16 flex gap-12 flex-col">
     <h1>Popover</h1>
     <section>
+      <h2>Basic Usage</h2>
+      <p class="p-md-c my-6">Hover on the dropdown menu to unfold it for more actions.</p>
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-dropdown trigger="click">
+          <span class="el-dropdown-link"> Dropdown List<i class="el-icon-arrow-down el-icon--right"></i> </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>Action 1</el-dropdown-item>
+            <el-dropdown-item>Action 2</el-dropdown-item>
+            <el-dropdown-item>Action 3</el-dropdown-item>
+            <el-dropdown-item disabled>Action 4</el-dropdown-item>
+            <el-dropdown-item divided>Action 5</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown trigger="click">
+          <el-button type="primary"> Dropdown List<i class="el-icon-arrow-down el-icon--right"></i> </el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>Action 1</el-dropdown-item>
+            <el-dropdown-item>Action 2</el-dropdown-item>
+            <el-dropdown-item>Action 3</el-dropdown-item>
+            <el-dropdown-item>Action 4</el-dropdown-item>
+            <el-dropdown-item>Action 5</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown split-button type="primary" @click="handleClick">
+          Dropdown List
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>Action 1</el-dropdown-item>
+            <el-dropdown-item>Action 2</el-dropdown-item>
+            <el-dropdown-item>Action 3</el-dropdown-item>
+            <el-dropdown-item>Action 4</el-dropdown-item>
+            <el-dropdown-item>Action 5</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown trigger="click">
+          <span class="el-dropdown-link"> Dropdown List<i class="el-icon-arrow-down el-icon--right"></i> </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item icon="el-icon-plus">Action 1</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-plus">Action 2</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-plus-outline">Action 3</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-check">Action 4</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-circle-check">Action 5</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <p class="text-xs">
+          <code>
+            &lt;el-popover placement=&quot;right&quot; title=&quot;Başlık&quot; trigger=&quot;click&quot;&gt; &lt;el-button
+            slot=&quot;reference&quot;&gt;Tıkla&lt;/el-button&gt; &lt;/el-popover&gt;
+          </code>
+        </p>
+      </div>
+    </section>
+
+    <h1>Popover</h1>
+    <section>
       <h2>Temel Kullanım</h2>
       <p class="p-md-c my-6">
         Popover bileşeni, kullanıcının üzerine geldiğinde veya tıkladığında ek bilgileri veya eylemleri görüntülemek için kullanılır. Örneğinizde,

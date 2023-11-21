@@ -13,11 +13,11 @@
 
 .time-select-item {
   padding: 0 $custom-option-padding;
-  font-size: $--select-font-size;
+  font-size: $--select-option-font-size;
   font-weight: $custom-option-font-weight;
   line-height: $--select-option-height;
   height: $--select-option-height;
-  color: $custom-time-spinner-color-deactive;
+  color: $--select-option-font-color;
 }
 
 .time-select-item.selected:not(.disabled) {
@@ -30,6 +30,6 @@
 }
 
 .time-select-item:hover {
-  color: $custom-time-spinner-color-active;
+  color: $--select-option-font-color-selected;
   cursor: pointer;
 }

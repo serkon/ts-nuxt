@@ -90,7 +90,7 @@
     height: 32px;
     line-height: 32px;
     font-size: 14px;
-    color: $custom-time-spinner-color-deactive;
+    color: $--select-option-font-color;
 
     &:hover:not(.disabled):not(.active) {
       background: $custom-time-spinner-hover-background;
@@ -98,7 +98,7 @@
     }
 
     &.active:not(.disabled) {
-      color: $custom-time-spinner-color-active;
+      color: $--select-option-font-color-selected;
     }
 
     &.disabled {

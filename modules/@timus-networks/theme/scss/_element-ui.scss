@@ -203,8 +203,6 @@ $--datepicker-inrange-hover-background-color: var(--primary-100);
 Time Spinner
 --------------------------
 */
-$custom-time-spinner-color-active: var(--primary-700);
-$custom-time-spinner-color-deactive: var(--gray-700);
 $custom-time-spinner-center-lines: var(--gray-400);
 $custom-time-spinner-hover-background: transparent;
 /*
@@ -214,12 +212,14 @@ Select
 */
 $custom-option-padding: 16px;
 $custom-option-font-weight: 500;
-$custom-option-group-seperator-border-color: $custom-picker-border-color;
+$custom-option-seperator-border-color: $custom-picker-border-color;
+$custom-option-divided-background: transparent;
+$--select-option-hover-background: transparent;
 $--select-option-height: 32px;
-$--select-font-size: 14px;
-$--select-option-color: $custom-time-spinner-color-deactive;
-$--select-option-selected-font-color: $custom-time-spinner-color-active;
-$--select-input-color: $--input-icon-color;
+$--select-option-font-size: 14px;
+$--select-option-font-color: var(--gray-700);
+$--select-option-font-color-selected: var(--primary-700);
+$--select-input-font-color: $--input-font-color;
 
 $--select-group-color: var(--gray-400);
 $--select-group-height: 30px;

@@ -282,24 +282,24 @@ $--radio-button-disabled-checked-fill: $--border-color-extra-light !default;
 $--select-border-color-hover: $--border-color-hover !default;
 $--select-disabled-border: $--disabled-border-base !default;
 /// fontSize||Font|1
-$--select-font-size: $--font-size-base !default;
+$--select-option-font-size: $--font-size-base !default;
 $--select-close-hover-color: $--color-text-secondary !default;
 
-$--select-input-color: $--color-text-placeholder !default;
+$--select-input-font-color: $--color-text-placeholder !default;
 $--select-multiple-input-color: #666 !default;
 /// color||Color|0
 $--select-input-focus-border-color: $--color-primary !default;
 /// fontSize||Font|1
 $--select-input-font-size: 14px !default;
 
-$--select-option-color: $--color-text-regular !default;
+$--select-option-font-color: $--color-text-regular !default;
 $--select-option-disabled-color: $--color-text-placeholder !default;
 $--select-option-disabled-background: $--color-white !default;
 /// height||Other|4
 $--select-option-height: 34px !default;
 $--select-option-hover-background: $--background-color-base !default;
 /// color||Color|0
-$--select-option-selected-font-color: $--color-primary !default;
+$--select-option-font-color-selected: $--color-primary !default;
 $--select-option-selected-hover: $--background-color-base !default;
 
 $--select-group-color: $--color-info !default;
