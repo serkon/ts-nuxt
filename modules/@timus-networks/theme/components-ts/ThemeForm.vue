@@ -1,37 +1,65 @@
 <template>
-  <div>
+  <div class="pt-8 pb-16 flex gap-12 flex-col">
+    <h1>Checkbox</h1>
+
     <section>
-      <h1>Checkbox</h1>
+      <h2>Basic Usage</h2>
+      <p class="p-lg my-6">Checkbox can be used alone to switch between two states. Disabled state for checkbox.</p>
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-checkbox v-model="checked">Option</el-checkbox>
+        <el-checkbox :value="true" disabled>selected & disabled</el-checkbox>
+        <el-checkbox :value="false" disabled>unselected & disabled</el-checkbox>
+      </div>
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <p class="text-xs">
+          <code>
+            &lt;el-date-picker v-model="input" type="daterange" align="left" start-placeholder="Start" end-placeholder="End"
+            default-value=""&gt;&lt;/el-date-picker&gt;
+          </code>
+        </p>
+      </div>
+    </section>
+    <section>
+      <h2>Checkbox group</h2>
       <p class="p-lg my-6">
         Tarih aralığı seçici, kullanıcının bir başlangıç ve bitiş tarihi seçmesine olanak tanır, bu da planlama ve raporlama işlemleri için idealdir.
       </p>
-      <el-checkbox-group v-model="checkList" class="mb-6">
-        <el-checkbox label="Option A"></el-checkbox>
-        <el-checkbox label="Option B"></el-checkbox>
-        <el-checkbox label="Option C"></el-checkbox>
-        <el-checkbox label="disabled" disabled></el-checkbox>
-        <el-checkbox label="selected and disabled" disabled></el-checkbox>
-      </el-checkbox-group>
-
-      <el-checkbox-group v-model="checkboxGroup1">
-        <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
-      </el-checkbox-group>
-
-      <el-checkbox-group v-model="checkboxGroup1" size="mini" disabled>
-        <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
-      </el-checkbox-group>
-
-      <el-checkbox-group v-model="checkboxGroup1" size="small">
-        <el-checkbox label="Option1" border></el-checkbox>
-        <el-checkbox label="Option2" border disabled></el-checkbox>
-      </el-checkbox-group>
-
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-checkbox-group v-model="checkList" class="mb-6">
+          <el-checkbox label="Option A"></el-checkbox>
+          <el-checkbox label="Option B"></el-checkbox>
+          <el-checkbox label="Option C"></el-checkbox>
+          <el-checkbox label="disabled" disabled></el-checkbox>
+          <el-checkbox label="selected and disabled" disabled></el-checkbox>
+        </el-checkbox-group>
+      </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
-          <code
-            >&lt;el-date-picker v-model="input" type="daterange" align="left" start-placeholder="Start" end-placeholder="End"
-            default-value=""&gt;&lt;/el-date-picker&gt;</code
-          >
+          <code>
+            &lt;el-date-picker v-model="input" type="daterange" align="left" start-placeholder="Start" end-placeholder="End"
+            default-value=""&gt;&lt;/el-date-picker&gt;
+          </code>
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Indeterminate</h2>
+      <p class="p-lg my-6">
+        Tarih aralığı seçici, kullanıcının bir başlangıç ve bitiş tarihi seçmesine olanak tanır, bu da planlama ve raporlama işlemleri için idealdir.
+      </p>
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">Check all</el-checkbox>
+        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+          <el-checkbox v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox>
+        </el-checkbox-group>
+      </div>
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <p class="text-xs">
+          <code>
+            &lt;el-date-picker v-model="input" type="daterange" align="left" start-placeholder="Start" end-placeholder="End"
+            default-value=""&gt;&lt;/el-date-picker&gt;
+          </code>
         </p>
       </div>
     </section>
@@ -157,9 +185,13 @@ const cityOptions = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen'];
 export default Vue.extend({
   data() {
     return {
+      checked: true,
       checkboxGroup1: ['Shanghai'],
       cities: cityOptions,
       checkList: ['selected and disabled', 'Option A'],
+      checkAll: false,
+      checkedCities: ['Shanghai', 'Beijing'],
+      isIndeterminate: true,
       time: '',
       sizeForm: {
         name: '',
@@ -204,6 +236,15 @@ export default Vue.extend({
     };
   },
   methods: {
+    handleCheckAllChange(val: string) {
+      this.checkedCities = val ? cityOptions : [];
+      this.isIndeterminate = false;
+    },
+    handleCheckedCitiesChange(value: string[]) {
+      let checkedCount = value.length;
+      this.checkAll = checkedCount === this.cities.length;
+      this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+    },
     showAgreementDialog(type: string) {
       console.log('agreement: ', type);
     },
