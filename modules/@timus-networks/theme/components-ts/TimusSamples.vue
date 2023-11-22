@@ -9,7 +9,7 @@
       <el-tab-pane label="Numbers" name="six"><ThemeInputNumbers></ThemeInputNumbers></el-tab-pane>
       <el-tab-pane label="Picker" name="seven"><ThemeTimePicker></ThemeTimePicker></el-tab-pane>
       <el-tab-pane label="Select" name="eight"><ThemeSelect></ThemeSelect></el-tab-pane>
-      <el-tab-pane label="Form" name="nine"><ThemeForm></ThemeForm>></el-tab-pane>
+      <el-tab-pane label="Form" name="nine"><ThemeForm></ThemeForm></el-tab-pane>
     </el-tabs>
   </div>
 </template>

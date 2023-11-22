@@ -2,10 +2,13 @@
 @import "common/var";
 
 @include b(dropdown) {
-  display: inline-block;
+  display: flex;
   position: relative;
   color: $--color-text-regular;
   font-size: $--font-size-base;
+  align-items: center;
+  justify-content: center;
+
 
   .el-button-group {
     display: block;

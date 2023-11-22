@@ -10,8 +10,8 @@
   }
   @include m(label-top) {
     .el-form-item {
-      display: flex;
       flex-direction: column;
+      align-items: normal;
     }
 
     .el-form-item__label {
@@ -25,7 +25,7 @@
   }
   @include m(inline) {
     & .el-form-item {
-      display: inline-block;
+      display: flex;
       margin-right: 10px;
       vertical-align: top;
     }
@@ -44,6 +44,8 @@
 }
 @include b(form-item) {
   // margin-bottom: 22px;
+  display: flex;
+  align-items: center;
   @include utils-clearfix;
 
   & .el-form-item {
@@ -114,12 +116,17 @@
     font-size: $--form-label-font-size;
     font-weight: $custom-form-label-font-weight;
     color: $custom-form-label-font-color;
-    line-height: $custom-form-label-medium-line-height;
+    line-height: $custom-form-label-large-line-height;
     padding: 0 12px 0 0;
     box-sizing: border-box;
+
+    + .el-form-item__content{
+      margin-left: 0 !important;
+      flex-grow: 1;
+    }
   }
   @include e(content) {
-    line-height: $custom-form-label-medium-line-height;
+    line-height: $custom-form-label-large-line-height;
     position: relative;
     font-size: 14px;
     @include utils-clearfix;
