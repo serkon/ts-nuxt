@@ -1,57 +1,6 @@
 <template>
   <div class="pt-8 pb-16 flex gap-12 flex-col">
     <section>
-      <h1>Date Range Picker</h1>
-      <p class="p-lg my-6">
-        Tarih aralığı seçici, kullanıcının bir başlangıç ve bitiş tarihi seçmesine olanak tanır, bu da planlama ve raporlama işlemleri için idealdir.
-      </p>
-      <el-date-picker
-        v-model="input"
-        type="daterange"
-        align="right"
-        start-placeholder="Start Date"
-        end-placeholder="End Date"
-        default-value="2010-10-01"
-        class="danger"
-      >
-      </el-date-picker>
-      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">
-          <code
-            >&lt;el-date-picker v-model="input" type="daterange" align="left" start-placeholder="Start" end-placeholder="End"
-            default-value=""&gt;&lt;/el-date-picker&gt;</code
-          >
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <h1>Time Select</h1>
-      <p class="p-lg my-6">
-        Zaman seçici, kullanıcının belirli bir zaman aralığından bir zaman dilimi seçmesine imkan tanır. Bu, randevu veya rezervasyon gibi zaman
-        belirli işlemler için kullanışlıdır.
-      </p>
-      <el-time-select
-        v-model="input"
-        :picker-options="{
-          start: '08:30',
-          step: '00:15',
-          end: '18:30',
-        }"
-        placeholder="Select time"
-      ></el-time-select>
-      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">
-          Zaman seçimi için:
-          <code
-            >&lt;el-time-select v-model="input" :picker-options="{ start: '08:30', step: '00:15', end: '18:30' }" placeholder="Select
-            time"&gt;&lt;/el-time-select&gt;</code
-          >
-        </p>
-      </div>
-    </section>
-
-    <section>
       <h1>Basic</h1>
       <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
       <div class="grid grid-flow-col auto-cols-max">

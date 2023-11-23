@@ -17,6 +17,7 @@
   @include e(wrap) {
     overflow: scroll;
     height: 100%;
+    box-sizing: content-box;
 
     @include m(hidden-default) {
       scrollbar-width: none;

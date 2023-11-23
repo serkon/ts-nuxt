@@ -121,7 +121,7 @@ export default Vue.extend({
   name: 'TimusButtonSample',
   data() {
     return {
-      colors: ['primary', 'secondary', 'gray', 'info', 'success', 'wanring', 'danger'],
+      colors: ['primary', 'secondary', 'gray', 'info', 'success', 'warning', 'danger'],
       status: ['outline', 'ghost', 'rounder', 'disabled'],
       sizes: ['large', 'medium', 'small', 'mini'],
       icons: ['isax-bag', 'isax-calculator'],

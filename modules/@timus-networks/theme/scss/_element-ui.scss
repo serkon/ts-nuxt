@@ -1,6 +1,6 @@
 /* theme color */
 $--color-white: #ffffff;
-$--color-primary: map-get(map-get($theme, primary), '500');
+$--color-primary: map-get(map-get($theme, primary), '700');
 $--color-secondary: map-get(map-get($theme, secondary), '500');
 $--color-gray: map-get(map-get($theme, gray), '500');
 $--color-info: map-get(map-get($theme, info), '500');

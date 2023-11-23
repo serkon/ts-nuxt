@@ -197,6 +197,7 @@ export default Vue.extend({
         {
           value: 'Option2',
           label: 'Option2',
+          disabled: true,
         },
         {
           value: 'Option3',

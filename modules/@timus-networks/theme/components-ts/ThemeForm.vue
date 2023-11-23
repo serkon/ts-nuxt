@@ -12,38 +12,34 @@
       <p class="p-lg-c">Form elemanlarının etiketlerinin konumunu belirlemek için kullanılır. Etiketler sol, sağ veya üst tarafında olabilir.</p>
       <div class="p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
-          Kullanım Örneği:
-          <br />
           <code>
-            &lt;el-form :model="sizeForm" label-width="120px" label-position="{{ labelPosition }}"> &lt;el-form-item label="Aktivite Adı">
-            &lt;el-input v-model="sizeForm.name">&lt;/el-input> &lt;/el-form-item>
-            <!-- Diğer form elemanları burada -->
-            &lt;/el-form>
+            &lt;el-form :model="sizeForm" label-width="120px" label-position="{{ labelPosition }}">&lt;el-form-item label="Title">&lt;el-input
+            v-model="form.name">&lt;/el-input>&lt;/el-form-item>&lt;/el-form>
           </code>
         </p>
       </div>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-form ref="form" :model="sizeForm" label-width="120px" class="gap-4 flex flex-col" :label-position="labelPosition">
+        <el-form ref="form" :model="form" label-width="130px" class="gap-4 flex flex-col" :label-position="labelPosition">
           <el-form-item label="Aktivite Adı">
-            <el-input v-model="sizeForm.name"></el-input>
+            <el-input v-model="form.name"></el-input>
           </el-form-item>
           <el-form-item label="Aktivite Bölgesi">
-            <el-select v-model="sizeForm.region" placeholder="Lütfen bölgenizi seçin" class="w-full">
+            <el-select v-model="form.region" placeholder="Lütfen bölgenizi seçin" class="w-full">
               <el-option label="Bölge Bir" value="shanghai"></el-option>
               <el-option label="Bölge İki" value="beijing"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="Aktivite Zamanı">
             <el-col :span="11">
-              <el-date-picker type="date" placeholder="Tarih seçin" v-model="sizeForm.date1" style="width: 100%"></el-date-picker>
+              <el-date-picker type="date" placeholder="Tarih seçin" v-model="form.date1" style="width: 100%"></el-date-picker>
             </el-col>
             <el-col class="text-center" :span="1">-</el-col>
             <el-col :span="12">
-              <el-time-picker placeholder="Saat seçin" v-model="sizeForm.date2" style="width: 100%"></el-time-picker>
+              <el-time-picker placeholder="Saat seçin" v-model="form.date2" style="width: 100%"></el-time-picker>
             </el-col>
           </el-form-item>
           <el-form-item label="Kaynaklar">
-            <el-radio-group v-model="sizeForm.resource" size="medium" class="flex gap-4">
+            <el-radio-group v-model="form.resource" size="medium" class="flex gap-4">
               <el-radio label="Sponsor"></el-radio>
               <el-radio label="Mekan"></el-radio>
             </el-radio-group>
@@ -65,9 +61,7 @@ export default Vue.extend({
   data() {
     return {
       labelPosition: 'right',
-      checked: true,
-      time: '',
-      sizeForm: {
+      form: {
         name: '',
         region: '',
         date1: '',
@@ -75,18 +69,6 @@ export default Vue.extend({
         delivery: false,
         type: [],
         resource: '',
-        desc: '',
-      },
-      loading: false,
-      form: {
-        email: '',
-        password: '',
-        remember: false,
-        token: null,
-        correlation_id: null,
-        action: null,
-        platform: 'manager',
-        version: '1.0.10',
       },
     };
   },
@@ -94,9 +76,7 @@ export default Vue.extend({
     showAgreementDialog(type: string) {
       console.log('agreement: ', type);
     },
-    submit() {
-      this.$emit('submit', this.form);
-    },
+    submit() {},
     onSubmit() {
       console.log('submit!');
     },
