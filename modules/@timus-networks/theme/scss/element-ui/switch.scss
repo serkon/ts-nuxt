@@ -21,20 +21,20 @@
     height: $--switch-height;
     display: inline-block;
     font-size: $--switch-font-size;
-    font-weight: 500;
+    font-weight: $custom-switch-font-weight;
     cursor: pointer;
     vertical-align: middle;
-    color: $--color-text-primary;
+    color: $custom-switch-font-color;
 
     @include when(active) {
-      color: $--color-primary;
+      color: $custom-switch-font-color;
     }
 
     @include m(left) {
-      margin-right: 10px;
+      margin-right: $custom-switch-margin-x;
     }
     @include m(right) {
-      margin-left: 10px;
+      margin-left: $custom-switch-margin-x;
     }
     & * {
       line-height: 1;
@@ -65,6 +65,12 @@
     cursor: pointer;
     transition: border-color .3s, background-color .3s;
     vertical-align: middle;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:active {
+      box-shadow: 0 0 0 4px var(--gray-300);
+      transition: box-shadow 0.3s ease-in-out;
+    }
 
     &:after {
       content: "";
@@ -83,6 +89,13 @@
     .el-switch__core {
       border-color: $--switch-on-color;
       background-color: $--switch-on-color;
+      transition: box-shadow 0.3s ease-in-out;
+
+      &:active {
+        box-shadow: 0 0 0 4px var(--success-200);
+        transition: box-shadow 0.3s ease-in-out;
+      }
+
       &::after {
         left: 100%;
         margin-left: -$--switch-button-size - 1px;
@@ -91,7 +104,26 @@
   }
 
   @include when(disabled) {
-    opacity: 0.6;
+
+    .el-switch__core {
+      border-color: $custom-switch-disabled-background-color;
+      background-color: $custom-switch-disabled-background-color;
+
+      &:active{
+        box-shadow: none;
+      }
+    }
+
+    &.is-checked {
+      .el-switch__core {
+        border-color: $custom-switch-disabled-check-background-color;
+        background-color: $custom-switch-disabled-check-background-color;
+
+        &:active{
+          box-shadow: none;
+        }
+      }
+    }
   }
 
   @include m(wide) {

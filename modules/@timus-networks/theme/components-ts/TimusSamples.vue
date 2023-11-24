@@ -11,6 +11,8 @@
       <el-tab-pane label="Select" name="eight"><ThemeSelect></ThemeSelect></el-tab-pane>
       <el-tab-pane label="Form" name="nine"><ThemeForm></ThemeForm></el-tab-pane>
       <el-tab-pane label="Link" name="ten"><ThemeLink></ThemeLink></el-tab-pane>
+      <el-tab-pane label="Tag" name="eleven"><ThemeTag></ThemeTag></el-tab-pane>
+      <el-tab-pane label="Switch" name="twelve"><ThemeToggle></ThemeToggle></el-tab-pane>
     </el-tabs>
   </div>
 </template>

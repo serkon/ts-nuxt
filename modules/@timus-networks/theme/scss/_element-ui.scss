@@ -215,5 +215,33 @@ Tag
 */
 $--custom-tag-close-background-color: transparent;
 $--custom-tag-close-hover-background-color: transparent;
+/*
+--------------------------
+Switch
+--------------------------
+*/
+$--switch-font-size: 14px;
+$--switch-height: 20px;
+$custom-switch-font-weight: 500;
+$custom-switch-font-color: var(--gray-900);
+$custom-switch-margin-x: 8px;
+$custom-switch-disabled-background-color: var(--gray-300);
+$custom-switch-disabled-check-background-color: var(--success-300);
+$--switch-off-color: var(--gray-700);
+$--switch-on-color: var(--success-500);
+/*
+--------------------------
+Table
+--------------------------
+*/
+$custom-table-content-font-size: 14px;
+$custom-table-content-font-color: var(--gray-700);
+$custom-table-content-font-line-height: 16px;
+$custom-table-content-font-weight: 400;
+$custom-table-head-font-line-height: 48px;
+$custom-table-head-icon-width: 16px;
+
+$--table-header-font-color: var(--gray-700);
+$--table-header-background-color: $--color-white;
 
 @import "./element-ui/index.scss";

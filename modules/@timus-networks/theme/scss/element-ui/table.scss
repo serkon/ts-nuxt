@@ -1,6 +1,7 @@
-@import "mixins/mixins";
-@import "tooltip";
-@import "common/var";
+@use "sass:math";
+@import 'mixins/mixins';
+@import 'tooltip';
+@import 'common/var';
 
 @include b(table) {
   position: relative;
@@ -10,8 +11,10 @@
   width: 100%;
   max-width: 100%;
   background-color: $--color-white;
-  font-size: 14px;
-  color: $--table-font-color;
+  font-size: $custom-table-content-font-size;
+  font-weight: $custom-table-content-font-weight;
+  line-height: $custom-table-content-font-line-height;
+  color: $custom-table-content-font-color;
 
   // 数据为空
   @include e(empty-block) {
@@ -64,7 +67,7 @@
     background-color: $--color-white;
 
     // 纯属为了增加权重
-    &[class*=cell] {
+    &[class*='cell'] {
       padding: 20px 50px;
     }
 
@@ -106,7 +109,8 @@
 
   thead {
     color: $--table-header-font-color;
-    font-weight: 500;
+    line-height: $custom-table-content-font-line-height;
+    font-weight: $custom-table-content-font-weight;
 
     &.is-group {
       th.el-table__cell {
@@ -169,7 +173,7 @@
   tr {
     background-color: $--color-white;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       margin: 0;
     }
   }
@@ -187,15 +191,23 @@
     overflow: hidden;
     user-select: none;
     background-color: $--table-header-background-color;
+    padding: 0;
 
     > .cell {
-      display: inline-block;
       box-sizing: border-box;
       position: relative;
       vertical-align: middle;
       padding-left: 10px;
       padding-right: 10px;
       width: 100%;
+
+      display: flex;
+      align-items: center;
+      border: 1px solid red;
+      line-height: $custom-table-head-font-line-height;
+      font-size: $custom-table-content-font-size;
+      font-weight: $custom-table-content-font-weight;
+      color: $custom-table-content-font-color;
 
       &.highlight {
         color: $--color-primary;
@@ -204,7 +216,7 @@
 
     &.required > div::before {
       display: inline-block;
-      content: "";
+      content: '';
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -437,38 +449,97 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    height: 34px;
-    width: 24px;
+    height: 100%;
+    width: $custom-table-head-icon-width;
     vertical-align: middle;
     cursor: pointer;
     overflow: initial;
     position: relative;
   }
 
-  .sort-caret {
-    width: 0;
-    height: 0;
-    border: solid 5px transparent;
-    position: absolute;
-    left: 7px;
+  .is-sortable .caret-wrapper {
+    order: 1;
 
-    &.ascending {
-      border-bottom-color: $--color-text-placeholder;
-      top: 5px;
-    }
+    .sort-caret {
+      position: static;
+      border: none;
+      width: $custom-table-head-icon-width;
+      height: math.div($custom-table-head-font-line-height, 2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    &.descending {
-      border-top-color: $--color-text-placeholder;
-      bottom: 7px;
+      &::before {
+        box-sizing: content-box;
+        border-width: 1.5px;
+        border-style: solid;
+        border-left: 0;
+        border-top: 0;
+        height: 4px;
+        /* left: 4px; */
+        // position: absolute;
+        /* top: 1px; */
+        content: '';
+        width: 4px;
+        transition: transform 0.15s ease-in 0.05s;
+        transform-origin: center;
+      }
+
+      &.ascending {
+        align-items: flex-end;
+
+        &::before {
+          top: -4px;
+          transform: rotate(-135deg) scaleY(1);
+        }
+      }
+
+      &.descending {
+        align-items: flex-start;
+
+        &::before {
+          top: -2px;
+          transform: rotate(45deg) scaleY(1);
+        }
+      }
     }
   }
 
-  .ascending .sort-caret.ascending {
-    border-bottom-color: $--color-primary;
+  .ascending {
+    .ascending{
+      &::before {
+        border-color: var(--gray-700);
+      }
+    }
+    .descending {
+      // display: none;
+      &::before {
+        border-color: var(--gray-400);
+      }
+    }
   }
 
-  .descending .sort-caret.descending {
-    border-top-color: $--color-primary;
+  .descending {
+    .ascending {
+      // display: none;
+      &::before {
+        border-color: var(--gray-400);
+      }
+    }
+    .descending{
+      &::before {
+        border-color: var(--gray-700);
+        content: '';
+      }
+    }
+  }
+
+  .is-sortable:not(.ascending):not(.descending) {
+    .ascending, .descending{
+      &::before {
+        border-color: var(--gray-400);
+      }
+    }
   }
 
   .hidden-columns {
@@ -481,10 +552,11 @@
     & .el-table__body {
       & tr.el-table__row--striped {
         td.el-table__cell {
-          background: #FAFAFA;
+          background: #fafafa;
         }
 
-        &.current-row td.el-table__cell, &.selection-row td.el-table__cell {
+        &.current-row td.el-table__cell,
+        &.selection-row td.el-table__cell {
           background-color: $--table-current-row-background-color;
         }
       }
@@ -493,8 +565,11 @@
 
   @include e(body) {
     tr.hover-row {
-      &, &.el-table__row--striped {
-        &, &.current-row, &.selection-row {
+      &,
+      &.el-table__row--striped {
+        &,
+        &.current-row,
+        &.selection-row {
           > td.el-table__cell {
             background-color: $--table-row-hover-background-color;
           }
@@ -502,7 +577,8 @@
       }
     }
 
-    tr.current-row > td.el-table__cell, tr.selection-row > td.el-table__cell {
+    tr.current-row > td.el-table__cell,
+    tr.selection-row > td.el-table__cell {
       background-color: $--table-current-row-background-color;
     }
   }
@@ -518,20 +594,24 @@
   }
 
   @include e(column-filter-trigger) {
-    display: inline-block;
-    line-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $custom-table-head-icon-width;
+    height: $custom-table-head-font-line-height;
+    line-height: $custom-table-head-font-line-height;
     cursor: pointer;
 
+
     & i {
-      color: $--color-info;
+      color: $--table-header-font-color;
       font-size: 12px;
-      transform: scale(.75);
     }
   }
 
   @include m(enable-row-transition) {
     .el-table__body td.el-table__cell {
-      transition: background-color .25s ease;
+      transition: background-color 0.25s ease;
     }
   }
 
@@ -549,7 +629,7 @@
     }
   }
 
-  [class*=el-table__row--level] {
+  [class*='el-table__row--level'] {
     .el-table__expand-icon {
       display: inline-block;
       width: 20px;
