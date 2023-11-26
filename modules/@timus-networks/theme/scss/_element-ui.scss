@@ -240,8 +240,14 @@ $custom-table-content-font-line-height: 16px;
 $custom-table-content-font-weight: 400;
 $custom-table-head-font-line-height: 48px;
 $custom-table-head-icon-width: 16px;
+$custom-table-container-padding: 24px;
+$custom-table-container-border-color: var(--gray-300);
+$custom-table-container-border-radius: 12px;
+$custom-table-container-border-padding: 8px 24px;
 
 $--table-header-font-color: var(--gray-700);
 $--table-header-background-color: $--color-white;
+$--table-border: 1px solid var(--gray-300);
+$--table-row-hover-background-color: transparent; // var(--gray-100);
 
 @import "./element-ui/index.scss";

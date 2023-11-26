@@ -25,7 +25,7 @@
             <el-dropdown-item>Action 5</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-dropdown split-button type="primary" @click="handleClick">
+        <el-dropdown split-button type="primary">
           Dropdown List
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>Action 1</el-dropdown-item>

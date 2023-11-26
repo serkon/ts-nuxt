@@ -6,7 +6,7 @@
         Use the type attribute to define Tag's type. In addition, the color attribute can be used to set the background color of the Tag.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-tag disable-transitions="true">Tag 1</el-tag>
+        <el-tag :disable-transitions="true">Tag 1</el-tag>
         <el-tag type="success">Tag 2</el-tag>
         <el-tag type="info">Tag 3</el-tag>
         <el-tag type="warning">Tag 4</el-tag>

@@ -13,6 +13,7 @@
       <el-tab-pane label="Link" name="ten"><ThemeLink></ThemeLink></el-tab-pane>
       <el-tab-pane label="Tag" name="eleven"><ThemeTag></ThemeTag></el-tab-pane>
       <el-tab-pane label="Switch" name="twelve"><ThemeToggle></ThemeToggle></el-tab-pane>
+      <el-tab-pane label="Table" name="thirteen"><ThemeTable></ThemeTable></el-tab-pane>
     </el-tabs>
   </div>
 </template>
