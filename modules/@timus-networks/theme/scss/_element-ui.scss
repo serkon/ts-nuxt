@@ -269,6 +269,20 @@ $--pagination-font-size: 14px;
 $--pagination-small-font-size: 12px;
 $--pagination-small-height: 22px;
 $--pagination-small-min-width: 22px;
+/*
+--------------------------
+Pagination
+--------------------------
+*/
+$custom-tooltip-font-weight: 400;
+$custom-tooltip-line-height: 14px;
+$custom-tooltip-border-radius: 8px;
 
+$--tooltip-fill: var(--gray-900);
+$--tooltip-border-color: var(--gray-900);
+$--tooltip-color: var(--gray-400);
+$--tooltip-font-size: 10px;
+$--tooltip-padding: 12px 10px;
+$--tooltip-arrow-size: 8px;
 
 @import "./element-ui/index.scss";
