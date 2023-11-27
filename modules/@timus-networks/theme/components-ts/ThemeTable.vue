@@ -2,21 +2,26 @@
   <div class="pt-8 pb-16 flex gap-12 flex-col">
     <section>
       <h1>Fixed Height</h1>
-      <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
-      <div class="grid grid-flow-col gap-4">
-        <div class="table-container">
+      <p class="p-lg-c my-6">
+        Bu örnek, Element UI tarafından sağlanan <code>el-table</code> bileşenini kullanarak bir veri tablosu oluşturmanın temel bir örneğini
+        göstermektedir. `table-container` ile dışarıya border verildiğini unutmamanızı tavsiye ediyoruz.
+      </p>
+      <div class="grid grid-flow-col gap-4 flex-column">
+        <div class="table-container mb-6">
           <el-table
             :data="tableData"
             :default-sort="{ prop: 'date', order: 'descending' }"
             @selection-change="handleSelectionChange"
             ref="multipleTable"
+            height="360px"
+            style="width: 100%"
           >
             <el-table-column type="selection" width="55"> </el-table-column>
             <el-table-column
+              fixed
               prop="date"
               label="Date"
               sortable
-              width="180"
               column-key="date"
               :filters="[
                 { text: '2016-05-01', value: '2016-05-01' },
@@ -35,17 +40,31 @@
               :filters="[
                 { text: 'Home', value: 'Home' },
                 { text: 'Office', value: 'Office' },
+                { text: 'Patates', value: 'Patates' },
               ]"
               :filter-method="filterTag"
-              filter-placement="bottom-end"
+              filter-placement="top-start"
             >
+            </el-table-column>
+            <el-table-column prop="name" label="Name" width="120"> </el-table-column>
+            <el-table-column prop="state" label="State" width="120"> </el-table-column>
+            <el-table-column prop="city" label="City" width="120"> </el-table-column>
+            <el-table-column prop="address" label="Address" width="300"> </el-table-column>
+            <el-table-column prop="zip" label="Zip" width="120"> </el-table-column>
+            <el-table-column fixed="right" label="Operations" width="120">
+              <template slot-scope="scope">
+                <el-button @click.native.prevent="deleteRow(scope.$index, tableData)" type="text" size="small"> Remove </el-button>
+              </template>
             </el-table-column>
           </el-table>
         </div>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>
+            &lt;div class="table-container">&lt;el-table :data="tableData" :default-sort="{ prop: 'date', order: 'descending'
+            }"&gt;&lt;/el-table&gt;&lt;/div&gt;
+          </code>
         </p>
       </div>
     </section>
@@ -74,25 +93,64 @@ export default Vue.extend({
         {
           date: '2016-05-03',
           name: 'Tom',
+          state: 'California',
+          city: 'Los Angeles',
           address: 'No. 189, Grove St, Los Angeles',
+          zip: 'CA 90036',
           tag: 'Home',
         },
         {
           date: '2016-05-02',
           name: 'Tom',
+          state: 'California',
+          city: 'Los Angeles',
           address: 'No. 189, Grove St, Los Angeles',
+          zip: 'CA 90036',
           tag: 'Office',
         },
         {
           date: '2016-05-04',
           name: 'Tom',
+          state: 'California',
+          city: 'Los Angeles',
           address: 'No. 189, Grove St, Los Angeles',
+          zip: 'CA 90036',
           tag: 'Home',
         },
         {
           date: '2016-05-01',
           name: 'Tom',
+          state: 'California',
+          city: 'Los Angeles',
           address: 'No. 189, Grove St, Los Angeles',
+          zip: 'CA 90036',
+          tag: 'Office',
+        },
+        {
+          date: '2016-05-08',
+          name: 'Tom',
+          state: 'California',
+          city: 'Los Angeles',
+          address: 'No. 189, Grove St, Los Angeles',
+          zip: 'CA 90036',
+          tag: 'Office',
+        },
+        {
+          date: '2016-05-06',
+          name: 'Tom',
+          state: 'California',
+          city: 'Los Angeles',
+          address: 'No. 189, Grove St, Los Angeles',
+          zip: 'CA 90036',
+          tag: 'Home',
+        },
+        {
+          date: '2016-05-07',
+          name: 'Tom',
+          state: 'California',
+          city: 'Los Angeles',
+          address: 'No. 189, Grove St, Los Angeles',
+          zip: 'CA 90036',
           tag: 'Office',
         },
       ],
