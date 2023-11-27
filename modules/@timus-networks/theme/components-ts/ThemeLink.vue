@@ -5,7 +5,8 @@
       <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-link href="https://element.eleme.io" target="_blank">default</el-link>
-        <el-link type="primary" to="/">primary</el-link>
+        <el-link type="primary">primary</el-link>
+        <el-link type="secondary">secondary</el-link>
         <el-link type="success">success</el-link>
         <el-link type="warning">warning</el-link>
         <el-link type="danger">danger</el-link>
