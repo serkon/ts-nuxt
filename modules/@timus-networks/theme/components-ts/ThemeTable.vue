@@ -6,8 +6,8 @@
         Bu örnek, Element UI tarafından sağlanan <code>el-table</code> bileşenini kullanarak bir veri tablosu oluşturmanın temel bir örneğini
         göstermektedir. `table-container` ile dışarıya border verildiğini unutmamanızı tavsiye ediyoruz.
       </p>
-      <div class="grid grid-flow-col gap-4 flex-column">
-        <div class="table-container mb-6">
+      <div class="grid flex-column">
+        <div class="table-container mb-4">
           <el-table
             :data="tableData"
             :default-sort="{ prop: 'date', order: 'descending' }"
@@ -58,6 +58,16 @@
             </el-table-column>
           </el-table>
         </div>
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage4"
+          :page-sizes="[100, 200, 300, 400]"
+          :page-size="100"
+          layout="total, prev, pager, next, jumper, sizes"
+          :total="400"
+        >
+        </el-pagination>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -89,6 +99,10 @@ export default Vue.extend({
   data() {
     return {
       multipleSelection: [],
+      currentPage1: 5,
+      currentPage2: 5,
+      currentPage3: 5,
+      currentPage4: 4,
       tableData: [
         {
           date: '2016-05-03',
@@ -185,6 +199,12 @@ export default Vue.extend({
       console.log(row, column, value);
       const property = column['property'];
       return row[property] === value;
+    },
+    handleSizeChange(val) {
+      console.log(`${val} items per page`);
+    },
+    handleCurrentChange(val) {
+      console.log(`current page: ${val}`);
     },
   },
 });

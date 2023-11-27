@@ -250,5 +250,25 @@ $--table-header-font-color: var(--gray-700);
 $--table-header-background-color: $--color-white;
 $--table-border: 1px solid var(--gray-300);
 $--table-row-hover-background-color: transparent; // var(--gray-100);
+/*
+--------------------------
+Pagination
+--------------------------
+*/
+$custom-pagination-total-records-text: "Records";
+$custom-pagination-font-weight: 400;
+
+$--pagination-border-radius: 8px;
+$--pagination-button-width: 28px;
+$--pagination-font-size: 14px;
+$--pagination-font-color: var(--gray-400);
+$--pagination-button-color: var(--gray-400);
+$--pagination-button-height: 30px;
+$--pagination-font-size: 14px;
+
+$--pagination-small-font-size: 12px;
+$--pagination-small-height: 22px;
+$--pagination-small-min-width: 22px;
+
 
 @import "./element-ui/index.scss";

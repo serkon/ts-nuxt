@@ -1,40 +1,46 @@
-@import "mixins/mixins";
-@import "mixins/utils";
-@import "common/var";
+@import 'mixins/mixins';
+@import 'mixins/utils';
+@import 'common/var';
 
 @include b(pagination) {
   white-space: nowrap;
   padding: 2px 5px;
   color: $--pagination-font-color;
-  font-weight: bold;
-  @include utils-clearfix;
+  font-weight: $custom-pagination-font-weight;
+  // @include utils-clearfix;
 
-  span:not([class*=suffix]),
+  display: flex;
+  padding: 0;
+
+  span:not([class*='suffix']),
   button {
-    display: inline-block;
     font-size: $--pagination-font-size;
     min-width: $--pagination-button-width;
     height: $--pagination-button-height;
     line-height: $--pagination-button-height;
     vertical-align: top;
     box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
   }
 
   .el-input__inner {
     text-align: center;
     -moz-appearance: textfield;
     line-height: normal;
+    color: $--pagination-font-color;
   }
 
   // pagesize 的下拉 icon
   .el-input__suffix {
     right: 0;
-    transform: scale(.8);
+    transform: scale(0.8);
   }
 
   .el-select .el-input {
     width: 100px;
-    margin: 0 5px;
+    // margin: 0 5px;
 
     .el-input__inner {
       padding-right: 25px;
@@ -44,8 +50,8 @@
 
   button {
     border: none;
-    padding: 0 6px;
     background: transparent;
+    justify-content: center;
 
     &:focus {
       outline: none;
@@ -79,11 +85,12 @@
   }
 
   .btn-prev {
-    padding-right: 12px;
+    // padding-right: 12px;
   }
 
   .btn-next {
-    padding-left: 12px;
+    // padding-left: 12px;
+    margin-right: 16px;
   }
 
   .el-pager li.disabled {
@@ -99,10 +106,10 @@
     .el-pager li.btn-quickprev,
     .el-pager li:last-child {
       border-color: transparent;
-      font-size: 12px;
-      line-height: 22px;
-      height: 22px;
-      min-width: 22px;
+      font-size: $--pagination-small-font-size;
+      line-height: $--pagination-small-height;
+      height: $--pagination-small-height;
+      min-width: $--pagination-small-min-width;
     }
 
     .arrow.disabled {
@@ -114,7 +121,7 @@
       line-height: 24px;
     }
 
-    span:not([class*=suffix]),
+    span:not([class*='suffix']),
     button {
       height: 22px;
       line-height: 22px;
@@ -129,13 +136,15 @@
   }
 
   @include e(sizes) {
-    margin: 0 10px 0 0;
     font-weight: normal;
-    color: $--color-text-regular;
+    color: $--pagination-font-color;
+    border-radius: $--pagination-border-radius;
 
     .el-input .el-input__inner {
       font-size: $--pagination-font-size;
       padding-left: 8px;
+      height: $--pagination-button-height;
+      color: $--pagination-font-color;
 
       &:hover {
         border-color: $--pagination-hover-color;
@@ -144,18 +153,26 @@
   }
 
   @include e(total) {
-    margin-right: 10px;
     font-weight: normal;
-    color: $--color-text-regular;
+    color: $--pagination-font-color;
+    flex-grow: 1;
+
+
+    &::after {
+      content: $custom-pagination-total-records-text;
+      padding-left: 8px;
+    }
   }
 
   @include e(jump) {
-    margin-left: 24px;
     font-weight: normal;
-    color: $--color-text-regular;
+    color: $--pagination-font-color;
+    display: flex;
+    gap: 16px;
+    margin-right: 16px;
 
     .el-input__inner {
-      padding: 0 3px;
+      padding: 0 7px;
     }
   }
 
@@ -169,7 +186,6 @@
     height: $--pagination-button-height;
 
     text-align: center;
-    margin: 0 2px;
     box-sizing: border-box;
     border-radius: $--pagination-border-radius;
 
@@ -194,16 +210,19 @@
     .el-pager li {
       margin: 0 5px;
       background-color: $--color-info-lighter;
-      color: $--color-text-regular;
+      color: $--pagination-font-color;
       min-width: 30px;
       border-radius: 2px;
+      display: flex;
+      gap: 2px;
 
       &.disabled {
         color: $--color-text-placeholder;
       }
     }
 
-    .btn-prev, .btn-next {
+    .btn-prev,
+    .btn-next {
       padding: 0;
 
       &:disabled {
