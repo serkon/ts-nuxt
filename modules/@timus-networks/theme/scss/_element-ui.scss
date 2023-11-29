@@ -284,5 +284,18 @@ $--tooltip-color: var(--gray-400);
 $--tooltip-font-size: 10px;
 $--tooltip-padding: 12px 10px;
 $--tooltip-arrow-size: 8px;
+/*
+--------------------------
+Alert
+--------------------------
+*/
+$custom-alert-font-size: 12px;
+$custom-alert-line-height: 14px;
+$custom-alert-gap: 4px;
+$custom-alert-padding: 8px 16px;
+$--alert-icon-size: 12px;
+
+
+$--alert-success-color: var(--success-100);
 
 @import "./element-ui/index.scss";

@@ -1,9 +1,11 @@
 @import "mixins/mixins";
 @import "common/var";
 
+$alert-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
+
+
 @include b(alert) {
   width: 100%;
-  padding: $--alert-padding;
   margin: 0;
   box-sizing: border-box;
   border-radius: $--alert-border-radius;
@@ -11,9 +13,12 @@
   background-color: $--color-white;
   overflow: hidden;
   opacity: 1;
-  display: flex;
   align-items: center;
   transition: opacity .2s;
+  display: flex;
+  gap: $custom-alert-gap;
+  padding: $custom-alert-padding;
+  font-size: $custom-alert-font-size;
 
   @include when(light) {
     .el-alert__closebtn {
@@ -34,73 +39,53 @@
     justify-content: center;
   }
 
-  @include m(success) {
-    &.is-light {
-      background-color: $--alert-success-color;
-      color: $--color-success;
+  @each $type in $alert-colors {
+    @include m($type) {
+      &.is-light {
+        background-color: var(--#{$type}-100);
+        color: var(--#{$type}-500);
 
-      .el-alert__description {
-        color: $--color-success;
+        .el-alert__description {
+          color: var(--#{$type}-500);
+        }
+
+        .el-alert__closebtn {
+          color: var(--#{$type}-500);
+        }
       }
-    }
 
-    &.is-dark {
-      background-color: $--color-success;
-      color: $--color-white;
-    }
-  }
-
-  @include m(info) {
-    &.is-light {
-      background-color: $--alert-info-color;
-      color: $--color-info;
-    }
-
-    &.is-dark {
-      background-color: $--color-info;
-      color: $--color-white;
-    }
-
-    .el-alert__description {
-      color: $--color-info;
-    }
-  }
-
-  @include m(warning) {
-    &.is-light {
-      background-color: $--alert-warning-color;
-      color: $--color-warning;
-
-      .el-alert__description {
-        color: $--color-warning;
+      &.is-dark {
+        background-color:  var(--#{$type}-500);
+        color: $--color-white;
       }
-    }
-
-    &.is-dark {
-      background-color: $--color-warning;
-      color: $--color-white;
     }
   }
 
   @include m(error) {
     &.is-light {
-      background-color: $--alert-danger-color;
-      color: $--color-danger;
+      background-color: var(--danger-100);
+      color: var(--danger-500);
 
       .el-alert__description {
-        color: $--color-danger;
+        color: var(--danger-500);
+      }
+
+      .el-alert__closebtn {
+        color: var(--danger-500);
       }
     }
 
     &.is-dark {
-      background-color: $--color-danger;
+      background-color:  var(--danger-500);
       color: $--color-white;
     }
   }
 
   @include e(content) {
-    display: table-cell;
-    padding: 0 8px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: $custom-alert-gap;
   }
 
   @include e(icon) {
@@ -113,8 +98,10 @@
   }
 
   @include e(title) {
-    font-size: $--alert-title-font-size;
-    line-height: 18px;
+    font-size: $custom-alert-font-size;
+    line-height: $custom-alert-line-height;
+    flex-grow: 1;
+
     @include when(bold) {
       font-weight: bold;
     }
@@ -128,9 +115,6 @@
   @include e(closebtn) {
     font-size: $--alert-close-font-size;
     opacity: 1;
-    position: absolute;
-    top: 12px;
-    right: 15px;
     cursor: pointer;
 
     @include when(customed) {
