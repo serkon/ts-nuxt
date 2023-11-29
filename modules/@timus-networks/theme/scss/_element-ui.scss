@@ -12,6 +12,7 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 
 $--color-text-regular: var(--gray-900);
+
 // @import "~element-ui/packages/theme-chalk/src/index";
 /* Border
 -------------------------- */
@@ -123,6 +124,7 @@ $custom-checkbox-checked-icon-weight: 1.5px;
 $custom-checkbox-disabled-font-color: var(--gray-700);
 $custom-checkbox-label-padding-left: 8px;
 $custom-checkbox-disabled-input-inset-border: inset 0 0 0 2px #ffffff;
+$custom-checkbox-gap: 12px;
 $--checkbox-font-size: 14px;
 $--checkbox-font-weight: 400;
 $--checkbox-font-color: var(--gray-700);
