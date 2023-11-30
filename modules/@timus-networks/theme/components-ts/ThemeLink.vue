@@ -1,8 +1,10 @@
 <template>
   <div class="pt-8 pb-16 flex gap-12 flex-col">
     <section>
-      <h1>El Link</h1>
-      <p class="p-lg my-6">El Link bileşeni, sayfadaki metni veya bağlantıyı temsil eder ve stil ve davranışlarını özelleştirmenize olanak tanır.</p>
+      <h1>Link</h1>
+      <p class="p-lg my-6">
+        `el-link` bileşeni, sayfadaki metni veya bağlantıyı temsil eder ve stil ve davranışlarını özelleştirmenize olanak tanır.
+      </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-link href="https://element.eleme.io" target="_blank">default</el-link>
         <el-link :type="item" v-for="(item, index) in colors" :key="index">{{ item }}</el-link>

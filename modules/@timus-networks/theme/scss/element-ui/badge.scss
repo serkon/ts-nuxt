@@ -2,23 +2,29 @@
 @import "mixins/mixins";
 @import "common/var";
 
+$colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
+
 @include b(badge) {
   position: relative;
   vertical-align: middle;
   display: inline-block;
 
   @include e(content) {
-    background-color: $--badge-background-color;
+    background-color: var(--danger-500);
     border-radius: $--badge-radius;
     color: $--color-white;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: $--badge-font-size;
     height: $--badge-size;
-    line-height: $--badge-size;
+    line-height: $custom-badge-line-height;
     padding: 0 $--badge-padding;
     text-align: center;
     white-space: nowrap;
     border: 1px solid $--color-white;
+    min-width: $--badge-size;
+    padding: $custom-badge-padding;
 
     @include when(fixed) {
       position: absolute;
@@ -39,19 +45,10 @@
       border-radius: 50%;
     }
 
-    @each $type in (primary, success, warning, info, danger) {
+    @each $type in $colors {
       @include m($type) {
-        @if $type == primary {
-          background-color: $--color-primary;
-        } @else if $type == success {
-          background-color: $--color-success;
-        } @else if $type == warning {
-          background-color: $--color-warning;
-        } @else if $type == info {
-          background-color: $--color-info;
-        } @else {
-          background-color: $--color-danger;
-        }
+        background-color: var(--#{"#{$type}-500"});
+        color: $--color-white;
       }
     }
   }

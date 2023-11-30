@@ -296,8 +296,15 @@ $custom-alert-line-height: 14px;
 $custom-alert-gap: 4px;
 $custom-alert-padding: 8px 16px;
 $--alert-icon-size: 12px;
-
-
 $--alert-success-color: var(--success-100);
+/*
+--------------------------
+Badge
+--------------------------
+*/
+$--badge-font-size: 8px;
+$--badge-size: 16px;
+$custom-badge-line-height: 10px;
+$custom-badge-padding: 0 4px;
 
 @import "./element-ui/index.scss";

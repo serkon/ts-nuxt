@@ -16,6 +16,8 @@
       <el-tab-pane label="Table" name="thirteen"><ThemeTable></ThemeTable></el-tab-pane>
       <el-tab-pane label="Tooltip" name="fourteen"><ThemeTooltip></ThemeTooltip></el-tab-pane>
       <el-tab-pane label="Alert" name="fifteen"><ThemeAlert></ThemeAlert></el-tab-pane>
+      <el-tab-pane label="Cascader" name="sixteen"><ThemeCascader></ThemeCascader></el-tab-pane>
+      <el-tab-pane label="Badge" name="seventeen"><ThemeBadge></ThemeBadge></el-tab-pane>
     </el-tabs>
   </div>
 </template>
