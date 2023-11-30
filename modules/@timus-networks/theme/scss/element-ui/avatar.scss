@@ -26,6 +26,10 @@ $small-size-map: map-get($avatar-sizes, 'small');
   line-height: map-get($small-size-map, 'line-height');
   font-size: map-get($small-size-map, 'font-size');
 
+  &:hover {
+    border-color: $custom-avatar-hover-font-color;
+  }
+
   >img {
     display: block;
     height: 100%;

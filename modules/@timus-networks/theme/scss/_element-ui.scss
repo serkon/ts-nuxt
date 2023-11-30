@@ -313,8 +313,9 @@ Badge
 */
 $--avatar-background-color: $--color-white;
 $--avatar-font-color: var(--gray-400);
-$custom-avatar-border-color: var(--gray-300);
 $--avatar-text-font-size: 16px;
+$custom-avatar-hover-font-color: var(--gray-700);
+$custom-avatar-border-color: var(--gray-300);
 $custom-avatar-line-height: 18px;
 
 @import "./element-ui/index.scss";
