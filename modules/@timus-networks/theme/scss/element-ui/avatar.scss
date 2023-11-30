@@ -1,17 +1,30 @@
 @import "mixins/mixins";
 @import "common/var";
 
+$avatar-sizes: (
+  'xlarge': (width: 64px, height:64px, font-size: 16px, line-height: 18px),
+  'large': (width: 56px, height:56px, font-size: 16px, line-height: 18px),
+  'medium': (width: 44px, height:44px, font-size: 16px, line-height: 18px),
+  'small': (width: 32px, height:32px, font-size: 14px, line-height: 16px),
+  'xsmall': (width: 16px, height:16px, font-size: 8px, line-height: 10px),
+);
+
+$small-size-map: map-get($avatar-sizes, 'small');
+
 @include b(avatar) {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   text-align: center;
   overflow: hidden;
   color: $--avatar-font-color;
   background: $--avatar-background-color;
-  width: $--avatar-large-size;
-  height: $--avatar-large-size;
-  line-height: $--avatar-large-size;
-  font-size: $--avatar-text-font-size;
+  border: 1px solid $custom-avatar-border-color;
+  width: map-get($small-size-map, 'width');
+  height: map-get($small-size-map, 'height');
+  line-height: map-get($small-size-map, 'line-height');
+  font-size: map-get($small-size-map, 'font-size');
 
   >img {
     display: block;
@@ -28,24 +41,15 @@
   }
 
   @include m(icon) {
-    font-size: $--avatar-icon-font-size;
+    font-size: map-get($small-size-map, 'font-size');
   }
 
-  @include m(large) {
-    width: $--avatar-large-size;
-    height: $--avatar-large-size;
-    line-height: $--avatar-large-size;
-  }
-
-  @include m(medium) {
-    width: $--avatar-medium-size;
-    height: $--avatar-medium-size;
-    line-height: $--avatar-medium-size;
-  }
-
-  @include m(small) {
-    width: $--avatar-small-size;
-    height: $--avatar-small-size;
-    line-height: $--avatar-small-size;
+  @each $size, $value in $avatar-sizes {
+    @include m($size) {
+      width: map-get($value, 'width');
+      height: map-get($value, 'height');
+      font-size: map-get($value, 'font-size');
+      line-height: map-get($value, 'line-height');
+    }
   }
 }
