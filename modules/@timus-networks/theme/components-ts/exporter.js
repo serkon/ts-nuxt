@@ -1,9 +1,9 @@
 const components = {};
 const requireComponent = require.context(
-  '.', // bu klasördeki bileşenleri oku
-  false, // alt klasörleri okuma
-  /[A-Z]\w+\.(vue)$/, // Vue bileşenlerini al
-  // EXPERIMENTAL: /[A-Z]\w+\.(vue|js)$/, // Vue bileşenlerini veya JS dosyalarını al
+  '.', // read from current directory
+  false, // don't look in subdirectories
+  /[A-Z]\w+\.(vue)$/, // only look for Vue files
+  // EXPERIMENTAL: /[A-Z]\w+\.(vue|js)$/, // only look for Vue or JS files
 );
 
 requireComponent.keys().forEach((fileName) => {
@@ -11,7 +11,7 @@ requireComponent.keys().forEach((fileName) => {
   const componentName = fileName
     .split('/')
     .pop()
-    .replace(/\.\w+$/, ''); // Dosya adını bileşen adı olarak al
+    .replace(/\.\w+$/, ''); // remove file extension and set file name as component name
 
   components[componentName] = componentConfig.default || componentConfig;
 });
