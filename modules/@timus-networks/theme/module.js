@@ -21,7 +21,7 @@ async function copyDirectory(src, dest) {
 
 export default function (moduleOptions) {
   this.nuxt.hook('ready', (_nuxt) => {
-    this.options.tailwindcss.config.darkMode = 'class';
+    // this.options.tailwindcss.config.darkMode = 'class';
     console.log(`#### ${PackageJson.name} has been prepared with version: ${PackageJson.version}`);
   });
 
