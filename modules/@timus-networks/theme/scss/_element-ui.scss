@@ -317,5 +317,20 @@ $--avatar-text-font-size: 16px;
 $custom-avatar-hover-font-color: var(--gray-700);
 $custom-avatar-border-color: var(--gray-300);
 $custom-avatar-line-height: 18px;
+/*
+--------------------------
+Cascader
+--------------------------
+*/
+$--cascader-menu-selected-font-color: var(--primary-700);
+$--cascader-menu-border: 1px solid var(--gray-400);
+$--cascader-node-background-hover: $--color-white;
+
+$custom-cascader-item-gap: 4px;
+$custom-cascader-padding: 16px;
+$custom-cascader-font-size: 14px;
+$custom-cascader-font-color: var(--gray-700);
+$custom-cascader-disabled-font-color: var(--gray-400);
+$custom-cascader-selected-font-weight: 500;
 
 @import "./element-ui/index.scss";
