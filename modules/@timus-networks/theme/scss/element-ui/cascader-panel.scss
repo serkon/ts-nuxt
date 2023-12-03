@@ -93,7 +93,6 @@
         color: $--cascader-node-color-disabled;
         cursor: not-allowed;
         color: $custom-cascader-disabled-font-color;
-        border: 1px solid red;
     }
 
     @include e(prefix) {
