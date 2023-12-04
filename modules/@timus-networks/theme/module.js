@@ -26,7 +26,11 @@ export default function (moduleOptions) {
   });
 
   this.nuxt.hook('build:before', async (nuxt) => {
-    const directories = [{source: 'output', target: 'static/'}, {source: 'fonts', target: 'static/fonts'}];
+    const directories = [
+      {source: 'output', target: 'static/'},
+      {source: 'fonts', target: 'static/fonts'},
+      {source: 'logo', target: 'assets/logo'}
+    ];
 
     // Kopyalama işlemlerini Promise.all ile sarmalayın
     await Promise.all(directories.map(async (directory) => {

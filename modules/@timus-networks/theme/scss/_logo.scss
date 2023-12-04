@@ -1,0 +1,54 @@
+%logo {
+  background-image: url("~assets/logo/timus-logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+%logo-icon {
+  background-image: url("~assets/logo/timus-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.logo-small {
+  min-width: 138px;
+  height: 32px;
+  background-size: 138px 32px;
+  @extend %logo;
+}
+
+.logo-medium {
+  min-width: 206px;
+  height: 48px;
+  background-size: 206px 48px;
+  @extend %logo;
+}
+
+.logo-large {
+  min-width: 274px;
+  height: 64px;
+  background-size: 274px 64px;
+  @extend %logo;
+}
+
+
+.logo-icon-small {
+  min-width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  @extend %logo-icon;
+}
+
+.logo-icon-medium {
+  min-width: 48px;
+  height: 48px;
+  background-size: 48px 48px;
+  @extend %logo-icon;
+}
+
+.logo-icon-large {
+  min-width: 64px;
+  height: 64px;
+  background-size: 64px 64px;
+  @extend %logo-icon;
+}
