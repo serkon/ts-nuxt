@@ -3,63 +3,42 @@
     <h1>Radio</h1>
 
     <section>
-      <h2>Basic Usage</h2>
-      <p class="p-lg-c my-6">Checkbox, iki durum arasında geçiş yapmak için kullanılır. Checkbox için devre dışı bırakılmış durum da mevcuttur.</p>
+      <h2>Temel Kullanım</h2>
+      <p class="p-lg-c my-6">El Radio, çok fazla seçeneğe sahip olmamalıdır. Aksi takdirde, Select bileşenini kullanmalısınız.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-radio v-model="radio" :label="0">Option A</el-radio>
-        <el-radio v-model="radio" :label="1">Option B</el-radio>
-        <el-radio v-model="radio" :label="2" disabled>Option C</el-radio>
-        <el-radio :value="false" disabled>unselected & disabled</el-radio>
+        <el-radio v-model="radio" :label="0">Seçenek A</el-radio>
+        <el-radio v-model="radio" :label="1">Seçenek B</el-radio>
+        <el-radio v-model="radio" :label="2" disabled>Seçenek C (Devre Dışı)</el-radio>
+        <el-radio :value="false" disabled>Seçili Olmayan ve Devre Dışı</el-radio>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
-          <code> &lt;el-checkbox :value="true" disabled&gt;Seçili & Devre Dışı&lt;/el-checkbox&gt; </code>
+          Örnek Kullanım:
+          <code> &lt;el-radio :value="true" disabled&gt;Seçili & Devre Dışı&lt;/el-radio&gt; </code>
         </p>
       </div>
     </section>
 
     <section>
-      <h2>Checkbox group</h2>
+      <h2>Radio group</h2>
       <p class="p-lg-c my-6">
-        Checkbox grubu, birden fazla seçeneği bir arada sunarak kullanıcının birden çok seçim yapmasına olanak tanır. Bu grup içerisindeki
-        seçeneklerden bazıları devre dışı bırakılabilir veya önceden seçilmiş ve devre dışı bırakılmış olabilir.
+        `el-radio-group` ile `el-radio` bileşenini bir araya getirerek bir radyo grubu görüntüleyebilirsiniz. el-radio-group elementinin v-model ile
+        bağlı olduğu bir değişkeni belirleyin ve el-radio içindeki etiket değerini ayarlayın. Ayrıca, mevcut değeri parametre olarak alan bir
+        değişiklik olayı sağlar.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-checkbox-group v-model="checkList" class="mb-6">
-          <el-checkbox label="Option A"></el-checkbox>
-          <el-checkbox label="Option B"></el-checkbox>
-          <el-checkbox label="Option C"></el-checkbox>
-          <el-checkbox label="disabled" disabled></el-checkbox>
-          <el-checkbox label="selected and disabled" disabled></el-checkbox>
-        </el-checkbox-group>
+        <el-radio-group v-model="radio">
+          <el-radio :label="3">Seçenek A</el-radio>
+          <el-radio :label="6">Seçenek B</el-radio>
+          <el-radio :label="9">Seçenek C</el-radio>
+        </el-radio-group>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
+          Örnek Kullanım:
           <code>
-            &lt;el-checkbox-group v-model="checkList"&gt; &lt;el-checkbox label="Seçenek A"&gt;&lt;/el-checkbox&gt; &lt;el-checkbox label="Seçenek
-            B"&gt;&lt;/el-checkbox&gt; &lt;/el-checkbox-group&gt;
-          </code>
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Indeterminate</h2>
-      <p class="p-lg-c my-6">
-        Belirsiz durum (indeterminate) checkbox, tüm seçeneklerin seçili olup olmadığını belirsiz bırakır. Bu durum, özellikle kullanıcının bir grup
-        içerisindeki tüm seçenekleri aynı anda kontrol etmesini sağlamak için kullanışlıdır.
-      </p>
-      <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">Check all</el-checkbox>
-        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
-          <el-checkbox v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox>
-        </el-checkbox-group>
-      </div>
-      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
-        <p class="text-xs">
-          <code>
-            &lt;el-date-picker v-model="input" type="daterange" align="left" start-placeholder="Start" end-placeholder="End"
-            default-value=""&gt;&lt;/el-date-picker&gt;
+            &lt;el-radio-group v-model="radio"&gt; &lt;el-radio :label="3"&gt;Seçenek A&lt;/el-radio&gt; &lt;el-radio :label="6"&gt;Seçenek
+            B&lt;/el-radio&gt; &lt;/el-radio-group&gt;
           </code>
         </p>
       </div>

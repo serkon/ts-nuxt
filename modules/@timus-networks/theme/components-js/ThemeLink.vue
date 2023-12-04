@@ -1,84 +1,82 @@
 <template>
   <div class="pt-8 pb-16 flex gap-12 flex-col">
     <section>
-      <h1>Basic</h1>
-      <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
+      <h1>Link</h1>
+      <p class="p-lg my-6">
+        `el-link` bileşeni, sayfadaki metni veya bağlantıyı temsil eder ve stil ve davranışlarını özelleştirmenize olanak tanır.
+      </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-link href="https://element.eleme.io" target="_blank">default</el-link>
-        <el-link type="primary">primary</el-link>
-        <el-link type="secondary">secondary</el-link>
-        <el-link type="success">success</el-link>
-        <el-link type="warning">warning</el-link>
-        <el-link type="danger">danger</el-link>
-        <el-link type="info">info</el-link>
+        <el-link :type="item" v-for="(item, index) in colors" :key="index">{{ item }}</el-link>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>&lt;el-link type="primary"&gt;Bağlantı&lt;/el-link&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
-      <h1>With Nuxt Link</h1>
-      <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
+      <h1>Nuxt Link ile Kullanım</h1>
+      <p class="p-lg my-6">El Link bileşenini Nuxt Link ile kullanabilirsiniz. Bu, Nuxt.js projelerinde sayfa geçişlerini kolaylaştırır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <NuxtLink to="/"><el-link type="primary">Nuxt Link</el-link></NuxtLink>
+        <NuxtLink to="/" v-for="(item, index) in colors" :key="index">
+          <el-link :type="item">Router: {{ item }}</el-link>
+        </NuxtLink>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>&lt;NuxtLink to="/"&gt;&lt;el-link type="primary"&gt;Bağlantı&lt;/el-link&gt;&lt;/NuxtLink&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
-      <h1>Disabled</h1>
-      <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
+      <h1>Devre Dışı Bırakılmış Durum</h1>
+      <p class="p-lg my-6">El Link bileşenini devre dışı bırakmak için <code>disabled</code> özelliğini kullanabilirsiniz.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-link disabled>default</el-link>
-        <el-link type="primary" disabled>primary</el-link>
-        <el-link type="success" disabled>success</el-link>
-        <el-link type="warning" disabled>warning</el-link>
-        <el-link type="danger" disabled>danger</el-link>
-        <el-link type="info" disabled>info</el-link>
+        <el-link :type="item" v-for="(item, index) in colors" :key="index" disabled>{{ item }}</el-link>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>&lt;el-link disabled&gt;Devre Dışı&lt;/el-link&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
-      <h1>Underline</h1>
-      <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
+      <h1>Alt Çizgi</h1>
+      <p class="p-lg my-6">
+        El Link bileşeninin alt çizgisini göstermek veya gizlemek için <code>:underline="false"</code> özelliğini kullanabilirsiniz.
+      </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-link :underline="false">Without Underline</el-link>
-        <el-link>With Underline</el-link>
+        <el-link type="primary" :underline="false">Alt Çizgi Yok</el-link>
+        <el-link type="primary">Alt Çizgiyle</el-link>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>&lt;el-link :underline="false"&gt;Alt Çizgi Yok&lt;/el-link&gt;</code>
         </p>
       </div>
     </section>
 
     <section>
-      <h1>Icon</h1>
-      <p class="p-lg my-6">Standart metin girişi için temel <code>el-input</code> bileşenini kullanabilirsiniz.</p>
+      <h1>İkon</h1>
+      <p class="p-lg my-6">El Link bileşeni, metin veya bağlantı ile birlikte ikonlar eklemenize olanak tanır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-link icon="el-icon-edit">Edit</el-link>
-        <el-link>Check<i class="el-icon-view el-icon--right"></i> </el-link>
+        <el-link type="primary" icon="el-icon-edit">Düzenle</el-link>
+        <el-link type="primary">Onayla<i class="el-icon-view el-icon--right"></i> </el-link>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>&lt;el-link icon="el-icon-edit"&gt;Düzenle&lt;/el-link&gt;</code>
         </p>
       </div>
     </section>
   </div>
 </template>
+
 <script>
 import Vue from 'vue';
 
@@ -86,76 +84,8 @@ export default Vue.extend({
   name: 'TimusButtonSample',
   data() {
     return {
-      inputNumber: '',
-      input: '',
-      input1: '',
-      input2: '',
-      input3: '',
-      input4: '',
-      select: '',
-      links: [],
-      state: '',
-      state1: '',
-      state2: '',
-      text: '',
-      textarea: '',
-      textarea1: '',
-      textarea2: '',
-      timeout: null,
+      colors: ['primary', 'secondary', 'gray', 'info', 'success', 'warning', 'danger'],
     };
-  },
-  computed: {
-    gridSize() {
-      const grids = {
-        5: 'grid-cols-5',
-        6: 'grid-cols-6',
-        7: 'grid-cols-7',
-        8: 'grid-cols-8',
-      };
-      return grids;
-    },
-  },
-  methods: {
-    querySearch(queryString, cb) {
-      var links = this.links;
-      var results = queryString ? links.filter(this.createFilter(queryString)) : links;
-      // call callback function to return suggestions
-      cb(results);
-    },
-    querySearchAsync(queryString, cb) {
-      var links = this.links;
-      var results = queryString ? links.filter(this.createFilter(queryString)) : links;
-
-      clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => {
-        cb(results);
-      }, 3000 * Math.random());
-    },
-    createFilter(queryString) {
-      return (link) => {
-        return link.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0;
-      };
-    },
-    loadAll() {
-      return [
-        { value: 'vue', link: 'https://github.com/vuejs/vue' },
-        { value: 'element', link: 'https://github.com/ElemeFE/element' },
-        { value: 'cooking', link: 'https://github.com/ElemeFE/cooking' },
-        { value: 'mint-ui', link: 'https://github.com/ElemeFE/mint-ui' },
-        { value: 'vuex', link: 'https://github.com/vuejs/vuex' },
-        { value: 'vue-router', link: 'https://github.com/vuejs/vue-router' },
-        { value: 'babel', link: 'https://github.com/babel/babel' },
-      ];
-    },
-    handleSelect(item) {
-      console.log(item);
-    },
-    handleIconClick(ev) {
-      console.log(ev);
-    },
-  },
-  mounted() {
-    this.links = this.loadAll();
   },
 });
 </script>
