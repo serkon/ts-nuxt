@@ -75,4 +75,26 @@ $colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 
     }
   }
 
+  &.xsmall {
+    @extend .p-xs;
+  }
+
+
+  &.small {
+    @extend .p-sm;
+  }
+
+
+  &.medium {
+    @extend .p-md;
+  }
+
+  &.medium-custom {
+    @extend .p-md-c;
+  }
+
+  &.large {
+    @extend .p-lg;
+  }
+
 }
