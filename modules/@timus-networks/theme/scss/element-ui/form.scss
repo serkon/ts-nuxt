@@ -137,7 +137,7 @@
   }
   @include e(error) {
     color: $custom-form-error-font-color;
-    font-size: $custom-input-padding;
+    font-size: $custom-form-error-font-size;
     line-height: $custom-form-error-font-line-height;
     padding-top: $custom-form-error-padding-top;
     padding-left: $custom-input-padding;
