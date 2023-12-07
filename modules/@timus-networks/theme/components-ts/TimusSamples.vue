@@ -20,6 +20,7 @@
             <el-tab-pane label="Badge" name="seventeen"><ThemeBadge></ThemeBadge></el-tab-pane>
             <el-tab-pane label="Avatar" name="eighteen"><ThemeAvatar></ThemeAvatar></el-tab-pane>
             <el-tab-pane label="Logo" name="nineteen"><ThemeLogo></ThemeLogo></el-tab-pane>
+            <el-tab-pane label="Dialog" name="twenty"><ThemeDialog></ThemeDialog></el-tab-pane>
         </el-tabs>
     </div>
 </template>

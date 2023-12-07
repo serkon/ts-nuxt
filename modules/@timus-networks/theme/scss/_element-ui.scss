@@ -336,5 +336,34 @@ $custom-cascader-font-size: 14px;
 $custom-cascader-font-color: var(--gray-700);
 $custom-cascader-disabled-font-color: var(--gray-400);
 $custom-cascader-selected-font-weight: 500;
+/*
+--------------------------
+Dialog
+--------------------------
+*/
+$custom-dialog-close-color: var(--primary-700);
+$custom-dialog-close-color-hover: var(--primary-600);
+$custom-dialog-border-radius: 16px;
+$custom-dialog-header-font-color: var(--gray-900);
+$custom-dialog-header-padding: 30px 30px 0 30px;
+$custom-dialog-body-font-color: var(--gray-700);
+$custom-dialog-body-font-size: 14px;
+$custom-dialog-body-font-line-height: 24px;
+$custom-dialog-body-padding: 0 30px;
+$custom-dialog-footer-padding: 0 30px 32px 30px;
+$custom-dialog-footer-gap: 30px;
+$custom-dialog-gap: 24px;
+$custom-dialog-outter-padding: 24px;
+$custom-dialog-border: 1px solid transparent;
+
+$custom-dialog-width: 50%;
+$--msgbox-width: 420px;
+/*
+--------------------------
+Popup
+--------------------------
+*/
+$--popup-modal-background-color: var(--gray-800);
+$--popup-modal-opacity: 0.8;
 
 @import "./element-ui/index.scss";

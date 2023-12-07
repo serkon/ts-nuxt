@@ -7,10 +7,17 @@
   position: relative;
   margin: 0 auto 50px;
   background: $--dialog-background-color;
-  border-radius: $--border-radius-small;
+  border-radius: $custom-dialog-border-radius;
   box-shadow: $--dialog-box-shadow;
   box-sizing: border-box;
-  width: 50%;
+  width: $custom-dialog-width;
+  gap: $custom-dialog-gap;
+  display: flex;
+  flex-direction: column;
+  border: $custom-dialog-border;
+  width: calc(100% - $custom-dialog-outter-padding * 2);
+
+  @apply max-w-2xl;
 
   @include when(fullscreen) {
     width: 100%;
@@ -31,15 +38,11 @@
   }
 
   @include e(header) {
-    padding: $--dialog-padding-primary;
-    padding-bottom: 10px;
+    padding: $custom-dialog-header-padding;
+    display: flex;
   }
 
   @include e(headerbtn) {
-    position: absolute;
-    top: $--dialog-padding-primary;
-    right: $--dialog-padding-primary;
-    padding: 0;
     background: transparent;
     border: none;
     outline: none;
@@ -47,34 +50,47 @@
     font-size: $--message-close-size;
 
     .el-dialog__close {
-      color: $--color-info;
+      color: $custom-dialog-close-color;
     }
 
     &:focus, &:hover {
       .el-dialog__close {
-        color: $--color-primary;
+        color: $custom-dialog-close-color-hover;
       }
     }
   }
 
   @include e(title) {
+    flex-grow: 1;
     line-height: $--dialog-font-line-height;
     font-size: $--dialog-title-font-size;
-    color: $--color-text-primary;
+    color: $custom-dialog-header-font-color;
+
+    @extend .h3;
   }
 
   @include e(body) {
-    padding: ($--dialog-padding-primary + 10px) $--dialog-padding-primary;
-    color: $--color-text-regular;
-    font-size: $--dialog-content-font-size;
+    padding: $custom-dialog-body-padding;
+    color: $custom-dialog-body-font-color;
+    font-size: $custom-dialog-body-font-size;
+    line-height: $custom-dialog-body-font-line-height;
     word-break: break-all;
   }
 
   @include e(footer) {
-    padding: $--dialog-padding-primary;
-    padding-top: 10px;
+    padding: $custom-dialog-footer-padding;
     text-align: right;
     box-sizing: border-box;
+
+    .dialog-footer {
+      display: grid;
+      grid-auto-flow: column;
+      gap: $custom-dialog-footer-gap;
+
+      button {
+        justify-content: center;
+      }
+    }
   }
 
   // 内容居中布局
@@ -83,7 +99,8 @@
 
     @include e(body) {
       text-align: initial;
-      padding: 25px ($--dialog-padding-primary + 5px) 30px;
+      // padding: 25px ($--dialog-padding-primary + 5px) 30px;
+      padding: $custom-dialog-body-padding;
     }
 
     @include e(footer) {
