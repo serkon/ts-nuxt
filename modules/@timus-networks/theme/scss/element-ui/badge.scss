@@ -4,10 +4,32 @@
 
 $colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
 
+
+$badge-dot-sizes: (
+  'xlarge': (right: 12px, top: 12px),
+  'large': (right: 10px, top: 12px),
+  'medium': (right: 7px, top: 12px),
+  'small': (right: 7px, top: 7px),
+  'xsmall': (right: 4px, top: 4px)
+  );
+
 @include b(badge) {
   position: relative;
   vertical-align: middle;
   display: inline-block;
+
+
+  .el-avatar--circle {
+    @each $item, $value in $badge-dot-sizes {
+      &.el-avatar--#{$item} {
+        @each $prop-name, $prop-value in $value {
+          + .is-dot {
+            #{$prop-name}: #{$prop-value};
+          }
+        }
+      }
+    }
+  }
 
   @include e(content) {
     background-color: var(--danger-500);
@@ -23,7 +45,6 @@ $colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 
     text-align: center;
     white-space: nowrap;
     border: 1px solid $--color-white;
-    min-width: $--badge-size;
     padding: $custom-badge-padding;
 
     @include when(fixed) {
