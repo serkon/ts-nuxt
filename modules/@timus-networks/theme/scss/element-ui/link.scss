@@ -43,7 +43,7 @@ $colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 
 
 
   &.el-link--default  {
-    color: $--link-default-font-color;
+    color: $--color-primary;
     &:hover {
       color: $--link-default-active-color
     }
@@ -56,7 +56,7 @@ $colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 
   }
 
   @each $color in $colors {
-    &.el-link--#{"#{$color}"}{
+    &.el-link--#{"#{$color}"}, &.#{$color}{
       color: var(--#{"#{$color}"}-500);
       &:hover {
         color: var(--#{"#{$color}"}-400);
