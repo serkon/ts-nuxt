@@ -10,7 +10,7 @@ for (const name in components) {
   Vue.component(name, {
     // extend the original component
     extends: components[name],
-    // add a _customCounterOptions prop to gain access to the options in the component
+    // add a custom prop to gain access to the options in the component
     props: {
       timus: {
         type: Object,

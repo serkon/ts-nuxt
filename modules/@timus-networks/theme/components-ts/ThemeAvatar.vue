@@ -24,7 +24,7 @@
 
     <section>
       <h1>Types</h1>
-      <p class="p-md-c my-6">Resimler, ikonlar veya alfanumerik karakterleri destekler</p>
+      <p class="p-md-c my-6">You can use any 'string' expression within the tag, in addition to a type that accepts 'src' or 'icon' as a property.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
         <el-avatar icon="isax-add-circle"></el-avatar>
         <el-avatar icon="isax-add-circle" size="xlarge"></el-avatar>

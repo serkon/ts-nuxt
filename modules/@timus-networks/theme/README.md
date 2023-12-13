@@ -32,7 +32,7 @@ tailwindcss: {
 },
 ```
 
-4. Add below code to your **tailwind.confif.js** file
+4. Add below code to your **tailwind.config.js** file
 
 ```js
 // tint & shade color generator
