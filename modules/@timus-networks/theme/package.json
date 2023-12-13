@@ -1,42 +1,42 @@
 {
-    "name": "@timus-networks/theme",
-    "version": "1.0.29",
-    "description": "A comprehensive Nuxt.js module providing a tailored theme experience with integrated TailwindCSS support for applications.",
-    "main": "module.js",
-    "types": "index.d.ts",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "convert-js": "node convert-js.js",
-        "convert-sass": "node convert-sass.js",
-        "pub": "npm run convert-js && npm run convert-sass && npm publish --access public"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/serkon/ts-nuxt.git"
-    },
-    "keywords": [
-        "nuxt",
-        "module",
-        "component",
-        "vuejs",
-        "theme",
-        "tailwind"
-    ],
-    "peerDependencies": {
-        "vue": "^2.x"
-    },
-    "author": "Serkan Konakcı<serkan.konakci@gmail.com>",
-    "license": "MIT",
-    "dependencies": {
-        "@nuxtjs/tailwindcss": "^6.9.4",
-        "sass": "*",
-        "sass-loader": "*",
-        "tailwindcss": "*"
-    },
-    "devDependencies": {
-        "glob": "*",
-        "sass": "*",
-        "sass-loader": "*"
-    },
-    "typings": "./index.d.ts"
+  "name": "@timus-networks/theme",
+  "version": "1.0.30",
+  "description": "A comprehensive Nuxt.js module providing a tailored theme experience with integrated TailwindCSS support for applications.",
+  "main": "module.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "convert-js": "node convert-js.js",
+    "convert-sass": "node convert-sass.js",
+    "pub": "npm run convert-js && npm run convert-sass && npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/timus-networks/nuxt-library.git"
+  },
+  "keywords": [
+    "nuxt",
+    "module",
+    "component",
+    "vuejs",
+    "theme",
+    "tailwind"
+  ],
+  "peerDependencies": {
+    "vue": "^2.x"
+  },
+  "author": "Serkan Konakcı<serkan.konakci@timusnetworks.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.9.4",
+    "sass": "*",
+    "sass-loader": "*",
+    "tailwindcss": "*"
+  },
+  "devDependencies": {
+    "glob": "*",
+    "sass": "*",
+    "sass-loader": "*"
+  },
+  "typings": "./index.d.ts"
 }

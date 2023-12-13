@@ -33,6 +33,24 @@
     </section>
 
     <section>
+      <h1>Point</h1>
+      <p class="p-md-c my-6">Use a red dot to mark content that needs to be noticed.</p>
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-badge is-dot class="item">query</el-badge>
+        <el-badge is-dot class="item">
+          <el-button class="share-button" icon="el-icon-share" type="primary"></el-button>
+        </el-badge>
+        <el-badge is-dot class="item" v-for="size in sizeList" :key="size + ''"><el-avatar :size="size">SK</el-avatar></el-badge>
+        <el-badge is-dot class="item" v-for="size in sizeList" :key="size + ''"><el-avatar shape="square" :size="size">SK</el-avatar></el-badge>
+      </div>
+      <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
+        <p class="text-xs">
+          <code>&lt;el-badge :value="12"&gt; &lt;el-button size="small"&gt;Comments&lt;/el-button&gt; &lt;/el-badge&gt;</code>
+        </p>
+      </div>
+    </section>
+
+    <section>
       <h1>Max Değer</h1>
       <p class="p-md-c my-6">
         Maksimum değer, bir Sayı (Number) olan max özelliği ile belirlenir. Unutmayın ki, bu özellik yalnızca value özelliği de bir Sayı (Number)
@@ -63,6 +81,7 @@ export default Vue.extend({
   data() {
     return {
       colors: ['primary', 'secondary', 'gray', 'info', 'success', 'warning', 'danger'],
+      sizeList: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
     };
   },
   methods: {
