@@ -1,2 +1,7 @@
 generator
 generator/**
+assets/demo.html
+assets/demo-files/**
+assets/icons.js
+assets/Read Me.txt
+assets/selection.json
