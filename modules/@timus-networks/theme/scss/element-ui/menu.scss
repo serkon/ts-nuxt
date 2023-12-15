@@ -1,24 +1,25 @@
-@import "mixins/mixins";
-@import "mixins/utils";
-@import "common/var";
-@import "common/transition";
+@import 'mixins/mixins';
+@import 'mixins/utils';
+@import 'common/var';
+@import 'common/transition';
 
 @mixin menu-item {
-  height: 56px;
-  line-height: 56px;
   font-size: $--menu-item-font-size;
   color: $--menu-item-font-color;
-  padding: 0 20px;
+  line-height: $custom-menu-item-line-height;
+  padding: $custom-menu-item-padding;
   list-style: none;
   cursor: pointer;
   position: relative;
-  transition: border-color .3s, background-color .3s, color .3s;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
   box-sizing: border-box;
   white-space: nowrap;
-
-  * {
-    vertical-align: middle;
-  }
+  display: flex;
+  align-items: center;
+  height: $custom-menu-item-height;
+  min-height: $custom-menu-item-height;
+  border-radius: $custom-menu-item-border-radius;
+  gap: $custom-menu-item-gap;
 
   i {
     color: $--color-text-secondary;
@@ -28,6 +29,7 @@
   &:focus {
     outline: none;
     background-color: $--menu-item-hover-fill;
+    color: $--menu-item-hover-color;
   }
 
   @include when(disabled) {
@@ -38,15 +40,21 @@
 }
 
 @include b(menu) {
-  border-right: solid 1px #e6e6e6;
+  border-right: solid 1px $custom-border-right-color;
   list-style: none;
   position: relative;
   margin: 0;
   padding-left: 0;
   background-color: $--menu-background-color;
+  min-width: $custom-menu-min-width;
   @include utils-clearfix;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
   &.el-menu--horizontal {
-    border-bottom: solid 1px #e6e6e6;
+    border-bottom: solid 1px $custom-border-right-color;
   }
 
   @include m(horizontal) {
@@ -65,7 +73,7 @@
       }
 
       &:not(.is-disabled):hover,
-      &:not(.is-disabled):focus{
+      &:not(.is-disabled):focus {
         background-color: #fff;
       }
     }
@@ -129,12 +137,13 @@
       color: $--color-text-primary;
     }
   }
+
   @include m(collapse) {
     width: 64px;
 
     > .el-menu-item,
     > .el-submenu > .el-submenu__title {
-      [class^="el-icon-"] {
+      [class^='el-icon-'] {
         margin: 0;
         vertical-align: middle;
         width: 24px;
@@ -200,21 +209,32 @@
 @include b(menu-item) {
   @include menu-item;
 
-  & [class^="el-icon-"] {
+  a {
+    justify-content: flex-start;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: $custom-menu-item-gap;
+  }
+
+  & [class^='el-icon-'] {
     margin-right: 5px;
     width: 24px;
     text-align: center;
     font-size: 18px;
     vertical-align: middle;
   }
+
   @include when(active) {
-    color: $--color-primary;
+    color: $custom-menu-item-active-color;
+    background-color: $custom-menu-item-active-background-color;
+
     i {
       color: inherit;
     }
   }
 }
-  
+
 @include b(submenu) {
   list-style: none;
   margin: 0;
@@ -227,33 +247,43 @@
       background-color: $--menu-item-hover-fill;
     }
   }
+
   & .el-menu {
     border: none;
+    padding: $custom-submenu-padding;
   }
+
   & .el-menu-item {
-    height: 50px;
-    line-height: 50px;
-    padding: 0 45px;
+    padding: 0 32px;
     min-width: 200px;
   }
+
+  & .el-menu-text {
+    flex-grow: 1;
+  }
+
   @include e(icon-arrow) {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    margin-top: -7px;
-    transition: transform .3s;
+    // position: absolute;
+    // top: 50%;
+    // right: 20px;
+    // margin-top: -7px;
+    transition: transform 0.3s;
     font-size: 12px;
   }
+
   @include when(active) {
     .el-submenu__title {
-      border-bottom-color: $--color-primary;
+      border-left: $custom-parent-menu-left-border;
+      transition: all 0.3ms;
     }
   }
+
   @include when(opened) {
     > .el-submenu__title .el-submenu__icon-arrow {
       transform: rotateZ(180deg);
     }
   }
+
   @include when(disabled) {
     .el-submenu__title,
     .el-menu-item {
@@ -262,7 +292,8 @@
       background: none !important;
     }
   }
-  [class^="el-icon-"] {
+
+  [class^='el-icon-'] {
     vertical-align: middle;
     margin-right: 5px;
     width: 24px;
@@ -284,6 +315,6 @@
 }
 
 .horizontal-collapse-transition .el-submenu__title .el-submenu__icon-arrow {
-  transition: .2s;
+  transition: 0.2s;
   opacity: 0;
 }
