@@ -89,6 +89,9 @@
     color: $--select-option-font-color;
     cursor: pointer;
     outline: none;
+    display: flex;
+    align-items: center;
+
     &:not(.is-disabled):hover, &:focus {
       background-color: $--select-option-hover-background;
       color: $--select-option-font-color-selected;

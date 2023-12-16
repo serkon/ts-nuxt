@@ -46,7 +46,7 @@
   margin: 0;
   padding-left: 0;
   background-color: $--menu-background-color;
-  min-width: $custom-menu-min-width;
+  // min-width: $custom-menu-min-width;
   @include utils-clearfix;
 
   display: flex;
@@ -237,7 +237,6 @@
 
 @include b(submenu) {
   list-style: none;
-  margin: 0;
   padding-left: 0;
 
   @include e(title) {
