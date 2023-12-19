@@ -17,9 +17,9 @@
   "files.autoSaveDelay": 1000,
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
+    "source.fixAll": "explicit"
   },
   "eslint.format.enable": true,
   "editor.formatOnSave": true,
@@ -97,5 +97,21 @@
   "docify.programmingLanguage": "javascript",
   "nuxt.isNuxtApp": true,
   "docify.commentService.programmingLanguage": "javascript",
-  "docify.commentService.docstringFormat": "Doxygen"
+  "docify.commentService.docstringFormat": "Doxygen",
+  "[html][scss]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
+  },
+  "[javascript][javascriptreact][typescript][vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "explicit"
+    }
+  },
+  "[json][jsonc]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  }
 }
