@@ -1,6 +1,6 @@
 {
   "name": "@timus-networks/icon",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Nuxt module for Iconsax icons",
   "main": "module.js",
   "types": "index.d.ts",
