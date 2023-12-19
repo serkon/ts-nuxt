@@ -387,7 +387,7 @@ $custom-parent-menu-left-border: 0 solid $--color-primary;
 $custom-menu-item-border-radius: 8px;
 $custom-menu-item-active-color: $--color-white;
 $custom-menu-item-active-background-color: var(--primary-700);
-$custom-submenu-padding: 0 24px;
+$custom-submenu-padding: 0 0 0 24px;
 $custom-menu-item-gap: 8px;
 
 @import "./element-ui/index.scss";
