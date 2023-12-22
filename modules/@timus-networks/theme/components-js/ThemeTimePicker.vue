@@ -1,18 +1,6 @@
 <template>
   <div class="pt-8 pb-16 flex gap-12 flex-col">
     <h1>Popover</h1>
-
-    <section>
-      <el-popover placement="right" width="400" trigger="click">
-        <el-table :data="gridData">
-          <el-table-column width="150" property="date" label="date"></el-table-column>
-          <el-table-column width="100" property="name" label="name"></el-table-column>
-          <el-table-column width="300" property="address" label="address"></el-table-column>
-        </el-table>
-        <el-button slot="reference">Click to activate</el-button>
-      </el-popover>
-    </section>
-
     <section>
       <h2>Basic Usage</h2>
       <p class="p-md-c my-6">Hover on the dropdown menu to unfold it for more actions.</p>
@@ -58,7 +46,26 @@
       </div>
     </section>
 
-    <h1>Popover</h1>
+    <section>
+      <h2>Popover with Table</h2>
+      <p class="p-md-c my-6">Displays tables with popover content</p>
+      <div class="grid grid-flow-col auto-cols-max gap-4">
+        <el-popover placement="right" width="400" trigger="click">
+          <el-table :data="gridData">
+            <el-table-column width="150" property="date" label="date"></el-table-column>
+            <el-table-column width="100" property="name" label="name"></el-table-column>
+            <el-table-column width="300" property="address" label="address"></el-table-column>
+          </el-table>
+          <el-button slot="reference" type="primary" size="small">Click to activate</el-button>
+        </el-popover>
+      </div>
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <p class="text-xs">
+          <code> &lt;el-popover placement="right" width="400" trigger="click"&gt; &lt;el-table /&gt; &lt;/el-popover&gt; </code>
+        </p>
+      </div>
+    </section>
+
     <section>
       <h2>Temel Kullanım</h2>
       <p class="p-md-c my-6">
