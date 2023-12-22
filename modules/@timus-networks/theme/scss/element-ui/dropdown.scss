@@ -106,13 +106,14 @@
 
       position: relative;
       margin-top: $divided-offset;
+      padding-top: $divided-offset;
       border-top: 1px solid $custom-option-seperator-border-color;
 
       &:before {
         content: '';
         height: $divided-offset;
         display: block;
-        margin: 0 -20px;
+        // margin: 0 -20px;
         background-color: $custom-option-divided-background;
       }
     }
