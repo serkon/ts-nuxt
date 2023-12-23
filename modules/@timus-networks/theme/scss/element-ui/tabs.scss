@@ -101,7 +101,8 @@
     list-style: none;
     font-size: 14px;
     font-weight: 500;
-    color: $--color-text-primary;
+    color: $custom-tabs-item-font-color;
+    position: relative;
     position: relative;
 
     &:focus, &:focus:active {
