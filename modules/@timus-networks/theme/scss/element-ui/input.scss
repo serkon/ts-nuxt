@@ -159,6 +159,10 @@
 
   @include e(suffix-inner) {
     pointer-events: all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
 
   @include e(prefix) {
@@ -177,6 +181,9 @@
     text-align: center;
     transition: all .3s;
     line-height: $--input-height;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
     &:after {
       content: '';
