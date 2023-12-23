@@ -7,7 +7,7 @@
       <el-tab-pane label="Checkbox" name="fourth"><ThemeCheckbox></ThemeCheckbox></el-tab-pane>
       <el-tab-pane label="Radio" name="five"><ThemeRadio></ThemeRadio></el-tab-pane>
       <el-tab-pane label="Number" name="six"><ThemeInputNumbers></ThemeInputNumbers></el-tab-pane>
-      <el-tab-pane label="Picker" name="seven"><ThemeTimePicker></ThemeTimePicker></el-tab-pane>
+      <el-tab-pane label="Popover & Dropdown" name="seven"><ThemePopover></ThemePopover></el-tab-pane>
       <el-tab-pane label="Select" name="eight"><ThemeSelect></ThemeSelect></el-tab-pane>
       <el-tab-pane label="Form" name="nine"><ThemeForm></ThemeForm></el-tab-pane>
       <el-tab-pane label="Link" name="ten"><ThemeLink></ThemeLink></el-tab-pane>
@@ -28,6 +28,7 @@
 <script>
 import ThemeInputNumbers from './ThemeInputNumbers.vue';
 import ThemeInputs from './ThemeInputs.vue';
+import ThemePopover from './ThemePopover.vue';
 
 export default {
   data() {
@@ -40,6 +41,6 @@ export default {
       console.log(tab, event);
     },
   },
-  components: { ThemeInputs, ThemeInputNumbers },
+  components: { ThemeInputs, ThemeInputNumbers, ThemePopover },
 };
 </script>

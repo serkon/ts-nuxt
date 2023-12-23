@@ -2,7 +2,7 @@
   <div class="pt-8 pb-16 flex gap-12 flex-col">
     <h1>Popover</h1>
     <section>
-      <h2>Basic Usage</h2>
+      <h2>Dropdown</h2>
       <p class="p-md-c my-6">Hover on the dropdown menu to unfold it for more actions.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-dropdown trigger="click">
@@ -39,8 +39,8 @@
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
           <code>
-            &lt;el-popover placement=&quot;right&quot; title=&quot;Başlık&quot; trigger=&quot;click&quot;&gt; &lt;el-button
-            slot=&quot;reference&quot;&gt;Tıkla&lt;/el-button&gt; &lt;/el-popover&gt;
+            &lt;el-dropdown trigger="click"&gt; &lt;span&gt; Dropdown List &lt;/span&gt; &lt;el-dropdown-menu slot="dropdown"&gt; &lt;el-dropdown-item
+            /&gt; &lt;/el-dropdown-menu&gt; &lt;/el-popover&gt;
           </code>
         </p>
       </div>
