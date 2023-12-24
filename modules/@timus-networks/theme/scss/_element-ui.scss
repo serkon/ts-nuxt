@@ -420,4 +420,10 @@ $custom-dragger-placeholder-text-default-font-size: 14px;
 $custom-dragger-placeholder-text-em-color: var(--gray-400);
 $custom-dragger-placeholder-text-em-font-size: 14px;
 
+$custom-upload-list-border: 1px solid var(--primary-200);
+$custom-upload-list-border-radius: 8px;
+$custom-upload-list-padding: 8px;
+$custom-upload-list-item-height: 32px;
+$custom-upload-list-item-padding: 0 4px;
+
 @import './element-ui/index.scss';

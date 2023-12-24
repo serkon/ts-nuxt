@@ -124,17 +124,27 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  border-radius: 8px;
+  overflow: hidden;
+
+  &:not(:empty){
+    padding: $custom-upload-list-padding;
+    border: $custom-upload-list-border;
+  }
 
   @include e(item) {
     transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
     font-size: 14px;
     color: $--color-text-regular;
-    line-height: 1.8;
-    margin-top: 5px;
     position: relative;
     box-sizing: border-box;
     border-radius: 4px;
     width: 100%;
+
+    display: flex;
+    align-items: center;
+    padding: $custom-upload-list-item-padding;
+    height: $custom-upload-list-item-height;
 
     .el-progress {
       position: absolute;
@@ -154,7 +164,7 @@
     }
 
     &:first-child {
-      margin-top: 10px;
+      // margin-top: 10px;
     }
 
     & .el-icon-upload-success {
@@ -163,13 +173,15 @@
 
     .el-icon-close {
       display: none;
-      position: absolute;
+      // position: absolute;
       top: 5px;
       right: 5px;
       cursor: pointer;
       opacity: 0.75;
       color: $--color-text-regular;
       //transform: scale(.7);
+      align-items: center;
+      justify-content: center;
 
       &:hover {
         opacity: 1;
@@ -191,7 +203,7 @@
       background-color: $--background-color-base;
 
       .el-icon-close {
-        display: inline-block;
+        display: flex;
       }
 
       .el-progress__text {
@@ -201,7 +213,8 @@
 
     @include when(success) {
       .el-upload-list__item-status-label {
-        display: block;
+        display: flex;
+        align-items: center;
       }
 
       .el-upload-list__item-name:hover,
@@ -250,6 +263,7 @@
     text-overflow: ellipsis;
     transition: color 0.3s;
     white-space: nowrap;
+    flex-grow: 1;
 
     [class^='el-icon'] {
       height: 100%;
@@ -260,9 +274,9 @@
   }
 
   @include e(item-status-label) {
-    position: absolute;
-    right: 5px;
-    top: 0;
+    // position: absolute;
+    // right: 5px;
+    // top: 0;
     line-height: inherit;
     display: none;
   }
