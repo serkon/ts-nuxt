@@ -3,227 +3,233 @@
 @import 'common/popup';
 
 @include b(message-box) {
-    width: $--msgbox-width;
-    vertical-align: middle;
-    background-color: $--color-white;
-    border-radius: $custom-dialog-border-radius;
-    border: $custom-dialog-border;
-    font-size: $--messagebox-font-size;
-    box-shadow: $--box-shadow-light;
-    text-align: left;
-    overflow: hidden;
-    backface-visibility: hidden;
-    display: inline-flex;
-    flex-direction: column;
-    gap: $custom-dialog-gap;
+  width: $--msgbox-width;
+  vertical-align: middle;
+  background-color: $--color-white;
+  border-radius: $custom-dialog-border-radius;
+  border: $custom-dialog-border;
+  font-size: $--messagebox-font-size;
+  box-shadow: $--box-shadow-light;
+  text-align: left;
+  overflow: hidden;
+  backface-visibility: hidden;
+  display: inline-flex;
+  flex-direction: column;
+  gap: $custom-dialog-gap;
 
-    @include e(wrapper) {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        text-align: center;
+  @include e(wrapper) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
 
-        &::after {
-            content: '';
-            display: inline-block;
-            height: 100%;
-            width: 0;
-            vertical-align: middle;
-        }
+    &::after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      width: 0;
+      vertical-align: middle;
+    }
+  }
+
+  @include e(header) {
+    position: relative;
+    display: flex;
+    padding: $custom-dialog-header-padding;
+  }
+
+  @include e(title) {
+    padding-left: 0;
+    margin-bottom: 0;
+    flex-grow: 1;
+    line-height: $--dialog-font-line-height;
+    font-size: $--dialog-title-font-size;
+    color: $custom-dialog-header-font-color;
+  }
+
+  @include e(headerbtn) {
+    position: absolute;
+    top: $--msgbox-padding-primary;
+    right: $--msgbox-padding-primary;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: $--message-close-size;
+    cursor: pointer;
+
+    .el-message-box__close {
+      color: $custom-dialog-close-color;
     }
 
+    &:focus,
+    &:hover {
+      .el-message-box__close {
+        color: $custom-dialog-close-color-hover;
+      }
+    }
+  }
+
+  @include e(content) {
+    padding: $custom-dialog-body-padding;
+    color: $custom-dialog-body-font-color;
+    font-size: $custom-dialog-body-font-size;
+    line-height: $custom-dialog-body-font-line-height;
+  }
+
+  @include e(container) {
+    position: relative;
+  }
+
+  @include e(input) {
+    padding-top: 15px;
+
+    & input.invalid {
+      border-color: $--color-danger;
+      &:focus {
+        border-color: $--color-danger;
+      }
+    }
+  }
+
+  @include e(status) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px !important;
+
+    &::before {
+      // 防止图标切割
+      padding-left: 1px;
+    }
+
+    + .el-message-box__message {
+      padding-left: 36px;
+      padding-right: 12px;
+    }
+
+    &.el-icon-success {
+      color: $--messagebox-success-color;
+    }
+
+    &.el-icon-info {
+      color: $--messagebox-info-color;
+    }
+
+    &.el-icon-warning {
+      color: $--messagebox-warning-color;
+    }
+
+    &.el-icon-error {
+      color: $--messagebox-danger-color;
+    }
+  }
+
+  @include e(message) {
+    margin: 0;
+
+    & p {
+      margin: 0;
+      line-height: 24px;
+    }
+  }
+
+  @include e(errormsg) {
+    color: $--color-danger;
+    font-size: $--messagebox-error-font-size;
+    min-height: 18px;
+    margin-top: 2px;
+  }
+
+  @include e(btns) {
+    padding: $custom-dialog-footer-padding;
+    display: flex;
+    gap: $custom-dialog-footer-gap;
+
+    button {
+      justify-content: center;
+      flex-basis: 50%;
+
+      @apply el-button--large;
+
+      &:first-of-type {
+        @extend .outline;
+      }
+    }
+  }
+
+  @include e(btns-reverse) {
+    flex-direction: row-reverse;
+  }
+
+  // centerAlign 布局
+  @include m(center) {
+    padding-bottom: 30px;
+
     @include e(header) {
-        position: relative;
-        display: flex;
-        padding: $custom-dialog-header-padding;
+      padding-top: 30px;
     }
 
     @include e(title) {
-        padding-left: 0;
-        margin-bottom: 0;
-        flex-grow: 1;
-        line-height: $--dialog-font-line-height;
-        font-size: $--dialog-title-font-size;
-        color: $custom-dialog-header-font-color;
-    }
-
-    @include e(headerbtn) {
-        position: absolute;
-        top: $--msgbox-padding-primary;
-        right: $--msgbox-padding-primary;
-        padding: 0;
-        border: none;
-        outline: none;
-        background: transparent;
-        font-size: $--message-close-size;
-        cursor: pointer;
-
-        .el-message-box__close {
-            color: $custom-dialog-close-color;
-        }
-
-        &:focus,
-        &:hover {
-            .el-message-box__close {
-                color: $custom-dialog-close-color-hover;
-            }
-        }
-    }
-
-    @include e(content) {
-        padding: $custom-dialog-body-padding;
-        color: $custom-dialog-body-font-color;
-        font-size: $custom-dialog-body-font-size;
-        line-height: $custom-dialog-body-font-line-height;
-    }
-
-    @include e(container) {
-        position: relative;
-    }
-
-    @include e(input) {
-        padding-top: 15px;
-
-        & input.invalid {
-            border-color: $--color-danger;
-            &:focus {
-                border-color: $--color-danger;
-            }
-        }
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     @include e(status) {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px !important;
-
-        &::before {
-            // 防止图标切割
-            padding-left: 1px;
-        }
-
-        + .el-message-box__message {
-            padding-left: 36px;
-            padding-right: 12px;
-        }
-
-        &.el-icon-success {
-            color: $--messagebox-success-color;
-        }
-
-        &.el-icon-info {
-            color: $--messagebox-info-color;
-        }
-
-        &.el-icon-warning {
-            color: $--messagebox-warning-color;
-        }
-
-        &.el-icon-error {
-            color: $--messagebox-danger-color;
-        }
+      position: relative;
+      top: auto;
+      padding-right: 5px;
+      text-align: center;
+      transform: translateY(-1px);
     }
 
     @include e(message) {
-        margin: 0;
-
-        & p {
-            margin: 0;
-            line-height: 24px;
-        }
+      margin-left: 0;
     }
 
-    @include e(errormsg) {
-        color: $--color-danger;
-        font-size: $--messagebox-error-font-size;
-        min-height: 18px;
-        margin-top: 2px;
+    @include e((btns, content)) {
+      text-align: center;
     }
 
-    @include e(btns) {
-        padding: $custom-dialog-footer-padding;
-        display: grid;
-        grid-auto-flow: column;
-        gap: $custom-dialog-footer-gap;
+    @include e(content) {
+      $padding-horizontal: $--msgbox-padding-primary + 12px;
 
-        button {
-            justify-content: center;
-        }
+      padding-left: $padding-horizontal;
+      padding-right: $padding-horizontal;
     }
-
-    @include e(btns-reverse) {
-        flex-direction: row-reverse;
-    }
-
-    // centerAlign 布局
-    @include m(center) {
-        padding-bottom: 30px;
-
-        @include e(header) {
-            padding-top: 30px;
-        }
-
-        @include e(title) {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @include e(status) {
-            position: relative;
-            top: auto;
-            padding-right: 5px;
-            text-align: center;
-            transform: translateY(-1px);
-        }
-
-        @include e(message) {
-            margin-left: 0;
-        }
-
-        @include e((btns, content)) {
-            text-align: center;
-        }
-
-        @include e(content) {
-            $padding-horizontal: $--msgbox-padding-primary + 12px;
-
-            padding-left: $padding-horizontal;
-            padding-right: $padding-horizontal;
-        }
-    }
+  }
 }
 
 .msgbox-fade-enter-active {
-    animation: msgbox-fade-in 0.3s;
+  animation: msgbox-fade-in 0.3s;
 }
 
 .msgbox-fade-leave-active {
-    animation: msgbox-fade-out 0.3s;
+  animation: msgbox-fade-out 0.3s;
 }
 
 @keyframes msgbox-fade-in {
-    0% {
-        transform: translate3d(0, -20px, 0);
-        opacity: 0;
-    }
-    100% {
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
-    }
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
 @keyframes msgbox-fade-out {
-    0% {
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate3d(0, -20px, 0);
-        opacity: 0;
-    }
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
 }

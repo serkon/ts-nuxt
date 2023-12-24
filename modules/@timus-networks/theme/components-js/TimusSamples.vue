@@ -23,6 +23,7 @@
       <el-tab-pane label="Dialog" name="twenty"><ThemeDialog></ThemeDialog></el-tab-pane>
       <el-tab-pane label="Sidebar" name="twenty-one"><ThemeSidebar></ThemeSidebar></el-tab-pane>
       <el-tab-pane label="Upload" name="twenty-two"><ThemeUpload></ThemeUpload></el-tab-pane>
+      <el-tab-pane label="MessageBox" name="twenty-three"><ThemeMessageBox></ThemeMessageBox></el-tab-pane>
     </el-tabs>
   </div>
 </template>

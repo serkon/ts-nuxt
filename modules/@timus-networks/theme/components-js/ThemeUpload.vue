@@ -5,7 +5,7 @@
       <p class="p-lg my-6">
         Use the type attribute to define Tag's type. In addition, the color attribute can be used to set the background color of the Tag.
       </p>
-      <div class="grid grid-flow-col auto-cols-max gap-4">
+      <div class="grid grid-flow-col gap-4">
         <el-upload
           class="el-upload-container"
           drag
@@ -25,7 +25,12 @@
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>
+            &lt;el-upload class=&quot;el-upload-container&quot; drag multiple&gt;&lt;i class=&quot;el-icon-upload&quot;&gt;&lt;/i&gt;&lt;div
+            class=&quot;el-upload__text&quot;&gt;&lt;span class=&quot;title&quot;&gt;Drop file here or&lt;/span&gt;&lt;span
+            class=&quot;description&quot;&gt;click to upload&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;el-upload__tip&quot;
+            slot=&quot;tip&quot;&gt;description&lt;/div&gt;&lt;/el-upload&gt;
+          </code>
         </p>
       </div>
     </section>
