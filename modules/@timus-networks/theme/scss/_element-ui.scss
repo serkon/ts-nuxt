@@ -406,5 +406,18 @@ Tabs
 --------------------------
 */
 $custom-tabs-item-font-color: var(--gray-400);
+/*
+--------------------------
+Upload
+--------------------------
+*/
+$custom-dragger-border: 1px dashed var(--gray-300);
+$custom-dragger-border-radius: 8px;
+$custom-dragger-min-height: 180px;
+$custom-dragger-placeholder-icon-color: var(--gray-300);
+$custom-dragger-placeholder-text-default-color: var(--gray-900);
+$custom-dragger-placeholder-text-default-font-size: 14px;
+$custom-dragger-placeholder-text-em-color: var(--gray-400);
+$custom-dragger-placeholder-text-em-font-size: 14px;
 
 @import './element-ui/index.scss';

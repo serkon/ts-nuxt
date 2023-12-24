@@ -670,4 +670,8 @@
   border-radius: $custom-table-container-border-radius;
   border: 1px solid $custom-table-container-border-color;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
 }
