@@ -13,6 +13,23 @@
         </p>
       </div>
     </section>
+
+    <section>
+      <h3>Cascader Container</h3>
+      <p class="p-lg-c my-6">
+        Cascader container contains two different component in it inside. Left one is Cascader and right one is Select dropdown.
+      </p>
+      <div class="el-cascader-container">
+        <el-cascader v-model="value" :options="options" @change="handleChange" clearable></el-cascader>
+        <el-cascader v-model="value" :options="options" @change="handleChange" clearable></el-cascader>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        </el-select>
+        <el-select v-model="value" placeholder="Select">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        </el-select>
+      </div>
+    </section>
     <section>
       <h1>Multiple Selection</h1>
       <p class="p-lg my-6">

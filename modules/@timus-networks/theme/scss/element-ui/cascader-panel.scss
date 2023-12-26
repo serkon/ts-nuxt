@@ -62,7 +62,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0 $custom-cascader-padding;
+    padding: $custom-cascader-padding;
     height: 34px;
     line-height: 34px;
     outline: none;
@@ -97,7 +97,8 @@
 
     @include e(prefix) {
         position: absolute;
-        left: 10px;
+        left: 6px;
+        font-size: 12px;
     }
 
     @include e(postfix) {
@@ -127,3 +128,36 @@
         }
     }
 }
+
+
+.el-cascader-container {
+  display: flex;
+
+  & > :first-child .el-input__inner {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: $--cascader-menu-radius;
+    border-bottom-left-radius: $--cascader-menu-radius;
+  }
+
+  & > :not(:first-child):not(:last-child) .el-input__inner {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0px solid transparent !important
+  }
+
+  & > :last-child {
+    flex-grow: 1;
+
+    .el-input__inner {
+      border-left: 0px solid transparent;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: $--cascader-menu-radius;
+      border-bottom-right-radius: $--cascader-menu-radius;
+    }
+  }
+}
+
