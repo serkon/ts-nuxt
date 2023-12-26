@@ -64,6 +64,7 @@
     flex-grow: 1;
     line-height: $--dialog-font-line-height;
     font-size: $--dialog-title-font-size;
+    font-weight: $custom-dialog-header-font-weight;
     color: $custom-dialog-header-font-color;
 
     @extend .h3;

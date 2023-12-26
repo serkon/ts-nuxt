@@ -347,6 +347,7 @@ $custom-dialog-close-color: var(--primary-700);
 $custom-dialog-close-color-hover: var(--primary-600);
 $custom-dialog-border-radius: 16px;
 $custom-dialog-header-font-color: var(--gray-900);
+$custom-dialog-header-font-weight: 500;
 $custom-dialog-header-padding: 30px 30px 0 30px;
 $custom-dialog-body-font-color: var(--gray-700);
 $custom-dialog-body-font-size: 14px;
@@ -359,7 +360,7 @@ $custom-dialog-outter-padding: 24px;
 $custom-dialog-border: 1px solid transparent;
 
 $custom-dialog-width: 50%;
-$--msgbox-width: 420px;
+$--msgbox-width: 630px;
 /*
 --------------------------
 Popup
