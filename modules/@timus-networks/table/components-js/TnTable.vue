@@ -73,119 +73,133 @@
   </div>
 </template>
 
-<script>import Vue from 'vue';
-export var TableLanguage;
-(function (TableLanguage) {
-    TableLanguage["NoData"] = "No Data";
-})(TableLanguage || (TableLanguage = {}));
+<script lang="ts">
+import Vue from 'vue';
+import { Column, Filter, Paging, Sort } from './interfaces';
+
+interface Data {
+  sorting: Sort[];
+  filtering: Filter[];
+  pagination: Paging;
+  selection: any[];
+  translator: (key: string, params?: { [key: string]: any }) => string;
+  language: typeof TableLanguage;
+}
+
+export enum TableLanguage {
+  NoData = 'No Data',
+}
+
 /**
  * TnTable component
  *
  * @emitters
  * eventSort - (sorting: Order[]) Changes sorting and call change event
  */
+
 export default Vue.extend({
-    name: 'TnTable',
-    props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter', 'noSelect', 'translate', 'height'],
-    data() {
-        return {
-            filtering: this.filter || [],
-            sorting: this.sort || [],
-            pagination: this.paging || { page: 1, limit: 10, total: 0 },
-            selection: this.select || [],
-            translator: this.translate || ((v) => v),
-            language: TableLanguage,
-        };
+  name: 'TnTable',
+  props: ['data', 'columns', 'hide', 'sort', 'filter', 'paging', 'select', 'noFilter', 'noSelect', 'translate', 'height'],
+  data(): Data {
+    return {
+      filtering: this.filter || [],
+      sorting: this.sort || [],
+      pagination: this.paging || { page: 1, limit: 10, total: 0 },
+      selection: this.select || [],
+      translator: this.translate || ((v: string): string => v),
+      language: TableLanguage,
+    };
+  },
+  computed: {
+    isDataExist() {
+      return this.data.length > 0;
     },
-    computed: {
-        isDataExist() {
-            return this.data.length > 0;
-        },
-        isNoSelect() {
-            return this.noSelect === '';
-        },
-        isNoFilter() {
-            return this.noFilter === '';
-        },
-        status() {
-            return { sort: this.sorting, filter: this.filtering, paging: this.pagination, select: this.selection };
-        },
-        isAllSelected() {
-            const allSelected = this.selection.length === this.data.length;
-            const checkboxElement = this.$refs.checkbox;
-            checkboxElement && (checkboxElement.indeterminate = !allSelected && !!this.selection.length);
-            return this.selection.length === this.data.length;
-        },
-        isAnySelected() {
-            return this.selection.length > 0 && !this.isAllSelected;
-        },
+    isNoSelect() {
+      return this.noSelect === '';
     },
-    mounted() {
-        const checkboxElement = this.$refs.checkbox;
-        checkboxElement && (checkboxElement.indeterminate = this.isAnySelected);
+    isNoFilter() {
+      return this.noFilter === '';
     },
-    methods: {
-        isSticky(column) {
-            if (!this.isDataExist || !column.sticky)
-                return '';
-            let position = column.sticky === 'left' || column.sticky === 'right' ? column.sticky : 'both';
-            return `sticky sticky-${position}`;
-        },
-        hasSlot(name) {
-            // eslint-disable-next-line vue/no-deprecated-dollar-scopedslots-api
-            return !!this.$scopedSlots[name];
-        },
-        toggleAll() {
-            if (this.selection.length === this.data.length) {
-                this.selection = [];
-            }
-            else {
-                this.selection = [...this.data];
-            }
-            this.eventSelection();
-        },
-        emitter() {
-            this.$emit('event', this.status);
-        },
-        eventSort(field) {
-            const found = this.sorting.find((item) => item.field === field);
-            found && found.alignment === 'asc'
-                ? (found.alignment = 'desc')
-                : (this.sorting = !found ? [...this.sorting, { field, alignment: 'asc' }] : this.sorting.filter((item) => item.field !== field));
-            this.$emit('event-sort', this.sorting);
-            this.emitter();
-        },
-        eventFilter(filter) {
-            const found = this.filtering.find((item) => item.field === filter.field);
-            (found &&
-                (filter.value.length > 0 ? (found.value = filter.value) : (this.filtering = this.filtering.filter((item) => item.field !== filter.field)))) ||
-                (this.filtering = [...this.filtering, filter]);
-            this.$emit('event-filter', this.filtering);
-            this.emitter();
-        },
-        eventPagination(paging) {
-            this.pagination = paging;
-            this.$emit('event-paging', paging);
-            this.emitter();
-        },
-        eventSelection() {
-            this.$emit('event-select', this.selection);
-            this.emitter();
-        },
+    status() {
+      return { sort: this.sorting, filter: this.filtering, paging: this.pagination, select: this.selection };
     },
-    watch: {
-        $props: {
-            deep: true,
-            immediate: true,
-            handler(value) {
-                this.sorting = value.sort;
-                this.pagination = value.paging;
-                this.filtering = value.filter;
-                this.selection = value.select;
-            },
-        },
+    isAllSelected(): boolean {
+      const allSelected = this.selection.length === this.data.length;
+      const checkboxElement = this.$refs.checkbox as HTMLInputElement | undefined;
+      checkboxElement && (checkboxElement.indeterminate = !allSelected && !!this.selection.length);
+      return this.selection.length === this.data.length;
     },
+    isAnySelected(): boolean {
+      return this.selection.length > 0 && !this.isAllSelected;
+    },
+  },
+  mounted() {
+    const checkboxElement = this.$refs.checkbox as HTMLInputElement | undefined;
+    checkboxElement && (checkboxElement.indeterminate = this.isAnySelected);
+  },
+  methods: {
+    isSticky(column: Column): string {
+      if (!this.isDataExist || !column.sticky) return '';
+      let position = column.sticky === 'left' || column.sticky === 'right' ? column.sticky : 'both';
+      return `sticky sticky-${position}`;
+    },
+    hasSlot(name: string) {
+      // eslint-disable-next-line vue/no-deprecated-dollar-scopedslots-api
+      return !!this.$scopedSlots[name];
+    },
+    toggleAll() {
+      if (this.selection.length === this.data.length) {
+        this.selection = [];
+      } else {
+        this.selection = [...this.data];
+      }
+      this.eventSelection();
+    },
+    emitter() {
+      this.$emit('event', this.status);
+    },
+    eventSort(field: string) {
+      const found = this.sorting.find((item) => item.field === field);
+
+      found && found.alignment === 'asc'
+        ? (found.alignment = 'desc')
+        : (this.sorting = !found ? [...this.sorting, { field, alignment: 'asc' }] : this.sorting.filter((item) => item.field !== field));
+      this.$emit('event-sort', this.sorting);
+      this.emitter();
+    },
+    eventFilter(filter: Filter): void {
+      const found = this.filtering.find((item) => item.field === filter.field);
+
+      (found &&
+        (filter.value.length > 0 ? (found.value = filter.value) : (this.filtering = this.filtering.filter((item) => item.field !== filter.field)))) ||
+        (this.filtering = [...this.filtering, filter]);
+      this.$emit('event-filter', this.filtering);
+      this.emitter();
+    },
+    eventPagination(paging: Paging): void {
+      this.pagination = paging;
+      this.$emit('event-paging', paging);
+      this.emitter();
+    },
+    eventSelection(): void {
+      this.$emit('event-select', this.selection);
+      this.emitter();
+    },
+  },
+  watch: {
+    $props: {
+      deep: true,
+      immediate: true,
+      handler(value) {
+        this.sorting = value.sort;
+        this.pagination = value.paging;
+        this.filtering = value.filter;
+        this.selection = value.select;
+      },
+    },
+  },
 });
+
 /*
 props: {
   data: {

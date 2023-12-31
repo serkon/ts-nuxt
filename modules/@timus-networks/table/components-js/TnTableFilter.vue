@@ -44,63 +44,71 @@
   </th>
 </template>
 
-<script>import Vue from 'vue';
+<script lang="ts">
+import Vue, { PropType } from 'vue';
+import { Column, Filter, FilterConfig } from './interfaces';
 import { utils } from './utils';
+
+interface Data {
+  filter: string | string[];
+  mergedFilter: FilterConfig;
+}
+
 export default Vue.extend({
-    name: 'TnTableFilter',
-    props: {
-        column: {
-            type: Object,
-            default: () => ({}),
-        },
-        index: {
-            type: Number,
-            default: null,
-        },
-        hide: {
-            type: Array,
-            default: () => [],
-        },
-        filtering: {
-            type: Array,
-            default: () => [],
-        },
+  name: 'TnTableFilter',
+  props: {
+    column: {
+      type: Object as PropType<Column>,
+      default: () => ({} as Column),
     },
-    data() {
-        return {
-            filter: '',
-            mergedFilter: {
-                options: [],
-                type: 'text',
-                multi: false,
-                callback: (value) => console.log('Filter:', value, this),
-                disable: false,
-                ...this.$props.column.filterConfig,
-            },
-        };
+    index: {
+      type: Number,
+      default: null,
     },
-    watch: {
-        filtering: {
-            deep: true,
-            immediate: true,
-            handler(item) {
-                this.filter = this.item?.value ?? '';
-            },
-        },
+    hide: {
+      type: Array as PropType<string[]>,
+      default: () => [],
     },
-    methods: {
-        testChanged(value) {
-            utils.debounce(() => {
-                const newValue = value;
-                const updated = { field: this.column.field, value: newValue };
-                this.$emit('event-filter', updated);
-            }, 500)();
-        },
+    filtering: {
+      type: Array as PropType<Filter[]>,
+      default: () => [] as Filter[],
     },
-    computed: {
-        item() {
-            return this.filtering.find((item) => item.field === this.column.field);
-        },
+  },
+  data(): Data {
+    return {
+      filter: '',
+      mergedFilter: {
+        options: [],
+        type: 'text',
+        multi: false,
+        callback: (value: any) => console.log('Filter:', value, this),
+        disable: false,
+        ...this.$props.column.filterConfig,
+      },
+    };
+  },
+  watch: {
+    filtering: {
+      deep: true,
+      immediate: true,
+      handler(item) {
+        this.filter = this.item?.value ?? '';
+      },
     },
+  },
+  methods: {
+    testChanged(value: any) {
+      utils.debounce(() => {
+        const newValue = value;
+        const updated: Filter = { field: this.column.field, value: newValue };
+        this.$emit('event-filter', updated);
+      }, 500)();
+    },
+  },
+  computed: {
+    item() {
+      return this.filtering.find((item: Filter) => item.field === this.column.field);
+    },
+  },
 });
 </script>

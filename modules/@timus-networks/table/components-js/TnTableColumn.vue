@@ -7,28 +7,31 @@
   </td>
 </template>
 
-<script>import Vue from 'vue';
+<script lang="ts">
+import Vue, { PropType } from 'vue';
+import { Column } from './interfaces';
+
 export default Vue.extend({
-    name: 'TnTableColumn',
-    props: {
-        row: {
-            type: Object,
-            default: () => { },
-        },
-        rowIndex: {
-            type: Number,
-        },
-        hide: {
-            type: Array,
-            default: () => [],
-        },
-        column: {
-            type: Object,
-            default: () => ({}),
-        },
-        index: {
-            type: Number,
-        },
+  name: 'TnTableColumn',
+  props: {
+    row: {
+      type: Object as PropType<any>,
+      default: () => {},
     },
+    rowIndex: {
+      type: Number,
+    },
+    hide: {
+      type: Array as PropType<string[]>,
+      default: () => [],
+    },
+    column: {
+      type: Object as PropType<Column>,
+      default: () => ({} as Column),
+    },
+    index: {
+      type: Number,
+    },
+  },
 });
 </script>
