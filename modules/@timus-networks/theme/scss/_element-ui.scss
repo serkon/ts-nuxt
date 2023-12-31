@@ -333,7 +333,7 @@ $--cascader-menu-border: 1px solid var(--gray-400);
 $--cascader-node-background-hover: $--color-white;
 
 $custom-cascader-item-gap: 4px;
-$custom-cascader-padding: 0 16px 0 24px;
+$custom-cascader-padding: 0 16px 0 28px;
 $custom-cascader-font-size: 14px;
 $custom-cascader-font-color: var(--gray-700);
 $custom-cascader-disabled-font-color: var(--gray-400);
@@ -407,6 +407,13 @@ Tabs
 --------------------------
 */
 $custom-tabs-item-font-color: var(--gray-400);
+$custom-tabs-item-font-size: 16px;
+$custom-tabs-item-font-weight: 500;
+$custom-tabs-item-height: 40px;
+$custom-tabs-item-line-height: 40px;
+$custom-tabs-item-padding: 0 12px;
+$custom-tabs-item-border-radius: 8px;
+$custom-tabs-item-active-color: $--color-white;
 /*
 --------------------------
 Upload

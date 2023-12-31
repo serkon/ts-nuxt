@@ -93,16 +93,15 @@
     }
   }
   @include e(item) {
-    padding: 0 20px;
-    height: 40px;
+    padding: $custom-tabs-item-padding;
+    height: $custom-tabs-item-height;
     box-sizing: border-box;
-    line-height: 40px;
+    line-height: $custom-tabs-item-line-height;
     display: inline-block;
     list-style: none;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: $custom-tabs-item-font-size;
+    font-weight: $custom-tabs-item-font-weight;
     color: $custom-tabs-item-font-color;
-    position: relative;
     position: relative;
 
     &:focus, &:focus:active {

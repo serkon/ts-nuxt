@@ -35,7 +35,7 @@
     width: $custom-input-number-buttons-width;
     text-align: center;
     background: $custom-input-number-buttons-background-color;
-    color: $--color-text-regular;
+    color: $--input-icon-color;
     cursor: pointer;
     font-size: 13px;
     display: flex;
@@ -50,7 +50,7 @@
     }
 
     &:hover {
-      color: $--color-primary;
+      color: $--input-icon-color;
 
       &:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled) {
         border-color: $--input-focus-border;
@@ -58,7 +58,7 @@
     }
 
     &.is-disabled {
-      color: $--input-disabled-border;
+      color: $--input-disabled-color;
       cursor: not-allowed;
     }
 

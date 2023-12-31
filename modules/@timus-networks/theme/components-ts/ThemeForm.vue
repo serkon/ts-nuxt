@@ -20,9 +20,25 @@
       </div>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-form ref="form" :model="form" label-width="130px" class="gap-4 flex flex-col" :label-position="labelPosition">
+          <el-form-item data-testid="components-password-policies-form-vbogdsxygl" prop="minimum_character_length">
+            <el-checkbox data-testid="components-password-policies-form-vbogdsxyg2" :disabled="true" class="grow">
+              {{ $t('password_policies') }}
+            </el-checkbox>
+            <el-input-number
+              data-testid="components-password-policies-form-vbogdsxyg3"
+              size="mini"
+              controls-position="right"
+              :min="8"
+              :max="10"
+              v-model="count"
+            >
+            </el-input-number>
+          </el-form-item>
+
           <el-form-item label="Aktivite Adı">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
+
           <el-form-item label="Aktivite Bölgesi">
             <el-select v-model="form.region" placeholder="Lütfen bölgenizi seçin" class="w-full">
               <el-option label="Bölge Bir" value="shanghai"></el-option>
@@ -61,6 +77,7 @@ export default Vue.extend({
   data() {
     return {
       labelPosition: 'right',
+      count: '9',
       form: {
         name: '',
         region: '',

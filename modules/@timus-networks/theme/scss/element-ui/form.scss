@@ -1,11 +1,12 @@
-@import "mixins/mixins";
-@import "mixins/utils";
-@import "common/var";
+@import 'mixins/mixins';
+@import 'mixins/utils';
+@import 'common/var';
 
 @include b(form) {
   @include m(label-left) {
     & .el-form-item__label {
       text-align: left;
+      flex-grow: 1;
     }
   }
   @include m(label-top) {
@@ -23,7 +24,13 @@
       padding: 0 0 $custom-form-label-padding-bottom 0;
       display: flex;
       align-items: center;
-      flex-grow: 1;
+      // flex-grow: 1;
+      gap: 4px;
+
+      &::before {
+        margin: 0;
+        color: $custom-form-label-required-color;
+      }
     }
   }
   @include m(inline) {
@@ -49,6 +56,8 @@
   // margin-bottom: 22px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-grow: 1;
   @include utils-clearfix;
 
   & .el-form-item {
@@ -123,7 +132,7 @@
     padding: 0 12px 0 0;
     box-sizing: border-box;
 
-    + .el-form-item__content{
+    + .el-form-item__content {
       margin-left: 0 !important;
       flex-grow: 1;
     }
@@ -132,6 +141,10 @@
     line-height: $custom-form-label-large-line-height;
     position: relative;
     font-size: 14px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+
     @include utils-clearfix;
 
     .el-input-group {
@@ -168,7 +181,8 @@
   @include when(error) {
     & .el-input__inner,
     & .el-textarea__inner {
-      &, &:focus {
+      &,
+      &:focus {
         border-color: $--color-danger;
       }
     }

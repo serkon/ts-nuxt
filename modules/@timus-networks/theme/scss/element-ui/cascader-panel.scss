@@ -89,6 +89,11 @@
         }
     }
 
+    .el-checkbox, .el-radio {
+      position: absolute;
+      left: 7px;
+    }
+
     @include when(disabled) {
         color: $--cascader-node-color-disabled;
         cursor: not-allowed;
@@ -97,8 +102,9 @@
 
     @include e(prefix) {
         position: absolute;
-        left: 6px;
+        left: 7px;
         font-size: 12px;
+        margin-top: 2px;
     }
 
     @include e(postfix) {
