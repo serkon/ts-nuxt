@@ -9,10 +9,12 @@
   line-height: 1;
   position: relative;
   cursor: pointer;
-  display: inline-block;
   white-space: nowrap;
   outline: none;
   font-size: $--font-size-base;
+  display: flex;
+  align-items: center;
+  gap: $--custom-radio-gap;
   @include utils-user-select(none);
 
   @include when(bordered) {
@@ -201,6 +203,6 @@
 
   @include e(label) {
     font-size: $--radio-font-size;
-    padding-left: $custom-checkbox-label-padding-left;
+    margin-top: 2px;
   }
 }

@@ -1,4 +1,5 @@
-.el-checkbox-group{
+.el-checkbox-group {
   display: flex;
-  gap: $custom-checkbox-gap;
+  gap: $--custom-radio-group-gap;
+  align-items: center;
 }

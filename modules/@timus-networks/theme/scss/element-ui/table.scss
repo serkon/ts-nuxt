@@ -124,13 +124,13 @@
   }
 
   .el-table__cell {
-    padding: 12px 0;
     min-width: 0;
     box-sizing: border-box;
     text-overflow: ellipsis;
     vertical-align: middle;
     position: relative;
     text-align: left;
+    height: 48px;
 
     &.el-table-column--selection{
       .cell{

@@ -1,5 +1,5 @@
-@import "mixins/mixins";
-@import "common/var";
+@import 'mixins/mixins';
+@import 'common/var';
 
 @include b(popover) {
   position: absolute;
@@ -28,12 +28,25 @@
   }
 
   @include e(reference) {
-    &:focus:not(.focusing), &:focus:hover {
+    &:focus:not(.focusing),
+    &:focus:hover {
       outline-width: 0;
     }
   }
 
-  &:focus:active, &:focus {
+  &:focus:active,
+  &:focus {
     outline-width: 0;
+  }
+
+  .popover-footer {
+    display: grid;
+    grid-auto-flow: column;
+    gap: $custom-popover-footer-gap;
+    padding-top: 16px;
+
+    button {
+      justify-content: center;
+    }
   }
 }

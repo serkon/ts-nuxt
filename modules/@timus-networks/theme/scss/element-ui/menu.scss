@@ -215,6 +215,7 @@
     display: flex;
     align-items: center;
     gap: $custom-menu-item-gap;
+    height: 100%;
   }
 
   & [class^='el-icon-'] {

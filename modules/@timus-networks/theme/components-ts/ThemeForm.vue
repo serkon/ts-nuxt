@@ -18,21 +18,11 @@
           </code>
         </p>
       </div>
-      <div class="grid grid-flow-col auto-cols-max gap-4">
+      <div class="grid grid-flow-col">
         <el-form ref="form" :model="form" label-width="130px" class="gap-4 flex flex-col" :label-position="labelPosition">
-          <el-form-item data-testid="components-password-policies-form-vbogdsxygl" prop="minimum_character_length">
-            <el-checkbox data-testid="components-password-policies-form-vbogdsxyg2" :disabled="true" class="grow">
-              {{ $t('password_policies') }}
-            </el-checkbox>
-            <el-input-number
-              data-testid="components-password-policies-form-vbogdsxyg3"
-              size="mini"
-              controls-position="right"
-              :min="8"
-              :max="10"
-              v-model="count"
-            >
-            </el-input-number>
+          <el-form-item class="form-content-left" prop="minimum_character_length">
+            <el-checkbox :disabled="true"> {{ $t('password_policies') }} </el-checkbox>
+            <el-input-number size="mini" class="grow" controls-position="right" :min="8" :max="10" v-model="count"> </el-input-number>
           </el-form-item>
 
           <el-form-item label="Aktivite Adı">
@@ -45,28 +35,31 @@
               <el-option label="Bölge İki" value="beijing"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="Aktivite Zamanı">
-            <el-col :span="11">
-              <el-date-picker type="date" placeholder="Tarih seçin" v-model="form.date1" style="width: 100%"></el-date-picker>
-            </el-col>
-            <el-col class="text-center" :span="1">-</el-col>
-            <el-col :span="12">
-              <el-time-picker placeholder="Saat seçin" v-model="form.date2" style="width: 100%"></el-time-picker>
-            </el-col>
+
+          <el-form-item class="form-content-left" label="Aktivite Zamanı">
+            <el-date-picker type="date" placeholder="Tarih seçin" v-model="form.date1" style="width: 100%"></el-date-picker>
+            <el-time-picker placeholder="Saat seçin" v-model="form.date2" style="width: 100%"></el-time-picker>
           </el-form-item>
+
           <el-form-item label="Kaynaklar">
             <el-radio-group v-model="form.resource" size="medium" class="flex gap-4">
               <el-radio label="Sponsor"></el-radio>
               <el-radio label="Mekan"></el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item>
-            <el-button class="outline">İptal Et</el-button>
-            <el-button type="primary" @click="onSubmit">Oluştur</el-button>
+
+          <el-form-item class="form-content-left">
+            <el-button class="outline grow">İptal Et</el-button>
+            <el-button type="primary grow" @click="onSubmit">Oluştur</el-button>
           </el-form-item>
         </el-form>
       </div>
     </section>
+
+    <el-descriptions title="User Info" :column="4" colon="false">
+      <el-description-item label="Username" labelClassName="w-28"> Ahmet Polat MacBook Pro, Ahmet Fatih Sez...</el-description-item>
+      <el-description-item label="Username" labelClassName="w-28"> Ahmet Polat MacBook Pro, Ahmet Fatih Sez...</el-description-item>
+    </el-descriptions>
   </div>
 </template>
 <script lang="ts">

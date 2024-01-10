@@ -128,9 +128,8 @@ Checkbox
 */
 $custom-checkbox-checked-icon-weight: 1.5px;
 $custom-checkbox-disabled-font-color: var(--gray-700);
-$custom-checkbox-label-padding-left: 8px;
+$custom-checkbox-label-padding-left: 4px;
 $custom-checkbox-disabled-input-inset-border: inset 0 0 0 2px #ffffff;
-$custom-checkbox-gap: 12px;
 $--checkbox-font-size: 14px;
 $--checkbox-font-weight: 400;
 $--checkbox-font-color: var(--gray-700);
@@ -157,6 +156,8 @@ Radio
 --------------------------
 */
 $custom-radio-checked-background-color: $--color-white;
+$--custom-radio-group-gap: 24px;
+$--custom-radio-gap: 8px;
 $--radio-input-border: $--checkbox-input-border;
 $--radio-font-size: 14px;
 $--radio-font-weight: 400;
@@ -173,6 +174,7 @@ Popper
 $--popover-border-color: var(--gray-400);
 $custom-popper-border: 1px solid $--popover-border-color;
 $custom-box-shadow: 0 1px 2px 0 rgba(26, 11, 94, 10%);
+$custom-popover-footer-gap: 16px;
 $--popover-arrow-size: 10px;
 $--popover-arrow-move-position: -2px;
 /*
@@ -354,7 +356,7 @@ $custom-dialog-body-font-size: 14px;
 $custom-dialog-body-font-line-height: 24px;
 $custom-dialog-body-padding: 0 30px;
 $custom-dialog-footer-padding: 0 30px 32px 30px;
-$custom-dialog-footer-gap: 30px;
+$custom-dialog-footer-gap: 28px;
 $custom-dialog-gap: 24px;
 $custom-dialog-outter-padding: 24px;
 $custom-dialog-border: 1px solid transparent;
@@ -433,5 +435,13 @@ $custom-upload-list-border-radius: 8px;
 $custom-upload-list-padding: 8px;
 $custom-upload-list-item-height: 32px;
 $custom-upload-list-item-padding: 0 4px;
+/*
+--------------------------
+Description
+--------------------------
+*/
+$--descriptions-title-font-size: 14px;
+$custom-descriptions-title-font-weight: 500;
+$custom-descriptions-title-line-height: 18px;
 
 @import './element-ui/index.scss';
