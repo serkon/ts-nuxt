@@ -9,6 +9,8 @@
   color: $custom-card-font-color;
   transition: 0.3s;
   gap: $custom-card-gap;
+  display: flex;
+  flex-direction: column;
 
   @include when(always-shadow) {
     box-shadow: $--box-shadow-light;
@@ -23,8 +25,15 @@
 
   @include e(header) {
     padding:$custom-card-header-padding;
-    border-bottom: 1px solid $--card-border-color;
+    // border-bottom: 1px solid $--card-border-color;
     box-sizing: border-box;
+    display: flex;
+    gap: $custom-card-header-gap;
+    align-items: center;
+
+    h2 {
+      flex-grow: 1;
+    }
   }
 
   @include e(body) {
