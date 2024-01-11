@@ -25,9 +25,11 @@
         <el-select v-model="value" placeholder="Select">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
         </el-select>
-        <el-select v-model="value" placeholder="Select">
+        <el-input v-show="false"></el-input>
+        <el-select v-model="value" placeholder="Select" class="grow">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
         </el-select>
+        <el-button class="isax-add-circle grow-0">Add</el-button>
       </div>
     </section>
     <section>

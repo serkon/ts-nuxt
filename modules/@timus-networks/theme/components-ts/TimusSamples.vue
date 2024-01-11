@@ -24,6 +24,7 @@
       <el-tab-pane label="Sidebar" name="twenty-one"><ThemeSidebar></ThemeSidebar></el-tab-pane>
       <el-tab-pane label="Upload" name="twenty-two"><ThemeUpload></ThemeUpload></el-tab-pane>
       <el-tab-pane label="MessageBox" name="twenty-three"><ThemeMessageBox></ThemeMessageBox></el-tab-pane>
+      <el-tab-pane label="Information" name="twenty-4"><ThemeInformation></ThemeInformation></el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -35,7 +36,7 @@ import ThemePopover from './ThemePopover.vue';
 export default {
   data() {
     return {
-      activeName: 'first',
+      activeName: 'twenty-4',
     };
   },
   methods: {
