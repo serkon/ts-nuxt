@@ -31,5 +31,6 @@
     padding: $custom-card-body-padding;
     display: flex;
     flex-grow: 1;
+    flex-direction: column;
   }
 }
