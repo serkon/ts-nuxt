@@ -1,6 +1,6 @@
 {
   "name": "@timus-networks/theme",
-  "version": "1.0.57",
+  "version": "1.0.58",
   "description": "A comprehensive Nuxt.js module providing a tailored theme experience with integrated TailwindCSS support for applications.",
   "main": "module.js",
   "types": "index.d.ts",

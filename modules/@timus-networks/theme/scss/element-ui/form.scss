@@ -12,6 +12,8 @@
     .el-form-item {
       flex-direction: column;
       align-items: normal;
+      min-height: $custom-form-item-height;
+      padding: $custom-form-item-padding;
     }
 
     .el-form-item__label {
