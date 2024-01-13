@@ -105,13 +105,13 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
     'primary': (
       'default': 700,
       'hover': 500,
-      'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,
+      'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,,
     ),
     'light': (
       'default': 700,
       'hover': 500,
       'active': 900,
-    )
+    ),
   );
 
   // Her düğme tipi için mixin'i çağırın
@@ -134,7 +134,12 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
   }
 
   @include m(large) {
-    @include button-size($--button-large-padding-vertical, $--button-large-padding-horizontal, $--button-large-font-size, $--button-large-border-radius);
+    @include button-size(
+      $--button-large-padding-vertical,
+      $--button-large-padding-horizontal,
+      $--button-large-font-size,
+      $--button-large-border-radius
+    );
     @include when(circle) {
       padding: $--button-large-padding-vertical;
     }
@@ -244,13 +249,13 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
     'primary': (
       'default': 700,
       'hover': 500,
-      'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,
+      'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,,
     ),
     'light': (
       'default': 700,
       'hover': 500,
       'active': 900,
-    )
+    ),
   );
 
   // Her düğme tipi için mixin'i çağırın
@@ -273,7 +278,23 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
   }
 
   @include m(large) {
-    @include button-size($--button-large-padding-vertical, $--button-large-padding-horizontal, $--button-large-font-size, $--button-large-border-radius);
+    @include button-size(
+      $--button-large-padding-vertical,
+      $--button-large-padding-horizontal,
+      $--button-large-font-size,
+      $--button-large-border-radius
+    );
+    @include when(circle) {
+      padding: $--button-large-padding-vertical;
+    }
+  }
+  @include m(medium) {
+    @include button-size(
+      $--button-medium-padding-vertical,
+      $--button-medium-padding-horizontal,
+      $--button-medium-font-size,
+      $--button-medium-border-radius
+    );
     @include when(circle) {
       padding: $--button-large-padding-vertical;
     }
@@ -367,20 +388,36 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
         border-right-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
       }
       &:last-child {
-        border-left-color: var(--#{$type}-400);   // rgba($--color-white, 0.12);
+        border-left-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
       }
       &:not(:first-child):not(:last-child) {
-        border-left-color: var(--#{$type}-400);  // rgba($--color-white, 0.12);
-        border-right-color: var(--#{$type}-400);  // rgba($--color-white, 0.12);
+        border-left-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
+        border-right-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
       }
     }
   }
 }
 
 .el-button:not(:has(> span:not(:empty))) {
-  padding: $custom-button-empty-icon-padding;
+  padding: $--button-large-padding-vertical;
+
+  &.el-button--large {
+    padding: $--button-large-padding-vertical;
+  }
+
+  &.el-button--medium {
+    padding: $--button-medium-padding-vertical;
+  }
+
+  &.el-button--small {
+    padding: $--button-small-padding-vertical;
+  }
+
+  &.el-button--mini {
+    padding: $--button-mini-padding-vertical;
+  }
 }
 
-.el-icon-right:before{
+.el-icon-right:before {
   margin-left: $custom-button-icon-gap;
 }

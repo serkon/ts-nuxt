@@ -49,6 +49,7 @@
       <h1>Size</h1>
       <p class="p-lg my-6">Farklı boyutlardaki butonlarımız, çeşitli arayüz ihtiyaçlarına yanıt vermek için tasarlanmıştır.</p>
       <div class="grid grid-flow-col auto-cols-max items-center gap-4">
+        <el-button>Default</el-button>
         <el-button :size="item" v-for="(item, index) in sizes" :key="index" type="primary">{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -80,8 +81,11 @@
         İkonlarla zenginleştirilmiş butonlarımız, görsel bir ipucu sunar ve kullanıcı deneyimini artırır. Tüm ikonlarımızın listesini görmek için
         <nuxt-link to="/icons" class="text-blue-600 hover:underline">buraya tıklayın</nuxt-link>.
       </p>
-      <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button type="primary" class="isax-trash"></el-button>
+      <div class="flex gap-4 items-center">
+        <el-button type="primary" class="isax-trash" size="large"></el-button>
+        <el-button type="primary" class="isax-trash" size="medium"></el-button>
+        <el-button type="primary" class="isax-trash" size="small"></el-button>
+        <el-button type="primary" class="isax-trash" size="mini"></el-button>
         <el-button type="primary" class="isax-chart"></el-button>
         <el-button type="primary" class="isax-clipboard-text icon-right">icon-right</el-button>
         <el-button type="primary" :class="item" v-for="(item, index) in icons" :key="index">{{ item }}</el-button>
