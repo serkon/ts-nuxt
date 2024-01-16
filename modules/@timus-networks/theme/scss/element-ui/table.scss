@@ -189,15 +189,17 @@
     }
   }
 
-  th.el-table__cell.is-leaf,
-  td.el-table__cell {
+  th.el-table__cell.is-leaf{
     border-bottom: $--table-border;
+  }
+  td.el-table__cell {
+    border-top: $--table-border;
   }
 
   tr {
-    &:last-of-type {
+    &:first-of-type {
       td.el-table__cell {
-        border-bottom: none;
+        border-top: none;
       }
     }
   }

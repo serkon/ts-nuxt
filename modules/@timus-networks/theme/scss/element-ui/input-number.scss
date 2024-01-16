@@ -6,6 +6,7 @@
   position: relative;
   display: inline-block;
   line-height: math.div($--input-height - 2, 1);
+  align-self: center;
 
   .el-input {
     display: block;
