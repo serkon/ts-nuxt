@@ -128,7 +128,7 @@
 
   @include m(medium) {
     &.el-input__inner {
-      height: $--input-medium-height;
+      max-height: $--input-medium-height;
     }
 
     .el-range-separator {
@@ -148,7 +148,7 @@
 
   @include m(small) {
     &.el-input__inner {
-      height: $--input-small-height;
+      max-height: $--input-small-height;
     }
 
     .el-range-separator {
@@ -168,7 +168,7 @@
 
   @include m(mini) {
     &.el-input__inner {
-      height: $--input-mini-height;
+      max-height: $--input-mini-height;
     }
 
     .el-range-separator {
