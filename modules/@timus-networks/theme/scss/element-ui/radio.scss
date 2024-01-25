@@ -14,7 +14,7 @@
   font-size: $--font-size-base;
   display: flex;
   align-items: center;
-  gap: $--custom-radio-gap;
+  gap: $custom-radio-gap;
   @include utils-user-select(none);
 
   @include when(bordered) {

@@ -253,6 +253,7 @@
           start-placeholder="Start date"
           end-placeholder="End date"
           :picker-options="pickerOptions"
+          size="small"
         >
         </el-date-picker>
       </div>

@@ -43,8 +43,44 @@
         </p>
       </div>
     </section>
+
+    <section>
+      <div>
+        <el-radio-group v-model="radio1">
+          <el-radio-button label="New York"></el-radio-button>
+          <el-radio-button label="Washington"></el-radio-button>
+          <el-radio-button label="Los Angeles"></el-radio-button>
+          <el-radio-button label="Chicago"></el-radio-button>
+        </el-radio-group>
+      </div>
+      <div style="margin-top: 20px">
+        <el-radio-group v-model="radio2" size="medium">
+          <el-radio-button label="New York"></el-radio-button>
+          <el-radio-button label="Washington"></el-radio-button>
+          <el-radio-button label="Los Angeles"></el-radio-button>
+          <el-radio-button label="Chicago"></el-radio-button>
+        </el-radio-group>
+      </div>
+      <div style="margin-top: 20px">
+        <el-radio-group v-model="radio3" size="small">
+          <el-radio-button label="New York"></el-radio-button>
+          <el-radio-button label="Washington" disabled></el-radio-button>
+          <el-radio-button label="Los Angeles"></el-radio-button>
+          <el-radio-button label="Chicago"></el-radio-button>
+        </el-radio-group>
+      </div>
+      <div style="margin-top: 20px">
+        <el-radio-group v-model="radio4" disabled size="mini">
+          <el-radio-button label="New York"></el-radio-button>
+          <el-radio-button label="Washington"></el-radio-button>
+          <el-radio-button label="Los Angeles"></el-radio-button>
+          <el-radio-button label="Chicago"></el-radio-button>
+        </el-radio-group>
+      </div>
+    </section>
   </div>
 </template>
+
 <script lang="ts">
 import Vue from 'vue';
 const cityOptions = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen'];
@@ -54,6 +90,10 @@ export default Vue.extend({
     return {
       checked: true,
       radio: 2,
+      radio1: 'New York',
+      radio2: 'New York',
+      radio3: 'New York',
+      radio4: 'New York',
       checkboxGroup1: ['Shanghai'],
       cities: cityOptions,
       checkList: ['selected and disabled', 'Option A'],

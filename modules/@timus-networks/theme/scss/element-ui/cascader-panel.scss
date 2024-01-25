@@ -138,6 +138,7 @@
 
 .el-cascader-container {
   display: flex;
+  align-items: center;
 
   & > :first-child .el-input__inner {
     border-top-right-radius: 0;
