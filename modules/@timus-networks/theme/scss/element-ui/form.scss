@@ -135,7 +135,7 @@
     }
   }
   @include e(content) {
-    line-height: $custom-form-label-large-line-height;
+    // line-height: $custom-form-label-large-line-height;
     position: relative;
     font-size: 14px;
     display: flex;
