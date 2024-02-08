@@ -183,7 +183,7 @@ module.exports = {
     'vue/require-slots-as-functions': 'off',
     'vue/valid-v-slot': ['error', {
       allowModifiers: true,
-    },
+    }],
     'vue/html-self-closing': ['error', {
       html: {
         void: 'always',

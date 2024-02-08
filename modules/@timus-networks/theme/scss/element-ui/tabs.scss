@@ -2,6 +2,10 @@
 @import "common/var";
 
 @include b(tabs) {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
   @include e(header) {
     padding: 0;
     position: relative;
@@ -146,6 +150,8 @@
   @include e(content) {
     overflow: hidden;
     position: relative;
+    display: flex;
+    flex-grow: 1;
   }
   @include m(card) {
     > .el-tabs__header {
