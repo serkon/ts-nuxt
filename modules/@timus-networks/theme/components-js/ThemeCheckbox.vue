@@ -25,11 +25,11 @@
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-checkbox-group v-model="checkList" class="mb-6">
-          <el-checkbox label="Option A"></el-checkbox>
-          <el-checkbox label="Option B"></el-checkbox>
-          <el-checkbox label="Option C"></el-checkbox>
-          <el-checkbox label="disabled" disabled></el-checkbox>
-          <el-checkbox label="selected and disabled" disabled></el-checkbox>
+          <el-checkbox label="Option A" />
+          <el-checkbox label="Option B" />
+          <el-checkbox label="Option C" />
+          <el-checkbox label="disabled" disabled />
+          <el-checkbox label="selected and disabled" disabled />
         </el-checkbox-group>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -49,9 +49,9 @@
         içerisindeki tüm seçenekleri aynı anda kontrol etmesini sağlamak için kullanışlıdır.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">Check all</el-checkbox>
+        <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">Check all</el-checkbox>
         <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
-          <el-checkbox v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox>
+          <el-checkbox v-for="city in cities" :key="city" :label="city">{{ city }}</el-checkbox>
         </el-checkbox-group>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -67,22 +67,22 @@
     <section>
       <div>
         <el-checkbox-group v-model="checkboxGroup1">
-          <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
+          <el-checkbox-button v-for="city in cities" :key="city" :label="city">{{ city }}</el-checkbox-button>
         </el-checkbox-group>
       </div>
       <div style="margin-top: 20px">
         <el-checkbox-group v-model="checkboxGroup2" size="medium">
-          <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
+          <el-checkbox-button v-for="city in cities" :key="city" :label="city">{{ city }}</el-checkbox-button>
         </el-checkbox-group>
       </div>
       <div style="margin-top: 20px">
         <el-checkbox-group v-model="checkboxGroup3" size="small">
-          <el-checkbox-button v-for="city in cities" :label="city" :disabled="city === 'Beijing'" :key="city">{{ city }}</el-checkbox-button>
+          <el-checkbox-button v-for="city in cities" :key="city" :label="city" :disabled="city === 'Beijing'">{{ city }}</el-checkbox-button>
         </el-checkbox-group>
       </div>
       <div style="margin-top: 20px">
         <el-checkbox-group v-model="checkboxGroup4" size="mini" disabled>
-          <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox-button>
+          <el-checkbox-button v-for="city in cities" :key="city" :label="city">{{ city }}</el-checkbox-button>
         </el-checkbox-group>
       </div>
     </section>
@@ -151,7 +151,7 @@ export default Vue.extend({
             this.isIndeterminate = false;
         },
         handleCheckedCitiesChange(value) {
-            let checkedCount = value.length;
+            const checkedCount = value.length;
             this.checkAll = checkedCount === this.cities.length;
             this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
         },
