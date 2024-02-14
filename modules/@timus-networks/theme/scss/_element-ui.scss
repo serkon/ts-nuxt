@@ -157,7 +157,7 @@ $--checkbox-checked-icon-color: var(--success-500);
 Radio
 --------------------------
 */
-$custom-radio-checked-background-color: var(--primary-700);
+$custom-radio-checked-background-color: $--color-white;
 $custom-radio-checked-border-color: var(--primary-700);
 $custom-radio-checked-font-color: $--color-white;
 $custom-radio-group-gap: 24px;
@@ -167,6 +167,7 @@ $custom-radio-button-font-color: var(--primary-700);
 $custom-radio-button-disabled-font-color: var(--primary-300);
 $custom-radio-button-disabled-border-color: var(--primary-300);
 $custom-radio-button-disabled-checked-background-color: var(--primary-100);
+$custom-radio-button-checked-background-color: var(--primary-700);
 $--radio-input-border: $--checkbox-input-border;
 $--radio-font-size: 14px;
 $--radio-font-weight: 400;
@@ -452,5 +453,12 @@ Description
 $--descriptions-title-font-size: 14px;
 $custom-descriptions-title-font-weight: 500;
 $custom-descriptions-title-line-height: 18px;
+/*
+--------------------------
+Divider
+--------------------------
+*/
+$--border-color-base: var(--gray-300);
+
 
 @import './element-ui/index.scss';

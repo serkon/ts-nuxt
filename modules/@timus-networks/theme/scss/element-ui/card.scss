@@ -42,4 +42,15 @@
     flex-grow: 1;
     flex-direction: column;
   }
+
+  .card-footer {
+    display: grid;
+    grid-auto-flow: column;
+    gap: $custom-popover-footer-gap;
+    padding-top: 16px;
+
+    button {
+      justify-content: center;
+    }
+  }
 }

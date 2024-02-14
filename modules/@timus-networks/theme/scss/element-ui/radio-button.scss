@@ -1,13 +1,13 @@
-@import "mixins/mixins";
-@import "mixins/_button";
-@import "common/var";
+@import 'mixins/mixins';
+@import 'mixins/_button';
+@import 'common/var';
 
 @include b(radio-button) {
   position: relative;
   display: inline-block;
   outline: none;
 
-  &:not(:first-of-type){
+  &:not(:first-of-type) {
     margin-left: -1 * $custom-radio-group-gap;
   }
 
@@ -36,7 +36,7 @@
       color: $--color-primary;
     }
 
-    & [class*="el-icon-"] {
+    & [class*='el-icon-'] {
       line-height: 0.9;
 
       & + span {
@@ -62,8 +62,8 @@
     &:checked {
       & + .el-radio-button__inner {
         color: $custom-radio-checked-font-color;
-        background-color:$custom-radio-checked-background-color;
-        border-color:$custom-radio-checked-border-color;
+        background-color: $custom-radio-button-checked-background-color;
+        border-color: $custom-radio-checked-border-color;
         box-shadow: -1px 0 0 0 $--radio-button-checked-border-color;
       }
     }
@@ -111,7 +111,8 @@
     }
   }
 
-  &:focus:not(.is-focus):not(:active):not(.is-disabled){ /*获得焦点时 样式提醒*/
+  &:focus:not(.is-focus):not(:active):not(.is-disabled) {
+    /*获得焦点时 样式提醒*/
     box-shadow: 0 0 2px 2px $--radio-button-checked-border-color;
   }
 }

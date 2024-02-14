@@ -6,9 +6,9 @@ $colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 
 @include b(link) {
   display: inline-flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
+  // align-items: center;
+  // justify-content: center;
+  // vertical-align: middle;
   position: relative;
   text-decoration: none;
   outline: none;
