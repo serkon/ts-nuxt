@@ -7,7 +7,7 @@
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-link href="https://element.eleme.io" target="_blank">default</el-link>
-        <el-link :type="item" v-for="(item, index) in colors" :key="index">{{ item }}</el-link>
+        <el-link v-for="(item, index) in colors" :key="index" :type="item">{{ item }}</el-link>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -20,7 +20,7 @@
       <h1>Nuxt Link ile Kullanım</h1>
       <p class="p-lg my-6">El Link bileşenini Nuxt Link ile kullanabilirsiniz. Bu, Nuxt.js projelerinde sayfa geçişlerini kolaylaştırır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <NuxtLink to="/" v-for="(item, index) in colors" :key="index" :class="`el-link ${item}`"> Router: {{ item }} </NuxtLink>
+        <NuxtLink v-for="(item, index) in colors" :key="index" to="/" :class="`el-link ${item}`"> Router: {{ item }} </NuxtLink>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -34,7 +34,7 @@
       <p class="p-lg my-6">El Link bileşenini devre dışı bırakmak için <code>disabled</code> özelliğini kullanabilirsiniz.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-link disabled>default</el-link>
-        <el-link :type="item" v-for="(item, index) in colors" :key="index" disabled>{{ item }}</el-link>
+        <el-link v-for="(item, index) in colors" :key="index" :type="item" disabled>{{ item }}</el-link>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -84,7 +84,7 @@
       <p class="p-lg my-6">El Link bileşeni, metin veya bağlantı ile birlikte ikonlar eklemenize olanak tanır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-link type="primary" icon="el-icon-edit">Düzenle</el-link>
-        <el-link type="primary">Onayla<i class="el-icon-view el-icon--right"></i> </el-link>
+        <el-link type="primary">Onayla<i class="el-icon-view el-icon--right" /> </el-link>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -102,7 +102,7 @@ export default Vue.extend({
   name: 'TimusButtonSample',
   data() {
     return {
-      colors: ['primary', 'secondary', 'gray', 'info', 'success', 'warning', 'danger'],
+      colors: ['primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning'],
     };
   },
 });
