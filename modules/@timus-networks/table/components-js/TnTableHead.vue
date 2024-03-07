@@ -9,34 +9,31 @@
   </th>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue';
-import { Column, Sort } from './interfaces';
-
+<script>import Vue from 'vue';
 export default Vue.extend({
-  name: 'TnTableHead',
-  props: {
-    column: {
-      type: Object as PropType<Column>,
-      default: () => ({} as Column),
+    name: 'TnTableHead',
+    props: {
+        column: {
+            type: Object,
+            default: () => ({}),
+        },
+        index: {
+            type: Number,
+            default: null,
+        },
+        hide: {
+            type: Array,
+            default: () => [],
+        },
+        sorting: {
+            type: Array,
+            default: () => [],
+        },
     },
-    index: {
-      type: Number,
-      default: null,
+    computed: {
+        sort() {
+            return this.sorting.find((item) => item.field === this.column.field);
+        },
     },
-    hide: {
-      type: Array as PropType<string[]>,
-      default: () => [],
-    },
-    sorting: {
-      type: Array as PropType<Sort[]>,
-      default: () => [] as Sort[],
-    },
-  },
-  computed: {
-    sort() {
-      return this.sorting.find((item) => item.field === this.column.field);
-    },
-  },
 });
 </script>
