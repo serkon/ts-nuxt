@@ -1,6 +1,6 @@
 {
   "name": "@timus-networks/icon",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Nuxt module for Iconsax icons",
   "main": "module.js",
   "types": "index.d.ts",
@@ -23,16 +23,16 @@
     "iconsax"
   ],
   "peerDependencies": {
-    "vue": "^2.x"
+    "vue": "*"
   },
   "author": "Serkan Konakcı<serkan.konakci@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "sass": "^1.69.0",
-    "sass-loader": "^10.1.1"
+    "sass": "*",
+    "sass-loader": "*"
   },
   "devDependencies": {
-    "glob": "^10.3.10"
+    "glob": "*"
   },
   "typings": "./index.d.ts"
 }
