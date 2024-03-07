@@ -10,10 +10,10 @@
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
         <el-avatar :size="50">SK</el-avatar>
-        <el-avatar :size="size" v-for="size in sizeList" :key="size + ''">SK</el-avatar>
-        <el-divider direction="vertical" content-position="center"></el-divider>
-        <el-avatar shape="square" :size="50" :src="url"></el-avatar>
-        <el-avatar shape="square" :size="size" :src="url" v-for="size in sizeList" :key="size"></el-avatar>
+        <el-avatar v-for="size in sizeList" :key="size + ''" :size="size">SK</el-avatar>
+        <el-divider direction="vertical" content-position="center" />
+        <el-avatar shape="square" :size="50" :src="url" />
+        <el-avatar v-for="size in sizeList" :key="size" shape="square" :size="size" :src="url" />
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -26,9 +26,9 @@
       <h1>Types</h1>
       <p class="p-md-c my-6">You can use any 'string' expression within the tag, in addition to a type that accepts 'src' or 'icon' as a property.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
-        <el-avatar icon="isax-add-circle"></el-avatar>
-        <el-avatar icon="isax-add-circle" size="xlarge"></el-avatar>
-        <el-avatar :src="url"></el-avatar>
+        <el-avatar icon="isax-add-circle" />
+        <el-avatar icon="isax-add-circle" size="xlarge" />
+        <el-avatar :src="url" />
         <el-avatar>SK</el-avatar>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">

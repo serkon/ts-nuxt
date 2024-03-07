@@ -1,6 +1,6 @@
 {
   "name": "@timus-networks/theme",
-  "version": "1.0.75",
+  "version": "1.0.79",
   "description": "A comprehensive Nuxt.js module providing a tailored theme experience with integrated TailwindCSS support for applications.",
   "main": "module.js",
   "types": "index.d.ts",
@@ -23,12 +23,12 @@
     "tailwind"
   ],
   "peerDependencies": {
-    "vue": "^2.x"
+    "vue": "*"
   },
   "author": "Serkan Konakcı<serkan.konakci@timusnetworks.com>",
   "license": "MIT",
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.9.4",
+    "@nuxtjs/tailwindcss": "*",
     "sass": "*",
     "sass-loader": "*",
     "tailwindcss": "*"
