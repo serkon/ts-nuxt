@@ -386,18 +386,18 @@ Popup
 --------------------------
 */
 $--menu-background-color: $--color-white;
-$--menu-item-font-size: 14px;
+$--menu-item-font-size: 16px;
 $--menu-item-font-weight: 500;
 $--menu-item-font-color: var(--gray-700);
 $--menu-item-hover-fill: transparent;
 $--menu-item-hover-color: var(--primary-700);
 $custom-menu-min-width: 280px;
-$custom-menu-item-height: 36px;
+$custom-menu-item-height: 40px;
 $custom-menu-item-line-height: normal;
 $custom-menu-item-padding: 0 8px !important;
 $custom-border-right-color: transparent;
 $custom-parent-menu-left-border: 0 solid $--color-primary;
-$custom-menu-item-border-radius: 5px;
+$custom-menu-item-border-radius: 8px;
 $custom-menu-item-active-color: $--color-white;
 $custom-menu-item-active-background-color: var(--primary-700);
 $custom-submenu-padding: 0 0 0 24px;
