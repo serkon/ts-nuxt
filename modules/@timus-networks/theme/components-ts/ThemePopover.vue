@@ -6,7 +6,7 @@
       <p class="p-md-c my-6">Hover on the dropdown menu to unfold it for more actions.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-dropdown trigger="click">
-          <span class="el-dropdown-link"> Dropdown List<i class="el-icon-arrow-down el-icon--right"></i> </span>
+          <span class="el-dropdown-link"> Dropdown List<i class="el-icon-arrow-down el-icon--right" /> </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>Action 1</el-dropdown-item>
             <el-dropdown-item>Action 2</el-dropdown-item>
@@ -16,7 +16,7 @@
           </el-dropdown-menu>
         </el-dropdown>
         <el-dropdown trigger="click">
-          <el-button type="primary"> Dropdown List<i class="el-icon-arrow-down el-icon--right"></i> </el-button>
+          <el-button type="primary"> Dropdown List<i class="el-icon-arrow-down el-icon--right" /> </el-button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>Action 1</el-dropdown-item>
             <el-dropdown-item>Action 2</el-dropdown-item>
@@ -25,7 +25,7 @@
             <el-dropdown-item>Action 5</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-dropdown split-button type="primary">
+        <el-dropdown split-button type="success" class="outline" size="small">
           Dropdown List
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>Action 1</el-dropdown-item>
@@ -52,9 +52,9 @@
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-popover placement="right" width="400" trigger="click">
           <el-table :data="gridData">
-            <el-table-column width="150" property="date" label="date"></el-table-column>
-            <el-table-column width="100" property="name" label="name"></el-table-column>
-            <el-table-column width="300" property="address" label="address"></el-table-column>
+            <el-table-column width="150" property="date" label="date" />
+            <el-table-column width="100" property="name" label="name" />
+            <el-table-column width="300" property="address" label="address" />
           </el-table>
           <el-button slot="reference" type="primary" size="small">Click to activate</el-button>
         </el-popover>
@@ -105,7 +105,7 @@
         ve TimePicker'dan türetilmiştir ve kullanımı oldukça basittir.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-time-select v-model="value" :picker-options="{ start: '08:30', step: '00:15', end: '18:30' }" placeholder="Zaman Seçin"> </el-time-select>
+        <el-time-select v-model="value" :picker-options="{ start: '08:30', step: '00:15', end: '18:30' }" placeholder="Zaman Seçin" />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -125,9 +125,8 @@
         etkinleştirildiğinde kontrol oklarını kullanabilirsiniz.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-time-picker v-model="value1" :picker-options="{ selectableRange: '18:30:00 - 20:30:00' }" placeholder="Zaman Seçin"> </el-time-picker>
-        <el-time-picker arrow-control v-model="value2" :picker-options="{ selectableRange: '18:30:00 - 20:30:00' }" placeholder="Zaman Seçin">
-        </el-time-picker>
+        <el-time-picker v-model="value1" :picker-options="{ selectableRange: '18:30:00 - 20:30:00' }" placeholder="Zaman Seçin" />
+        <el-time-picker v-model="value2" arrow-control :picker-options="{ selectableRange: '18:30:00 - 20:30:00' }" placeholder="Zaman Seçin" />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -146,14 +145,12 @@
         zamanları gibi durumlar için uygundur. Başlangıç ve bitiş zamanlarını kolayca belirleyebilir ve özelleştirebilirsiniz.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-time-select placeholder="Başlangıç zamanı" v-model="startTime" :picker-options="{ start: '08:30', step: '00:15', end: '18:30' }">
-        </el-time-select>
+        <el-time-select v-model="startTime" placeholder="Başlangıç zamanı" :picker-options="{ start: '08:30', step: '00:15', end: '18:30' }" />
         <el-time-select
-          placeholder="Bitiş zamanı"
           v-model="endTime"
+          placeholder="Bitiş zamanı"
           :picker-options="{ start: '08:30', step: '00:15', end: '18:30', minTime: startTime }"
-        >
-        </el-time-select>
+        />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -172,17 +169,15 @@
         ve bitiş zamanı seçmeniz gerektiğinde kullanışlıdır. Başlangıç ve bitiş zamanlarını kolayca belirleyebilir ve özelleştirebilirsiniz.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-time-picker is-range v-model="arb1" range-separator="den" start-placeholder="Başlangıç zamanı" end-placeholder="Bitiş zamanı">
-        </el-time-picker>
+        <el-time-picker v-model="arb1" is-range range-separator="den" start-placeholder="Başlangıç zamanı" end-placeholder="Bitiş zamanı" />
         <el-time-picker
+          v-model="arb2"
           is-range
           arrow-control
-          v-model="arb2"
           range-separator="den"
           start-placeholder="Başlangıç zamanı"
           end-placeholder="Bitiş zamanı"
-        >
-        </el-time-picker>
+        />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -203,8 +198,8 @@
         işlemleri için kullanılabilir.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-date-picker v-model="value1" type="date" placeholder="Bir gün seçin"> </el-date-picker>
-        <el-date-picker v-model="value2" type="date" placeholder="Bir gün seçin" :picker-options="pickerOptions"> </el-date-picker>
+        <el-date-picker v-model="value1" type="date" placeholder="Bir gün seçin" />
+        <el-date-picker v-model="value2" type="date" placeholder="Bir gün seçin" :picker-options="pickerOptions" />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -222,12 +217,12 @@
         seçenekleri ile istediğiniz türde tarihleri seçebilirsiniz.
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xxl:grid-flow-col auto-cols-max gap-4">
-        <el-date-picker class="w-full" v-model="dtp1" type="week" format="Week WW" placeholder="Pick a week"> </el-date-picker>
-        <el-date-picker class="w-full" v-model="dtp2" type="month" placeholder="Pick a month"> </el-date-picker>
-        <el-date-picker class="w-full" v-model="dtp3" type="year" placeholder="Pick a year"> </el-date-picker>
-        <el-date-picker class="w-full" type="dates" v-model="dtp4" placeholder="Pick one or more dates"> </el-date-picker>
-        <el-date-picker class="w-full" type="months" v-model="dtp5" placeholder="Pick one or more months"> </el-date-picker>
-        <el-date-picker class="w-full" type="years" v-model="dtp6" placeholder="Pick one or more years"> </el-date-picker>
+        <el-date-picker v-model="dtp1" class="w-full" type="week" format="Week WW" placeholder="Pick a week" />
+        <el-date-picker v-model="dtp2" class="w-full" type="month" placeholder="Pick a month" />
+        <el-date-picker v-model="dtp3" class="w-full" type="year" placeholder="Pick a year" />
+        <el-date-picker v-model="dtp4" class="w-full" type="dates" placeholder="Pick one or more dates" />
+        <el-date-picker v-model="dtp5" class="w-full" type="months" placeholder="Pick one or more months" />
+        <el-date-picker v-model="dtp6" class="w-full" type="years" placeholder="Pick one or more years" />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -242,8 +237,7 @@
       <h2>Date Range</h2>
       <p class="p-md-c my-6">Tarih aralığı seçici, bir başlangıç ve bitiş tarihi seçmenize olanak tanır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-date-picker v-model="datr1" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date">
-        </el-date-picker>
+        <el-date-picker v-model="datr1" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date" />
         <el-date-picker
           v-model="datr2"
           type="daterange"
@@ -254,8 +248,7 @@
           end-placeholder="End date"
           :picker-options="pickerOptions"
           size="small"
-        >
-        </el-date-picker>
+        />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -271,8 +264,7 @@
       <h2>Month Range</h2>
       <p class="p-md-c my-6">Ay aralığı seçici, bir başlangıç ve bitiş ayı seçmenize olanak tanır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-date-picker v-model="value1" type="monthrange" range-separator=" - " start-placeholder="Başlangıç ayı" end-placeholder="Bitiş ayı">
-        </el-date-picker>
+        <el-date-picker v-model="value1" type="monthrange" range-separator=" - " start-placeholder="Başlangıç ayı" end-placeholder="Bitiş ayı" />
         <el-date-picker
           v-model="value2"
           type="monthrange"
@@ -282,8 +274,7 @@
           start-placeholder="Başlangıç ayı"
           end-placeholder="Bitiş ayı"
           :picker-options="monthOptions"
-        >
-        </el-date-picker>
+        />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -304,9 +295,9 @@
         özellikler hakkında bilgi almak için DatePicker ve TimePicker dokümantasyonlarına başvurabilirsiniz.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-date-picker v-model="dat1" type="datetime" placeholder="Select date and time"> </el-date-picker>
-        <el-date-picker v-model="dat2" type="datetime" placeholder="Select date and time" :picker-options="dataAndTimeOptions"> </el-date-picker>
-        <el-date-picker v-model="dat3" type="datetime" placeholder="Select date and time" default-time="12:00:00"> </el-date-picker>
+        <el-date-picker v-model="dat1" type="datetime" placeholder="Select date and time" />
+        <el-date-picker v-model="dat2" type="datetime" placeholder="Select date and time" :picker-options="dataAndTimeOptions" />
+        <el-date-picker v-model="dat3" type="datetime" placeholder="Select date and time" default-time="12:00:00" />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -322,8 +313,7 @@
         veya etkinlik planlaması gibi durumlar için kullanışlıdır. Kullanıcılar başlangıç ve bitiş tarihini veya saati belirleyebilirler.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-date-picker v-model="datr1" type="datetimerange" range-separator="To" start-placeholder="Start date" end-placeholder="End date">
-        </el-date-picker>
+        <el-date-picker v-model="datr1" type="datetimerange" range-separator="To" start-placeholder="Start date" end-placeholder="End date" />
         <el-date-picker
           v-model="datr2"
           type="datetimerange"
@@ -332,8 +322,7 @@
           start-placeholder="Start date"
           end-placeholder="End date"
           align="right"
-        >
-        </el-date-picker>
+        />
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -394,6 +383,7 @@ export default Vue.extend({
             text: 'Yesterday',
             onClick(picker) {
               const date = new Date();
+
               date.setTime(date.getTime() - 3600 * 1000 * 24);
               picker.$emit('pick', date);
             },
@@ -402,6 +392,7 @@ export default Vue.extend({
             text: 'A week ago',
             onClick(picker) {
               const date = new Date();
+
               date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
               picker.$emit('pick', date);
             },
@@ -418,6 +409,7 @@ export default Vue.extend({
             onClick(picker) {
               const end = new Date();
               const start = new Date();
+
               start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
               picker.$emit('pick', [start, end]);
             },
@@ -427,6 +419,7 @@ export default Vue.extend({
             onClick(picker) {
               const end = new Date();
               const start = new Date();
+
               start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
               picker.$emit('pick', [start, end]);
             },
@@ -436,6 +429,7 @@ export default Vue.extend({
             onClick(picker) {
               const end = new Date();
               const start = new Date();
+
               start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
               picker.$emit('pick', [start, end]);
             },
@@ -457,6 +451,7 @@ export default Vue.extend({
             onClick(picker) {
               const end = new Date();
               const start = new Date(new Date().getFullYear(), 0);
+
               picker.$emit('pick', [start, end]);
             },
           },
@@ -465,6 +460,7 @@ export default Vue.extend({
             onClick(picker) {
               const end = new Date();
               const start = new Date();
+
               start.setMonth(start.getMonth() - 6);
               picker.$emit('pick', [start, end]);
             },
@@ -483,6 +479,7 @@ export default Vue.extend({
             text: 'Yesterday',
             onClick(picker) {
               const date = new Date();
+
               date.setTime(date.getTime() - 3600 * 1000 * 24);
               picker.$emit('pick', date);
             },
@@ -491,6 +488,7 @@ export default Vue.extend({
             text: 'A week ago',
             onClick(picker) {
               const date = new Date();
+
               date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
               picker.$emit('pick', date);
             },
@@ -508,11 +506,6 @@ export default Vue.extend({
       dtp6: '',
     };
   },
-  methods: {
-    handleChange(value) {
-      console.log(value);
-    },
-  },
   computed: {
     gridSize() {
       const grids = {
@@ -521,7 +514,13 @@ export default Vue.extend({
         7: 'grid-cols-7',
         8: 'grid-cols-8',
       };
+
       return grids;
+    },
+  },
+  methods: {
+    handleChange(value) {
+      console.log(value);
     },
   },
 });

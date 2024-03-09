@@ -9,11 +9,12 @@
   align-items: center;
   justify-content: center;
 
-
   .el-button-group {
-    display: block;
-    .el-button {
-      float: none;
+    display: flex;
+    flex-basis: 100%;
+
+    .el-button:first-child {
+      flex-grow: 1;
     }
   }
 
@@ -51,6 +52,7 @@
       padding-left: 0;
     }
   }
+
   @include e(icon) {
     font-size: 12px;
     margin: 0 3px;
@@ -65,6 +67,22 @@
   [disabled] {
     cursor: not-allowed;
     color: $--font-color-disabled-base;
+  }
+
+  &.outline {
+    outline-style: none;
+
+    .el-button-group {
+      .el-button {
+        @extend .outline;
+
+        &.el-dropdown__caret-button{
+          &::before{
+            background: none;
+          }
+        }
+      }
+    }
   }
 }
 
