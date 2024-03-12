@@ -1,7 +1,7 @@
 @import "mixins/mixins";
 @import "common/var";
 
-$alert-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
+$alert-colors: ('default', 'primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
 
 
 @include b(alert) {

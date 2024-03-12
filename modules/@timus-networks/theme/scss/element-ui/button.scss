@@ -5,7 +5,7 @@
 @import 'mixins/utils';
 
 // Düğme tiplerini ve karşılık gelen renkleri içeren bir liste
-$button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
+$button-colors: ('default', 'primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
 
 // Derin bir map yapısından değer almak için yardımcı bir fonksiyon
 @function map-get-deep($map, $keys...) {
@@ -115,20 +115,20 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
   );
 
   // Her düğme tipi için mixin'i çağırın
-  @each $type in $button-colors {
+  @each $color in $button-colors {
     // Her bir durum için varsayılan değerleri ayarlayın
-    $default: map-get-deep($button-variant-values, $type, 'default') or 500;
-    $hover: map-get-deep($button-variant-values, $type, 'hover') or 400;
-    $active: map-get-deep($button-variant-values, $type, 'active') or 600;
-    $disabled: map-get-deep($button-variant-values, $type, 'disabled') or 200;
+    $default: map-get-deep($button-variant-values, $color, 'default') or 500;
+    $hover: map-get-deep($button-variant-values, $color, 'hover') or 400;
+    $active: map-get-deep($button-variant-values, $color, 'active') or 600;
+    $disabled: map-get-deep($button-variant-values, $color, 'disabled') or 200;
 
-    @include m(#{$type}) {
-      @include button-variant($type, $default, $hover, $active, $disabled);
+    @include m(#{$color}) {
+      @include button-variant($color, $default, $hover, $active, $disabled);
     }
 
     @include m(text) {
-      &.#{$type} {
-        @include button-plain($type, $default, $hover, $active, $disabled);
+      &.#{$color} {
+        @include button-plain($color, $default, $hover, $active, $disabled);
       }
     }
   }
@@ -246,6 +246,11 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
 
   // Her düğme tipi ve durumu için özel renk değerlerin tanımı
   $button-variant-values: (
+    'default': (
+      'default': 700,
+      'hover': 500,
+      'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,,
+    ),
     'primary': (
       'default': 700,
       'hover': 500,
@@ -258,21 +263,20 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
     ),
   );
 
-  // Her düğme tipi için mixin'i çağırın
-  @each $type in $button-colors {
-    // Her bir durum için varsayılan değerleri ayarlayın
-    $default: map-get-deep($button-variant-values, $type, 'default') or 500;
-    $hover: map-get-deep($button-variant-values, $type, 'hover') or 400;
-    $active: map-get-deep($button-variant-values, $type, 'active') or 600;
-    $disabled: map-get-deep($button-variant-values, $type, 'disabled') or 200;
+  @each $color in $button-colors {
+    // $new-color: if($color == 'default', 'primary', $color);
+    $default: map-get-deep($button-variant-values, $color, 'default') or 500;
+    $hover: map-get-deep($button-variant-values, $color, 'hover') or 400;
+    $active: map-get-deep($button-variant-values, $color, 'active') or 600;
+    $disabled: map-get-deep($button-variant-values, $color, 'disabled') or 200;
 
-    @include m(#{$type}) {
-      @include button-variant($type, $default, $hover, $active, $disabled);
+    @include m(#{$color}) {
+      @include button-variant($color, $default, $hover, $active, $disabled);
     }
 
     @include m(text) {
-      &.#{$type} {
-        @include button-plain($type, $default, $hover, $active, $disabled);
+      &.#{$color} {
+        @include button-plain($color, $default, $hover, $active, $disabled);
       }
     }
   }
@@ -382,17 +386,17 @@ $button-colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', '
     }
   }
 
-  @each $type in $button-colors {
-    .el-button--#{$type} {
+  @each $color in $button-colors {
+    .el-button--#{$color} {
       &:first-child {
-        border-right-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
+        border-right-color: var(--#{$color}-400); // rgba($--color-white, 0.12);
       }
       &:last-child {
-        border-left-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
+        border-left-color: var(--#{$color}-400); // rgba($--color-white, 0.12);
       }
       &:not(:first-child):not(:last-child) {
-        border-left-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
-        border-right-color: var(--#{$type}-400); // rgba($--color-white, 0.12);
+        border-left-color: var(--#{$color}-400); // rgba($--color-white, 0.12);
+        border-right-color: var(--#{$color}-400); // rgba($--color-white, 0.12);
       }
     }
   }

@@ -1,7 +1,7 @@
 @import "mixins/mixins";
 @import "common/var";
 
-$colors: ('primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
+$colors: ('default', 'primary', 'secondary', 'gray', 'light', 'success', 'danger', 'info', 'warning');
 
 @include b(link) {
   display: inline-flex;

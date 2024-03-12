@@ -7,7 +7,7 @@
         vurgulamak için idealdir.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button :type="item" v-for="(item, index) in colors" :key="index">{{ item }}</el-button>
+        <el-button v-for="(item, index) in colors" :key="index" :type="item">{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -21,7 +21,8 @@
       <h1>Outline</h1>
       <p class="p-lg my-6">Çevresi çizgili ve içi transparan olan 'outline' butonlarımız, daha hafif bir tasarım dili sunar.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button :type="item" v-for="(item, index) in colors" :key="index" class="outline" plain>{{ item }}</el-button>
+        <el-button class="outline">Default Outline</el-button>
+        <el-button v-for="(item, index) in colors" :key="index" :type="item" class="outline" plain>{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -35,7 +36,7 @@
       <h1>Ghost</h1>
       <p class="p-lg my-6">Hemen hemen şeffaf 'ghost' butonlarımız, minimalist tasarımlar için uygundur ve arka planla uyum sağlar.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button :type="item" v-for="(item, index) in colors" :key="index" class="ghost">{{ item }}</el-button>
+        <el-button v-for="(item, index) in colors" :key="index" :type="item" class="ghost">{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -50,7 +51,7 @@
       <p class="p-lg my-6">Farklı boyutlardaki butonlarımız, çeşitli arayüz ihtiyaçlarına yanıt vermek için tasarlanmıştır.</p>
       <div class="grid grid-flow-col auto-cols-max items-center gap-4">
         <el-button>Default</el-button>
-        <el-button :size="item" v-for="(item, index) in sizes" :key="index" type="primary">{{ item }}</el-button>
+        <el-button v-for="(item, index) in sizes" :key="index" :size="item" type="primary">{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -65,7 +66,7 @@
       <h1>Disabled</h1>
       <p class="p-lg my-6">Etkileşime kapalı 'disabled' butonlarımız, kullanılamaz durumları göstermek için kullanılır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-button :type="item" v-for="(item, index) in colors" :key="index" disabled>{{ item }}</el-button>
+        <el-button v-for="(item, index) in colors" :key="index" :type="item" disabled>{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-red-600 bg-red-100">
         <p class="text-xs">
@@ -82,13 +83,13 @@
         <nuxt-link to="/icons" class="text-blue-600 hover:underline">buraya tıklayın</nuxt-link>.
       </p>
       <div class="flex gap-4 items-center">
-        <el-button type="primary" class="isax-trash" size="large"></el-button>
-        <el-button type="primary" class="isax-trash" size="medium"></el-button>
-        <el-button type="primary" class="isax-trash" size="small"></el-button>
-        <el-button type="primary" class="isax-trash" size="mini"></el-button>
-        <el-button type="primary" class="isax-chart"></el-button>
+        <el-button type="primary" class="isax-trash" size="large" />
+        <el-button type="primary" class="isax-trash" size="medium" />
+        <el-button type="primary" class="isax-trash" size="small" />
+        <el-button type="primary" class="isax-trash" size="mini" />
+        <el-button type="primary" class="isax-chart" />
         <el-button type="primary" class="isax-clipboard-text icon-right">icon-right</el-button>
-        <el-button type="primary" :class="item" v-for="(item, index) in icons" :key="index">{{ item }}</el-button>
+        <el-button v-for="(item, index) in icons" :key="index" type="primary" :class="item">{{ item }}</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
@@ -107,9 +108,9 @@
           <el-button type="primary" class="isax-arrow-right-1 icon-right">Next Page</el-button>
         </el-button-group>
         <el-button-group>
-          <el-button type="primary" icon="isax-textalign-justifyleft"></el-button>
-          <el-button type="primary" icon="isax-textalign-center"></el-button>
-          <el-button type="primary" icon="isax-textalign-justifyright"></el-button>
+          <el-button type="primary" icon="isax-textalign-justifyleft" />
+          <el-button type="primary" icon="isax-textalign-center" />
+          <el-button type="primary" icon="isax-textalign-justifyright" />
         </el-button-group>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -139,6 +140,7 @@ export default Vue.extend({
         7: 'grid-cols-7',
         8: 'grid-cols-8',
       };
+
       return grids;
     },
   },
