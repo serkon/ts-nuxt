@@ -258,7 +258,7 @@ $custom-table-content-font-size: 14px;
 $custom-table-content-font-color: var(--gray-700);
 $custom-table-content-font-line-height: 16px;
 $custom-table-content-font-weight: 400;
-$custom-table-content-cell-padding: 0 12px;
+$custom-table-content-cell-padding: 0 8px;
 $custom-table-head-font-line-height: 48px;
 $custom-table-head-icon-width: 16px;
 $custom-table-container-padding: 24px;
@@ -402,6 +402,7 @@ $custom-menu-item-active-color: $--color-white;
 $custom-menu-item-active-background-color: var(--primary-700);
 $custom-submenu-padding: 0 0 0 24px;
 $custom-menu-item-gap: 8px;
+
 /*
 --------------------------
 Card
@@ -427,6 +428,7 @@ $custom-tabs-item-line-height: 40px;
 $custom-tabs-item-padding: 0 12px;
 $custom-tabs-item-border-radius: 8px;
 $custom-tabs-item-active-color: $--color-white;
+$--border-color-light: var(--gray-300);
 /*
 --------------------------
 Upload
@@ -460,6 +462,12 @@ Divider
 --------------------------
 */
 $--border-color-base: var(--gray-300);
+/*
+--------------------------
+Loading
+--------------------------
+*/
+$custom-loading-border-radius: 14px;
 
 
 @import './element-ui/index.scss';

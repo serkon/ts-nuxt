@@ -23,7 +23,8 @@
   gap: $custom-menu-item-gap;
 
   i {
-    color: $--color-text-secondary;
+    color: $--menu-item-font-color;
+    font-weight: 600;
   }
 
   &:hover,
@@ -31,6 +32,10 @@
     outline: none;
     background-color: $--menu-item-hover-fill;
     color: $--menu-item-hover-color;
+
+    i {
+      color: $--menu-item-hover-color;
+    }
   }
 
   @include when(disabled) {
