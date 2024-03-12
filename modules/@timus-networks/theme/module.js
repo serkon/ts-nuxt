@@ -1,5 +1,6 @@
-import { resolve, join } from 'path';
 import { promises as fs } from 'fs';
+import { join, resolve } from 'path';
+
 import { LoadComponent, LoadPlugins } from './loader';
 import PackageJson from './package.json';
 
@@ -27,15 +28,16 @@ export default function (moduleOptions) {
 
   this.nuxt.hook('build:before', async (nuxt) => {
     const directories = [
-      {source: 'output', target: 'static/'},
-      {source: 'fonts', target: 'static/fonts'},
-      {source: 'logo', target: 'assets/logo'}
+      { source: 'output', target: 'static/' },
+      { source: 'fonts', target: 'static/fonts' },
+      { source: 'logo', target: 'assets/logo' },
     ];
 
     // Kopyalama işlemlerini Promise.all ile sarmalayın
     await Promise.all(directories.map(async (directory) => {
       const sourceDir = resolve(__dirname, `./${directory.source}/`);
       const destDir = resolve(this.options.srcDir, `./${directory.target}/`);
+
       await copyDirectory(sourceDir, destDir);
     }));
 
@@ -50,7 +52,7 @@ export default function (moduleOptions) {
       '@/static/fonts/poppins/700.css',
       '@/static/fonts/poppins/800.css',
       '@/static/fonts/poppins/900.css',
-      '@/static/main.css'
+      '@/static/main.css',
     );
   });
 

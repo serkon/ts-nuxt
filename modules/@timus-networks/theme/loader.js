@@ -2,7 +2,6 @@ import { readdirSync } from 'fs';
 import { join, resolve } from 'path';
 
 export function LoadComponent(options) {
-
   const foldersToSync = [options.typescript ? 'components-ts' : 'components-js'];
 
   // const tsIndexFile = resolve(__dirname, './'); // bu index.ts dosyasını .nuxt/timus-networks/table adresine kopyalar
@@ -14,6 +13,7 @@ export function LoadComponent(options) {
 
   for (const pathString of foldersToSync) {
     const path = resolve(__dirname, pathString);
+
     for (const file of readdirSync(path)) {
       // console.log('#### loading:', `.nuxt/${ options.namespace }/${ pathString }/${ file}` );
       this.addTemplate({
@@ -26,6 +26,7 @@ export function LoadComponent(options) {
 
   this.extendRoutes((routes, resolve) => {
     const pathString = options.typescript ? 'components-ts' : 'components-js';
+
     routes.push({
       path: '/theme',
       component: resolve(__dirname, pathString, 'TimusSamples.vue'),
@@ -43,7 +44,7 @@ export function LoadPlugins(options, all) {
       src: resolve(__dirname, pathString),
       fileName: join(options.namespace, pathString),
       options,
-      ...(options.client && {mode: 'client'})
+      ...(options.client && { mode: 'client' }),
     });
   }
 }
