@@ -40,12 +40,13 @@
   }
 
   & .el-input__count {
-    color: $--color-info;
+    color: var(--gray-400);
     background: $--color-white;
     position: absolute;
-    font-size: 12px;
     bottom: 5px;
     right: 10px;
+
+    @extend .p-xxs;
   }
 
   @include when(disabled) {
@@ -98,7 +99,7 @@
     height: 100%;
     display: inline-flex;
     align-items: center;
-    color: $--color-info;
+    color: var(--gray-400);
     font-size: 12px;
 
     .el-input__count-inner {
@@ -106,6 +107,8 @@
       line-height: initial;
       display: inline-block;
       padding: 0 5px;
+
+      @extend .p-xxs;
     }
   }
 

@@ -24,7 +24,7 @@
       align-items: center;
       gap: 4px;
 
-      &::before {
+      &::after {
         margin: 0;
         color: $custom-form-label-required-color;
       }
@@ -168,11 +168,11 @@
 
   @include when(required) {
     @include pseudo('not(.is-no-asterisk)') {
-      & > .el-form-item__label:before,
-      & .el-form-item__label-wrap > .el-form-item__label:before {
+      & > .el-form-item__label:after,
+      & .el-form-item__label-wrap > .el-form-item__label:after {
         content: '*';
         color: $--color-danger;
-        margin-right: 4px;
+        margin-keft: 4px;
       }
     }
   }

@@ -9,14 +9,14 @@
       <div class="grid flex-column">
         <div class="table-container mb-4">
           <el-table
+            ref="multipleTable"
             :data="tableData"
             :default-sort="{ prop: 'date', order: 'descending' }"
-            @selection-change="handleSelectionChange"
-            ref="multipleTable"
             height="360px"
             style="width: 100%"
+            @selection-change="handleSelectionChange"
           >
-            <el-table-column type="selection" width="55"> </el-table-column>
+            <el-table-column type="selection" width="16" />
             <el-table-column
               fixed
               prop="date"
@@ -30,10 +30,9 @@
                 { text: '2016-05-04', value: '2016-05-04' },
               ]"
               :filter-method="filterHandler"
-            >
-            </el-table-column>
-            <el-table-column prop="name" label="Name" width="60" :show-overflow-tooltip="true"> </el-table-column>
-            <el-table-column prop="address" label="Address" :formatter="formatter"> </el-table-column>
+            />
+            <el-table-column prop="name" label="Name" width="60" :show-overflow-tooltip="true" />
+            <el-table-column prop="address" label="Address" :formatter="formatter" />
             <el-table-column
               prop="tag"
               label="Tag"
@@ -44,30 +43,28 @@
               ]"
               :filter-method="filterTag"
               filter-placement="top-start"
-            >
-            </el-table-column>
-            <el-table-column prop="name" label="Name" width="120"> </el-table-column>
-            <el-table-column prop="state" label="State" width="120"> </el-table-column>
-            <el-table-column prop="city" label="City" width="120"> </el-table-column>
-            <el-table-column prop="address" label="Address" width="300"> </el-table-column>
-            <el-table-column prop="zip" label="Zip" width="120"> </el-table-column>
+            />
+            <el-table-column prop="name" label="Name" width="120" />
+            <el-table-column prop="state" label="State" width="120" />
+            <el-table-column prop="city" label="City" width="120" />
+            <el-table-column prop="address" label="Address" width="300" />
+            <el-table-column prop="zip" label="Zip" width="120" />
             <el-table-column fixed="right" label="Operations" width="120">
-              <template slot-scope="scope">
-                <el-button @click.native.prevent="deleteRow(scope.$index, tableData)" type="text" size="small"> Remove </el-button>
+              <template #default="scope">
+                <el-button type="text" size="small" @click.native.prevent="deleteRow(scope.$index, tableData)"> Remove </el-button>
               </template>
             </el-table-column>
           </el-table>
         </div>
         <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page.sync="currentPage4"
+          v-model:current-page="currentPage4"
           :page-sizes="[100, 200, 300, 400]"
           :page-size="100"
           layout="total, prev, pager, next, jumper, sizes"
           :total="400"
-        >
-        </el-pagination>
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -90,15 +87,15 @@
         <div class="table-container mb-4">
           <el-table :data="tableData" style="width: 100%">
             <el-table-column type="expand">
-              <template slot-scope="props">
+              <template #default="props">
                 <p>State: {{ props.row.state }}</p>
                 <p>City: {{ props.row.city }}</p>
                 <p>Address: {{ props.row.address }}</p>
                 <p>Zip: {{ props.row.zip }}</p>
               </template>
             </el-table-column>
-            <el-table-column label="Date" prop="date"> </el-table-column>
-            <el-table-column label="Name" prop="name"> </el-table-column>
+            <el-table-column label="Date" prop="date" />
+            <el-table-column label="Name" prop="name" />
           </el-table>
         </div>
       </div>
@@ -119,17 +116,6 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'ThemeTable',
-  computed: {
-    gridSize() {
-      const grids = {
-        5: 'grid-cols-5',
-        6: 'grid-cols-6',
-        7: 'grid-cols-7',
-        8: 'grid-cols-8',
-      };
-      return grids;
-    },
-  },
   data() {
     return {
       multipleSelection: [],
@@ -204,6 +190,18 @@ export default Vue.extend({
       ],
     };
   },
+  computed: {
+    gridSize() {
+      const grids = {
+        5: 'grid-cols-5',
+        6: 'grid-cols-6',
+        7: 'grid-cols-7',
+        8: 'grid-cols-8',
+      };
+
+      return grids;
+    },
+  },
   methods: {
     toggleSelection(rows) {
       if (rows) {
@@ -231,7 +229,8 @@ export default Vue.extend({
     },
     filterHandler(value, row, column) {
       console.log(row, column, value);
-      const property = column['property'];
+      const { property } = column;
+
       return row[property] === value;
     },
     handleSizeChange(val) {

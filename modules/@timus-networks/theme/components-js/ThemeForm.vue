@@ -19,46 +19,60 @@
         </p>
       </div>
       <div class="grid grid-flow-col">
-        <el-form ref="form" :model="form" label-width="130px" class="gap-4 flex flex-col" :label-position="labelPosition">
-          <el-form-item class="form-content-left" prop="minimum_character_length">
-            <el-checkbox :disabled="true"> {{ $t('password_policies') }} </el-checkbox>
-            <el-input-number size="mini" class="grow" controls-position="right" :min="8" :max="10" v-model="count"> </el-input-number>
+        <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm" :label-position="labelPosition">
+          <el-form-item label="Activity name" prop="name">
+            <el-input v-model="ruleForm.name" />
           </el-form-item>
-
-          <el-form-item label="Aktivite Adı">
-            <el-input v-model="form.name"></el-input>
-          </el-form-item>
-
-          <el-form-item label="Aktivite Bölgesi">
-            <el-select v-model="form.region" placeholder="Lütfen bölgenizi seçin" class="w-full">
-              <el-option label="Bölge Bir" value="shanghai"></el-option>
-              <el-option label="Bölge İki" value="beijing"></el-option>
+          <el-form-item label="Activity zone" prop="region">
+            <el-select v-model="ruleForm.region" placeholder="Activity zone">
+              <el-option label="Zone one" value="shanghai" />
+              <el-option label="Zone two" value="beijing" />
             </el-select>
           </el-form-item>
-
-          <el-form-item class="form-content-left" label="Aktivite Zamanı">
-            <el-date-picker type="date" placeholder="Tarih seçin" v-model="form.date1" style="width: 100%"></el-date-picker>
-            <el-time-picker placeholder="Saat seçin" v-model="form.date2" style="width: 100%"></el-time-picker>
+          <el-form-item label="Activity time" required>
+            <el-col :span="11">
+              <el-form-item prop="date1">
+                <el-date-picker v-model="ruleForm.date1" type="date" placeholder="Pick a date" style="width: 100%" />
+              </el-form-item>
+            </el-col>
+            <el-col class="line" :span="2">-</el-col>
+            <el-col :span="11">
+              <el-form-item prop="date2">
+                <el-time-picker v-model="ruleForm.date2" placeholder="Pick a time" style="width: 100%" />
+              </el-form-item>
+            </el-col>
           </el-form-item>
-
-          <el-form-item label="Kaynaklar">
-            <el-radio-group v-model="form.resource" size="medium" class="flex gap-4">
-              <el-radio label="Sponsor"></el-radio>
-              <el-radio label="Mekan"></el-radio>
+          <el-form-item label="Instant delivery" prop="delivery">
+            <el-switch v-model="ruleForm.delivery" />
+          </el-form-item>
+          <el-form-item label="Activity type" prop="type">
+            <el-checkbox-group v-model="ruleForm.type">
+              <el-checkbox label="Online activities" name="type" />
+              <el-checkbox label="Promotion activities" name="type" />
+              <el-checkbox label="Offline activities" name="type" />
+              <el-checkbox label="Simple brand exposure" name="type" />
+            </el-checkbox-group>
+          </el-form-item>
+          <el-form-item label="Resources" prop="resource">
+            <el-radio-group v-model="ruleForm.resource">
+              <el-radio label="Sponsorship" />
+              <el-radio label="Venue" />
             </el-radio-group>
           </el-form-item>
-
-          <el-form-item class="form-content-left">
-            <el-button class="outline grow">İptal Et</el-button>
-            <el-button type="primary grow" @click="onSubmit">Oluştur</el-button>
+          <el-form-item label="Activity form" prop="desc">
+            <el-input v-model="ruleForm.desc" type="textarea" />
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="submitForm('ruleForm')">Create</el-button>
+            <el-button @click="resetForm('ruleForm')">Reset</el-button>
           </el-form-item>
         </el-form>
       </div>
     </section>
 
     <el-descriptions title="User Info" :column="4" colon="false">
-      <el-description-item label="Username" labelClassName="w-28"> Ahmet Polat MacBook Pro, Ahmet Fatih Sez...</el-description-item>
-      <el-description-item label="Username" labelClassName="w-28"> Ahmet Polat MacBook Pro, Ahmet Fatih Sez...</el-description-item>
+      <el-description-item label="Username" label-class-name="w-28"> Ahmet Polat MacBook Pro, Ahmet Fatih Sez...</el-description-item>
+      <el-description-item label="Username" label-class-name="w-28"> Ahmet Polat MacBook Pro, Ahmet Fatih Sez...</el-description-item>
     </el-descriptions>
   </div>
 </template>
@@ -78,6 +92,28 @@ export default Vue.extend({
                 type: [],
                 resource: '',
             },
+            ruleForm: {
+                name: '',
+                region: '',
+                date1: '',
+                date2: '',
+                delivery: false,
+                type: [],
+                resource: '',
+                desc: '',
+            },
+            rules: {
+                name: [
+                    { required: true, message: 'Please input Activity name', trigger: 'blur' },
+                    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+                ],
+                region: [{ required: true, message: 'Please select Activity zone', trigger: 'change' }],
+                date1: [{ type: 'date', required: true, message: 'Please pick a date', trigger: 'change' }],
+                date2: [{ type: 'date', required: true, message: 'Please pick a time', trigger: 'change' }],
+                type: [{ type: 'array', required: true, message: 'Please select at least one activity type', trigger: 'change' }],
+                resource: [{ required: true, message: 'Please select activity resource', trigger: 'change' }],
+                desc: [{ required: true, message: 'Please input activity form', trigger: 'blur' }],
+            },
         };
     },
     methods: {
@@ -87,6 +123,12 @@ export default Vue.extend({
         submit() { },
         onSubmit() {
             console.log('submit!');
+        },
+        submitForm(formName) {
+            console.log('submit');
+        },
+        resetForm(formName) {
+            console.log('reset');
         },
     },
 });
