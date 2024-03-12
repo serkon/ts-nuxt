@@ -135,7 +135,13 @@
     &.el-table-column--selection{
       .cell{
         display: flex;
-        justify-content: center;
+        // justify-content: center;
+      }
+    }
+
+    &:first-of-type {
+      .cell {
+        padding: 0;
       }
     }
 
