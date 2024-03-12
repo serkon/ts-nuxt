@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 @import 'mixins/mixins';
 @import 'tooltip';
 @import 'common/var';
@@ -132,16 +132,23 @@
     text-align: left;
     height: 48px;
 
-    &.el-table-column--selection{
-      .cell{
+    &.el-table-column--selection {
+      .cell {
         display: flex;
         // justify-content: center;
+        padding: 0;
+      }
+
+      + .el-table__cell {
+        .cell {
+          padding-left: 4px;
+        }
       }
     }
 
     &:first-of-type {
       .cell {
-        padding: 0;
+        padding-left: 0;
       }
     }
 
@@ -195,7 +202,7 @@
     }
   }
 
-  th.el-table__cell.is-leaf{
+  th.el-table__cell.is-leaf {
     border-bottom: $--table-border;
   }
   td.el-table__cell {
@@ -537,7 +544,7 @@
   }
 
   .ascending {
-    .ascending{
+    .ascending {
       &::before {
         border-color: var(--gray-700);
       }
@@ -557,7 +564,7 @@
         border-color: var(--gray-400);
       }
     }
-    .descending{
+    .descending {
       &::before {
         border-color: var(--gray-700);
         content: '';
@@ -566,7 +573,8 @@
   }
 
   .is-sortable:not(.ascending):not(.descending) {
-    .ascending, .descending{
+    .ascending,
+    .descending {
       &::before {
         border-color: var(--gray-400);
       }
@@ -633,7 +641,6 @@
     line-height: $custom-table-head-font-line-height;
     cursor: pointer;
 
-
     & i {
       color: $--table-header-font-color;
       font-size: 12px;
@@ -671,7 +678,6 @@
     }
   }
 }
-
 
 .table-container {
   padding: $custom-table-container-border-padding;
