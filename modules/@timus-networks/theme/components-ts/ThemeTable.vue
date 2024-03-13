@@ -66,6 +66,69 @@
           @current-change="handleCurrentChange"
         />
       </div>
+
+      <div class="grid flex-column">
+        <div class="table-container mb-4">
+          <el-table
+            ref="multipleTable"
+            :data="tableData"
+            :default-sort="{ prop: 'date', order: 'descending' }"
+            height="360px"
+            style="width: 100%"
+            @selection-change="handleSelectionChange"
+          >
+            <el-table-column type="selection" width="16" />
+            <el-table-column
+              fixed
+              prop="date"
+              label="Date"
+              sortable
+              column-key="date"
+              :filters="[
+                { text: '2016-05-01', value: '2016-05-01' },
+                { text: '2016-05-02', value: '2016-05-02' },
+                { text: '2016-05-03', value: '2016-05-03' },
+                { text: '2016-05-04', value: '2016-05-04' },
+              ]"
+              :filter-method="filterHandler"
+            />
+            <el-table-column prop="name" label="Name" width="60" :show-overflow-tooltip="true" />
+            <el-table-column prop="address" label="Address" :formatter="formatter" />
+            <el-table-column
+              prop="tag"
+              label="Tag"
+              :filters="[
+                { text: 'Home', value: 'Home' },
+                { text: 'Office', value: 'Office' },
+                { text: 'Potato', value: 'Potato' },
+              ]"
+              :filter-method="filterTag"
+              filter-placement="top-start"
+            />
+            <el-table-column prop="name" label="Name" width="120" />
+            <el-table-column prop="state" label="State" width="120" />
+            <el-table-column prop="city" label="City" width="120" />
+            <el-table-column prop="address" label="Address" width="300" />
+            <el-table-column prop="zip" label="Zip" width="120" />
+            <el-table-column label="Operations" width="420" class="items-end">
+              <template #default="scope">
+                <div class="items-end flex">
+                  teeee<el-button size="small" @click.native.prevent="deleteRow(scope.$index, tableData)"> Remove </el-button>
+                </div>
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+        <el-pagination
+          v-model:current-page="currentPage4"
+          :page-sizes="[100, 200, 300, 400]"
+          :page-size="100"
+          layout="total, prev, pager, next, jumper, sizes"
+          :total="400"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
+      </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
           <code>

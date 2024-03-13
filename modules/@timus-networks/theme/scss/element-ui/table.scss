@@ -152,6 +152,12 @@
       }
     }
 
+    &:last-of-type {
+      .cell {
+        padding-right: 0;
+      }
+    }
+
     @include when(center) {
       text-align: center;
     }
