@@ -1,6 +1,7 @@
 $icomoon-font-family: "iconsax" !default;
 $icomoon-font-path: "fonts" !default;
 
+$isax-message-question: unquote('"\\ec80"');
 $isax-driver-refresh: unquote('"\\eba1"');
 $isax-refresh-square-2: unquote('"\\e900"');
 $isax-d-cube-scan: unquote('"\\e901"');
@@ -517,7 +518,7 @@ $isax-message-favorite: unquote('"\\eaff"');
 $isax-message-minus: unquote('"\\eb00"');
 $isax-message-notif: unquote('"\\eb01"');
 $isax-message-programming: unquote('"\\eb02"');
-$isax-message-question: unquote('"\\eb03"');
+$isax-message-question-old: unquote('"\\eb03"');
 $isax-message-remove: unquote('"\\eb04"');
 $isax-message-search: unquote('"\\eb05"');
 $isax-message-square: unquote('"\\eb06"');

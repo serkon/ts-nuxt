@@ -22,6 +22,11 @@
   speak: never;
 }
 
+.isax-message-question::before {
+  content: '\ec80';
+  color: #c1c0c7;
+}
+
 .isax-driver-refresh::before {
   content: '\eba1';
 }
@@ -2086,7 +2091,7 @@
   content: '\eb02';
 }
 
-.isax-message-question::before {
+.isax-message-question-old::before {
   content: '\eb03';
 }
 
