@@ -130,14 +130,14 @@ Checkbox
 */
 $custom-checkbox-checked-icon-weight: 1.5px;
 $custom-checkbox-disabled-font-color: var(--gray-700);
-$custom-checkbox-label-padding-left: 4px;
+$custom-checkbox-label-padding-left: 0; //4px
 $custom-checkbox-disabled-input-inset-border: inset 0 0 0 2px #ffffff;
 $--checkbox-font-size: 14px;
 $--checkbox-font-weight: 400;
 $--checkbox-font-color: var(--gray-700);
 $--checkbox-input-height: 16px;
 $--checkbox-input-width: 16px;
-$--checkbox-border-radius: 6px;
+$--checkbox-border-radius: 3px;
 $--checkbox-background-color: $--color-white;
 $--checkbox-input-border: $custom-checkbox-checked-icon-weight solid var(--gray-400);
 $--checkbox-disabled-border-color: var(--gray-400);
