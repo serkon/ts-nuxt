@@ -5,7 +5,7 @@
       <p class="p-lg my-6">v-model is the value of el-option that is currently selected.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-select v-model="value" placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
@@ -20,7 +20,7 @@
       <p class="p-lg my-6">Set the value of disabled in el-option to true to disable this option.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-select v-model="value" placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"> </el-option>
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled" />
         </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -36,7 +36,7 @@
       <p class="p-lg my-6">Set disabled of el-select to make it disabled.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-select v-model="value" disabled placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -52,7 +52,7 @@
       <p class="p-lg my-6">Farklı boyutlardaki butonlarımız, çeşitli arayüz ihtiyaçlarına yanıt vermek için tasarlanmıştır.</p>
       <div class="grid grid-flow-col auto-cols-max items-center gap-4">
         <el-select v-model="value" clearable placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
@@ -67,11 +67,12 @@
       <h1>Basic multiple select</h1>
       <p class="p-lg my-6">Etkileşime kapalı 'disabled' butonlarımız, kullanılamaz durumları göstermek için kullanılır.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
-        <el-select v-model="value1" multiple placeholder="Select">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        {{ JSON.stringify(value1) }}
+        <el-select v-model="value1" multiple placeholder="Select" :disabled="true">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
-        <el-select v-model="value2" multiple collapse-tags placeholder="Select" type="primary">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+        <el-select v-model="value2" multiple collapse-tags placeholder="Select" type="primary" :disabled="true">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
       </div>
       <div class="my-4 p-4 border-l-4 border-red-600 bg-red-100">
@@ -110,7 +111,7 @@
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-select v-model="value" placeholder="Select">
           <el-option-group v-for="group in groups" :key="group.label" :label="group.label">
-            <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+            <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value" />
           </el-option-group>
         </el-select>
       </div>
@@ -213,8 +214,8 @@ export default Vue.extend({
         },
       ],
       value: '',
-      value1: [],
-      value2: [],
+      value1: ['Option2', 'Option4', 'Option5'],
+      value2: ['Option2', 'Option4', 'Option5'],
     };
   },
   computed: {
@@ -225,6 +226,7 @@ export default Vue.extend({
         7: 'grid-cols-7',
         8: 'grid-cols-8',
       };
+
       return grids;
     },
   },

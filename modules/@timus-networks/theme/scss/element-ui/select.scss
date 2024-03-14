@@ -160,3 +160,16 @@
     }
   }
 }
+
+.el-select:has(div.is-disabled) {
+  .el-tag {
+    background-color: $--input-disabled-fill;
+    border-color: $--input-disabled-border;
+    color: $--input-disabled-color;
+    cursor: not-allowed;
+
+    &::placeholder {
+      color: $--input-disabled-placeholder-color;
+    }
+  }
+}
