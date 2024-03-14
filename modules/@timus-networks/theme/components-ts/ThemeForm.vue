@@ -4,6 +4,11 @@
 
     <section class="flex gap-8 flex-col">
       <h2>Etiket Konumu: {{ labelPosition }}</h2>
+      <div class="p-4 border-l-4 border-info-600 bg-info-100">
+        Birkaç custom class ekledim. <b>`class='bordered'`</b> eklerseniz &lt;el-form class="bordered"> itemlar arasında border çıkar, `info` derseniz
+        info tipinde bir forma dönüşür (title ve content daha soft renkte oluşur, ayrıca content sağa yaslı olur), `info left` eklerseniz itemlar sola
+        yaslı çıkar.
+      </div>
       <el-radio-group v-model="labelPosition" size="small">
         <el-radio-button label="left">Sol</el-radio-button>
         <el-radio-button label="right">Sağ</el-radio-button>
@@ -19,7 +24,7 @@
         </p>
       </div>
       <div class="grid grid-flow-col">
-        <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm" :label-position="labelPosition">
+        <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="150px" class="bordered info" :label-position="labelPosition">
           <el-form-item label="Activity name" prop="name">
             <el-input v-model="ruleForm.name" />
           </el-form-item>
@@ -29,18 +34,9 @@
               <el-option label="Zone two" value="beijing" />
             </el-select>
           </el-form-item>
-          <el-form-item label="Activity time" required>
-            <el-col :span="11">
-              <el-form-item prop="date1">
-                <el-date-picker v-model="ruleForm.date1" type="date" placeholder="Pick a date" style="width: 100%" />
-              </el-form-item>
-            </el-col>
-            <el-col class="line" :span="2">-</el-col>
-            <el-col :span="11">
-              <el-form-item prop="date2">
-                <el-time-picker v-model="ruleForm.date2" placeholder="Pick a time" style="width: 100%" />
-              </el-form-item>
-            </el-col>
+          <el-form-item label="Activity time" required class="form-content-left">
+            <el-date-picker v-model="ruleForm.date1" type="date" placeholder="Pick a date" style="width: 100%" />
+            <el-time-picker v-model="ruleForm.date2" placeholder="Pick a time" style="width: 100%" />
           </el-form-item>
           <el-form-item label="Instant delivery" prop="delivery">
             <el-switch v-model="ruleForm.delivery" />
@@ -62,18 +58,13 @@
           <el-form-item label="Activity form" prop="desc">
             <el-input v-model="ruleForm.desc" type="textarea" />
           </el-form-item>
-          <el-form-item>
+          <el-form-item class="form-content-left">
             <el-button type="primary" @click="submitForm('ruleForm')">Create</el-button>
             <el-button @click="resetForm('ruleForm')">Reset</el-button>
           </el-form-item>
         </el-form>
       </div>
     </section>
-
-    <el-descriptions title="User Info" :column="4" colon="false">
-      <el-description-item label="Username" label-class-name="w-28"> Ahmet Polat MacBook Pro, Ahmet Fatih Sez...</el-description-item>
-      <el-description-item label="Username" label-class-name="w-28"> Ahmet Polat MacBook Pro, Ahmet Fatih Sez...</el-description-item>
-    </el-descriptions>
   </div>
 </template>
 <script lang="ts">
