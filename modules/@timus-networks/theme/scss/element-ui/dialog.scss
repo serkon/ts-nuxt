@@ -84,12 +84,19 @@
     box-sizing: border-box;
 
     .dialog-footer {
-      display: grid;
-      grid-auto-flow: column;
+      display: flex;
+      // display: grid;
+      // grid-auto-flow: column;
       gap: $custom-dialog-footer-gap;
 
       button {
         justify-content: center;
+        flex-basis: 100%;
+
+        // &:first-of-type {
+        //   @apply outline;
+        //   outline-style: unset;
+        // }
       }
     }
   }
