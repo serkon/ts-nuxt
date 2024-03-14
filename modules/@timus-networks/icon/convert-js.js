@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const execSync = require('child_process').execSync;
+const { execSync } = require('child_process');
 const glob = require('glob');
 
 // Eğer 'components-js' klasörü varsa sil
@@ -16,8 +16,9 @@ const copyRecursiveSync = function (src, dest) {
   const exists = fs.existsSync(src);
   const stats = exists && fs.statSync(src);
   const isDirectory = exists && stats.isDirectory();
+
   if (exists && isDirectory) {
-    if (!fs.existsSync(dest)) fs.mkdirSync(dest);
+    if (!fs.existsSync(dest)) { fs.mkdirSync(dest); }
     fs.readdirSync(src).forEach((childItemName) => {
       copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
     });
@@ -39,9 +40,10 @@ vueFiles.forEach((file) => {
   if (content) {
     if (scriptMatch) {
       let tsCode = scriptMatch[1];
+
       tsCode = tsCode.replace(/import .*?from '.*?.vue';/g, (match) => `// ${match}`);
 
-       tsFilePath = file.replace('.vue', '.temp.ts');
+      tsFilePath = file.replace('.vue', '.temp.ts');
       fs.writeFileSync(tsFilePath, tsCode, 'utf-8');
     }
 
@@ -58,37 +60,40 @@ vueFiles.forEach((file) => {
       hasError = true;
     }
 
-    if (tsFilePath && hasError ) {
+    if (tsFilePath && hasError) {
       // temp.d.ts dosyasını yeniden oluştur ve adını
       const tsOutputFilePath = tsFilePath.replace('.temp.ts', '.temp.d.ts');
       const desiredOutputFilePath = tsFilePath.replace('.temp.ts', '.d.ts');
+
       if (fs.existsSync(tsOutputFilePath)) {
         fs.renameSync(tsOutputFilePath, desiredOutputFilePath);
       }
       const jsCode = fs.readFileSync(tsFilePath.replace('.ts', '.js'), 'utf-8');
       const finalJsCode = jsCode.replace(/\/\/ import/g, 'import');
       const newContent = content.replace(/<script lang="ts">(.*?)<\/script>/s, `<script>${finalJsCode}</script>`);
+
       fs.writeFileSync(file, newContent, 'utf-8');
     }
 
     if (scriptMatch) {
       // Dosyaları sil
-      if (fs.existsSync(tsFilePath)) fs.unlinkSync(tsFilePath);
-      if (fs.existsSync(tsFilePath.replace('.ts', '.js'))) fs.unlinkSync(tsFilePath.replace('.ts', '.js'));
+      if (fs.existsSync(tsFilePath)) { fs.unlinkSync(tsFilePath); }
+      if (fs.existsSync(tsFilePath.replace('.ts', '.js'))) { fs.unlinkSync(tsFilePath.replace('.ts', '.js')); }
     }
   }
 });
 
 // vueFiles.forEach döngüsünden sonra
 const declarationFiles = glob.sync('./components-js/**/*.d.ts');
-
 // Bu dosyaları import eden bir index.d.ts oluştur
-let imports = declarationFiles
+const imports = declarationFiles
   .map((file) => {
     // Dosya yolundan modül adını elde etmek için gereken işlemler
     let modulePath = path.relative('.', file);
+
     modulePath = modulePath.replace('.d.ts', '');
     modulePath = modulePath.replace(/\\/g, '/'); // Windows için ters eğik çizgileri düzelt
+
     return `export * from './${modulePath}';`;
   })
   .join('\n');
@@ -96,6 +101,7 @@ let imports = declarationFiles
 fs.writeFileSync('./index.d.ts', imports);
 
 const tsFiles = glob.sync('./components-js/**/*.ts');
+
 tsFiles.forEach((file) => {
   if (!file.endsWith('.d.ts') && fs.existsSync(file)) {
     fs.unlinkSync(file);
