@@ -123,6 +123,10 @@
   border-radius: 8px;
   overflow: hidden;
 
+  &:empty{
+    display: none;
+  }
+
   &:not(:empty){
     padding: $custom-upload-list-padding;
     border: $custom-upload-list-border;

@@ -15,8 +15,8 @@
           :file-list="fileList"
           multiple
         >
-          <!-- <i class="el-icon-upload" />-->
-          <img src="~/assets/images/upload-drop.svg" alt="upload" class="w-[56px] h-[56px]" />
+          <i class="el-icon-upload" />
+          <!-- <img src="~/assets/images/upload-drop.svg" alt="upload" class="w-[56px] h-[56px]" /> -->
           <div class="el-upload__text">
             <span class="title">Drag CSV here</span>
             <span class="description">or click to browse (5MB Max)</span>

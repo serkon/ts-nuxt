@@ -15,12 +15,16 @@
           :file-list="fileList"
           multiple
         >
-          <i class="el-icon-upload"></i>
+          <i class="el-icon-upload" />
+          <!-- <img src="~/assets/images/upload-drop.svg" alt="upload" class="w-[56px] h-[56px]" /> -->
           <div class="el-upload__text">
-            <span class="title">Drop file here or</span>
-            <span class="description">click to upload</span>
+            <span class="title">Drag CSV here</span>
+            <span class="description">or click to browse (5MB Max)</span>
           </div>
-          <div class="el-upload__tip" slot="tip">jpg/png files with a size less than 500kb</div>
+          <div slot="tip" class="el-upload__tip">
+            Category: Maximum 30 characters. Domain: Valid domain value (wildcard domains are acceptable).You can upload up to 1000 domains at a time.
+            Categories that are not in the system will be created as new custom categories.
+          </div>
         </el-upload>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
@@ -60,6 +64,7 @@ export default Vue.extend({
       if (!isLt2M) {
         this.$message.error('Avatar picture size can not exceed 2MB!');
       }
+
       return isJPG && isLt2M;
     },
   },

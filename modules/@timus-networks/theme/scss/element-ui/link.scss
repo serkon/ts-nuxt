@@ -41,6 +41,10 @@ $colors: ('default', 'primary', 'secondary', 'gray', 'light', 'success', 'danger
     }
   }
 
+  & i[class^='isax'] {
+    font-weight: 600;
+  }
+
 
   &.el-link--default  {
     color: $--color-primary;
@@ -55,21 +59,45 @@ $colors: ('default', 'primary', 'secondary', 'gray', 'light', 'success', 'danger
     }
   }
 
+    // Her düğme tipi ve durumu için özel renk değerlerin tanımı
+    $button-variant-values: (
+      'default': (
+        'default': 700,
+        'hover': 500,
+        'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,,
+      ),
+      'primary': (
+        'default': 700,
+        'hover': 500,
+        'active': 900 // 'disabled' tanımlanmadı, mixin'in varsayılanı kullanılacak,,,,
+      ),
+      'light': (
+        'default': 700,
+        'hover': 500,
+        'active': 900,
+      ),
+    );
+
   @each $color in $colors {
+    $default: map-get-deep($button-variant-values, $color, 'default') or 500;
+    $hover: map-get-deep($button-variant-values, $color, 'hover') or 400;
+    $active: map-get-deep($button-variant-values, $color, 'active') or 600;
+    $disabled: map-get-deep($button-variant-values, $color, 'disabled') or 200;
+
     &.el-link--#{"#{$color}"}, &.#{$color}{
-      color: var(--#{"#{$color}"}-500);
+      color: var(--#{"#{$color}"}-#{"#{$default}"});
       &:hover {
-        color: var(--#{"#{$color}"}-400);
+        color: var(--#{"#{$color}"}-#{"#{$hover}"});
       }
       &:after {
-        border-color: var(--#{"#{$color}"}-500);
+        border-color: var(--#{"#{$color}"}-#{"#{$active}"});
       }
       @include when(disabled) {
-        color: var(--#{"#{$color}"}-300);
+        color: var(--#{"#{$color}"}-#{"#{$disabled}"});
       }
       @include when(underline) {
         &:hover:after {
-          border-color: var(--#{"#{$color}"}-500);
+          border-color: var(--#{"#{$color}"}-#{"#{$default}"});
         }
       }
     }
