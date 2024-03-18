@@ -144,13 +144,13 @@
     }
 
     &__close.el-icon-close {
-      background-color: $--custom-tag-close-background-color;
+      background-color: $custom-tag-close-background-color;
       top: 0;
       color: $--color-white;
       flex-shrink: 0;
 
       &:hover {
-        background-color: $--custom-tag-close-hover-background-color;
+        background-color: $custom-tag-close-hover-background-color;
       }
 
       &::before {
