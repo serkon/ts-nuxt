@@ -93,11 +93,11 @@
 
 @include b(tag) {
   @include genTheme(10%, 20%, 100%, 100%);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  height: 32px;
+  height: $custom-tag-height;
   padding: $--tag-padding;
   line-height: $custom-tag-font-line-height;
   font-size: $--tag-font-size;
@@ -113,11 +113,10 @@
     text-align: center;
     position: relative;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 8px;
     width: 8px;
     height: 8px;
-    font-size: 8px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
