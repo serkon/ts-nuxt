@@ -24,7 +24,15 @@
         </p>
       </div>
       <div class="grid grid-flow-col">
-        <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="150px" class="bordered info" :label-position="labelPosition">
+        <el-form
+          ref="ruleForm"
+          :model="ruleForm"
+          :rules="rules"
+          label-width="150px"
+          class="bordered info"
+          :label-position="labelPosition"
+          size="mini"
+        >
           <el-form-item label="Activity name" prop="name">
             <el-input v-model="ruleForm.name" />
           </el-form-item>

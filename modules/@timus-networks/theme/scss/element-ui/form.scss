@@ -236,6 +236,22 @@
     .el-form-item {
       min-height: 48px;
 
+      &#{"--large"} {
+        min-height: 40px;
+      }
+
+      &#{"--medium"} {
+        min-height: 36px;
+      }
+
+      &#{"--small"} {
+        min-height: 32px;
+      }
+
+      &#{"--mini"} {
+        min-height: 28px;
+      }
+
       .el-form-item__label {
         font-weight: 400;
 
@@ -246,6 +262,7 @@
         font-weight: 400;
         display: flex;
         align-items: flex-end;
+        justify-content: center;
 
         @apply p-md text-gray-700;
       }
@@ -262,6 +279,14 @@
     .el-form-item {
       .el-form-item__content {
         align-items: flex-start;
+      }
+    }
+  }
+
+  .el-form-item {
+    &.center {
+      .el-form-item__content {
+        align-items: center;
       }
     }
   }
