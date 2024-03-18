@@ -46,9 +46,9 @@ $--button-small-padding-vertical: 7px;
 $--button-small-padding-horizontal: 16px;
 
 $--button-mini-font-size: 12px;
-$--button-mini-border-radius: 8px;
-$--button-mini-padding-vertical: 7px;
-$--button-mini-padding-horizontal: 16px;
+$--button-mini-border-radius: 4px;
+$--button-mini-padding-vertical: 4px;
+$--button-mini-padding-horizontal: 12px;
 
 $--button-font-size: $--button-large-font-size;
 $--button-border-radius: $--button-large-border-radius;
@@ -235,8 +235,12 @@ $--select-group-font-size: 10px;
 Tag
 --------------------------
 */
-$--custom-tag-close-background-color: transparent;
-$--custom-tag-close-hover-background-color: transparent;
+$custom-tag-close-background-color: transparent;
+$custom-tag-close-hover-background-color: transparent;
+$custom-tag-font-line-height: 14px;
+$--tag-font-size: 10px;
+$--tag-border-radius: 4px;
+$--tag-padding: 0 8px;
 /*
 --------------------------
 Switch

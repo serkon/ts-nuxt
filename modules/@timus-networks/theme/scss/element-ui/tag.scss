@@ -93,10 +93,13 @@
 
 @include b(tag) {
   @include genTheme(10%, 20%, 100%, 100%);
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   height: 32px;
   padding: $--tag-padding;
-  line-height: 30px;
+  line-height: $custom-tag-font-line-height;
   font-size: $--tag-font-size;
   color: $--tag-primary-color;
   border-width: 1px;
@@ -111,16 +114,21 @@
     position: relative;
     cursor: pointer;
     font-size: 12px;
-    height: 16px;
-    width: 16px;
-    line-height: 16px;
-    vertical-align: middle;
-    top: -1px;
-    right: -5px;
+    width: 8px;
+    height: 8px;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &::before {
       display: block;
     }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
   @include m(dark) {
@@ -131,33 +139,52 @@
     @include genTheme(0%, 40%, 100%, 100%);
   }
 
+  @include m(large) {
+    height: 32px;
+    line-height: 26px;
+
+    .el-icon-close {
+      font-size: 16px;
+      line-height: 16px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
   @include m(medium) {
     height: 28px;
     line-height: 26px;
 
     .el-icon-close {
-      transform: scale(.8);
+      font-size: 16px;
+      line-height: 16px;
+      width: 16px;
+      height: 16px;
     }
   }
 
   @include m(small) {
     height: 24px;
-    padding: 0 8px;
     line-height: 22px;
 
     .el-icon-close {
-      transform: scale(.8);
+      font-size: 14px;
+      line-height: 14px;
+      height: 14px;
+      width: 14px;
     }
   }
 
   @include m(mini) {
-    height: 20px;
-    padding: 0 5px;
-    line-height: 19px;
+    height: 18px;
+    font-size: 10px;
+    line-height: 14px;
 
     .el-icon-close {
-      margin-left: -3px;
-      transform: scale(.7);
+      font-size: 8px;
+      line-height: 8px;
+      height: 8px;
+      width: 8px;
     }
   }
 }

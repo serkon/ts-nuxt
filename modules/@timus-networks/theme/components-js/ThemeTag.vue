@@ -57,19 +57,18 @@
       <h1>Edit Dynamically</h1>
       <p class="p-lg my-6">You can use the close event to add and remove tag dynamically.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-tag :key="tag" v-for="tag in dynamicTags" closable :disable-transitions="true" @close="handleClose(tag)">
+        <el-tag v-for="tag in dynamicTags" :key="tag" closable :disable-transitions="true" size="mini" @close="handleClose(tag)">
           {{ tag }}
         </el-tag>
         <el-input
-          class="input-new-tag"
           v-if="inputVisible"
-          v-model="inputValue"
           ref="saveTagInput"
+          v-model="inputValue"
+          class="input-new-tag"
           size="mini"
           @keyup.enter.native="handleInputConfirm"
           @blur="handleInputConfirm"
-        >
-        </el-input>
+        />
         <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
@@ -85,17 +84,6 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'TimusButtonSample',
-  computed: {
-    gridSize() {
-      const grids = {
-        5: 'grid-cols-5',
-        6: 'grid-cols-6',
-        7: 'grid-cols-7',
-        8: 'grid-cols-8',
-      };
-      return grids;
-    },
-  },
   data() {
     return {
       dynamicTags: ['Tag 1', 'Tag 2', 'Tag 3'],
@@ -117,6 +105,18 @@ export default Vue.extend({
       ],
     };
   },
+  computed: {
+    gridSize() {
+      const grids = {
+        5: 'grid-cols-5',
+        6: 'grid-cols-6',
+        7: 'grid-cols-7',
+        8: 'grid-cols-8',
+      };
+
+      return grids;
+    },
+  },
   methods: {
     handleClose(tag) {
       this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
@@ -130,7 +130,8 @@ export default Vue.extend({
     },
 
     handleInputConfirm() {
-      let inputValue = this.inputValue;
+      const { inputValue } = this;
+
       if (inputValue) {
         this.dynamicTags.push(inputValue);
       }
