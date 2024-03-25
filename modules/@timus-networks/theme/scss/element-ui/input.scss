@@ -166,6 +166,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    color: var(--gray-400);
   }
 
   @include e(prefix) {
@@ -176,6 +177,7 @@
     text-align: center;
     color: $--input-icon-color;
     transition: all .3s;
+    color: var(--gray-400);
   }
 
   @include e(icon) {

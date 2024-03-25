@@ -54,7 +54,7 @@
     padding: $custom-picker-footer-padding;
 
     button {
-      @extend .el-button, .el-button--primary, .el-button--mini;
+      @extend .el-button, .el-button--primary, .el-button--small;
       padding: 7px 16px !important;
 
       &:first-of-type {

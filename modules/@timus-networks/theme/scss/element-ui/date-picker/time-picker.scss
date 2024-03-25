@@ -12,6 +12,7 @@
   box-shadow: $--box-shadow-light;
   background-color: $--color-white;
   user-select: none;
+
   @include e(content) {
     position: relative;
     overflow: hidden;
@@ -65,20 +66,20 @@
     padding: $custom-picker-footer-padding;
     border: 1px solid $custom-picker-border-color;
   }
+
   @include e(btn) {
     flex-basis: 100%;
     margin: 0;
-    padding: $--button-mini-padding-vertical $--button-mini-padding-horizontal !important;
     cursor: pointer;
     outline: none;
     justify-content: center;
 
     &.cancel {
-      @extend .el-button, .el-button--primary, .el-button--mini, .outline;
+      @extend .el-button, .el-button--primary, .el-button--small, .outline;
     }
 
     &.confirm {
-      @extend .el-button, .el-button--primary, .el-button--mini;
+      @extend .el-button, .el-button--primary, .el-button--small;
     }
   }
 }

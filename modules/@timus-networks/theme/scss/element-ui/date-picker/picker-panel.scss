@@ -36,12 +36,12 @@
       justify-content: center;
       text-decoration: none;
 
-      @extend .el-button, .el-button--primary, .el-button--mini, .outline;
+      @extend .el-button, .el-button--primary, .el-button--small, .outline;
 
       &:last-child {
         background-color: var(--primary-700);
         color: $--color-white;
-        @extend .el-button, .el-button--primary, .el-button--mini;
+        @extend .el-button, .el-button--primary, .el-button--small;
       }
     }
   }

@@ -298,12 +298,13 @@ $--pagination-small-height: 22px;
 $--pagination-small-min-width: 22px;
 /*
 --------------------------
-Pagination
+Tooltip
 --------------------------
 */
 $custom-tooltip-font-weight: 400;
 $custom-tooltip-line-height: 14px;
 $custom-tooltip-border-radius: 8px;
+$custom-tooltip-width: 450px;
 
 $--tooltip-fill: var(--gray-900);
 $--tooltip-border-color: var(--gray-900);
