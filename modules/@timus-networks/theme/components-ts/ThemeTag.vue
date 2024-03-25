@@ -6,15 +6,17 @@
         Use the type attribute to define Tag's type. In addition, the color attribute can be used to set the background color of the Tag.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
-        <el-tag :disable-transitions="true">Tag 1</el-tag>
-        <el-tag type="success">Tag 2</el-tag>
-        <el-tag type="info">Tag 3</el-tag>
-        <el-tag type="warning">Tag 4</el-tag>
-        <el-tag type="danger">Tag 5</el-tag>
+        <el-tag :disable-transitions="true">default</el-tag>
+        <el-tag type="success">success</el-tag>
+        <el-tag type="info">info</el-tag>
+        <el-tag type="warning">warning</el-tag>
+        <el-tag type="danger">danger</el-tag>
+        <el-tag type="gray">gray</el-tag>
+        <el-tag type="secondary">secondary</el-tag>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>&lt;el-input placeholder="Please input" v-model="input" type="gray" size="medium"&gt;&lt;/el-input&gt;</code>
         </p>
       </div>
     </section>
@@ -48,7 +50,7 @@
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-input placeholder="Please input" v-model="input"&gt;&lt;/el-input&gt;</code>
+          <code>&lt;el-input placeholder="Please input" v-model="input size="medium"&gt;&lt;/el-input&gt;</code>
         </p>
       </div>
     </section>
@@ -66,7 +68,7 @@
           v-model="inputValue"
           class="input-new-tag"
           size="mini"
-          @keyup.enter.native="handleInputConfirm"
+          @keyup.enter="handleInputConfirm"
           @blur="handleInputConfirm"
         />
         <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>

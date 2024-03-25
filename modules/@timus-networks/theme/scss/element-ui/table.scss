@@ -231,7 +231,7 @@
     overflow: hidden;
     user-select: none;
     background-color: $--table-header-background-color;
-    padding: 0;
+    padding: 4px 0 !important;
     gap: 4px;
 
     > .cell {

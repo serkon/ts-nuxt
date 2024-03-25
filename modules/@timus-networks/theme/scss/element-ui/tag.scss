@@ -89,6 +89,42 @@
       }
     }
   }
+
+  &.el-tag--gray {
+    background-color: var(--gray-200);
+    border-color: var(--gray-200);
+    color: var(--gray-900);
+
+    @include when(hit) {
+      border-color: $--tag-danger-color;
+    }
+
+    .el-tag__close {
+      color: mix($--color-gray, $--color-white, $fontColorWeight);
+      &:hover {
+        color: $--color-white;
+        background-color: mix($--color-gray, $--color-white, $hoverColorWeight);
+      }
+    }
+  }
+
+  &.el-tag--secondary {
+    background-color: var(--secondary-200);
+    border-color: var(--secondary-200);
+    color: var(--secondary-900);
+
+    @include when(hit) {
+      border-color: $--tag-danger-color;
+    }
+
+    .el-tag__close {
+      color: mix($--color-secondary, $--color-white, $fontColorWeight);
+      &:hover {
+        color: $--color-white;
+        background-color: mix($--color-secondary, $--color-white, $hoverColorWeight);
+      }
+    }
+  }
 }
 
 @include b(tag) {

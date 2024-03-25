@@ -474,6 +474,15 @@ Loading
 --------------------------
 */
 $custom-loading-border-radius: 14px;
-
+/*
+--------------------------
+Collapse
+--------------------------
+*/
+$--collapse-border-color: var(--gray-300);
+$--collapse-header-font-size: 14px;
+$--collapse-header-font-color: var(--gray-700);
+$--collapse-header-height: 40px;
+$--collapse-header-line-height: 16px;
 
 @import './element-ui/index.scss';
