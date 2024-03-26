@@ -56,12 +56,25 @@
             <el-table-column width="100" property="name" label="name" />
             <el-table-column width="300" property="address" label="address" />
           </el-table>
+          <div class="popover-footer">
+            <el-button>Cancel</el-button>
+            <el-button>Save</el-button>
+          </div>
           <el-button slot="reference" type="primary" size="small">Click to activate</el-button>
         </el-popover>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
         <p class="text-xs">
           <code> &lt;el-popover placement="right" width="400" trigger="click"&gt; &lt;el-table /&gt; &lt;/el-popover&gt; </code>
+        </p>
+      </div>
+
+      <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">
+        <p class="text-xs">
+          <code>
+            &lt;el-popover placement="right" width="400" trigger="click"&gt; &lt;el-table /&gt; &lt;div class="popover-footer"&gt;
+            &lt;el-button&gt;Cancel&lt;/el-button&gt; &lt;el-button&gt;Save&lt;/el-button&gt; &lt;/div&gt; &lt;/el-popover&gt;
+          </code>
         </p>
       </div>
     </section>

@@ -47,6 +47,12 @@
 
     button {
       justify-content: center;
+      @extend .el-button, .el-button--primary, .el-button--small;
+
+      &:first-of-type {
+        @extend .outline;
+        outline-style: unset;
+      }
     }
   }
 }
