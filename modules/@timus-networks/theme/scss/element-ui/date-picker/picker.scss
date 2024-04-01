@@ -55,7 +55,7 @@
     justify-content: center;
     font-size: 14px;
     margin-left: -5px;
-    color: $--input-icon-color;
+    color: $custom-datapicker-icon-color;
     float: left;
     line-height: 32px;
   }
@@ -71,7 +71,7 @@
     width: 39%;
     text-align: center;
     font-size: $--font-size-base;
-    color: $custom-datapicker-icon-color;
+    color: $--color-text-regular;
 
     &::placeholder {
       color: $--color-text-placeholder;
