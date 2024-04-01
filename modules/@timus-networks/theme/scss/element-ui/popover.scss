@@ -11,10 +11,10 @@
   z-index: $--index-popper;
   color: $--color-text-regular;
   line-height: 1.4;
-  text-align: justify;
+  // text-align: justify;
   font-size: $--popover-font-size;
   box-shadow: $--box-shadow-light;
-  word-break: break-all;
+  // word-break: break-word;
 
   @include m(plain) {
     padding: $--popover-padding-large;
