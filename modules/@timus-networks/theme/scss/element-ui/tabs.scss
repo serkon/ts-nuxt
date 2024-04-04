@@ -144,7 +144,7 @@
 
     @include when(disabled) {
       color: $--disabled-color-base;
-      cursor: default;
+      cursor: no-drop;
     }
   }
   @include e(content) {

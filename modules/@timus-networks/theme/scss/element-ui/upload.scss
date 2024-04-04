@@ -226,7 +226,7 @@
       &:focus:not(:hover) {
         /* 键盘focus */
         .el-icon-close-tip {
-          display: inline-block;
+          display: none;
         }
       }
 

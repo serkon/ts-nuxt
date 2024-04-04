@@ -75,7 +75,7 @@
     color: $custom-dialog-body-font-color;
     font-size: $custom-dialog-body-font-size;
     line-height: $custom-dialog-body-font-line-height;
-    word-break: break-all;
+    word-break: break-word;
   }
 
   @include e(footer) {

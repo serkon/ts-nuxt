@@ -160,10 +160,21 @@
 
     @include when(center) {
       text-align: center;
+
+      .cell {
+        display: flex;
+        justify-content: center;
+      }
     }
 
     @include when(right) {
       text-align: right;
+
+      .cell {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0;
+      }
     }
 
     &.gutter {
@@ -281,7 +292,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    word-break: break-all;
+    word-break: break-word;
     line-height: 23px;
     // padding-left: 10px;
     // padding-right: 10px;
