@@ -110,7 +110,7 @@
             <el-table-column prop="city" label="City" width="120" />
             <el-table-column prop="address" label="Address" width="300" />
             <el-table-column prop="zip" label="Zip" width="120" />
-            <el-table-column label="Operations" width="420" class="items-end patates" align="center">
+            <el-table-column label="Operations" width="420" class="items-end patates" align="right">
               <template #default="scope">
                 teeee <el-button size="small" @click.native.prevent="deleteRow(scope.$index, tableData)"> Remove </el-button>
               </template>

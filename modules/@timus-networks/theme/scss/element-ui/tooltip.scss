@@ -16,6 +16,7 @@
     word-wrap: break-word;
     font-weight: $custom-tooltip-font-weight;
     max-width: $custom-tooltip-width;
+    white-space: pre-wrap;
 
     .popper__arrow,
     .popper__arrow::after {
