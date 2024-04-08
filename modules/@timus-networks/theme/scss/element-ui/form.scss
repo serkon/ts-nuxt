@@ -6,6 +6,7 @@
   @include m(label-left) {
     & .el-form-item__label {
       text-align: left;
+      min-width: $custom-form-label-min-width;
     }
   }
   @include m(label-top) {
