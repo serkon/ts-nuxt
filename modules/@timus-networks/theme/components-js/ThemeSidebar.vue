@@ -5,16 +5,16 @@
       <p class="p-md-c my-6">
         Avatarlar, resimler, ikonlar veya alfanumerik karakterleri destekler. Avatar'ın şeklini ve boyutunu ayarlamak için `shape` ve `size`
         özelliklerini kullanabilirsiniz. Ayrıca avatarın resim kaynağını belirlemek için `src` özelliğini kullanabilirsiniz. Şekil tipleri
-        <b>'circle | square'</b> şeklindedir. Boyutlar ise <b>'xlarge', 'large', 'medium', 'small', 'xsmall'</b> şeklindedir. Veya boyutu manuel
-        olarak `size` özelliğini kullanarak belirleyebilirsiniz, örneğin <b>size='50'</b>.
+        <b>'circle | square'</b> şeklindedir. Boyutlar ise <b>''large', 'medium', 'small'</b> şeklindedir. Veya boyutu manuel olarak `size` özelliğini
+        kullanarak belirleyebilirsiniz, örneğin <b>size='50'</b>.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
-        <div data-testid="components-sidebar-eitdurshvb" id="sidebar" class="flex flex-col justify-center">
-          <nuxt-link class="logo-small py-10" to="/" :id="'header-logo-' + TP" data-testid="header-manager-logo"></nuxt-link>
+        <div id="sidebar" data-testid="components-sidebar-eitdurshvb" class="flex flex-col justify-center">
+          <nuxt-link :id="'header-logo-' + TP" class="logo-small py-10" to="/" data-testid="header-manager-logo" />
           <el-menu
+            id="el-menu-primary"
             class="mt-4"
             data-testid="components-sidebar-afpbszwnwh"
-            id="el-menu-primary"
             :default-active="activeMenuItem ? activeMenuItem.toString() : '1'"
             :collapse="isCollapse"
           >
@@ -28,7 +28,7 @@
                   content="Dashboard"
                   placement="right"
                 >
-                  <i class="isax-grid-3"></i>
+                  <i class="isax-grid-3" />
                 </el-tooltip>
                 <span class="el-menu-text">Dashboard</span>
               </nuxt-link>
@@ -36,7 +36,7 @@
             <el-menu-item data-testid="components-sidebar-lhxzcthocp" index="2" data-index="2">
               <nuxt-link class="el-menu-link" to="/users" data-testid="sidebar-users">
                 <el-tooltip data-testid="components-sidebar-gegdseotki" :disabled="true" class="item" effect="dark" content="Users" placement="right">
-                  <i class="isax-profile-circle"></i>
+                  <i class="isax-profile-circle" />
                 </el-tooltip>
                 <span class="el-menu-text">User & Teams</span>
               </nuxt-link>
@@ -51,33 +51,33 @@
                   content="Devices"
                   placement="right"
                 >
-                  <i class="isax-monitor-mobbile"></i>
+                  <i class="isax-monitor-mobbile" />
                 </el-tooltip>
                 <span class="el-menu-text">Devices</span>
               </nuxt-link>
             </el-menu-item>
 
-            <el-menu-item data-testid="components-sidebar-yzjnblrbvn" v-if="TP === 'berqnet'" index="4" data-index="4">
+            <el-menu-item v-if="TP === 'berqnet'" data-testid="components-sidebar-yzjnblrbvn" index="4" data-index="4">
               <nuxt-link class="el-menu-link" to="/sites" data-testid="sidebar-sites">
                 <el-tooltip data-testid="components-sidebar-usdojbrni" :disabled="true" class="item" effect="dark" content="Sites" placement="right">
-                  <i class="isax-driver-2"></i>
+                  <i class="isax-driver-2" />
                 </el-tooltip>
                 <span class="el-menu-text">Sites</span>
               </nuxt-link>
             </el-menu-item>
-            <el-menu-item data-testid="components-sidebar-wezwxkkphc" v-else index="4" data-index="4">
+            <el-menu-item v-else data-testid="components-sidebar-wezwxkkphc" index="4" data-index="4">
               <nuxt-link class="el-menu-link" to="/sites" data-testid="sidebar-sites">
                 <el-tooltip data-testid="components-sidebar-qjjhulhbpp" :disabled="true" class="item" effect="dark" content="Sites" placement="right">
-                  <i class="isax-driver-2"></i>
+                  <i class="isax-driver-2" />
                 </el-tooltip>
                 <span class="el-menu-text">Sites</span>
               </nuxt-link>
             </el-menu-item>
 
             <el-submenu data-testid="components-sidebar-tmdvrlndak" class="sub-menus" index="5" data-index="5">
-              <template slot="title">
+              <template #title>
                 <el-tooltip :disabled="true" class="item" effect="dark" content="Insights" placement="right" data-testid="sidebar-rules">
-                  <i class="isax-key-square"></i>
+                  <i class="isax-key-square" />
                 </el-tooltip>
                 <span class="el-menu-text">Rules</span>
               </template>
@@ -88,7 +88,7 @@
                 </nuxt-link>
               </el-menu-item>
 
-              <el-menu-item data-testid="components-sidebar-jvruigbwdp" v-if="TP != 'timus'" index="5-2" data-index="5-2">
+              <el-menu-item v-if="TP != 'timus'" data-testid="components-sidebar-jvruigbwdp" index="5-2" data-index="5-2">
                 <nuxt-link class="el-menu-link" to="/rules/routes" data-testid="sidebar-rules-routes">
                   <span class="el-menu-text">Routes</span>
                 </nuxt-link>
@@ -114,9 +114,9 @@
             </el-submenu>
 
             <el-submenu data-testid="components-sidebar-bnihbcpjuh" class="sub-menus" index="6" data-index="6">
-              <template slot="title">
+              <template #title>
                 <el-tooltip :disabled="true" class="item" effect="dark" content="Ztna" placement="right" data-testid="sidebar-ztna">
-                  <i class="isax-shield"></i>
+                  <i class="isax-shield" />
                 </el-tooltip>
                 <span class="el-menu-text">Zero Trust Security</span>
               </template>
@@ -143,9 +143,9 @@
             </el-submenu>
 
             <el-submenu data-testid="components-sidebar-neymnnlec" class="sub-menus" index="7" data-index="7">
-              <template slot="title">
+              <template #title>
                 <el-tooltip :disabled="true" class="item" effect="dark" content="Insights" placement="right" data-testid="sidebar-insights">
-                  <i class="isax-folder-open"></i>
+                  <i class="isax-folder-open" />
                 </el-tooltip>
                 <span class="el-menu-text">Insights</span>
               </template>
@@ -186,7 +186,7 @@
                 </nuxt-link>
               </el-menu-item>
 
-              <el-menu-item data-testid="components-sidebar-ewrnsjeynv" v-if="TP != 'timus'" index="7-7" data-index="7-7">
+              <el-menu-item v-if="TP != 'timus'" data-testid="components-sidebar-ewrnsjeynv" index="7-7" data-index="7-7">
                 <nuxt-link class="el-menu-link" to="/insights/signed-logs" data-testid="sidebar-insights-signed-logs">
                   <span class="el-menu-text">{{ $t('sidebar.insights.signed_logs.text') }}</span>
                 </nuxt-link>
@@ -194,13 +194,13 @@
             </el-submenu>
 
             <el-submenu data-testid="components-sidebar-jcaexatpod" class="sub-menus" index="8" data-index="8">
-              <template slot="title">
+              <template #title>
                 <el-tooltip :disabled="true" class="item" effect="dark" content="Settings" placement="right" data-testid="sidebar-settings">
-                  <i class="isax-setting-2"></i>
+                  <i class="isax-setting-2" />
                 </el-tooltip>
                 <span class="el-menu-text">Settings</span>
               </template>
-              <el-menu-item data-testid="components-sidebar-fswikkipil" v-if="TP != 'timus'" index="8-1" data-index="8-1">
+              <el-menu-item v-if="TP != 'timus'" data-testid="components-sidebar-fswikkipil" index="8-1" data-index="8-1">
                 <nuxt-link class="el-menu-link" to="/settings/captive-portals" data-testid="sidebar-settings-captive-portal">
                   <span class="el-menu-text">Captive Portal</span>
                 </nuxt-link>
@@ -245,36 +245,31 @@
       <h1>Types</h1>
       <p class="p-md-c my-6">You can use any 'string' expression within the tag, in addition to a type that accepts 'src' or 'icon' as a property.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
-        <el-avatar icon="isax-add-circle"></el-avatar>
-        <el-avatar icon="isax-add-circle" size="xlarge"></el-avatar>
-        <el-avatar :src="url"></el-avatar>
+        <el-avatar icon="isax-add-circle" />
+        <el-avatar icon="isax-add-circle" size="large" />
+        <el-avatar :src="url" />
         <el-avatar>SK</el-avatar>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
-          <code>&lt;el-avatar icon="isax-add-circle" size="xlarge"&gt;&lt;/el-avatar&gt;</code>
+          <code>&lt;el-avatar icon="isax-add-circle" size="large"&gt;&lt;/el-avatar&gt;</code>
         </p>
       </div>
     </section>
   </div>
 </template>
 
-<script>
-import Vue from 'vue';
-
+<script>import Vue from 'vue';
 export default Vue.extend({
-  name: 'TimusCascader',
-  data() {
-    return {
-      url: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Princess',
-      sizeList: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
-
-      data() {
+    name: 'TimusCascader',
+    data() {
         return {
-          isCollapse: false,
+            activeMenuItem: 1,
+            TP: 'timus',
+            isCollapse: false,
+            url: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Princess',
+            sizeList: ['large', 'medium', 'small'],
         };
-      },
-    };
-  },
+    },
 });
 </script>

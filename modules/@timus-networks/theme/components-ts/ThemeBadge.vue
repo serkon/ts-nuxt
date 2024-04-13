@@ -8,11 +8,11 @@
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-badge :value="12"> <el-button size="small">Yorumlar</el-button> </el-badge>
-        <el-badge :value="randomNumber()" :type="item" v-for="(item, key) in colors" :key="key">
+        <el-badge v-for="(item, key) in colors" :key="key" :value="randomNumber()" :type="item">
           <el-button size="small" :class="randomButtonType()" :type="randomColor()">{{ item }}</el-button>
         </el-badge>
         <el-dropdown trigger="click">
-          <span class="el-dropdown-link"> Beni Tıkla<i class="el-icon-caret-bottom el-icon--right"></i> </span>
+          <span class="el-dropdown-link"> Beni Tıkla<i class="el-icon-caret-bottom el-icon--right" /> </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item class="clearfix">
               Yorumlar
@@ -38,10 +38,10 @@
       <div class="grid grid-flow-col auto-cols-max gap-4">
         <el-badge is-dot class="item">query</el-badge>
         <el-badge is-dot class="item">
-          <el-button class="share-button" icon="el-icon-share" type="primary"></el-button>
+          <el-button class="share-button" icon="el-icon-share" />
         </el-badge>
-        <el-badge is-dot class="item" v-for="size in sizeList" :key="size + ''"><el-avatar :size="size">SK</el-avatar></el-badge>
-        <el-badge is-dot class="item" v-for="size in sizeList" :key="size + ''"><el-avatar shape="square" :size="size">SK</el-avatar></el-badge>
+        <el-badge v-for="size in sizeList" :key="size + 'avatar'" is-dot class="item"><el-avatar :size="size">SK</el-avatar></el-badge>
+        <el-badge v-for="size in sizeList" :key="size + 'shape'" is-dot class="item"><el-avatar shape="square" :size="size">SK</el-avatar></el-badge>
       </div>
       <div class="my-4 p-4 border-l-4 border-blue-600 bg-blue-100">
         <p class="text-xs">
@@ -80,16 +80,14 @@ export default Vue.extend({
   name: 'TimusCascader',
   data() {
     return {
-      colors: ['primary', 'secondary', 'gray', 'info', 'success', 'warning', 'danger'],
-      sizeList: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
+      colors: ['primary', 'info', 'success', 'warning', 'danger'],
+      sizeList: ['large', 'medium', 'small'],
     };
   },
   methods: {
     handleChange(value) {
       console.log(value);
     },
-  },
-  methods: {
     randomNumber() {
       return Math.round(Math.random() * 1000);
     },
@@ -98,6 +96,7 @@ export default Vue.extend({
     },
     randomButtonType() {
       const type = ['outline'];
+
       return type[Math.round(Math.random() * 2)];
     },
   },

@@ -5,12 +5,12 @@
       <p class="p-md-c my-6">
         Avatarlar, resimler, ikonlar veya alfanumerik karakterleri destekler. Avatar'ın şeklini ve boyutunu ayarlamak için `shape` ve `size`
         özelliklerini kullanabilirsiniz. Ayrıca avatarın resim kaynağını belirlemek için `src` özelliğini kullanabilirsiniz. Şekil tipleri
-        <b>'circle | square'</b> şeklindedir. Boyutlar ise <b>'xlarge', 'large', 'medium', 'small', 'xsmall'</b> şeklindedir. Veya boyutu manuel
-        olarak `size` özelliğini kullanarak belirleyebilirsiniz, örneğin <b>size='50'</b>.
+        <b>'circle | square'</b> şeklindedir. Boyutlar ise <b>'large', 'medium', 'small'</b> şeklindedir. Veya boyutu manuel olarak `size` özelliğini
+        kullanarak belirleyebilirsiniz, örneğin <b>size='50'</b>.
       </p>
       <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
         <el-avatar :size="50">SK</el-avatar>
-        <el-avatar v-for="size in sizeList" :key="size + ''" :size="size">SK</el-avatar>
+        <el-avatar v-for="size in sizeList" :key="size + 'string'" :size="size">SK</el-avatar>
         <el-divider direction="vertical" content-position="center" />
         <el-avatar shape="square" :size="50" :src="url" />
         <el-avatar v-for="size in sizeList" :key="size" shape="square" :size="size" :src="url" />
@@ -27,7 +27,7 @@
       <p class="p-md-c my-6">You can use any 'string' expression within the tag, in addition to a type that accepts 'src' or 'icon' as a property.</p>
       <div class="grid grid-flow-col auto-cols-max gap-4 items-center">
         <el-avatar icon="isax-add-circle" />
-        <el-avatar icon="isax-add-circle" size="xlarge" />
+        <el-avatar icon="isax-add-circle" size="large" />
         <el-avatar :src="url" />
         <el-avatar>SK</el-avatar>
       </div>
@@ -48,7 +48,7 @@ export default Vue.extend({
   data() {
     return {
       url: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Princess',
-      sizeList: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
+      sizeList: ['large', 'medium', 'small'],
     };
   },
 });
