@@ -31,17 +31,17 @@ $--button-default-border-color: map-get(map-get($theme, primary), '700');
 $--button-default-font-color: $--color-white;
 
 $--button-large-font-size: 16px;
-$--button-large-border-radius: 8px;
+$--button-large-border-radius: 4px;
 $--button-large-padding-vertical: 11px;
 $--button-large-padding-horizontal: 16px;
 
 $--button-medium-font-size: 16px;
-$--button-medium-border-radius: 8px;
+$--button-medium-border-radius: 4px;
 $--button-medium-padding-vertical: 9px;
 $--button-medium-padding-horizontal: 16px;
 
 $--button-small-font-size: 14px;
-$--button-small-border-radius: 8px;
+$--button-small-border-radius: 4px;
 $--button-small-padding-vertical: 7px;
 $--button-small-padding-horizontal: 16px;
 
@@ -68,7 +68,7 @@ $--input-font-size: 14px;
 $--input-font-color: var(--gray-900);
 $--input-height: 40px;
 $--input-border-color: var(--gray-400);
-$--input-border-radius: $--border-radius-base;
+$--input-border-radius: 4px;
 $--input-background-color: $--color-white;
 $--input-icon-color: var(--gray-900);
 $--input-placeholder-color: var(--gray-400);
@@ -188,7 +188,7 @@ $custom-popper-border: 1px solid $--popover-border-color;
 $custom-box-shadow: 0 1px 2px 0 rgba(26, 11, 94, 10%);
 $custom-popover-footer-gap: 16px;
 $custom-popover-space-between-opener: 0;
-$--popover-arrow-size: 11px;
+$--popover-arrow-size: 7px;
 $--popover-arrow-move-position: -1px;
 /*
 --------------------------
@@ -224,7 +224,7 @@ $custom-option-seperator-border-color: $custom-picker-border-color;
 $custom-option-divided-background: transparent;
 $--select-option-hover-background: transparent;
 $--select-option-height: 32px;
-$--select-option-font-size: 14px;
+$--select-option-font-size: 12px;
 $--select-option-font-color: var(--gray-700);
 $--select-option-font-color-selected: var(--primary-700);
 $--select-input-font-color: $--input-font-color;
@@ -263,16 +263,18 @@ $--switch-on-color: var(--success-500);
 Table
 --------------------------
 */
-$custom-table-content-font-size: 14px;
+$custom-table-content-font-size: 13px;
+$custom-table-content-font-weight: 300;
 $custom-table-content-font-color: var(--gray-700);
 $custom-table-content-font-line-height: 16px;
-$custom-table-content-font-weight: 400;
 $custom-table-content-cell-padding: 0 8px;
+$custom-table-head-font-size: 13px;
+$custom-table-head-font-weight: 400;
 $custom-table-head-font-line-height: 48px;
 $custom-table-head-icon-width: 16px;
 $custom-table-container-padding: 24px;
 $custom-table-container-border-color: var(--gray-300);
-$custom-table-container-border-radius: 12px;
+$custom-table-container-border-radius: 8px;
 $custom-table-container-border-padding: 6px 24px;
 
 $--table-header-font-color: var(--gray-700);
@@ -392,7 +394,7 @@ $--popup-modal-background-color: var(--gray-800);
 $--popup-modal-opacity: 0.8;
 /*
 --------------------------
-Popup
+Sidebar Menu
 --------------------------
 */
 $--menu-background-color: $--color-white;
@@ -407,7 +409,7 @@ $custom-menu-item-line-height: normal;
 $custom-menu-item-padding: 0 8px !important;
 $custom-border-right-color: transparent;
 $custom-parent-menu-left-border: 0 solid $--color-primary;
-$custom-menu-item-border-radius: 8px;
+$custom-menu-item-border-radius: 6px;
 $custom-menu-item-active-color: $--color-white;
 $custom-menu-item-active-background-color: var(--primary-700);
 $custom-submenu-padding: 0 0 0 24px;
@@ -422,7 +424,7 @@ $custom-card-header-padding: 24px 24px 0 24px;
 $custom-card-body-padding: 0 24px 24px 24px;
 $custom-card-gap: 16px;
 $custom-card-header-gap: 16px;
-$--card-border-radius: 16px;
+$--card-border-radius: 8px;
 $--card-border-color: var(--gray-300);
 /*
 --------------------------
@@ -430,8 +432,8 @@ Tabs
 --------------------------
 */
 $custom-tabs-item-font-color: var(--gray-400);
-$custom-tabs-item-font-size: 16px;
-$custom-tabs-item-font-weight: 500;
+$custom-tabs-item-font-size: 14px;
+$custom-tabs-item-font-weight: 400;
 $custom-tabs-item-height: 40px;
 $custom-tabs-item-line-height: 40px;
 $custom-tabs-item-padding: 0 12px;

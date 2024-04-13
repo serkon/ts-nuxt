@@ -256,8 +256,8 @@
       display: flex;
       align-items: center;
       line-height: $custom-table-head-font-line-height;
-      font-size: $custom-table-content-font-size;
-      font-weight: $custom-table-content-font-weight;
+      font-size: $custom-table-head-font-size;
+      font-weight: $custom-table-head-font-weight;
       color: $custom-table-content-font-color;
 
       &.highlight {
