@@ -30,12 +30,12 @@ $--button-default-background-color: var(--primary-700);
 $--button-default-border-color: map-get(map-get($theme, primary), '700');
 $--button-default-font-color: $--color-white;
 
-$--button-large-font-size: 16px;
+$--button-large-font-size: 14px;
 $--button-large-border-radius: 4px;
 $--button-large-padding-vertical: 11px;
 $--button-large-padding-horizontal: 16px;
 
-$--button-medium-font-size: 16px;
+$--button-medium-font-size: 14px;
 $--button-medium-border-radius: 4px;
 $--button-medium-padding-vertical: 9px;
 $--button-medium-padding-horizontal: 16px;
@@ -106,12 +106,12 @@ $custom-input-number-width: 96px;
 Form Item
 --------------------------
 */
-$--form-label-font-size: 14px;
+$--form-label-font-size: 12px;
 $custom-form-label-top-line-height: 18px;
 $custom-form-label-min-width: 150px;
 $custom-form-label-padding-bottom: 6px;
 $custom-form-label-font-color: var(--gray-900);
-$custom-form-label-font-weight: 500;
+$custom-form-label-font-weight: 400;
 $custom-form-label-required-color: var(--danger-500);
 $custom-form-label-error-color: var(--danger-500);
 $custom-form-label-large-line-height: 40px;
@@ -362,6 +362,7 @@ $custom-cascader-font-size: 14px;
 $custom-cascader-font-color: var(--gray-700);
 $custom-cascader-disabled-font-color: var(--gray-400);
 $custom-cascader-selected-font-weight: 500;
+$custom-cascader-menu-radius: 4px;
 /*
 --------------------------
 Dialog

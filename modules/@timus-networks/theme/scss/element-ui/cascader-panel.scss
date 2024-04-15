@@ -143,8 +143,8 @@
   & > :first-child .el-input__inner {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border-top-left-radius: $--cascader-menu-radius;
-    border-bottom-left-radius: $--cascader-menu-radius;
+    border-top-left-radius: $custom-cascader-menu-radius;
+    border-bottom-left-radius: $custom-cascader-menu-radius;
   }
 
   & > :not(:first-child):not(:last-child) .el-input__inner {
@@ -164,8 +164,8 @@
       border-left: 0 solid transparent;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      border-top-right-radius: $--cascader-menu-radius;
-      border-bottom-right-radius: $--cascader-menu-radius;
+      border-top-right-radius: $custom-cascader-menu-radius;
+      border-bottom-right-radius: $custom-cascader-menu-radius;
     }
 
     &.el-button {
