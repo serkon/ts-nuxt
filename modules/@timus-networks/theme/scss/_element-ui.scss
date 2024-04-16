@@ -32,12 +32,12 @@ $--button-default-font-color: $--color-white;
 
 $--button-large-font-size: 14px;
 $--button-large-border-radius: 4px;
-$--button-large-padding-vertical: 11px;
+$--button-large-padding-vertical: 12px;
 $--button-large-padding-horizontal: 16px;
 
 $--button-medium-font-size: 14px;
 $--button-medium-border-radius: 4px;
-$--button-medium-padding-vertical: 9px;
+$--button-medium-padding-vertical: 10px;
 $--button-medium-padding-horizontal: 16px;
 
 $--button-small-font-size: 14px;
@@ -363,6 +363,7 @@ $custom-cascader-font-color: var(--gray-700);
 $custom-cascader-disabled-font-color: var(--gray-400);
 $custom-cascader-selected-font-weight: 500;
 $custom-cascader-menu-radius: 4px;
+$custom-cascader-menu-height: 204px;
 /*
 --------------------------
 Dialog

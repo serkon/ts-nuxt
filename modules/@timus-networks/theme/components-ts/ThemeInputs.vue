@@ -111,12 +111,12 @@
         </el-input>
 
         <el-input v-model="input3" placeholder="Please input" class="input-with-select">
-          <el-select slot="append" v-model="select" placeholder="Select">
+          <el-select slot="prepend" v-model="select" placeholder="Select">
             <el-option label="Restaurant" value="1" />
             <el-option label="Order No." value="2" />
             <el-option label="Tel" value="3" />
           </el-select>
-          <el-button slot="prepend" icon="el-icon-search" />
+          <el-button slot="append" icon="el-icon-search" />
         </el-input>
       </div>
       <div class="my-4 p-4 border-l-4 border-info-600 bg-info-100">

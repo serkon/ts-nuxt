@@ -80,6 +80,12 @@
   width: 100%;
   @include scroll-bar;
 
+  &:has(> .el-input__suffix):not(.el-input--suffix){
+    .el-input__inner {
+      padding: 0 36px 0 $custom-input-padding;
+    }
+  }
+
   &.danger .el-input__inner {
     border-color: var(--danger-500);
   }

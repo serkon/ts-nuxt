@@ -27,7 +27,8 @@
   }
 
   @include e(wrap) {
-    height: 204px;
+    max-height: $custom-cascader-menu-height;
+    height: auto;
   }
 
   @include e(list) {
